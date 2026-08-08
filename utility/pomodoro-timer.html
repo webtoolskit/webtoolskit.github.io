@@ -1,0 +1,52 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Pomodoro Timer — WebToolsKit Utility</title><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/><style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}:root{--bg:#02060e;--card:#0d0810;--border:#1e0a14;--red:#c50337;--red2:#8b0227;--glow:rgba(197,3,55,0.12);--white:#fff;--grey:#9b8a92;--light:#d4c8cc}body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;min-height:100vh}nav{display:flex;align-items:center;justify-content:space-between;padding:18px 40px;border-bottom:1px solid var(--border);background:rgba(2,6,14,.97);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100}.logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;text-decoration:none;color:var(--white);font-style:italic}.logo span{color:var(--red)}.back-btn{display:flex;align-items:center;gap:7px;color:var(--grey);text-decoration:none;font-size:.88rem;font-weight:600;border:1px solid var(--border);padding:7px 14px;border-radius:8px;transition:all .2s}.back-btn:hover{color:var(--white);border-color:var(--red)}.container{max-width:600px;margin:0 auto;padding:56px 20px}.tool-header{text-align:center;margin-bottom:44px}.tool-icon-big{width:72px;height:72px;border-radius:20px;background:linear-gradient(135deg,var(--red),var(--red2));display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 18px;box-shadow:0 10px 28px rgba(197,3,55,.3)}.tool-header h1{font-family:'Outfit',sans-serif;font-size:2rem;font-weight:700;letter-spacing:-.5px;margin-bottom:9px}.tool-header p{color:var(--grey);font-size:.96rem;line-height:1.6}.mode-tabs{display:grid;grid-template-columns:1fr 1fr 1fr;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:32px}.tab{padding:12px;background:transparent;border:none;color:var(--grey);font-size:.88rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s}.tab.active{background:linear-gradient(135deg,var(--red),var(--red2));color:var(--white)}.timer-circle{width:260px;height:260px;border-radius:50%;border:4px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 32px;position:relative;background:var(--card)}.timer-circle.running{border-color:var(--red);box-shadow:0 0 40px rgba(197,3,55,.2)}.timer-time{font-family:'DM Mono',monospace;font-size:4rem;font-weight:500;letter-spacing:-2px;line-height:1}.timer-mode{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--grey);text-transform:uppercase;letter-spacing:2px;margin-top:8px}.controls{display:flex;justify-content:center;gap:14px;margin-bottom:28px}.ctrl-btn{padding:14px 28px;border-radius:12px;border:none;font-size:.95rem;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;transition:all .2s}.ctrl-btn.primary{background:linear-gradient(135deg,var(--red),var(--red2));color:var(--white)}.ctrl-btn.primary:hover{opacity:.9}.ctrl-btn.secondary{background:transparent;border:1px solid var(--border);color:var(--grey)}.ctrl-btn.secondary:hover{border-color:var(--red);color:var(--white)}.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.s-item{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center}.s-label{font-family:'DM Mono',monospace;font-size:.65rem;color:var(--grey);text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px}.s-val{font-family:'Outfit',sans-serif;font-size:1.3rem;font-weight:700}.tip-box{margin-top:20px;padding:14px 18px;background:var(--glow);border:1px solid rgba(197,3,55,.2);border-radius:12px;font-size:.85rem;color:var(--light);line-height:1.6}.tip-box strong{color:var(--red)}@media(max-width:600px){nav{padding:14px 20px}.timer-circle{width:220px;height:220px}.timer-time{font-size:3rem}}</style></head>
+<body>
+<nav><a href="index.html" class="logo">Web<span>Tools</span>Kit</a><a href="index.html" class="back-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Utility Tools</a></nav>
+<div class="container">
+  <div class="tool-header"><div class="tool-icon-big">🍅</div><h1>Pomodoro Timer</h1><p>Stay focused with the Pomodoro Technique. Work in 25-minute sprints, rest, repeat. Used by millions worldwide.</p></div>
+  <div class="mode-tabs">
+    <button class="tab active" onclick="setMode(25,0,'Focus')">🎯 Focus (25m)</button>
+    <button class="tab" onclick="setMode(5,1,'Short Break')">☕ Short Break</button>
+    <button class="tab" onclick="setMode(15,2,'Long Break')">🌿 Long Break</button>
+  </div>
+  <div class="timer-circle" id="timerCircle">
+    <div class="timer-time" id="timerDisplay">25:00</div>
+    <div class="timer-mode" id="timerMode">Focus Time</div>
+  </div>
+  <div class="controls">
+    <button class="ctrl-btn secondary" onclick="resetTimer()">↺ Reset</button>
+    <button class="ctrl-btn primary" id="startBtn" onclick="toggleTimer()">▶ Start</button>
+    <button class="ctrl-btn secondary" onclick="skipSession()">⏭ Skip</button>
+  </div>
+  <div class="stats-grid">
+    <div class="s-item"><div class="s-label">Sessions Done</div><div class="s-val" id="sessions">0</div></div>
+    <div class="s-item"><div class="s-label">Focus Time</div><div class="s-val" id="focusTime">0m</div></div>
+    <div class="s-item"><div class="s-label">Current Streak</div><div class="s-val" id="streak">0🔥</div></div>
+  </div>
+  <div class="tip-box"><strong>💡 Pomodoro Technique:</strong> Work for 25 mins → 5 min break. After 4 sessions, take a 15-30 min long break. This method boosts focus and prevents mental fatigue.</div>
+</div>
+<script>
+let totalSeconds=25*60,remaining=25*60,running=false,timer=null;
+let sessions=0,focusMinutes=0,streak=0,currentMode='Focus';
+function setMode(mins,tabIdx,modeName){
+  clearInterval(timer);running=false;
+  document.getElementById('startBtn').textContent='▶ Start';
+  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',i===tabIdx));
+  totalSeconds=mins*60;remaining=mins*60;currentMode=modeName;
+  document.getElementById('timerMode').textContent=modeName+' Time';
+  document.getElementById('timerCircle').classList.remove('running');
+  updateDisplay();
+}
+function updateDisplay(){
+  const m=Math.floor(remaining/60),s=remaining%60;
+  document.getElementById('timerDisplay').textContent=`${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+}
+function toggleTimer(){
+  if(running){clearInterval(timer);running=false;document.getElementById('startBtn').textContent='▶ Start';document.getElementById('timerCircle').classList.remove('running');}
+  else{running=true;document.getElementById('startBtn').textContent='⏸ Pause';document.getElementById('timerCircle').classList.add('running');
+    timer=setInterval(()=>{remaining--;updateDisplay();if(remaining<=0){clearInterval(timer);running=false;document.getElementById('startBtn').textContent='▶ Start';document.getElementById('timerCircle').classList.remove('running');if(currentMode==='Focus'){sessions++;focusMinutes+=25;streak++;document.getElementById('sessions').textContent=sessions;document.getElementById('focusTime').textContent=focusMinutes+'m';document.getElementById('streak').textContent=streak+'🔥';}if(Notification.permission==='granted')new Notification('WebToolsKit Pomodoro',{body:currentMode+' session complete!'});else alert(currentMode+' session complete! Take a break.');remaining=totalSeconds;updateDisplay();}},1000);}
+}
+function resetTimer(){clearInterval(timer);running=false;remaining=totalSeconds;document.getElementById('startBtn').textContent='▶ Start';document.getElementById('timerCircle').classList.remove('running');updateDisplay();}
+function skipSession(){resetTimer();if(currentMode==='Focus'){sessions++;streak++;document.getElementById('sessions').textContent=sessions;document.getElementById('streak').textContent=streak+'🔥';}}
+if('Notification' in window)Notification.requestPermission();
+</script>
+</body></html>

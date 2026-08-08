@@ -1,0 +1,52 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Exam Marks Needed — WebToolsKit Students</title><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/><style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}:root{--bg:#111214;--card:#1a1b1f;--border:#2a2b30;--yellow:#f5c518;--yellow2:#e6b800;--glow:rgba(245,197,24,0.12);--white:#fff;--grey:#8b8d97;--light:#d4d6e0}body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;min-height:100vh}nav{display:flex;align-items:center;justify-content:space-between;padding:18px 40px;border-bottom:1px solid var(--border);background:rgba(17,18,20,.97);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100}.logo{font-family:'Space Grotesk',sans-serif;font-size:1.3rem;font-weight:700;text-decoration:none;color:var(--white)}.logo span{color:var(--yellow)}.back-btn{display:flex;align-items:center;gap:7px;color:var(--grey);text-decoration:none;font-size:.88rem;font-weight:600;border:1px solid var(--border);padding:7px 14px;border-radius:8px;transition:all .2s}.back-btn:hover{color:var(--white);border-color:var(--yellow)}.container{max-width:760px;margin:0 auto;padding:56px 20px}.tool-header{text-align:center;margin-bottom:44px}.tool-icon-big{width:72px;height:72px;border-radius:20px;background:linear-gradient(135deg,var(--yellow),var(--yellow2));display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 18px;box-shadow:0 10px 28px rgba(245,197,24,.25)}.tool-header h1{font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:700;letter-spacing:-1px;margin-bottom:9px}.tool-header p{color:var(--grey);font-size:.96rem;line-height:1.6}.card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:32px;margin-bottom:20px}.card h2{font-family:'DM Mono',monospace;font-size:.82rem;font-weight:500;margin-bottom:22px;color:var(--yellow);text-transform:uppercase;letter-spacing:1.5px}.input-group{margin-bottom:18px}label{display:block;font-size:.84rem;font-weight:600;color:var(--grey);margin-bottom:7px}.input-wrap{position:relative}.ip{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--yellow);font-weight:500;font-size:.88rem;font-family:'DM Mono',monospace}input[type=number]{width:100%;background:#111214;border:1px solid var(--border);border-radius:12px;padding:13px 14px 13px 46px;color:var(--white);font-size:.97rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}input:focus{border-color:var(--yellow)}.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}.btn{width:100%;padding:15px;border-radius:13px;background:linear-gradient(135deg,var(--yellow),var(--yellow2));border:none;color:#111214;font-size:.97rem;font-weight:700;cursor:pointer;font-family:'Space Grotesk',sans-serif;transition:opacity .2s,transform .2s}.btn:hover{opacity:.9;transform:translateY(-1px)}.result-card{border-radius:20px;padding:32px;display:none;text-align:center}.result-card.show{display:block}.result-card.ok{background:linear-gradient(135deg,rgba(245,197,24,.08),rgba(230,184,0,.04));border:1px solid rgba(245,197,24,.25)}.result-card.hard{background:linear-gradient(135deg,rgba(255,50,50,.08),rgba(200,30,30,.04));border:1px solid rgba(255,50,50,.25)}.r-label{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--grey);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}.r-big{font-family:'Space Grotesk',sans-serif;font-size:5rem;font-weight:700;letter-spacing:-3px;line-height:1;margin-bottom:8px}.r-big.yellow{background:linear-gradient(90deg,var(--yellow),var(--yellow2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}.r-big.red{color:#ff4444}.r-status{font-size:1rem;font-weight:600;margin-bottom:24px;color:var(--grey)}.r-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px}.r-item{background:rgba(255,255,255,.04);border-radius:12px;padding:14px;border:1px solid var(--border)}.ri-label{font-family:'DM Mono',monospace;font-size:.65rem;color:var(--grey);text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px}.ri-val{font-family:'Space Grotesk',sans-serif;font-size:1.05rem;font-weight:600}.tip-box{padding:14px 18px;background:var(--glow);border:1px solid rgba(245,197,24,.2);border-radius:12px;font-size:.85rem;color:var(--light);line-height:1.6;text-align:left}.tip-box strong{color:var(--yellow)}@media(max-width:600px){nav{padding:14px 20px}.grid-2,.r-grid{grid-template-columns:1fr}.r-big{font-size:3.5rem}}</style></head>
+<body>
+<nav><a href="index.html" class="logo">Web<span>Tools</span>Kit</a><a href="index.html" class="back-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Student Tools</a></nav>
+<div class="container">
+  <div class="tool-header"><div class="tool-icon-big">🎯</div><h1>Exam Marks Needed Calculator</h1><p>Find out exactly what you need to score in your final exam to achieve your target overall grade.</p></div>
+  <div class="card">
+    <h2>// Your Exam Details</h2>
+    <div class="grid-2">
+      <div class="input-group"><label>Internal / Midterm Marks Obtained</label><div class="input-wrap"><span class="ip">#</span><input type="number" id="internal" placeholder="35"/></div></div>
+      <div class="input-group"><label>Internal Marks Total</label><div class="input-wrap"><span class="ip">#</span><input type="number" id="internalTotal" placeholder="50"/></div></div>
+      <div class="input-group"><label>Final Exam Total Marks</label><div class="input-wrap"><span class="ip">#</span><input type="number" id="finalTotal" placeholder="100"/></div></div>
+      <div class="input-group"><label>Overall Total Marks</label><div class="input-wrap"><span class="ip">#</span><input type="number" id="overallTotal" placeholder="150"/></div></div>
+      <div class="input-group"><label>Target Percentage (%)</label><div class="input-wrap"><span class="ip">%</span><input type="number" id="target" placeholder="75"/></div></div>
+    </div>
+    <button class="btn" onclick="calculate()">Find Marks I Need →</button>
+  </div>
+  <div class="result-card" id="result">
+    <div class="r-label">You Need to Score</div>
+    <div class="r-big" id="needed">0</div>
+    <div class="r-status" id="rStatus"></div>
+    <div class="r-grid">
+      <div class="r-item"><div class="ri-label">Out of</div><div class="ri-val" id="outOf">0</div></div>
+      <div class="r-item"><div class="ri-label">That's (%)</div><div class="ri-val" id="neededPct">0%</div></div>
+      <div class="r-item"><div class="ri-label">Target Overall</div><div class="ri-val" id="targetMarks">0</div></div>
+    </div>
+    <div class="tip-box" id="tipBox"></div>
+  </div>
+</div>
+<script>
+function calculate(){
+  const intern=parseFloat(document.getElementById('internal').value)||0;
+  const internTot=parseFloat(document.getElementById('internalTotal').value)||50;
+  const finalTot=parseFloat(document.getElementById('finalTotal').value)||100;
+  const overallTot=parseFloat(document.getElementById('overallTotal').value)||150;
+  const targetPct=parseFloat(document.getElementById('target').value)||75;
+  const targetMarks=overallTot*targetPct/100;
+  const needed=targetMarks-intern;
+  const neededPct=needed/finalTot*100;
+  const isPossible=needed<=finalTot&&needed>=0;
+  document.getElementById('needed').textContent=Math.ceil(needed);
+  document.getElementById('needed').className='r-big '+(neededPct<=80?'yellow':'red');
+  document.getElementById('outOf').textContent=finalTot+' marks';
+  document.getElementById('neededPct').textContent=neededPct.toFixed(1)+'%';
+  document.getElementById('targetMarks').textContent=Math.ceil(targetMarks)+' / '+overallTot;
+  document.getElementById('rStatus').textContent=!isPossible?'❌ Not possible even with full marks':neededPct>90?'🔥 Very challenging but possible!':neededPct>75?'⚠️ Challenging — study hard!':'✅ Achievable with focused preparation';
+  const res=document.getElementById('result');
+  res.className='result-card show '+(neededPct<=80?'ok':'hard');
+  document.getElementById('tipBox').innerHTML=!isPossible?`<strong>⚠️ Not Possible:</strong> Even scoring 100% in finals won't reach your target. Consider adjusting your target or checking if any supplementary options exist.`:`<strong>💡 Study Plan:</strong> You need ${Math.ceil(needed)} out of ${finalTot} marks (${neededPct.toFixed(1)}%) in your final exam. Focus on high-weight topics and practice past papers!`;
+  res.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+</script>
+</body></html>

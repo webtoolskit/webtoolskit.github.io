@@ -1,0 +1,43 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Meeting Cost Calculator — WebToolsKit Utility</title><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/><style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}:root{--bg:#02060e;--card:#0d0810;--border:#1e0a14;--red:#c50337;--red2:#8b0227;--glow:rgba(197,3,55,0.12);--white:#fff;--grey:#9b8a92;--light:#d4c8cc}body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;min-height:100vh}nav{display:flex;align-items:center;justify-content:space-between;padding:18px 40px;border-bottom:1px solid var(--border);background:rgba(2,6,14,.97);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100}.logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;text-decoration:none;color:var(--white);font-style:italic}.logo span{color:var(--red)}.back-btn{display:flex;align-items:center;gap:7px;color:var(--grey);text-decoration:none;font-size:.88rem;font-weight:600;border:1px solid var(--border);padding:7px 14px;border-radius:8px;transition:all .2s}.back-btn:hover{color:var(--white);border-color:var(--red)}.container{max-width:820px;margin:0 auto;padding:56px 20px}.tool-header{text-align:center;margin-bottom:44px}.tool-icon-big{width:72px;height:72px;border-radius:20px;background:linear-gradient(135deg,var(--red),var(--red2));display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 18px;box-shadow:0 10px 28px rgba(197,3,55,.3)}.tool-header h1{font-family:'Outfit',sans-serif;font-size:2rem;font-weight:700;letter-spacing:-.5px;margin-bottom:9px}.tool-header p{color:var(--grey);font-size:.96rem;line-height:1.6}.card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:32px;margin-bottom:20px}.card h2{font-family:'DM Mono',monospace;font-size:.82rem;font-weight:500;margin-bottom:22px;color:var(--red);text-transform:uppercase;letter-spacing:1.5px}.input-group{margin-bottom:18px}label{display:block;font-size:.84rem;font-weight:600;color:var(--grey);margin-bottom:7px}.input-wrap{position:relative}.ip{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--red);font-weight:500;font-size:.88rem;font-family:'DM Mono',monospace}input[type=number]{width:100%;background:#02060e;border:1px solid var(--border);border-radius:12px;padding:13px 14px 13px 46px;color:var(--white);font-size:.97rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}input:focus{border-color:var(--red)}.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}.live-display{background:linear-gradient(135deg,rgba(197,3,55,.1),rgba(139,2,39,.05));border:1px solid rgba(197,3,55,.25);border-radius:16px;padding:24px;text-align:center;margin-bottom:20px}.live-label{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--grey);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}.live-cost{font-family:'Outfit',sans-serif;font-size:4rem;font-weight:700;letter-spacing:-2px;background:linear-gradient(90deg,var(--red),var(--red2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}.live-sub{color:var(--grey);font-size:.85rem;margin-top:6px}.btn{width:100%;padding:15px;border-radius:13px;background:linear-gradient(135deg,var(--red),var(--red2));border:none;color:var(--white);font-size:.97rem;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;transition:opacity .2s,transform .2s}.btn:hover{opacity:.9;transform:translateY(-1px)}.r-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}.r-item{background:rgba(255,255,255,.04);border-radius:12px;padding:14px;border:1px solid var(--border);text-align:center}.r-label{font-family:'DM Mono',monospace;font-size:.65rem;color:var(--grey);text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px}.r-val{font-family:'Outfit',sans-serif;font-size:1.05rem;font-weight:600}.tip-box{margin-top:20px;padding:14px 18px;background:var(--glow);border:1px solid rgba(197,3,55,.2);border-radius:12px;font-size:.85rem;color:var(--light);line-height:1.6}.tip-box strong{color:var(--red)}@media(max-width:600px){nav{padding:14px 20px}.grid-2,.r-grid{grid-template-columns:1fr}.live-cost{font-size:2.8rem}}</style></head>
+<body>
+<nav><a href="index.html" class="logo">Web<span>Tools</span>Kit</a><a href="index.html" class="back-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Utility Tools</a></nav>
+<div class="container">
+  <div class="tool-header"><div class="tool-icon-big">💸</div><h1>Meeting Cost Calculator</h1><p>Find out the real cost of your meetings. Most companies have no idea how much meetings drain productivity and money.</p></div>
+  <div class="live-display"><div class="live-label">Total Meeting Cost</div><div class="live-cost" id="liveCost">₹0</div><div class="live-sub" id="liveSub">Fill in the details below</div></div>
+  <div class="card">
+    <h2>// Meeting Details</h2>
+    <div class="grid-2">
+      <div class="input-group"><label>Number of Attendees</label><div class="input-wrap"><span class="ip">#</span><input type="number" id="attendees" placeholder="8" oninput="calculate()"/></div></div>
+      <div class="input-group"><label>Average Annual Salary per Person (₹)</label><div class="input-wrap"><span class="ip">₹</span><input type="number" id="salary" placeholder="1200000" oninput="calculate()"/></div></div>
+      <div class="input-group"><label>Meeting Duration (minutes)</label><div class="input-wrap"><span class="ip">min</span><input type="number" id="duration" placeholder="60" oninput="calculate()"/></div></div>
+      <div class="input-group"><label>Meetings Per Week</label><div class="input-wrap"><span class="ip">#</span><input type="number" id="perWeek" placeholder="5" oninput="calculate()"/></div></div>
+    </div>
+    <button class="btn" onclick="calculate()">Calculate Meeting Cost →</button>
+    <div class="r-grid">
+      <div class="r-item"><div class="r-label">Cost Per Meeting</div><div class="r-val" id="perMeeting">₹0</div></div>
+      <div class="r-item"><div class="r-label">Weekly Cost</div><div class="r-val" id="weekly">₹0</div></div>
+      <div class="r-item"><div class="r-label">Annual Cost</div><div class="r-val" id="annual">₹0</div></div>
+    </div>
+    <div class="tip-box"><strong>💡 Think about it:</strong> Could this meeting have been an email? Studies show 71% of meetings are unproductive. A 1-hour meeting with 8 people at ₹12L salary costs more than ₹4,600 — every single time.</div>
+  </div>
+</div>
+<script>
+function fmt(n){return '₹'+Math.round(n).toLocaleString('en-IN')}
+function calculate(){
+  const att=parseFloat(document.getElementById('attendees').value)||0;
+  const sal=parseFloat(document.getElementById('salary').value)||0;
+  const dur=parseFloat(document.getElementById('duration').value)||0;
+  const pw=parseFloat(document.getElementById('perWeek').value)||1;
+  const hourlyPerPerson=sal/52/40;
+  const meetingHours=dur/60;
+  const perMeeting=hourlyPerPerson*att*meetingHours;
+  const weekly=perMeeting*pw;
+  const annual=weekly*52;
+  document.getElementById('liveCost').textContent=fmt(perMeeting);
+  document.getElementById('liveSub').textContent=`${att} people × ${dur} minutes × ₹${Math.round(hourlyPerPerson).toLocaleString('en-IN')}/hr each`;
+  document.getElementById('perMeeting').textContent=fmt(perMeeting);
+  document.getElementById('weekly').textContent=fmt(weekly);
+  document.getElementById('annual').textContent=fmt(annual);
+}
+</script>
+</body></html>

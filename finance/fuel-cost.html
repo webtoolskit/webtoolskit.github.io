@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fuel Cost Calculator — WebToolsKit</title>
+  <meta name="description" content="Calculate your exact fuel cost per trip based on distance, mileage, and current fuel price."/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0a; --card: #141414; --border: #2a2a2a;
+      --orange: #ff5500; --orange2: #ff2200;
+      --orange-glow: rgba(255,85,0,0.12);
+      --white: #ffffff; --grey: #999999;
+    }
+    body { background: var(--bg); color: var(--white); font-family: 'Inter', sans-serif; min-height: 100vh; }
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 40px; border-bottom: 1px solid var(--border);
+      background: rgba(10,10,10,0.95); backdrop-filter: blur(10px);
+    }
+    .logo { font-size: 1.3rem; font-weight: 900; text-decoration: none; color: var(--white); }
+    .logo span { color: var(--orange); }
+    .back-btn { display: flex; align-items: center; gap: 8px; color: var(--grey); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    .back-btn:hover { color: var(--white); }
+    .container { max-width: 800px; margin: 0 auto; padding: 60px 20px; }
+    .tool-header { text-align: center; margin-bottom: 50px; }
+    .tool-icon-big { width: 72px; height: 72px; border-radius: 20px; background: linear-gradient(135deg, var(--orange), var(--orange2)); display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 20px; box-shadow: 0 12px 30px rgba(255,85,0,0.35); }
+    .tool-header h1 { font-size: 2rem; font-weight: 900; letter-spacing: -0.5px; margin-bottom: 10px; }
+    .tool-header p { color: var(--grey); font-size: 1rem; line-height: 1.6; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 36px; margin-bottom: 24px; }
+    .card h2 { font-size: 1rem; font-weight: 700; margin-bottom: 24px; color: var(--orange); text-transform: uppercase; letter-spacing: 1px; }
+    .input-group { margin-bottom: 20px; }
+    label { display: block; font-size: 0.88rem; font-weight: 600; color: var(--grey); margin-bottom: 8px; }
+    .input-wrap { position: relative; }
+    .input-prefix { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--orange); font-weight: 700; font-size: 0.95rem; }
+    input[type="number"] { width: 100%; background: #0a0a0a; border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px 14px 52px; color: var(--white); font-size: 1rem; font-family: 'Inter', sans-serif; transition: border-color 0.2s; outline: none; }
+    input[type="number"]:focus { border-color: var(--orange); }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+    .calculate-btn { width: 100%; padding: 16px; border-radius: 14px; background: linear-gradient(135deg, var(--orange), var(--orange2)); border: none; color: var(--white); font-size: 1rem; font-weight: 800; cursor: pointer; font-family: 'Inter', sans-serif; transition: opacity 0.2s, transform 0.2s; }
+    .calculate-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+    .result-card { background: linear-gradient(135deg, rgba(255,85,0,0.1), rgba(255,34,0,0.05)); border: 1px solid rgba(255,85,0,0.3); border-radius: 20px; padding: 36px; display: none; }
+    .result-card.show { display: block; }
+    .result-main { text-align: center; margin-bottom: 30px; }
+    .result-label { font-size: 0.85rem; color: var(--grey); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+    .result-number { font-size: 3.5rem; font-weight: 900; letter-spacing: -2px; background: linear-gradient(90deg, var(--orange), var(--orange2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .result-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+    .result-item { background: rgba(255,255,255,0.04); border-radius: 12px; padding: 18px; border: 1px solid var(--border); }
+    .result-item-label { font-size: 0.75rem; color: var(--grey); font-weight: 600; margin-bottom: 6px; }
+    .result-item-value { font-size: 1.1rem; font-weight: 800; }
+    .tip-box { margin-top: 20px; padding: 16px 20px; background: var(--orange-glow); border: 1px solid rgba(255,85,0,0.2); border-radius: 12px; font-size: 0.88rem; color: #ccc; line-height: 1.6; }
+    .tip-box strong { color: var(--orange); }
+    @media(max-width:600px) { nav { padding: 16px 20px; } .grid-2, .grid-3, .result-grid { grid-template-columns: 1fr; } .result-number { font-size: 2.5rem; } }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">Web<span>Tools</span>Kit</a>
+  <a href="index.html" class="back-btn">
+    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    All Tools
+  </a>
+</nav>
+<div class="container">
+  <div class="tool-header">
+    <div class="tool-icon-big">⛽</div>
+    <h1>Fuel Cost Per Trip</h1>
+    <p>Know exactly what every trip costs you. Calculate fuel expenses for your daily commute or road trip instantly.</p>
+  </div>
+  <div class="card">
+    <h2>🚗 Trip Details</h2>
+    <div class="grid-2">
+      <div class="input-group">
+        <label>Total Distance (km)</label>
+        <div class="input-wrap">
+          <span class="input-prefix">km</span>
+          <input type="number" id="distance" placeholder="50"/>
+        </div>
+      </div>
+      <div class="input-group">
+        <label>Vehicle Mileage (km per litre)</label>
+        <div class="input-wrap">
+          <span class="input-prefix">km/L</span>
+          <input type="number" id="mileage" placeholder="15"/>
+        </div>
+      </div>
+      <div class="input-group">
+        <label>Fuel Price (per litre)</label>
+        <div class="input-wrap">
+          <span class="input-prefix">₹</span>
+          <input type="number" id="fuelPrice" placeholder="103"/>
+        </div>
+      </div>
+      <div class="input-group">
+        <label>Trips Per Month</label>
+        <div class="input-wrap">
+          <span class="input-prefix">#</span>
+          <input type="number" id="tripsPerMonth" placeholder="22"/>
+        </div>
+      </div>
+    </div>
+    <button class="calculate-btn" onclick="calculate()">Calculate Fuel Cost →</button>
+  </div>
+  <div class="result-card" id="result">
+    <div class="result-main">
+      <div class="result-label">Cost Per Trip</div>
+      <div class="result-number" id="costPerTrip">₹0</div>
+    </div>
+    <div class="result-grid">
+      <div class="result-item">
+        <div class="result-item-label">Fuel Used</div>
+        <div class="result-item-value" id="fuelUsed">0 L</div>
+      </div>
+      <div class="result-item">
+        <div class="result-item-label">Monthly Cost</div>
+        <div class="result-item-value" id="monthlyCost">₹0</div>
+      </div>
+      <div class="result-item">
+        <div class="result-item-label">Annual Cost</div>
+        <div class="result-item-value" id="annualCost">₹0</div>
+      </div>
+    </div>
+    <div class="tip-box">
+      <strong>💡 Did you know?</strong> The average Indian spends ₹8,000–₹15,000/month on fuel for daily commuting. Consider carpooling or public transport 2–3 days a week to cut this cost by 40%.
+    </div>
+  </div>
+</div>
+<script>
+function fmt(n) { return '₹' + Math.round(n).toLocaleString('en-IN'); }
+function calculate() {
+  const distance = parseFloat(document.getElementById('distance').value) || 0;
+  const mileage = parseFloat(document.getElementById('mileage').value) || 1;
+  const fuelPrice = parseFloat(document.getElementById('fuelPrice').value) || 0;
+  const trips = parseFloat(document.getElementById('tripsPerMonth').value) || 1;
+  const fuelUsed = distance / mileage;
+  const costPerTrip = fuelUsed * fuelPrice;
+  const monthlyCost = costPerTrip * trips;
+  const annualCost = monthlyCost * 12;
+  document.getElementById('costPerTrip').textContent = fmt(costPerTrip);
+  document.getElementById('fuelUsed').textContent = fuelUsed.toFixed(2) + ' L';
+  document.getElementById('monthlyCost').textContent = fmt(monthlyCost);
+  document.getElementById('annualCost').textContent = fmt(annualCost);
+  const result = document.getElementById('result');
+  result.classList.add('show');
+  result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>

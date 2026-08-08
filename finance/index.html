@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Finance Tools — WebToolsKit</title>
+  <meta name="description" content="Free online finance calculators — EMI, SIP, Currency, Salary, Tip, Rent vs Buy, Subscriptions, Grocery, Fuel, Education, Wedding Budget."/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0a; --card: #141414; --card-hover: #1c1c1c;
+      --border: #2a2a2a; --orange: #ff5500; --orange2: #ff2200;
+      --orange-glow: rgba(255,85,0,0.13); --white: #ffffff; --grey: #999999;
+    }
+    body { background: var(--bg); color: var(--white); font-family: 'Inter', sans-serif; min-height: 100vh; }
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 48px; border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; background: rgba(10,10,10,0.96);
+      backdrop-filter: blur(12px); z-index: 100;
+    }
+    .logo { font-size: 1.3rem; font-weight: 900; text-decoration: none; color: var(--white); letter-spacing: -0.5px; }
+    .logo span { color: var(--orange); }
+    .nav-right { display: flex; align-items: center; gap: 28px; }
+    .nav-link { color: var(--grey); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: var(--white); }
+    .back-btn { display: flex; align-items: center; gap: 7px; color: var(--grey); text-decoration: none; font-size: 0.88rem; font-weight: 600; border: 1px solid var(--border); padding: 7px 14px; border-radius: 8px; transition: all 0.2s; }
+    .back-btn:hover { color: var(--white); border-color: var(--orange); }
+
+    .hero { text-align: center; padding: 80px 20px 60px; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: -80px; left: 50%; transform: translateX(-50%); width: 700px; height: 400px; background: radial-gradient(ellipse, rgba(255,85,0,0.13) 0%, transparent 70%); pointer-events: none; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 7px; background: var(--orange-glow); border: 1px solid rgba(255,85,0,0.3); color: var(--orange); font-size: 0.75rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 6px 16px; border-radius: 100px; margin-bottom: 26px; }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3.6rem); font-weight: 900; line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 18px; }
+    .hero h1 .highlight { background: linear-gradient(90deg, var(--orange), var(--orange2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero p { font-size: 1rem; color: var(--grey); max-width: 480px; margin: 0 auto 40px; line-height: 1.7; }
+    .hero-stats { display: flex; justify-content: center; gap: 56px; }
+    .stat-num { font-size: 1.9rem; font-weight: 900; background: linear-gradient(90deg, var(--orange), var(--orange2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .stat-label { font-size: 0.78rem; color: var(--grey); margin-top: 3px; }
+
+    .tools-section { max-width: 1200px; margin: 0 auto; padding: 0 40px 80px; }
+    .section-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--orange); margin-bottom: 22px; }
+    .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 18px; }
+    .tool-card { background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 26px; text-decoration: none; color: var(--white); transition: all 0.25s; position: relative; overflow: hidden; display: block; }
+    .tool-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,85,0,0.06), transparent); opacity: 0; transition: opacity 0.25s; }
+    .tool-card:hover { border-color: rgba(255,85,0,0.45); background: var(--card-hover); transform: translateY(-3px); box-shadow: 0 18px 36px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,85,0,0.1); }
+    .tool-card:hover::after { opacity: 1; }
+    .tool-icon { width: 50px; height: 50px; border-radius: 13px; background: linear-gradient(135deg, var(--orange), var(--orange2)); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 16px; box-shadow: 0 6px 18px rgba(255,85,0,0.3); }
+    .tool-tag { display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--orange); background: var(--orange-glow); border: 1px solid rgba(255,85,0,0.2); padding: 3px 9px; border-radius: 100px; margin-bottom: 9px; }
+    .tool-card h3 { font-size: 1.05rem; font-weight: 800; margin-bottom: 7px; letter-spacing: -0.2px; }
+    .tool-card p { font-size: 0.85rem; color: var(--grey); line-height: 1.6; margin-bottom: 18px; }
+    .tool-cta { display: flex; align-items: center; gap: 5px; font-size: 0.82rem; font-weight: 700; color: var(--orange); }
+    .tool-card:hover .tool-cta svg { transform: translateX(4px); }
+    .tool-cta svg { transition: transform 0.2s; }
+
+    footer { border-top: 1px solid var(--border); padding: 36px 40px; display: flex; justify-content: space-between; align-items: center; color: var(--grey); font-size: 0.82rem; }
+    footer span { color: var(--orange); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { color: var(--grey); text-decoration: none; font-size: 0.82rem; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+
+    @media(max-width:768px) {
+      nav { padding: 14px 20px; }
+      .nav-right .nav-link { display: none; }
+      .hero { padding: 56px 20px 44px; }
+      .hero-stats { gap: 28px; }
+      .tools-section { padding: 0 16px 60px; }
+      footer { flex-direction: column; gap: 16px; text-align: center; padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="logo">Web<span>Tools</span>Kit</a>
+  <div class="nav-right">
+    <a href="../health/index.html" class="nav-link">Health</a>
+    <a href="../freelance/index.html" class="nav-link">Freelance</a>
+    <a href="../students/index.html" class="nav-link">Students</a>
+    <a href="../index.html" class="back-btn">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      All Sites
+    </a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-badge">💰 Finance Tools</div>
+  <h1>Master Your<br/><span class="highlight">Money Decisions</span></h1>
+  <p>11 powerful finance calculators to help you budget smarter, invest better, and spend wisely. All free, forever.</p>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">11</div><div class="stat-label">Finance Tools</div></div>
+    <div class="stat"><div class="stat-num">0₹</div><div class="stat-label">Cost to Use</div></div>
+    <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Free Forever</div></div>
+  </div>
+</section>
+
+<section class="tools-section">
+  <div class="section-label">⚡ All Finance Tools</div>
+  <div class="tools-grid">
+
+    <a href="emi-calculator.html" class="tool-card">
+      <div class="tool-icon">🏦</div>
+      <div class="tool-tag">Loans</div>
+      <h3>EMI / Loan Calculator</h3>
+      <p>Calculate your exact monthly EMI for home, car, or personal loans with full amortization breakdown.</p>
+      <div class="tool-cta">Use Tool <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
+
+    <a href="sip-calculator.html" class="tool-card">
+      <div class="tool-icon">📈</div>
+      <div class="tool-tag">Investing</div>
+      <h3>SIP Return Calculator</h3>
+      <p>See how your monthly SIP investment grows over time with the power of compounding returns.</p>
+      <div class="tool-cta">Use Tool <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
+
+    <a href="currency-converter.html" class="tool-card">
+      <div class="tool-icon">💱</div>
+      <div class="tool-tag">Currency</div>
+      <h3>Currency Converter</h3>
+      <p>Convert between 30+ world currencies instantly. Perfect for travel, shopping, and international transfers.</p>
+      <div class="tool-cta">Use Tool <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
+
+    <a href="salary-hike.html" class="tool-card">
+      <div class="tool-icon">💼</div>
+      <div class="tool-tag">Career</div>
+      <h3>Salary Hike Calculator</h3>
+      <p>Calculate your new salary after a hike, compare offers, and understand your real take-home change.</p>
+      <div class="tool-cta">Use Tool <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
+
+    <a href="tip-calculator.html" class="tool-card">
+      <div class="tool-icon">🍽️</div>
+      <div class="tool-tag">Daily Life</div>
+      <h3>Tip Calculator</h3>
+      <p>Calculate tips instantly and split bills fairly among any number of people at restaurants or events.</p>
+      <div class="tool-cta">Use Tool <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
+
+    <a href="rent-vs-buy.html" class="tool-card">
+      <div class="tool-icon">🏠</div>
+      <div class="tool-tag">Property</div>
+      <h3>Rent vs Buy Calculator</h3>
+      <p>Should you rent or buy a home? Get a data-driven answer based on your city, income, and timeline.</p>
+      <div class="tool-cta">Use Tool <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
+
+    <a href="subscription-trap.html" class="tool-card">
+      <div class="tool-icon">💳</div>
+      <div class="tool-tag">Budgeting</div>
+      <h3>Subscription Trap Detector</h3>
+      <p>List all your subscriptions and see the shocking annual total you're auto-paying without realizing.</p>
+      <div class="tool-cta">Use Tool <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
+
+    <a href="grocery-budget.html" class="tool-card">
+      <div class="tool-icon">🛒</div>
+      <div class="tool-tag">Budgeting</div>
+      <h3>Grocery Budget Optimizer</h3>
+      <p>Plan your weekly grocery spend, track categories, and see where you can cut without sacrificing quality.</p>
+      <div class="tool-cta">Use Tool <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
+
+    <a href="fuel-cost.html" class="tool-card">
+      <div class="tool-icon">⛽</div>
+      <div class="tool-tag">Travel</div>
+      <h3>Fuel Cost Per Trip</h3>
+      <p>Calculate exactly how much every commute or road trip costs based on distance, mileage, and fuel price.</p>
+      <div class="tool-cta">Use Tool <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
+
+    <a href="education-planner.html" class="tool-card">
+      <div class="tool-icon">🎓</div>
+      <div class="tool-tag">Planning</div>
+      <h3>Child Education Cost Planner</h3>
+      <p>Plan ahead for your child's education. See the future cost with inflation and how much to save monthly.</p>
+      <div class="tool-cta">Use Tool <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
+
+    <a href="wedding-budget.html" class="tool-card">
+      <div class="tool-icon">💍</div>
+      <div class="tool-tag">Planning</div>
+      <h3>Wedding Budget Allocator</h3>
+      <p>Enter your total wedding budget and get a smart, category-wise allocation to keep your big day on track.</p>
+      <div class="tool-cta">Use Tool <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
+
+  </div>
+</section>
+
+<footer>
+  <div>Built with ❤️ by <span>WebToolsKit</span> — Free tools for real people.</div>
+  <div class="footer-links">
+    <a href="../index.html">Home</a>
+    <a href="../health/index.html">Health Tools</a>
+    <a href="../freelance/index.html">Freelance Tools</a>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SIP Return Calculator — WebToolsKit Finance</title>
+  <meta name="description" content="Calculate how your monthly SIP investments grow over time with compounding returns."/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#0a0a0a;--card:#141414;--border:#2a2a2a;--orange:#ff5500;--orange2:#ff2200;--og:rgba(255,85,0,0.12);--white:#fff;--grey:#999}
+    body{background:var(--bg);color:var(--white);font-family:'Inter',sans-serif;min-height:100vh}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:18px 40px;border-bottom:1px solid var(--border);background:rgba(10,10,10,.96);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100}
+    .logo{font-size:1.3rem;font-weight:900;text-decoration:none;color:var(--white)}.logo span{color:var(--orange)}
+    .back-btn{display:flex;align-items:center;gap:7px;color:var(--grey);text-decoration:none;font-size:.88rem;font-weight:600;border:1px solid var(--border);padding:7px 14px;border-radius:8px;transition:all .2s}
+    .back-btn:hover{color:var(--white);border-color:var(--orange)}
+    .container{max-width:820px;margin:0 auto;padding:56px 20px}
+    .tool-header{text-align:center;margin-bottom:44px}
+    .tool-icon-big{width:70px;height:70px;border-radius:20px;background:linear-gradient(135deg,var(--orange),var(--orange2));display:flex;align-items:center;justify-content:center;font-size:1.9rem;margin:0 auto 18px;box-shadow:0 10px 28px rgba(255,85,0,.35)}
+    .tool-header h1{font-size:1.9rem;font-weight:900;letter-spacing:-.5px;margin-bottom:9px}
+    .tool-header p{color:var(--grey);font-size:.96rem;line-height:1.6}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:32px;margin-bottom:20px}
+    .card h2{font-size:.9rem;font-weight:700;margin-bottom:22px;color:var(--orange);text-transform:uppercase;letter-spacing:1px}
+    .input-group{margin-bottom:18px}
+    label{display:block;font-size:.85rem;font-weight:600;color:var(--grey);margin-bottom:7px}
+    .input-wrap{position:relative}
+    .input-prefix{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--orange);font-weight:700;font-size:.9rem}
+    input[type=number]{width:100%;background:#0a0a0a;border:1px solid var(--border);border-radius:11px;padding:13px 14px 13px 44px;color:var(--white);font-size:.97rem;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s}
+    input[type=number]:focus{border-color:var(--orange)}
+    .slider-row{display:flex;align-items:center;gap:12px;margin-top:8px}
+    input[type=range]{flex:1;accent-color:var(--orange);cursor:pointer}
+    .slider-val{font-size:.85rem;font-weight:700;color:var(--orange);min-width:60px;text-align:right}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .btn{width:100%;padding:15px;border-radius:13px;background:linear-gradient(135deg,var(--orange),var(--orange2));border:none;color:var(--white);font-size:.97rem;font-weight:800;cursor:pointer;font-family:'Inter',sans-serif;transition:opacity .2s,transform .2s}
+    .btn:hover{opacity:.9;transform:translateY(-1px)}
+    .result-card{background:linear-gradient(135deg,rgba(255,85,0,.1),rgba(255,34,0,.05));border:1px solid rgba(255,85,0,.3);border-radius:18px;padding:32px;display:none}
+    .result-card.show{display:block}
+    .result-top{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:26px}
+    .r-item{background:rgba(255,255,255,.04);border-radius:12px;padding:18px;border:1px solid var(--border);text-align:center}
+    .r-label{font-size:.72rem;color:var(--grey);font-weight:600;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px}
+    .r-val{font-size:1.3rem;font-weight:900}
+    .r-val.big{font-size:1.6rem;background:linear-gradient(90deg,var(--orange),var(--orange2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .growth-bar{margin-bottom:20px}
+    .bar-label{display:flex;justify-content:space-between;font-size:.78rem;color:var(--grey);margin-bottom:6px}
+    .bar-track{background:rgba(255,255,255,.06);border-radius:100px;height:10px;overflow:hidden}
+    .bar-fill{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--orange),var(--orange2));transition:width .6s ease}
+    .year-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
+    .year-item{background:rgba(255,255,255,.04);border-radius:10px;padding:14px;border:1px solid var(--border)}
+    .year-label{font-size:.72rem;color:var(--grey);font-weight:600;margin-bottom:4px}
+    .year-val{font-size:1rem;font-weight:800;color:var(--white)}
+    .tip-box{margin-top:18px;padding:14px 18px;background:var(--og);border:1px solid rgba(255,85,0,.2);border-radius:11px;font-size:.85rem;color:#ccc;line-height:1.6}
+    .tip-box strong{color:var(--orange)}
+    @media(max-width:600px){nav{padding:14px 20px}.grid-2,.result-top{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">Web<span>Tools</span>Kit</a>
+  <a href="index.html" class="back-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Finance Tools</a>
+</nav>
+<div class="container">
+  <div class="tool-header">
+    <div class="tool-icon-big">📈</div>
+    <h1>SIP Return Calculator</h1>
+    <p>See the power of compounding. Calculate how your monthly SIP grows into real wealth over time.</p>
+  </div>
+  <div class="card">
+    <h2>📊 SIP Details</h2>
+    <div class="input-group">
+      <label>Monthly SIP Amount</label>
+      <div class="input-wrap"><span class="input-prefix">₹</span><input type="number" id="sip" placeholder="5000" value="5000"/></div>
+      <div class="slider-row"><input type="range" id="sipSlider" min="500" max="100000" step="500" value="5000" oninput="document.getElementById('sip').value=this.value;document.getElementById('sipSliderVal').textContent='₹'+Number(this.value).toLocaleString('en-IN')"/><span class="slider-val" id="sipSliderVal">₹5,000</span></div>
+    </div>
+    <div class="grid-2">
+      <div class="input-group">
+        <label>Expected Annual Return (%)</label>
+        <div class="input-wrap"><span class="input-prefix">%</span><input type="number" id="returnRate" placeholder="12" value="12"/></div>
+        <div class="slider-row"><input type="range" id="retSlider" min="1" max="30" step="0.5" value="12" oninput="document.getElementById('returnRate').value=this.value;document.getElementById('retSliderVal').textContent=this.value+'%'"/><span class="slider-val" id="retSliderVal">12%</span></div>
+      </div>
+      <div class="input-group">
+        <label>Investment Period (Years)</label>
+        <div class="input-wrap"><span class="input-prefix">yr</span><input type="number" id="years" placeholder="15" value="15"/></div>
+        <div class="slider-row"><input type="range" id="yrSlider" min="1" max="40" step="1" value="15" oninput="document.getElementById('years').value=this.value;document.getElementById('yrSliderVal').textContent=this.value+' yrs'"/><span class="slider-val" id="yrSliderVal">15 yrs</span></div>
+      </div>
+    </div>
+    <button class="btn" onclick="calculate()">Calculate SIP Returns →</button>
+  </div>
+  <div class="result-card" id="result">
+    <div class="result-top">
+      <div class="r-item"><div class="r-label">Maturity Value</div><div class="r-val big" id="maturity">₹0</div></div>
+      <div class="r-item"><div class="r-label">Total Invested</div><div class="r-val" id="invested">₹0</div></div>
+      <div class="r-item"><div class="r-label">Wealth Gained</div><div class="r-val" id="gained">₹0</div></div>
+    </div>
+    <div class="growth-bar">
+      <div class="bar-label"><span>Amount Invested</span><span>Returns Generated</span></div>
+      <div class="bar-track"><div class="bar-fill" id="barFill" style="width:50%"></div></div>
+    </div>
+    <div class="year-grid" id="yearGrid"></div>
+    <div class="tip-box"><strong>💡 Power of Compounding:</strong> The longer you stay invested, the more dramatic the growth. Starting 5 years earlier can literally double your final corpus!</div>
+  </div>
+</div>
+<script>
+function fmt(n){return '₹'+Math.round(n).toLocaleString('en-IN')}
+function calculate(){
+  const sip=parseFloat(document.getElementById('sip').value)||0;
+  const r=parseFloat(document.getElementById('returnRate').value)/12/100;
+  const n=parseFloat(document.getElementById('years').value)*12;
+  const maturity=sip*((Math.pow(1+r,n)-1)/r)*(1+r);
+  const invested=sip*n;
+  const gained=maturity-invested;
+  document.getElementById('maturity').textContent=fmt(maturity);
+  document.getElementById('invested').textContent=fmt(invested);
+  document.getElementById('gained').textContent=fmt(gained);
+  document.getElementById('barFill').style.width=(invested/maturity*100)+'%';
+  const yrs=n/12;
+  let grid='';
+  [1,3,5,10,15,20,25,30].forEach(yr=>{
+    if(yr>yrs)return;
+    const m=sip*((Math.pow(1+r,yr*12)-1)/r)*(1+r);
+    grid+=`<div class="year-item"><div class="year-label">Year ${yr}</div><div class="year-val">${fmt(m)}</div></div>`;
+  });
+  document.getElementById('yearGrid').innerHTML=grid;
+  const res=document.getElementById('result');res.classList.add('show');
+  res.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+</script>
+</body>
+</html>

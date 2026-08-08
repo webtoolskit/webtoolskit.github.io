@@ -1,0 +1,66 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Project Profit Calculator — WebToolsKit</title><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/><style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}:root{--bg:#0d0f1a;--card:#13162b;--border:#1e2240;--purple:#6c63ff;--purple2:#4f46e5;--glow:rgba(108,99,255,0.12);--white:#fff;--grey:#8892b0;--light:#ccd6f6}body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;min-height:100vh}nav{display:flex;align-items:center;justify-content:space-between;padding:18px 40px;border-bottom:1px solid var(--border);background:rgba(13,15,26,.96);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100}.logo{font-family:'Manrope',sans-serif;font-size:1.3rem;font-weight:800;text-decoration:none;color:var(--white)}.logo span{color:var(--purple)}.back-btn{display:flex;align-items:center;gap:7px;color:var(--grey);text-decoration:none;font-size:.88rem;font-weight:600;border:1px solid var(--border);padding:7px 14px;border-radius:8px;transition:all .2s}.back-btn:hover{color:var(--white);border-color:var(--purple)}.container{max-width:820px;margin:0 auto;padding:56px 20px}.tool-header{text-align:center;margin-bottom:44px}.tool-icon-big{width:72px;height:72px;border-radius:20px;background:linear-gradient(135deg,var(--purple),var(--purple2));display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 18px;box-shadow:0 10px 28px rgba(108,99,255,.3)}.tool-header h1{font-family:'Manrope',sans-serif;font-size:2rem;font-weight:800;letter-spacing:-1px;margin-bottom:9px}.tool-header p{color:var(--grey);font-size:.96rem;line-height:1.6}.card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:32px;margin-bottom:20px}.card h2{font-family:'DM Mono',monospace;font-size:.82rem;font-weight:500;margin-bottom:22px;color:var(--purple);text-transform:uppercase;letter-spacing:1.5px}.input-group{margin-bottom:18px}label{display:block;font-size:.84rem;font-weight:600;color:var(--grey);margin-bottom:7px}.input-wrap{position:relative}.ip{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--purple);font-weight:500;font-size:.88rem;font-family:'DM Mono',monospace}input[type=number]{width:100%;background:#0d0f1a;border:1px solid var(--border);border-radius:12px;padding:13px 14px 13px 46px;color:var(--white);font-size:.97rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}input:focus{border-color:var(--purple)}.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}.btn{width:100%;padding:15px;border-radius:13px;background:linear-gradient(135deg,var(--purple),var(--purple2));border:none;color:var(--white);font-size:.97rem;font-weight:700;cursor:pointer;font-family:'Manrope',sans-serif;transition:opacity .2s,transform .2s}.btn:hover{opacity:.9;transform:translateY(-1px)}.result-card{border-radius:20px;padding:32px;display:none}.result-card.show{display:block}.result-card.profit{background:linear-gradient(135deg,rgba(108,99,255,.08),rgba(79,70,229,.04));border:1px solid rgba(108,99,255,.25)}.result-card.loss{background:linear-gradient(135deg,rgba(255,50,50,.08),rgba(200,30,30,.04));border:1px solid rgba(255,50,50,.25)}.verdict{text-align:center;margin-bottom:24px}.v-label{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--grey);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}.v-big{font-family:'Manrope',sans-serif;font-size:3.5rem;font-weight:800;letter-spacing:-2px;line-height:1}.v-big.green{background:linear-gradient(90deg,var(--purple),var(--purple2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}.v-big.red{color:#ff4444}.v-status{font-size:1rem;font-weight:700;margin-top:8px}.r-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px}.r-item{background:rgba(255,255,255,.04);border-radius:12px;padding:14px;border:1px solid var(--border)}.r-label{font-family:'DM Mono',monospace;font-size:.65rem;color:var(--grey);text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px}.r-val{font-family:'Manrope',sans-serif;font-size:1.05rem;font-weight:700}.tip-box{padding:14px 18px;background:var(--glow);border:1px solid rgba(108,99,255,.2);border-radius:12px;font-size:.85rem;color:var(--light);line-height:1.6}.tip-box strong{color:var(--purple)}@media(max-width:600px){nav{padding:14px 20px}.grid-2,.r-grid{grid-template-columns:1fr}.v-big{font-size:2.5rem}}</style></head>
+<body>
+<nav><a href="index.html" class="logo">Web<span>Tools</span>Kit</a><a href="index.html" class="back-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Freelance Tools</a></nav>
+<div class="container">
+  <div class="tool-header"><div class="tool-icon-big">📊</div><h1>Project Profit Calculator</h1><p>Know if a project is truly worth taking before you say yes. Calculate real profit after all hidden costs.</p></div>
+  <div class="card">
+    <h2>// Project Details</h2>
+    <div class="grid-2">
+      <div class="input-group"><label>Project Fee (₹)</label><div class="input-wrap"><span class="ip">₹</span><input type="number" id="fee" placeholder="50000"/></div></div>
+      <div class="input-group"><label>Estimated Hours</label><div class="input-wrap"><span class="ip">h</span><input type="number" id="hours" placeholder="40"/></div></div>
+      <div class="input-group"><label>Platform / Agency Fee (%)</label><div class="input-wrap"><span class="ip">%</span><input type="number" id="platformFee" placeholder="20"/></div></div>
+      <div class="input-group"><label>Tax Rate (%)</label><div class="input-wrap"><span class="ip">%</span><input type="number" id="taxRate" placeholder="18"/></div></div>
+      <div class="input-group"><label>Direct Expenses (tools, subscriptions, etc.)</label><div class="input-wrap"><span class="ip">₹</span><input type="number" id="expenses" placeholder="2000"/></div></div>
+      <div class="input-group"><label>Revision & Meeting Hours (non-billable)</label><div class="input-wrap"><span class="ip">h</span><input type="number" id="extraHours" placeholder="5"/></div></div>
+    </div>
+    <button class="btn" onclick="calculate()">Analyse Project Profitability →</button>
+  </div>
+  <div class="result-card" id="result">
+    <div class="verdict">
+      <div class="v-label">Real Hourly Rate</div>
+      <div class="v-big" id="realRate">₹0/hr</div>
+      <div class="v-status" id="verdict">—</div>
+    </div>
+    <div class="r-grid">
+      <div class="r-item"><div class="r-label">Gross Revenue</div><div class="r-val" id="gross">₹0</div></div>
+      <div class="r-item"><div class="r-label">After Platform Fee</div><div class="r-val" id="afterPlatform">₹0</div></div>
+      <div class="r-item"><div class="r-label">Tax Deducted</div><div class="r-val" id="taxDed">₹0</div></div>
+      <div class="r-item"><div class="r-label">Direct Expenses</div><div class="r-val" id="expAmt">₹0</div></div>
+      <div class="r-item"><div class="r-label">Total Hours (incl. extras)</div><div class="r-val" id="totalHours">0</div></div>
+      <div class="r-item"><div class="r-label">Net Profit</div><div class="r-val" id="netProfit">₹0</div></div>
+    </div>
+    <div class="tip-box" id="tipBox"></div>
+  </div>
+</div>
+<script>
+function fmt(n){return '₹'+Math.round(n).toLocaleString('en-IN')}
+function calculate(){
+  const fee=parseFloat(document.getElementById('fee').value)||0;
+  const hours=parseFloat(document.getElementById('hours').value)||1;
+  const platform=parseFloat(document.getElementById('platformFee').value)||0;
+  const tax=parseFloat(document.getElementById('taxRate').value)||0;
+  const expenses=parseFloat(document.getElementById('expenses').value)||0;
+  const extra=parseFloat(document.getElementById('extraHours').value)||0;
+  const afterPlat=fee*(1-platform/100);
+  const taxAmt=afterPlat*(tax/100);
+  const afterTax=afterPlat-taxAmt;
+  const net=afterTax-expenses;
+  const totalH=hours+extra;
+  const realRate=net/totalH;
+  const isProfitable=realRate>300;
+  document.getElementById('realRate').textContent=fmt(realRate)+'/hr';
+  document.getElementById('realRate').className='v-big '+(isProfitable?'green':'red');
+  document.getElementById('verdict').textContent=isProfitable?'✅ Worth Taking':'⚠️ Reconsider Pricing';
+  document.getElementById('gross').textContent=fmt(fee);
+  document.getElementById('afterPlatform').textContent=fmt(afterPlat);
+  document.getElementById('taxDed').textContent=fmt(taxAmt);
+  document.getElementById('expAmt').textContent=fmt(expenses);
+  document.getElementById('totalHours').textContent=totalH+'h';
+  document.getElementById('netProfit').textContent=fmt(net);
+  const res=document.getElementById('result');
+  res.className='result-card show '+(isProfitable?'profit':'loss');
+  document.getElementById('tipBox').innerHTML=isProfitable?`<strong>💡 Good Deal!</strong> At ${fmt(realRate)}/hr effective rate, this project is worth your time. Make sure to document scope clearly to avoid scope creep.`:`<strong>⚠️ Low Rate Alert!</strong> At ${fmt(realRate)}/hr after all deductions, you might be undercharging. Try negotiating the fee up by ${Math.round((400*totalH/net-1)*100)}% or reducing non-billable hours.`;
+  res.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+</script>
+</body></html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Tools — WebToolsKit</title>
+  <meta name="description" content="Free student calculators — CGPA, Attendance, Exam Marks, Study Planner, Scholarship, Student Loan and more."/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#111214;--card:#1a1b1f;--card-hover:#212328;
+      --border:#2a2b30;--yellow:#f5c518;--yellow2:#e6b800;
+      --glow:rgba(245,197,24,0.12);--glow2:rgba(245,197,24,0.06);
+      --white:#ffffff;--grey:#8b8d97;--light:#d4d6e0;
+    }
+    body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;min-height:100vh}
+
+    nav{display:flex;align-items:center;justify-content:space-between;padding:18px 48px;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(17,18,20,0.97);backdrop-filter:blur(12px);z-index:100}
+    .logo{font-family:'Space Grotesk',sans-serif;font-size:1.4rem;font-weight:700;text-decoration:none;color:var(--white);letter-spacing:-.5px}
+    .logo span{color:var(--yellow)}
+    .back-btn{display:flex;align-items:center;gap:7px;color:var(--grey);text-decoration:none;font-size:.88rem;font-weight:600;border:1px solid var(--border);padding:7px 16px;border-radius:8px;transition:all .2s}
+    .back-btn:hover{color:var(--white);border-color:var(--yellow)}
+
+    .hero{text-align:center;padding:90px 20px 70px;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:700px;height:500px;background:radial-gradient(ellipse,rgba(245,197,24,0.1) 0%,transparent 70%);pointer-events:none}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--glow);border:1px solid rgba(245,197,24,0.3);color:var(--yellow);font-size:.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:6px 18px;border-radius:100px;margin-bottom:28px;font-family:'DM Mono',monospace}
+    .hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:700;line-height:1.05;letter-spacing:-2px;margin-bottom:20px}
+    .hero h1 .highlight{background:linear-gradient(90deg,var(--yellow),var(--yellow2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .hero p{font-size:1rem;color:var(--grey);max-width:480px;margin:0 auto 44px;line-height:1.7}
+    .hero-stats{display:flex;justify-content:center;gap:60px}
+    .stat-num{font-family:'DM Mono',monospace;font-size:2rem;font-weight:500;background:linear-gradient(90deg,var(--yellow),var(--yellow2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .stat-label{font-size:.78rem;color:var(--grey);margin-top:4px}
+
+    .tools-section{max-width:1200px;margin:0 auto;padding:0 40px 80px}
+    .section-label{font-family:'DM Mono',monospace;font-size:.72rem;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--yellow);margin-bottom:24px}
+    .tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+
+    .tool-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:28px;text-decoration:none;color:var(--white);transition:all .25s;position:relative;overflow:hidden;display:block}
+    .tool-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(245,197,24,0.4),transparent);opacity:0;transition:opacity .25s}
+    .tool-card:hover{border-color:rgba(245,197,24,0.4);background:var(--card-hover);transform:translateY(-3px);box-shadow:0 20px 40px rgba(0,0,0,0.5),0 0 0 1px rgba(245,197,24,0.08)}
+    .tool-card:hover::before{opacity:1}
+
+    .tool-icon{width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,var(--yellow),var(--yellow2));display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:18px;box-shadow:0 6px 20px rgba(245,197,24,0.25)}
+    .tool-tag{display:inline-block;font-family:'DM Mono',monospace;font-size:.65rem;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--yellow);background:var(--glow);border:1px solid rgba(245,197,24,0.2);padding:3px 10px;border-radius:100px;margin-bottom:10px}
+    .tool-card h3{font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:8px;letter-spacing:-.3px}
+    .tool-card p{font-size:.86rem;color:var(--grey);line-height:1.65;margin-bottom:20px}
+    .tool-cta{display:flex;align-items:center;gap:6px;font-size:.82rem;font-weight:600;color:var(--yellow)}
+    .tool-cta svg{transition:transform .2s}
+    .tool-card:hover .tool-cta svg{transform:translateX(4px)}
+
+    footer{border-top:1px solid var(--border);padding:36px 48px;text-align:center;color:var(--grey);font-size:.82rem}
+    footer span{color:var(--yellow)}
+
+    @media(max-width:768px){nav{padding:14px 20px}.hero{padding:60px 20px 50px}.hero-stats{gap:30px}.tools-section{padding:0 16px 60px}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="logo">Web<span>Tools</span>Kit</a>
+  <a href="../index.html" class="back-btn">
+    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    All Sites
+  </a>
+</nav>
+
+<section class="hero">
+  <div class="hero-badge">🎓 Student Tools</div>
+  <h1>Study Smart,<br/><span class="highlight">Score Higher</span></h1>
+  <p>8 essential calculators built for students. Track your grades, plan your studies, and stay ahead of the curve.</p>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">8</div><div class="stat-label">Student Tools</div></div>
+    <div class="stat"><div class="stat-num">0₹</div><div class="stat-label">Cost to Use</div></div>
+    <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Free Forever</div></div>
+  </div>
+</section>
+
+<section class="tools-section">
+  <div class="section-label">// All Student Tools</div>
+  <div class="tools-grid">
+
+    <a href="cgpa-calculator.html" class="tool-card">
+      <div class="tool-icon">🎓</div>
+      <div class="tool-tag">Grades</div>
+      <h3>CGPA / GPA Calculator</h3>
+      <p>Calculate your semester GPA and cumulative CGPA instantly. Add all subjects and credits for an accurate result.</p>
+      <div class="tool-cta">Use Tool <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
+
+    <a href="percentage-grade.html" class="tool-card">
+      <div class="tool-icon">📊</div>
+      <div class="tool-tag">Grades</div>
+      <h3>Percentage to Grade Calculator</h3>
+      <p>Convert marks to percentage, letter grade, and GPA equivalent. Supports CBSE, university, and custom grading systems.</p>
+      <div class="tool-cta">Use Tool <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
+
+    <a href="study-planner.html" class="tool-card">
+      <div class="tool-icon">📚</div>
+      <div class="tool-tag">Planning</div>
+      <h3>Study Time Planner</h3>
+      <p>Plan your study hours smartly across subjects. Enter your exam date and available hours to get a daily study schedule.</p>
+      <div class="tool-cta">Use Tool <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
+
+    <a href="attendance-calculator.html" class="tool-card">
+      <div class="tool-icon">✅</div>
+      <div class="tool-tag">Attendance</div>
+      <h3>Attendance Calculator</h3>
+      <p>Know exactly how many classes you can skip while staying above 75%. Or find out how many you must attend to recover.</p>
+      <div class="tool-cta">Use Tool <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
+
+    <a href="marks-needed.html" class="tool-card">
+      <div class="tool-icon">🎯</div>
+      <div class="tool-tag">Exams</div>
+      <h3>Exam Marks Needed Calculator</h3>
+      <p>Find out exactly what score you need in your final exam to achieve your target overall grade or percentage.</p>
+      <div class="tool-cta">Use Tool <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
+
+    <a href="scholarship-checker.html" class="tool-card">
+      <div class="tool-icon">🏆</div>
+      <div class="tool-tag">Scholarships</div>
+      <h3>Scholarship Eligibility Checker</h3>
+      <p>Check your eligibility for major Indian scholarships based on your marks, income, category, and course details.</p>
+      <div class="tool-cta">Use Tool <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
+
+    <a href="student-loan.html" class="tool-card">
+      <div class="tool-icon">🏦</div>
+      <div class="tool-tag">Finance</div>
+      <h3>Student Loan EMI Calculator</h3>
+      <p>Calculate your education loan EMI, total interest, and repayment schedule. Plan your finances before you borrow.</p>
+      <div class="tool-cta">Use Tool <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
+
+    <a href="career-aptitude.html" class="tool-card">
+      <div class="tool-icon">🧭</div>
+      <div class="tool-tag">Career</div>
+      <h3>Career Aptitude Scorer</h3>
+      <p>Answer 15 quick questions about your strengths and interests to get personalized career path recommendations.</p>
+      <div class="tool-cta">Use Tool <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
+
+  </div>
+</section>
+
+<footer>
+  <p>Built with ❤️ by <span>WebToolsKit</span> — Free tools for real people.</p>
+</footer>
+</body>
+</html>

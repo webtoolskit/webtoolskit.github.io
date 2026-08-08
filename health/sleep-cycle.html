@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sleep Cycle Calculator — WebToolsKit Health</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#060f09;--card:#0d1f12;--border:#1a3526;--green:#00e64d;--green2:#00c43f;--glow:rgba(0,230,77,0.12);--white:#fff;--grey:#7a9e85;--light:#b8d4be}
+    body{background:var(--bg);color:var(--white);font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:18px 40px;border-bottom:1px solid var(--border);background:rgba(6,15,9,.96);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100}
+    .logo{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;text-decoration:none;color:var(--white)}.logo span{color:var(--green)}
+    .back-btn{display:flex;align-items:center;gap:7px;color:var(--grey);text-decoration:none;font-size:.88rem;font-weight:600;border:1px solid var(--border);padding:7px 14px;border-radius:8px;transition:all .2s}
+    .back-btn:hover{color:var(--white);border-color:var(--green)}
+    .container{max-width:760px;margin:0 auto;padding:56px 20px}
+    .tool-header{text-align:center;margin-bottom:44px}
+    .tool-icon-big{width:72px;height:72px;border-radius:20px;background:linear-gradient(135deg,var(--green),var(--green2));display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 18px;box-shadow:0 10px 28px rgba(0,230,77,0.25)}
+    .tool-header h1{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;letter-spacing:-1px;margin-bottom:9px}
+    .tool-header p{color:var(--grey);font-size:.96rem;line-height:1.6}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:32px;margin-bottom:20px}
+    .card h2{font-family:'JetBrains Mono',monospace;font-size:.85rem;font-weight:600;margin-bottom:22px;color:var(--green);text-transform:uppercase;letter-spacing:1.5px}
+    .mode-toggle{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:24px}
+    .tog{padding:12px;background:transparent;border:none;color:var(--grey);font-size:.9rem;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all .2s}
+    .tog.active{background:var(--glow);color:var(--green)}
+    .input-group{margin-bottom:18px}
+    label{display:block;font-size:.84rem;font-weight:600;color:var(--grey);margin-bottom:7px}
+    input[type=time]{width:100%;background:#060f09;border:1px solid var(--border);border-radius:12px;padding:13px 16px;color:var(--white);font-size:1.1rem;font-family:'JetBrains Mono',monospace;outline:none;transition:border-color .2s;color-scheme:dark}
+    input[type=time]:focus{border-color:var(--green)}
+    .btn{width:100%;padding:15px;border-radius:13px;background:linear-gradient(135deg,var(--green),var(--green2));border:none;color:#060f09;font-size:.97rem;font-weight:800;cursor:pointer;font-family:'Syne',sans-serif;transition:opacity .2s,transform .2s}
+    .btn:hover{opacity:.9;transform:translateY(-1px)}
+    .result-card{background:linear-gradient(135deg,rgba(0,230,77,.08),rgba(0,196,63,.04));border:1px solid rgba(0,230,77,.25);border-radius:20px;padding:32px;display:none}
+    .result-card.show{display:block}
+    .result-title{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--grey);font-weight:600;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:16px;text-align:center}
+    .times-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+    .time-item{background:rgba(255,255,255,.04);border-radius:14px;padding:18px 12px;border:1px solid var(--border);text-align:center;transition:all .2s}
+    .time-item.best{border-color:var(--green);background:var(--glow)}
+    .time-cycles{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--grey);margin-bottom:6px;text-transform:uppercase;letter-spacing:.8px}
+    .time-val{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;background:linear-gradient(90deg,var(--green),var(--green2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .time-hours{font-size:.75rem;color:var(--grey);margin-top:4px}
+    .time-item.best .time-cycles,.time-item.best .time-hours{color:var(--green)}
+    .tip-box{padding:14px 18px;background:var(--glow);border:1px solid rgba(0,230,77,.2);border-radius:12px;font-size:.85rem;color:var(--light);line-height:1.6}
+    .tip-box strong{color:var(--green)}
+    @media(max-width:600px){nav{padding:14px 20px}.times-grid{grid-template-columns:1fr 1fr}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">Web<span>Tools</span>Kit</a>
+  <a href="index.html" class="back-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Health Tools</a>
+</nav>
+<div class="container">
+  <div class="tool-header">
+    <div class="tool-icon-big">😴</div>
+    <h1>Sleep Cycle Calculator</h1>
+    <p>Wake up refreshed every morning. Based on 90-minute sleep cycles — the science of never feeling groggy again.</p>
+  </div>
+  <div class="card">
+    <h2>// Sleep Mode</h2>
+    <div class="mode-toggle">
+      <button class="tog active" id="modeWake" onclick="setMode('wake')">😴 I want to wake at...</button>
+      <button class="tog" id="modeSleep" onclick="setMode('sleep')">🛏️ I'm going to sleep at...</button>
+    </div>
+    <div class="input-group">
+      <label id="timeLabel">What time do you want to wake up?</label>
+      <input type="time" id="timeInput" value="06:30"/>
+    </div>
+    <button class="btn" onclick="calculate()">Find My Perfect Sleep Times →</button>
+  </div>
+  <div class="result-card" id="result">
+    <div class="result-title" id="resultTitle">Recommended times to fall asleep</div>
+    <div class="times-grid" id="timesGrid"></div>
+    <div class="tip-box"><strong>💡 Sleep Science:</strong> Each sleep cycle is ~90 minutes. Waking up between cycles means you wake up naturally refreshed. It takes ~14 minutes to fall asleep, which is already factored in. The <span style="color:var(--green)">highlighted times</span> give you the optimal 6–7.5 hours.</div>
+  </div>
+</div>
+<script>
+let mode='wake';
+function setMode(m){mode=m;document.getElementById('modeWake').classList.toggle('active',m==='wake');document.getElementById('modeSleep').classList.toggle('active',m==='sleep');document.getElementById('timeLabel').textContent=m==='wake'?'What time do you want to wake up?':'What time are you going to sleep?';}
+function addMinutes(time,mins){const[h,m]=time.split(':').map(Number);const total=h*60+m+mins;const nh=Math.floor(total/60)%24;const nm=total%60;return `${String(nh).padStart(2,'0')}:${String(nm).padStart(2,'0')}`;}
+function fmt12(t){const[h,m]=t.split(':').map(Number);const ampm=h>=12?'PM':'AM';const h12=h%12||12;return `${h12}:${String(m).padStart(2,'0')} ${ampm}`;}
+function calculate(){
+  const time=document.getElementById('timeInput').value;
+  const cycles=[3,4,5,6];
+  let html='';
+  cycles.forEach((c,i)=>{
+    let t;
+    if(mode==='wake'){t=addMinutes(time,-(c*90+14));}
+    else{t=addMinutes(time,c*90+14);}
+    const hrs=(c*90/60).toFixed(1);
+    const best=c===5||c===6;
+    html+=`<div class="time-item ${best?'best':''}"><div class="time-cycles">${c} cycles</div><div class="time-val">${fmt12(t)}</div><div class="time-hours">${hrs} hours sleep</div></div>`;
+  });
+  document.getElementById('timesGrid').innerHTML=html;
+  document.getElementById('resultTitle').textContent=mode==='wake'?'Best times to fall asleep tonight':'You will wake up feeling refreshed at';
+  const res=document.getElementById('result');res.classList.add('show');res.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+</script>
+</body>
+</html>

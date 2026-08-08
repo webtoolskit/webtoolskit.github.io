@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Salary Hike Calculator — WebToolsKit Finance</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#0a0a0a;--card:#141414;--border:#2a2a2a;--orange:#ff5500;--orange2:#ff2200;--og:rgba(255,85,0,0.12);--white:#fff;--grey:#999}
+    body{background:var(--bg);color:var(--white);font-family:'Inter',sans-serif;min-height:100vh}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:18px 40px;border-bottom:1px solid var(--border);background:rgba(10,10,10,.96);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100}
+    .logo{font-size:1.3rem;font-weight:900;text-decoration:none;color:var(--white)}.logo span{color:var(--orange)}
+    .back-btn{display:flex;align-items:center;gap:7px;color:var(--grey);text-decoration:none;font-size:.88rem;font-weight:600;border:1px solid var(--border);padding:7px 14px;border-radius:8px;transition:all .2s}
+    .back-btn:hover{color:var(--white);border-color:var(--orange)}
+    .container{max-width:800px;margin:0 auto;padding:56px 20px}
+    .tool-header{text-align:center;margin-bottom:44px}
+    .tool-icon-big{width:70px;height:70px;border-radius:20px;background:linear-gradient(135deg,var(--orange),var(--orange2));display:flex;align-items:center;justify-content:center;font-size:1.9rem;margin:0 auto 18px;box-shadow:0 10px 28px rgba(255,85,0,.35)}
+    .tool-header h1{font-size:1.9rem;font-weight:900;letter-spacing:-.5px;margin-bottom:9px}
+    .tool-header p{color:var(--grey);font-size:.96rem;line-height:1.6}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:32px;margin-bottom:20px}
+    .card h2{font-size:.9rem;font-weight:700;margin-bottom:22px;color:var(--orange);text-transform:uppercase;letter-spacing:1px}
+    .input-group{margin-bottom:18px}
+    label{display:block;font-size:.85rem;font-weight:600;color:var(--grey);margin-bottom:7px}
+    .input-wrap{position:relative}
+    .input-prefix{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--orange);font-weight:700;font-size:.9rem}
+    input[type=number]{width:100%;background:#0a0a0a;border:1px solid var(--border);border-radius:11px;padding:13px 14px 13px 44px;color:var(--white);font-size:.97rem;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s}
+    input[type=number]:focus{border-color:var(--orange)}
+    .slider-row{display:flex;align-items:center;gap:12px;margin-top:8px}
+    input[type=range]{flex:1;accent-color:var(--orange);cursor:pointer}
+    .slider-val{font-size:.85rem;font-weight:700;color:var(--orange);min-width:60px;text-align:right}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .btn{width:100%;padding:15px;border-radius:13px;background:linear-gradient(135deg,var(--orange),var(--orange2));border:none;color:var(--white);font-size:.97rem;font-weight:800;cursor:pointer;font-family:'Inter',sans-serif;transition:opacity .2s,transform .2s}
+    .btn:hover{opacity:.9;transform:translateY(-1px)}
+    .result-card{background:linear-gradient(135deg,rgba(255,85,0,.1),rgba(255,34,0,.05));border:1px solid rgba(255,85,0,.3);border-radius:18px;padding:32px;display:none}
+    .result-card.show{display:block}
+    .compare{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:center;margin-bottom:26px;text-align:center}
+    .salary-box{background:rgba(255,255,255,.04);border-radius:14px;padding:20px;border:1px solid var(--border)}
+    .salary-label{font-size:.72rem;color:var(--grey);font-weight:600;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px}
+    .salary-amount{font-size:1.5rem;font-weight:900}
+    .salary-amount.new{background:linear-gradient(90deg,var(--orange),var(--orange2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .arrow-box{font-size:1.5rem;color:var(--orange)}
+    .breakdown{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px}
+    .b-item{background:rgba(255,255,255,.04);border-radius:11px;padding:14px;border:1px solid var(--border);text-align:center}
+    .b-label{font-size:.72rem;color:var(--grey);font-weight:600;margin-bottom:5px}
+    .b-val{font-size:1rem;font-weight:800}
+    .tip-box{padding:14px 18px;background:var(--og);border:1px solid rgba(255,85,0,.2);border-radius:11px;font-size:.85rem;color:#ccc;line-height:1.6}
+    .tip-box strong{color:var(--orange)}
+    @media(max-width:600px){nav{padding:14px 20px}.grid-2,.breakdown{grid-template-columns:1fr 1fr}.compare{grid-template-columns:1fr;}.arrow-box{transform:rotate(90deg)}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">Web<span>Tools</span>Kit</a>
+  <a href="index.html" class="back-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Finance Tools</a>
+</nav>
+<div class="container">
+  <div class="tool-header">
+    <div class="tool-icon-big">💼</div>
+    <h1>Salary Hike Calculator</h1>
+    <p>Calculate your new salary after a hike, see the exact monthly and annual difference, and plan smarter.</p>
+  </div>
+  <div class="card">
+    <h2>💰 Salary Details</h2>
+    <div class="input-group">
+      <label>Current Annual CTC (Cost to Company)</label>
+      <div class="input-wrap"><span class="input-prefix">₹</span><input type="number" id="currentCTC" placeholder="600000" value="600000"/></div>
+    </div>
+    <div class="grid-2">
+      <div class="input-group">
+        <label>Hike Percentage (%)</label>
+        <div class="input-wrap"><span class="input-prefix">%</span><input type="number" id="hikePercent" placeholder="15" value="15"/></div>
+        <div class="slider-row"><input type="range" id="hikeSlider" min="1" max="100" step="0.5" value="15" oninput="document.getElementById('hikePercent').value=this.value;document.getElementById('hikeSliderVal').textContent=this.value+'%'"/><span class="slider-val" id="hikeSliderVal">15%</span></div>
+      </div>
+      <div class="input-group">
+        <label>Tax Rate on New Salary (%)</label>
+        <div class="input-wrap"><span class="input-prefix">%</span><input type="number" id="taxRate" placeholder="10" value="10"/></div>
+      </div>
+    </div>
+    <button class="btn" onclick="calculate()">Calculate My New Salary →</button>
+  </div>
+  <div class="result-card" id="result">
+    <div class="compare">
+      <div class="salary-box"><div class="salary-label">Current Annual CTC</div><div class="salary-amount" id="oldCTC">₹0</div></div>
+      <div class="arrow-box">→</div>
+      <div class="salary-box"><div class="salary-label">New Annual CTC</div><div class="salary-amount new" id="newCTC">₹0</div></div>
+    </div>
+    <div class="breakdown">
+      <div class="b-item"><div class="b-label">Monthly Increase</div><div class="b-val" id="monthlyIncrease">₹0</div></div>
+      <div class="b-item"><div class="b-label">Annual Increase</div><div class="b-val" id="annualIncrease">₹0</div></div>
+      <div class="b-item"><div class="b-label">New Monthly In-Hand</div><div class="b-val" id="inHand">₹0</div></div>
+      <div class="b-item"><div class="b-label">Old Monthly</div><div class="b-val" id="oldMonthly">₹0</div></div>
+      <div class="b-item"><div class="b-label">New Monthly (Gross)</div><div class="b-val" id="newMonthly">₹0</div></div>
+      <div class="b-item"><div class="b-label">Tax Paid Monthly</div><div class="b-val" id="taxMonthly">₹0</div></div>
+    </div>
+    <div class="tip-box"><strong>💡 Negotiation Tip:</strong> Always negotiate on CTC, not just percentage. A 20% hike on ₹5L is ₹1L — but a 15% hike on ₹8L is ₹1.2L. Know your numbers before the conversation!</div>
+  </div>
+</div>
+<script>
+function fmt(n){return '₹'+Math.round(n).toLocaleString('en-IN')}
+function calculate(){
+  const ctc=parseFloat(document.getElementById('currentCTC').value)||0;
+  const hike=parseFloat(document.getElementById('hikePercent').value)||0;
+  const tax=parseFloat(document.getElementById('taxRate').value)||0;
+  const newCTC=ctc*(1+hike/100);
+  const annualInc=newCTC-ctc;
+  const newMonthly=newCTC/12;
+  const oldMonthly=ctc/12;
+  const taxAmt=newMonthly*(tax/100);
+  const inHand=newMonthly-taxAmt;
+  document.getElementById('oldCTC').textContent=fmt(ctc);
+  document.getElementById('newCTC').textContent=fmt(newCTC);
+  document.getElementById('monthlyIncrease').textContent=fmt((newCTC-ctc)/12);
+  document.getElementById('annualIncrease').textContent=fmt(annualInc);
+  document.getElementById('inHand').textContent=fmt(inHand);
+  document.getElementById('oldMonthly').textContent=fmt(oldMonthly);
+  document.getElementById('newMonthly').textContent=fmt(newMonthly);
+  document.getElementById('taxMonthly').textContent=fmt(taxAmt);
+  const res=document.getElementById('result');res.classList.add('show');
+  res.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+</script>
+</body>
+</html>

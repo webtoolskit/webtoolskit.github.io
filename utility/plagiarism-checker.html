@@ -1,0 +1,52 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Text Uniqueness Checker — WebToolsKit Utility</title><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/><style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}:root{--bg:#02060e;--card:#0d0810;--border:#1e0a14;--red:#c50337;--red2:#8b0227;--glow:rgba(197,3,55,0.12);--white:#fff;--grey:#9b8a92;--light:#d4c8cc}body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;min-height:100vh}nav{display:flex;align-items:center;justify-content:space-between;padding:18px 40px;border-bottom:1px solid var(--border);background:rgba(2,6,14,.97);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100}.logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;text-decoration:none;color:var(--white);font-style:italic}.logo span{color:var(--red)}.back-btn{display:flex;align-items:center;gap:7px;color:var(--grey);text-decoration:none;font-size:.88rem;font-weight:600;border:1px solid var(--border);padding:7px 14px;border-radius:8px;transition:all .2s}.back-btn:hover{color:var(--white);border-color:var(--red)}.container{max-width:860px;margin:0 auto;padding:56px 20px}.tool-header{text-align:center;margin-bottom:44px}.tool-icon-big{width:72px;height:72px;border-radius:20px;background:linear-gradient(135deg,var(--red),var(--red2));display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 18px;box-shadow:0 10px 28px rgba(197,3,55,.3)}.tool-header h1{font-family:'Outfit',sans-serif;font-size:2rem;font-weight:700;letter-spacing:-.5px;margin-bottom:9px}.tool-header p{color:var(--grey);font-size:.96rem;line-height:1.6}.note-box{background:rgba(197,3,55,.08);border:1px solid rgba(197,3,55,.2);border-radius:12px;padding:14px 18px;font-size:.84rem;color:var(--light);margin-bottom:20px;line-height:1.6}.note-box strong{color:var(--red)}.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}.card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:24px}.card h2{font-family:'DM Mono',monospace;font-size:.78rem;font-weight:500;margin-bottom:12px;color:var(--red);text-transform:uppercase;letter-spacing:1.5px}textarea{width:100%;background:#02060e;border:1px solid var(--border);border-radius:12px;padding:14px;color:var(--white);font-size:.9rem;font-family:'DM Sans',sans-serif;outline:none;resize:vertical;min-height:200px;line-height:1.7;transition:border-color .2s}textarea:focus{border-color:var(--red)}.btn{width:100%;padding:15px;border-radius:13px;background:linear-gradient(135deg,var(--red),var(--red2));border:none;color:var(--white);font-size:.97rem;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;transition:opacity .2s,transform .2s}.btn:hover{opacity:.9;transform:translateY(-1px)}.result-card{background:linear-gradient(135deg,rgba(197,3,55,.08),rgba(139,2,39,.04));border:1px solid rgba(197,3,55,.25);border-radius:20px;padding:32px;display:none;text-align:center}.result-card.show{display:block}.sim-num{font-family:'Outfit',sans-serif;font-size:5rem;font-weight:700;letter-spacing:-3px;line-height:1}.sim-label{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--grey);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}.sim-desc{font-size:1.1rem;font-weight:700;margin:8px 0 24px}.r-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px;text-align:left}.r-item{background:rgba(255,255,255,.04);border-radius:12px;padding:14px;border:1px solid var(--border)}.r-label{font-family:'DM Mono',monospace;font-size:.65rem;color:var(--grey);text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px}.r-val{font-family:'Outfit',sans-serif;font-size:1rem;font-weight:600}.tip-box{padding:14px 18px;background:var(--glow);border:1px solid rgba(197,3,55,.2);border-radius:12px;font-size:.85rem;color:var(--light);line-height:1.6;text-align:left}.tip-box strong{color:var(--red)}@media(max-width:600px){nav{padding:14px 20px}.two-col{grid-template-columns:1fr}.r-grid{grid-template-columns:1fr 1fr}.sim-num{font-size:3.5rem}}</style></head>
+<body><nav><a href="index.html" class="logo">Web<span>Tools</span>Kit</a><a href="index.html" class="back-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Utility Tools</a></nav>
+<div class="container"><div class="tool-header"><div class="tool-icon-big">🔍</div><h1>Text Similarity Checker</h1><p>Compare two texts to find similarity, shared phrases, and common words. Great for students, writers, and editors.</p></div>
+<div class="note-box"><strong>ℹ️ Note:</strong> This tool compares two texts you provide. It cannot search the internet for plagiarism. For full online plagiarism checking, use tools like Grammarly, Turnitin, or Copyscape.</div>
+<div class="two-col">
+  <div class="card"><h2>// Original Text</h2><textarea id="text1" placeholder="Paste the original text here..."></textarea></div>
+  <div class="card"><h2>// Text to Compare</h2><textarea id="text2" placeholder="Paste the text to compare here..."></textarea></div>
+</div>
+<button class="btn" onclick="compare()">Compare Texts →</button>
+<div class="result-card" id="result" style="margin-top:20px">
+  <div class="sim-label">Similarity Score</div>
+  <div class="sim-num" id="simNum">0%</div>
+  <div class="sim-desc" id="simDesc"></div>
+  <div class="r-grid">
+    <div class="r-item"><div class="r-label">Shared Words</div><div class="r-val" id="sharedWords">0</div></div>
+    <div class="r-item"><div class="r-label">Common Phrases</div><div class="r-val" id="commonPhrases">0</div></div>
+    <div class="r-item"><div class="r-label">Unique Words (T1)</div><div class="r-val" id="uniqueWords">0</div></div>
+  </div>
+  <div class="tip-box" id="tipBox"></div>
+</div></div>
+<script>
+function tokenize(t){return t.toLowerCase().replace(/[^a-z0-9\s]/g,'').split(/\s+/).filter(w=>w.length>2);}
+function getNgrams(words,n){const ng=new Set();for(let i=0;i<=words.length-n;i++)ng.add(words.slice(i,i+n).join(' '));return ng;}
+function compare(){
+  const t1=document.getElementById('text1').value.trim();
+  const t2=document.getElementById('text2').value.trim();
+  if(!t1||!t2){alert('Please paste text in both boxes!');return;}
+  const w1=tokenize(t1),w2=tokenize(t2);
+  const set1=new Set(w1),set2=new Set(w2);
+  const shared=[...set1].filter(w=>set2.has(w));
+  const ng1=getNgrams(w1,3),ng2=getNgrams(w2,3);
+  const sharedNg=[...ng1].filter(n=>ng2.has(n));
+  const union=new Set([...set1,...set2]);
+  const similarity=Math.round((shared.length/union.size)*100);
+  const unique=[...set1].filter(w=>!set2.has(w));
+  let color,desc;
+  if(similarity>=80){color='#ff4444';desc='⚠️ Very High Similarity';}
+  else if(similarity>=60){color='#ff8800';desc='⚠️ High Similarity';}
+  else if(similarity>=40){color='#ffcc00';desc='🔶 Moderate Similarity';}
+  else if(similarity>=20){color='#00cc44';desc='✅ Low Similarity';}
+  else{color='#00e64d';desc='✅ Very Different';}
+  document.getElementById('simNum').textContent=similarity+'%';
+  document.getElementById('simNum').style.color=color;
+  document.getElementById('simNum').style.webkitTextFillColor=color;
+  document.getElementById('simDesc').textContent=desc;
+  document.getElementById('sharedWords').textContent=shared.length;
+  document.getElementById('commonPhrases').textContent=sharedNg.size;
+  document.getElementById('uniqueWords').textContent=unique.length;
+  document.getElementById('tipBox').innerHTML=similarity>60?`<strong>⚠️ High Similarity:</strong> The texts share ${shared.length} common words and ${sharedNg.size} common phrases. Consider rewriting sections in your own words to improve originality.`:`<strong>✅ Good Uniqueness:</strong> The texts are sufficiently different. Only ${shared.length} words are shared between them.`;
+  const res=document.getElementById('result');res.classList.add('show');res.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+</script></body></html>

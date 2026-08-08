@@ -1,0 +1,37 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>QR Code Generator — WebToolsKit</title><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script><style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}:root{--bg:#02060e;--card:#0d0810;--border:#1e0a14;--red:#c50337;--red2:#8b0227;--glow:rgba(197,3,55,0.12);--white:#fff;--grey:#9b8a92;--light:#d4c8cc}body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;min-height:100vh}nav{display:flex;align-items:center;justify-content:space-between;padding:18px 40px;border-bottom:1px solid var(--border);background:rgba(2,6,14,.97);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100}.logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;text-decoration:none;color:var(--white);font-style:italic}.logo span{color:var(--red)}.back-btn{display:flex;align-items:center;gap:7px;color:var(--grey);text-decoration:none;font-size:.88rem;font-weight:600;border:1px solid var(--border);padding:7px 14px;border-radius:8px;transition:all .2s}.back-btn:hover{color:var(--white);border-color:var(--red)}.container{max-width:720px;margin:0 auto;padding:56px 20px}.tool-header{text-align:center;margin-bottom:44px}.tool-icon-big{width:72px;height:72px;border-radius:20px;background:linear-gradient(135deg,var(--red),var(--red2));display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 18px;box-shadow:0 10px 28px rgba(197,3,55,.3)}.tool-header h1{font-family:'Outfit',sans-serif;font-size:2rem;font-weight:700;letter-spacing:-.5px;margin-bottom:9px}.tool-header p{color:var(--grey);font-size:.96rem;line-height:1.6}.card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:32px;margin-bottom:20px}.card h2{font-family:'DM Mono',monospace;font-size:.82rem;font-weight:500;margin-bottom:22px;color:var(--red);text-transform:uppercase;letter-spacing:1.5px}.type-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:20px}.ttab{padding:10px 6px;background:#02060e;border:1px solid var(--border);border-radius:10px;color:var(--grey);font-size:.78rem;font-weight:600;cursor:pointer;text-align:center;font-family:'DM Sans',sans-serif;transition:all .2s}.ttab.active{border-color:var(--red);color:var(--red);background:var(--glow)}.input-group{margin-bottom:18px}label{display:block;font-size:.84rem;font-weight:600;color:var(--grey);margin-bottom:7px}input[type=text],textarea{width:100%;background:#02060e;border:1px solid var(--border);border-radius:12px;padding:13px 16px;color:var(--white);font-size:.97rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}input:focus,textarea:focus{border-color:var(--red)}textarea{resize:none;min-height:80px}.btn{width:100%;padding:15px;border-radius:13px;background:linear-gradient(135deg,var(--red),var(--red2));border:none;color:var(--white);font-size:.97rem;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;transition:opacity .2s,transform .2s}.btn:hover{opacity:.9;transform:translateY(-1px)}.qr-display{text-align:center;margin-top:20px;display:none}.qr-display.show{display:block}.qr-box{display:inline-block;background:white;padding:20px;border-radius:16px;margin-bottom:18px;box-shadow:0 10px 30px rgba(197,3,55,.2)}.download-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border-radius:10px;background:transparent;border:1px solid var(--red);color:var(--red);font-size:.9rem;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;transition:all .2s;margin-top:4px}.download-btn:hover{background:var(--glow)}.tip-box{margin-top:20px;padding:14px 18px;background:var(--glow);border:1px solid rgba(197,3,55,.2);border-radius:12px;font-size:.85rem;color:var(--light);line-height:1.6}.tip-box strong{color:var(--red)}@media(max-width:600px){nav{padding:14px 20px}.type-tabs{grid-template-columns:1fr 1fr}}</style></head>
+<body><nav><a href="index.html" class="logo">Web<span>Tools</span>Kit</a><a href="index.html" class="back-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Utility Tools</a></nav>
+<div class="container"><div class="tool-header"><div class="tool-icon-big">📱</div><h1>QR Code Generator</h1><p>Generate QR codes for URLs, text, email, WhatsApp, or phone numbers. Download as PNG instantly — free forever.</p></div>
+<div class="card"><h2>// What to Encode</h2>
+<div class="type-tabs">
+  <div class="ttab active" onclick="setType('url',this)">🔗 URL</div>
+  <div class="ttab" onclick="setType('text',this)">📝 Text</div>
+  <div class="ttab" onclick="setType('email',this)">✉️ Email</div>
+  <div class="ttab" onclick="setType('phone',this)">📞 Phone</div>
+</div>
+<div id="inputArea">
+  <div class="input-group"><label>Website URL</label><input type="text" id="mainInput" placeholder="https://example.com"/></div>
+</div>
+<button class="btn" onclick="generate()">Generate QR Code →</button></div>
+<div class="qr-display" id="qrDisplay">
+  <div class="qr-box" id="qrCode"></div><br/>
+  <button class="download-btn" onclick="downloadQR()">⬇️ Download PNG</button>
+  <div class="tip-box"><strong>💡 Use Cases:</strong> Business cards, restaurant menus, product packaging, event invites, social media bios, payment links, WhatsApp contact sharing, and more.</div>
+</div></div>
+<script>
+let qrInstance=null,currentType='url';
+function setType(type,el){currentType=type;document.querySelectorAll('.ttab').forEach(t=>t.classList.remove('active'));el.classList.add('active');const labels={url:'Website URL',text:'Text Message',email:'Email Address',phone:'Phone Number'};const placeholders={url:'https://example.com',text:'Your message here...',email:'hello@example.com',phone:'+91 98765 43210'};document.querySelector('#inputArea label').textContent=labels[type];document.getElementById('mainInput').placeholder=placeholders[type];}
+function generate(){
+  const val=document.getElementById('mainInput').value.trim();if(!val)return;
+  let encoded=val;
+  if(currentType==='email')encoded=`mailto:${val}`;
+  else if(currentType==='phone')encoded=`tel:${val.replace(/\s/g,'')}`;
+  document.getElementById('qrCode').innerHTML='';
+  qrInstance=new QRCode(document.getElementById('qrCode'),{text:encoded,width:256,height:256,colorDark:'#000000',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.H});
+  document.getElementById('qrDisplay').classList.add('show');
+  document.getElementById('qrDisplay').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+function downloadQR(){
+  const canvas=document.getElementById('qrCode').querySelector('canvas');
+  if(!canvas)return;const link=document.createElement('a');link.download='qrcode-webtoolskit.png';link.href=canvas.toDataURL();link.click();
+}
+</script></body></html>

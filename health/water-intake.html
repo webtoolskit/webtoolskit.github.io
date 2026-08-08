@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Water Intake Calculator — WebToolsKit Health</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#060f09;--card:#0d1f12;--border:#1a3526;--green:#00e64d;--green2:#00c43f;--glow:rgba(0,230,77,0.12);--white:#fff;--grey:#7a9e85;--light:#b8d4be}
+    body{background:var(--bg);color:var(--white);font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:18px 40px;border-bottom:1px solid var(--border);background:rgba(6,15,9,.96);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100}
+    .logo{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;text-decoration:none;color:var(--white)}.logo span{color:var(--green)}
+    .back-btn{display:flex;align-items:center;gap:7px;color:var(--grey);text-decoration:none;font-size:.88rem;font-weight:600;border:1px solid var(--border);padding:7px 14px;border-radius:8px;transition:all .2s}
+    .back-btn:hover{color:var(--white);border-color:var(--green)}
+    .container{max-width:760px;margin:0 auto;padding:56px 20px}
+    .tool-header{text-align:center;margin-bottom:44px}
+    .tool-icon-big{width:72px;height:72px;border-radius:20px;background:linear-gradient(135deg,var(--green),var(--green2));display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 18px;box-shadow:0 10px 28px rgba(0,230,77,0.25)}
+    .tool-header h1{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;letter-spacing:-1px;margin-bottom:9px}
+    .tool-header p{color:var(--grey);font-size:.96rem;line-height:1.6}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:32px;margin-bottom:20px}
+    .card h2{font-family:'JetBrains Mono',monospace;font-size:.85rem;font-weight:600;margin-bottom:22px;color:var(--green);text-transform:uppercase;letter-spacing:1.5px}
+    .input-group{margin-bottom:18px}
+    label{display:block;font-size:.84rem;font-weight:600;color:var(--grey);margin-bottom:7px}
+    .input-wrap{position:relative}
+    .input-prefix{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--green);font-weight:700;font-size:.88rem;font-family:'JetBrains Mono',monospace}
+    input[type=number]{width:100%;background:#060f09;border:1px solid var(--border);border-radius:12px;padding:13px 14px 13px 52px;color:var(--white);font-size:.97rem;font-family:'Plus Jakarta Sans',sans-serif;outline:none;transition:border-color .2s}
+    input[type=number]:focus{border-color:var(--green)}
+    select{width:100%;background:#060f09;border:1px solid var(--border);border-radius:12px;padding:13px 14px;color:var(--white);font-size:.97rem;font-family:'Plus Jakarta Sans',sans-serif;outline:none;transition:border-color .2s;-webkit-appearance:none}
+    select:focus{border-color:var(--green)}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .btn{width:100%;padding:15px;border-radius:13px;background:linear-gradient(135deg,var(--green),var(--green2));border:none;color:#060f09;font-size:.97rem;font-weight:800;cursor:pointer;font-family:'Syne',sans-serif;transition:opacity .2s,transform .2s}
+    .btn:hover{opacity:.9;transform:translateY(-1px)}
+    .result-card{background:linear-gradient(135deg,rgba(0,230,77,.08),rgba(0,196,63,.04));border:1px solid rgba(0,230,77,.25);border-radius:20px;padding:32px;display:none}
+    .result-card.show{display:block}
+    .water-display{text-align:center;margin-bottom:28px}
+    .w-label{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--grey);font-weight:600;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
+    .w-number{font-family:'Syne',sans-serif;font-size:5rem;font-weight:800;letter-spacing:-3px;background:linear-gradient(90deg,var(--green),var(--green2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+    .w-unit{font-size:1rem;color:var(--grey);margin-top:6px}
+    .glasses-display{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:24px}
+    .glass{font-size:1.6rem;filter:grayscale(1);transition:filter .2s}
+    .glass.filled{filter:none}
+    .result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px}
+    .r-item{background:rgba(255,255,255,.04);border-radius:12px;padding:14px;border:1px solid var(--border);text-align:center}
+    .r-label{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--grey);font-weight:600;text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px}
+    .r-val{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700}
+    .tip-box{padding:14px 18px;background:var(--glow);border:1px solid rgba(0,230,77,.2);border-radius:12px;font-size:.85rem;color:var(--light);line-height:1.6}
+    .tip-box strong{color:var(--green)}
+    @media(max-width:600px){nav{padding:14px 20px}.grid-2,.result-grid{grid-template-columns:1fr}.w-number{font-size:3.5rem}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">Web<span>Tools</span>Kit</a>
+  <a href="index.html" class="back-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Health Tools</a>
+</nav>
+<div class="container">
+  <div class="tool-header">
+    <div class="tool-icon-big">💧</div>
+    <h1>Water Intake Calculator</h1>
+    <p>Find your personalized daily water intake based on your weight, activity, and climate. Stay optimally hydrated!</p>
+  </div>
+  <div class="card">
+    <h2>// Your Details</h2>
+    <div class="grid-2">
+      <div class="input-group">
+        <label>Body Weight (kg)</label>
+        <div class="input-wrap"><span class="input-prefix">kg</span><input type="number" id="weight" placeholder="70"/></div>
+      </div>
+      <div class="input-group">
+        <label>Activity Level</label>
+        <select id="activity">
+          <option value="1.2">Sedentary (desk job)</option>
+          <option value="1.375">Lightly Active (1-3 days/week)</option>
+          <option value="1.55" selected>Moderately Active (3-5 days)</option>
+          <option value="1.725">Very Active (6-7 days)</option>
+          <option value="1.9">Athlete / Intense training</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label>Climate</label>
+        <select id="climate">
+          <option value="0">Cool / Temperate</option>
+          <option value="0.3" selected>Warm / Tropical (India)</option>
+          <option value="0.5">Hot & Humid</option>
+          <option value="0.7">Extreme Heat</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label>Age (Years)</label>
+        <div class="input-wrap"><span class="input-prefix">yr</span><input type="number" id="age" placeholder="28"/></div>
+      </div>
+    </div>
+    <button class="btn" onclick="calculate()">Calculate My Water Intake →</button>
+  </div>
+  <div class="result-card" id="result">
+    <div class="water-display">
+      <div class="w-label">Daily Water Intake</div>
+      <div class="w-number" id="litres">0</div>
+      <div class="w-unit">litres per day</div>
+    </div>
+    <div class="glasses-display" id="glasses"></div>
+    <div class="result-grid">
+      <div class="r-item"><div class="r-label">In ml</div><div class="r-val" id="ml">0</div></div>
+      <div class="r-item"><div class="r-label">Glasses (250ml)</div><div class="r-val" id="glassCount">0</div></div>
+      <div class="r-item"><div class="r-label">Bottles (1L)</div><div class="r-val" id="bottles">0</div></div>
+    </div>
+    <div class="tip-box" id="tipBox"></div>
+  </div>
+</div>
+<script>
+function calculate(){
+  const w=parseFloat(document.getElementById('weight').value)||70;
+  const act=parseFloat(document.getElementById('activity').value)||1.55;
+  const climate=parseFloat(document.getElementById('climate').value)||0.3;
+  const age=parseFloat(document.getElementById('age').value)||28;
+  let base=w*0.033;
+  if(act>=1.725)base+=0.6;else if(act>=1.55)base+=0.35;else if(act>=1.375)base+=0.15;
+  base+=climate;
+  if(age>55)base+=0.2;
+  const ml=Math.round(base*1000);
+  const glasses=Math.ceil(ml/250);
+  const bottles=Math.ceil(ml/1000);
+  document.getElementById('litres').textContent=base.toFixed(1);
+  document.getElementById('ml').textContent=ml+'ml';
+  document.getElementById('glassCount').textContent=glasses+' glasses';
+  document.getElementById('bottles').textContent=bottles+' bottles';
+  let glassHTML='';
+  for(let i=0;i<Math.min(glasses,16);i++)glassHTML+=`<span class="glass filled">💧</span>`;
+  document.getElementById('glasses').innerHTML=glassHTML;
+  const tips=['Start your day with 2 glasses of water before breakfast.','Set a reminder every 2 hours to drink water.','Eat water-rich foods like cucumber, watermelon, and oranges.'];
+  document.getElementById('tipBox').innerHTML=`<strong>💡 Hydration Tips:</strong> ${tips.join(' ')}`;
+  const res=document.getElementById('result');res.classList.add('show');res.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+</script>
+</body>
+</html>

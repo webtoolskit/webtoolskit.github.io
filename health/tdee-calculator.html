@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TDEE Calculator — WebToolsKit Health</title>
+  <meta name="description" content="Calculate your Total Daily Energy Expenditure and find out exactly how many calories you need."/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#060f09;--card:#0d1f12;--border:#1a3526;--green:#00e64d;--green2:#00c43f;--glow:rgba(0,230,77,0.12);--white:#fff;--grey:#7a9e85;--light:#b8d4be}
+    body{background:var(--bg);color:var(--white);font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:18px 40px;border-bottom:1px solid var(--border);background:rgba(6,15,9,.96);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100}
+    .logo{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;text-decoration:none;color:var(--white)}.logo span{color:var(--green)}
+    .back-btn{display:flex;align-items:center;gap:7px;color:var(--grey);text-decoration:none;font-size:.88rem;font-weight:600;border:1px solid var(--border);padding:7px 14px;border-radius:8px;transition:all .2s}
+    .back-btn:hover{color:var(--white);border-color:var(--green)}
+    .container{max-width:800px;margin:0 auto;padding:56px 20px}
+    .tool-header{text-align:center;margin-bottom:44px}
+    .tool-icon-big{width:72px;height:72px;border-radius:20px;background:linear-gradient(135deg,var(--green),var(--green2));display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 18px;box-shadow:0 10px 28px rgba(0,230,77,.25)}
+    .tool-header h1{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;letter-spacing:-1px;margin-bottom:9px}
+    .tool-header p{color:var(--grey);font-size:.96rem;line-height:1.6}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:32px;margin-bottom:20px}
+    .card h2{font-family:'JetBrains Mono',monospace;font-size:.85rem;font-weight:600;margin-bottom:22px;color:var(--green);text-transform:uppercase;letter-spacing:1.5px}
+    .toggle-row{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:20px}
+    .tog{padding:11px;background:transparent;border:none;color:var(--grey);font-size:.9rem;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all .2s}
+    .tog.active{background:var(--glow);color:var(--green)}
+    .input-group{margin-bottom:18px}
+    label{display:block;font-size:.84rem;font-weight:600;color:var(--grey);margin-bottom:7px}
+    .input-wrap{position:relative}
+    .ip{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--green);font-weight:700;font-size:.88rem;font-family:'JetBrains Mono',monospace}
+    input[type=number]{width:100%;background:#060f09;border:1px solid var(--border);border-radius:12px;padding:13px 14px 13px 52px;color:var(--white);font-size:.97rem;font-family:'Plus Jakarta Sans',sans-serif;outline:none;transition:border-color .2s}
+    input[type=number]:focus{border-color:var(--green)}
+    select{width:100%;background:#060f09;border:1px solid var(--border);border-radius:12px;padding:13px 14px;color:var(--white);font-size:.9rem;font-family:'Plus Jakarta Sans',sans-serif;outline:none;-webkit-appearance:none}
+    select:focus{border-color:var(--green)}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .btn{width:100%;padding:15px;border-radius:13px;background:linear-gradient(135deg,var(--green),var(--green2));border:none;color:#060f09;font-size:.97rem;font-weight:800;cursor:pointer;font-family:'Syne',sans-serif;transition:opacity .2s,transform .2s}
+    .btn:hover{opacity:.9;transform:translateY(-1px)}
+    .result-card{background:linear-gradient(135deg,rgba(0,230,77,.08),rgba(0,196,63,.04));border:1px solid rgba(0,230,77,.25);border-radius:20px;padding:32px;display:none}
+    .result-card.show{display:block}
+    .tdee-display{text-align:center;margin-bottom:28px}
+    .tdee-label{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--grey);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
+    .tdee-num{font-family:'Syne',sans-serif;font-size:4.5rem;font-weight:800;letter-spacing:-3px;background:linear-gradient(90deg,var(--green),var(--green2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+    .tdee-sub{color:var(--grey);font-size:.9rem;margin-top:6px}
+    .goal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
+    .goal-item{border-radius:14px;padding:18px 12px;border:1px solid var(--border);text-align:center;background:rgba(255,255,255,.04)}
+    .goal-item.maintain{border-color:var(--green);background:var(--glow)}
+    .goal-name{font-size:.75rem;font-weight:700;color:var(--grey);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px}
+    .goal-val{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800}
+    .goal-item.maintain .goal-name{color:var(--green)}
+    .macro-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px}
+    .m-item{background:rgba(255,255,255,.04);border-radius:12px;padding:14px;border:1px solid var(--border);text-align:center}
+    .m-label{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--grey);font-weight:600;text-transform:uppercase;margin-bottom:5px}
+    .m-val{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700}
+    .tip-box{padding:14px 18px;background:var(--glow);border:1px solid rgba(0,230,77,.2);border-radius:12px;font-size:.85rem;color:var(--light);line-height:1.6}
+    .tip-box strong{color:var(--green)}
+    @media(max-width:600px){nav{padding:14px 20px}.grid-2,.goal-grid,.macro-grid{grid-template-columns:1fr}.tdee-num{font-size:3rem}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">Web<span>Tools</span>Kit</a>
+  <a href="index.html" class="back-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Health Tools</a>
+</nav>
+<div class="container">
+  <div class="tool-header">
+    <div class="tool-icon-big">⚡</div>
+    <h1>Daily Calorie Needs (TDEE)</h1>
+    <p>Calculate your Total Daily Energy Expenditure — the exact calories to maintain, lose, or gain weight scientifically.</p>
+  </div>
+  <div class="card">
+    <h2>// Your Details</h2>
+    <div class="toggle-row">
+      <button class="tog active" id="togM" onclick="setSex('male')">♂ Male</button>
+      <button class="tog" id="togF" onclick="setSex('female')">♀ Female</button>
+    </div>
+    <div class="grid-2">
+      <div class="input-group"><label>Age</label><div class="input-wrap"><span class="ip">yr</span><input type="number" id="age" placeholder="28"/></div></div>
+      <div class="input-group"><label>Height (cm)</label><div class="input-wrap"><span class="ip">cm</span><input type="number" id="height" placeholder="170"/></div></div>
+      <div class="input-group"><label>Weight (kg)</label><div class="input-wrap"><span class="ip">kg</span><input type="number" id="weight" placeholder="70"/></div></div>
+      <div class="input-group">
+        <label>Activity Level</label>
+        <select id="activity">
+          <option value="1.2">Sedentary (desk job, no exercise)</option>
+          <option value="1.375">Light (1–3 days exercise/week)</option>
+          <option value="1.55" selected>Moderate (3–5 days/week)</option>
+          <option value="1.725">Very Active (6–7 days/week)</option>
+          <option value="1.9">Athlete (2x/day training)</option>
+        </select>
+      </div>
+    </div>
+    <button class="btn" onclick="calculate()">Calculate My TDEE →</button>
+  </div>
+  <div class="result-card" id="result">
+    <div class="tdee-display">
+      <div class="tdee-label">Your TDEE (Maintenance Calories)</div>
+      <div class="tdee-num" id="tdeeNum">0</div>
+      <div class="tdee-sub">calories per day to maintain current weight</div>
+    </div>
+    <div class="goal-grid">
+      <div class="goal-item"><div class="goal-name">🔥 Lose Weight</div><div class="goal-val" id="loseVal">0</div><div style="font-size:.72rem;color:var(--grey);margin-top:4px">kcal/day (-500)</div></div>
+      <div class="goal-item maintain"><div class="goal-name">✅ Maintain</div><div class="goal-val" id="maintainVal">0</div><div style="font-size:.72rem;color:var(--green);margin-top:4px">kcal/day</div></div>
+      <div class="goal-item"><div class="goal-name">💪 Gain Muscle</div><div class="goal-val" id="gainVal">0</div><div style="font-size:.72rem;color:var(--grey);margin-top:4px">kcal/day (+300)</div></div>
+    </div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--grey);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">Recommended Daily Macros (Maintenance)</div>
+    <div class="macro-grid">
+      <div class="m-item"><div class="m-label">🥩 Protein</div><div class="m-val" id="protein">0g</div></div>
+      <div class="m-item"><div class="m-label">🍚 Carbs</div><div class="m-val" id="carbs">0g</div></div>
+      <div class="m-item"><div class="m-label">🥑 Fats</div><div class="m-val" id="fats">0g</div></div>
+    </div>
+    <div class="tip-box"><strong>💡 Weight Loss Tip:</strong> A 500 kcal daily deficit leads to ~0.5kg weight loss per week — the safest sustainable rate. Never go below 1200 kcal (women) or 1500 kcal (men) without medical supervision.</div>
+  </div>
+</div>
+<script>
+let sex='male';
+function setSex(s){sex=s;document.getElementById('togM').classList.toggle('active',s==='male');document.getElementById('togF').classList.toggle('active',s==='female');}
+function calculate(){
+  const age=parseFloat(document.getElementById('age').value)||28;
+  const h=parseFloat(document.getElementById('height').value)||170;
+  const w=parseFloat(document.getElementById('weight').value)||70;
+  const act=parseFloat(document.getElementById('activity').value)||1.55;
+  let bmr;
+  if(sex==='male')bmr=88.362+(13.397*w)+(4.799*h)-(5.677*age);
+  else bmr=447.593+(9.247*w)+(3.098*h)-(4.330*age);
+  const tdee=Math.round(bmr*act);
+  document.getElementById('tdeeNum').textContent=tdee.toLocaleString('en-IN');
+  document.getElementById('loseVal').textContent=(tdee-500).toLocaleString('en-IN');
+  document.getElementById('maintainVal').textContent=tdee.toLocaleString('en-IN');
+  document.getElementById('gainVal').textContent=(tdee+300).toLocaleString('en-IN');
+  document.getElementById('protein').textContent=Math.round(w*2.2)+'g';
+  document.getElementById('carbs').textContent=Math.round(tdee*0.45/4)+'g';
+  document.getElementById('fats').textContent=Math.round(tdee*0.25/9)+'g';
+  const res=document.getElementById('result');res.classList.add('show');res.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+</script>
+</body>
+</html>

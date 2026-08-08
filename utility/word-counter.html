@@ -1,0 +1,59 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Word Counter — WebToolsKit Utility</title><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/><style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}:root{--bg:#02060e;--card:#0d0810;--border:#1e0a14;--red:#c50337;--red2:#8b0227;--glow:rgba(197,3,55,0.12);--white:#fff;--grey:#9b8a92;--light:#d4c8cc}body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;min-height:100vh}nav{display:flex;align-items:center;justify-content:space-between;padding:18px 40px;border-bottom:1px solid var(--border);background:rgba(2,6,14,.97);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100}.logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;text-decoration:none;color:var(--white);font-style:italic}.logo span{color:var(--red)}.back-btn{display:flex;align-items:center;gap:7px;color:var(--grey);text-decoration:none;font-size:.88rem;font-weight:600;border:1px solid var(--border);padding:7px 14px;border-radius:8px;transition:all .2s}.back-btn:hover{color:var(--white);border-color:var(--red)}.container{max-width:860px;margin:0 auto;padding:56px 20px}.tool-header{text-align:center;margin-bottom:44px}.tool-icon-big{width:72px;height:72px;border-radius:20px;background:linear-gradient(135deg,var(--red),var(--red2));display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 18px;box-shadow:0 10px 28px rgba(197,3,55,.3)}.tool-header h1{font-family:'Outfit',sans-serif;font-size:2rem;font-weight:700;letter-spacing:-.5px;margin-bottom:9px}.tool-header p{color:var(--grey);font-size:.96rem;line-height:1.6}.stats-bar{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:20px}.s-item{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;text-align:center}.s-label{font-family:'DM Mono',monospace;font-size:.62rem;color:var(--grey);text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px}.s-val{font-family:'Outfit',sans-serif;font-size:1.2rem;font-weight:700;background:linear-gradient(90deg,var(--red),var(--red2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}textarea{width:100%;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px;color:var(--white);font-size:.97rem;font-family:'DM Sans',sans-serif;outline:none;resize:vertical;min-height:280px;line-height:1.7;transition:border-color .2s}.textarea:focus,textarea:focus{border-color:var(--red)}.char-limit-row{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}.limit-btn{padding:8px 16px;background:transparent;border:1px solid var(--border);border-radius:8px;color:var(--grey);font-size:.82rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s}.limit-btn:hover,.limit-btn.active{border-color:var(--red);color:var(--red);background:var(--glow)}.limit-bar{margin-top:14px;display:none}.limit-label{display:flex;justify-content:space-between;font-size:.78rem;color:var(--grey);margin-bottom:6px}.bar-track{background:rgba(255,255,255,.06);border-radius:100px;height:6px;overflow:hidden}.bar-fill{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--red),var(--red2));transition:width .3s}.bar-fill.over{background:#ff4444}.tip-box{margin-top:20px;padding:14px 18px;background:var(--glow);border:1px solid rgba(197,3,55,.2);border-radius:12px;font-size:.85rem;color:var(--light);line-height:1.6}.tip-box strong{color:var(--red)}@media(max-width:600px){nav{padding:14px 20px}.stats-bar{grid-template-columns:1fr 1fr}}</style></head>
+<body>
+<nav><a href="index.html" class="logo">Web<span>Tools</span>Kit</a><a href="index.html" class="back-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Utility Tools</a></nav>
+<div class="container">
+  <div class="tool-header"><div class="tool-icon-big">✍️</div><h1>Word & Character Counter</h1><p>Real-time word, character, sentence, and reading time counter. Paste or type your text below.</p></div>
+  <div class="stats-bar">
+    <div class="s-item"><div class="s-label">Words</div><div class="s-val" id="words">0</div></div>
+    <div class="s-item"><div class="s-label">Characters</div><div class="s-val" id="chars">0</div></div>
+    <div class="s-item"><div class="s-label">Sentences</div><div class="s-val" id="sentences">0</div></div>
+    <div class="s-item"><div class="s-label">Paragraphs</div><div class="s-val" id="paragraphs">0</div></div>
+    <div class="s-item"><div class="s-label">Read Time</div><div class="s-val" id="readTime">0m</div></div>
+  </div>
+  <textarea id="textArea" placeholder="Start typing or paste your text here..." oninput="count()"></textarea>
+  <div class="char-limit-row">
+    <span style="font-size:.82rem;color:var(--grey);font-weight:600;align-self:center">Limit:</span>
+    <button class="limit-btn" onclick="setLimit(280)">Twitter (280)</button>
+    <button class="limit-btn" onclick="setLimit(2200)">Instagram (2200)</button>
+    <button class="limit-btn" onclick="setLimit(700)">LinkedIn (700)</button>
+    <button class="limit-btn" onclick="setLimit(160)">SMS (160)</button>
+    <button class="limit-btn" onclick="setLimit(0)">None</button>
+  </div>
+  <div class="limit-bar" id="limitBar">
+    <div class="limit-label"><span id="limitText">0 / 280</span><span id="limitRemain">280 remaining</span></div>
+    <div class="bar-track"><div class="bar-fill" id="limitFill" style="width:0%"></div></div>
+  </div>
+  <div class="tip-box"><strong>💡 Writing Goal:</strong> Blog posts: 1,500–2,500 words for SEO. Social posts: under the platform limit. Emails: under 200 words for best open rates. Presentations: 50–100 words per slide.</div>
+</div>
+<script>
+let charLimit=0;
+function count(){
+  const text=document.getElementById('textArea').value;
+  const words=text.trim()===''?0:text.trim().split(/\s+/).length;
+  const chars=text.length;
+  const sentences=text.split(/[.!?]+/).filter(s=>s.trim().length>0).length;
+  const paragraphs=text.split(/\n\s*\n/).filter(p=>p.trim().length>0).length||Math.min(1,words>0?1:0);
+  const readMins=Math.ceil(words/200);
+  document.getElementById('words').textContent=words.toLocaleString('en-IN');
+  document.getElementById('chars').textContent=chars.toLocaleString('en-IN');
+  document.getElementById('sentences').textContent=sentences;
+  document.getElementById('paragraphs').textContent=paragraphs;
+  document.getElementById('readTime').textContent=readMins<1?'<1m':readMins+'m';
+  if(charLimit>0){
+    const pct=Math.min(100,chars/charLimit*100);
+    const over=chars>charLimit;
+    document.getElementById('limitText').textContent=`${chars} / ${charLimit}`;
+    document.getElementById('limitRemain').textContent=over?`${chars-charLimit} over limit`:`${charLimit-chars} remaining`;
+    document.getElementById('limitFill').style.width=pct+'%';
+    document.getElementById('limitFill').className='bar-fill'+(over?' over':'');
+  }
+}
+function setLimit(n){
+  charLimit=n;
+  document.querySelectorAll('.limit-btn').forEach(b=>b.classList.remove('active'));
+  if(n>0){event.target.classList.add('active');document.getElementById('limitBar').style.display='block';}
+  else{document.getElementById('limitBar').style.display='none';}
+  count();
+}
+</script>
+</body></html>

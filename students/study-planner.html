@@ -1,0 +1,58 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Study Time Planner — WebToolsKit Students</title><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/><style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}:root{--bg:#111214;--card:#1a1b1f;--border:#2a2b30;--yellow:#f5c518;--yellow2:#e6b800;--glow:rgba(245,197,24,0.12);--white:#fff;--grey:#8b8d97;--light:#d4d6e0}body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;min-height:100vh}nav{display:flex;align-items:center;justify-content:space-between;padding:18px 40px;border-bottom:1px solid var(--border);background:rgba(17,18,20,.97);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100}.logo{font-family:'Space Grotesk',sans-serif;font-size:1.3rem;font-weight:700;text-decoration:none;color:var(--white)}.logo span{color:var(--yellow)}.back-btn{display:flex;align-items:center;gap:7px;color:var(--grey);text-decoration:none;font-size:.88rem;font-weight:600;border:1px solid var(--border);padding:7px 14px;border-radius:8px;transition:all .2s}.back-btn:hover{color:var(--white);border-color:var(--yellow)}.container{max-width:820px;margin:0 auto;padding:56px 20px}.tool-header{text-align:center;margin-bottom:44px}.tool-icon-big{width:72px;height:72px;border-radius:20px;background:linear-gradient(135deg,var(--yellow),var(--yellow2));display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 18px;box-shadow:0 10px 28px rgba(245,197,24,.25)}.tool-header h1{font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:700;letter-spacing:-1px;margin-bottom:9px}.tool-header p{color:var(--grey);font-size:.96rem;line-height:1.6}.card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:32px;margin-bottom:20px}.card h2{font-family:'DM Mono',monospace;font-size:.82rem;font-weight:500;margin-bottom:22px;color:var(--yellow);text-transform:uppercase;letter-spacing:1.5px}.input-group{margin-bottom:16px}label{display:block;font-size:.84rem;font-weight:600;color:var(--grey);margin-bottom:7px}.input-wrap{position:relative}.ip{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--yellow);font-weight:500;font-size:.88rem;font-family:'DM Mono',monospace}input[type=number],input[type=date]{width:100%;background:#111214;border:1px solid var(--border);border-radius:12px;padding:13px 14px 13px 46px;color:var(--white);font-size:.97rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s;color-scheme:dark}input:focus{border-color:var(--yellow)}.subject-row{display:grid;grid-template-columns:2fr 1fr 44px;gap:10px;align-items:center;margin-bottom:10px}.sub-inp{width:100%;background:#111214;border:1px solid var(--border);border-radius:10px;padding:11px 14px;color:var(--white);font-size:.9rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}.sub-inp:focus{border-color:var(--yellow)}.del-btn{width:44px;height:42px;background:rgba(255,50,50,.1);border:1px solid rgba(255,50,50,.2);border-radius:9px;color:#ff4444;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem}.add-btn{width:100%;padding:11px;background:transparent;border:1px dashed var(--border);border-radius:10px;color:var(--grey);font-size:.88rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;margin-top:4px}.add-btn:hover{border-color:var(--yellow);color:var(--yellow)}.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}.btn{width:100%;padding:15px;border-radius:13px;background:linear-gradient(135deg,var(--yellow),var(--yellow2));border:none;color:#111214;font-size:.97rem;font-weight:700;cursor:pointer;font-family:'Space Grotesk',sans-serif;transition:opacity .2s,transform .2s;margin-top:16px}.btn:hover{opacity:.9;transform:translateY(-1px)}.result-card{background:linear-gradient(135deg,rgba(245,197,24,.08),rgba(230,184,0,.04));border:1px solid rgba(245,197,24,.25);border-radius:20px;padding:32px;display:none}.result-card.show{display:block}.plan-header{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}.ph-item{background:rgba(255,255,255,.04);border-radius:12px;padding:14px;border:1px solid var(--border);text-align:center}.ph-label{font-family:'DM Mono',monospace;font-size:.65rem;color:var(--grey);text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px}.ph-val{font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:600}.subject-plan{margin-bottom:20px}.sp-title{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--grey);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px}.sp-item{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:rgba(255,255,255,.04);border-radius:10px;border:1px solid var(--border);margin-bottom:8px}.sp-name{font-size:.9rem;font-weight:600}.sp-right{text-align:right}.sp-hours{font-family:'DM Mono',monospace;font-size:.9rem;font-weight:500;color:var(--yellow)}.sp-daily{font-size:.75rem;color:var(--grey);margin-top:2px}.sp-bar{height:4px;background:rgba(255,255,255,.06);border-radius:100px;overflow:hidden;margin-top:8px}.sp-bar-fill{height:100%;background:linear-gradient(90deg,var(--yellow),var(--yellow2));border-radius:100px}.tip-box{padding:14px 18px;background:var(--glow);border:1px solid rgba(245,197,24,.2);border-radius:12px;font-size:.85rem;color:var(--light);line-height:1.6}.tip-box strong{color:var(--yellow)}@media(max-width:600px){nav{padding:14px 20px}.grid-2,.plan-header{grid-template-columns:1fr}.subject-row{grid-template-columns:1fr 80px 40px}}</style></head>
+<body>
+<nav><a href="index.html" class="logo">Web<span>Tools</span>Kit</a><a href="index.html" class="back-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Student Tools</a></nav>
+<div class="container">
+  <div class="tool-header"><div class="tool-icon-big">📚</div><h1>Study Time Planner</h1><p>Enter your subjects, exam date, and available hours. Get a smart daily study schedule distributed by difficulty.</p></div>
+  <div class="card">
+    <h2>// Subjects & Difficulty</h2>
+    <div style="display:grid;grid-template-columns:2fr 1fr 44px;gap:10px;margin-bottom:8px;padding:0 2px"><div style="font-size:.75rem;color:var(--grey);font-weight:600">Subject</div><div style="font-size:.75rem;color:var(--grey);font-weight:600">Difficulty (1-5)</div><div></div></div>
+    <div id="subjectList">
+      <div class="subject-row"><input class="sub-inp" type="text" placeholder="Mathematics"/><input class="sub-inp difficulty" type="number" min="1" max="5" placeholder="4" value="4"/><button class="del-btn" onclick="removeRow(this)">×</button></div>
+      <div class="subject-row"><input class="sub-inp" type="text" placeholder="Physics"/><input class="sub-inp difficulty" type="number" min="1" max="5" placeholder="3" value="3"/><button class="del-btn" onclick="removeRow(this)">×</button></div>
+      <div class="subject-row"><input class="sub-inp" type="text" placeholder="English"/><input class="sub-inp difficulty" type="number" min="1" max="5" placeholder="2" value="2"/><button class="del-btn" onclick="removeRow(this)">×</button></div>
+    </div>
+    <button class="add-btn" onclick="addRow()">+ Add Subject</button>
+  </div>
+  <div class="card">
+    <h2>// Schedule Details</h2>
+    <div class="grid-2">
+      <div class="input-group"><label>Exam Date</label><input type="date" id="examDate"/></div>
+      <div class="input-group"><label>Study Hours Available Per Day</label><div class="input-wrap"><span class="ip">h</span><input type="number" id="hoursPerDay" placeholder="4"/></div></div>
+    </div>
+    <button class="btn" onclick="calculate()">Generate My Study Plan →</button>
+  </div>
+  <div class="result-card" id="result">
+    <div class="plan-header">
+      <div class="ph-item"><div class="ph-label">Days Until Exam</div><div class="ph-val" id="daysLeft">0</div></div>
+      <div class="ph-item"><div class="ph-label">Total Study Hours</div><div class="ph-val" id="totalHours">0</div></div>
+      <div class="ph-item"><div class="ph-label">Subjects</div><div class="ph-val" id="subCount">0</div></div>
+    </div>
+    <div class="subject-plan"><div class="sp-title">📅 Your Study Allocation</div><div id="planGrid"></div></div>
+    <div class="tip-box"><strong>💡 Study Tip:</strong> Use the Pomodoro Technique — 25 mins focused study, 5 min break. After 4 pomodoros, take a 30-min break. Harder subjects get more daily time, easier ones get fewer slots.</div>
+  </div>
+</div>
+<script>
+function addRow(){const row=document.createElement('div');row.className='subject-row';row.innerHTML=`<input class="sub-inp" type="text" placeholder="Subject name"/><input class="sub-inp difficulty" type="number" min="1" max="5" placeholder="3" value="3"/><button class="del-btn" onclick="removeRow(this)">×</button>`;document.getElementById('subjectList').appendChild(row);}
+function removeRow(btn){const rows=document.querySelectorAll('.subject-row');if(rows.length>1)btn.closest('.subject-row').remove();}
+function calculate(){
+  const examDate=new Date(document.getElementById('examDate').value);
+  const today=new Date();today.setHours(0,0,0,0);
+  const days=Math.max(1,Math.ceil((examDate-today)/86400000));
+  const hpd=parseFloat(document.getElementById('hoursPerDay').value)||4;
+  const totalH=days*hpd;
+  const rows=document.querySelectorAll('.subject-row');
+  let subjects=[],totalDiff=0;
+  rows.forEach(r=>{const name=r.querySelector('.sub-inp').value||'Subject';const diff=parseFloat(r.querySelector('.difficulty').value)||3;subjects.push({name,diff});totalDiff+=diff;});
+  document.getElementById('daysLeft').textContent=days+' days';
+  document.getElementById('totalHours').textContent=totalH.toFixed(0)+'h';
+  document.getElementById('subCount').textContent=subjects.length;
+  document.getElementById('planGrid').innerHTML=subjects.map(s=>{
+    const hrs=totalH*(s.diff/totalDiff);const daily=hrs/days;
+    const pct=s.diff/Math.max(...subjects.map(x=>x.diff))*100;
+    return `<div class="sp-item"><div><div class="sp-name">${s.name}</div><div class="sp-bar" style="width:120px;margin-top:6px"><div class="sp-bar-fill" style="width:${pct}%"></div></div></div><div class="sp-right"><div class="sp-hours">${hrs.toFixed(1)}h total</div><div class="sp-daily">${daily.toFixed(1)}h / day</div></div></div>`;
+  }).join('');
+  const res=document.getElementById('result');res.classList.add('show');res.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+const d=new Date();d.setDate(d.getDate()+30);document.getElementById('examDate').valueAsDate=d;
+</script>
+</body></html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Notice Period Calculator — WebToolsKit</title><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/><style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}:root{--bg:#0d0f1a;--card:#13162b;--border:#1e2240;--purple:#6c63ff;--purple2:#4f46e5;--glow:rgba(108,99,255,0.12);--white:#fff;--grey:#8892b0;--light:#ccd6f6}body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;min-height:100vh}nav{display:flex;align-items:center;justify-content:space-between;padding:18px 40px;border-bottom:1px solid var(--border);background:rgba(13,15,26,.96);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100}.logo{font-family:'Manrope',sans-serif;font-size:1.3rem;font-weight:800;text-decoration:none;color:var(--white)}.logo span{color:var(--purple)}.back-btn{display:flex;align-items:center;gap:7px;color:var(--grey);text-decoration:none;font-size:.88rem;font-weight:600;border:1px solid var(--border);padding:7px 14px;border-radius:8px;transition:all .2s}.back-btn:hover{color:var(--white);border-color:var(--purple)}.container{max-width:720px;margin:0 auto;padding:56px 20px}.tool-header{text-align:center;margin-bottom:44px}.tool-icon-big{width:72px;height:72px;border-radius:20px;background:linear-gradient(135deg,var(--purple),var(--purple2));display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 18px;box-shadow:0 10px 28px rgba(108,99,255,.3)}.tool-header h1{font-family:'Manrope',sans-serif;font-size:2rem;font-weight:800;letter-spacing:-1px;margin-bottom:9px}.tool-header p{color:var(--grey);font-size:.96rem;line-height:1.6}.card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:32px;margin-bottom:20px}.card h2{font-family:'DM Mono',monospace;font-size:.82rem;font-weight:500;margin-bottom:22px;color:var(--purple);text-transform:uppercase;letter-spacing:1.5px}.input-group{margin-bottom:18px}label{display:block;font-size:.84rem;font-weight:600;color:var(--grey);margin-bottom:7px}input[type=date],input[type=number]{width:100%;background:#0d0f1a;border:1px solid var(--border);border-radius:12px;padding:13px 16px;color:var(--white);font-size:1rem;font-family:'DM Mono',monospace;outline:none;transition:border-color .2s;color-scheme:dark}input:focus{border-color:var(--purple)}.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}.toggle-row{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:20px}.tog{padding:12px;background:transparent;border:none;color:var(--grey);font-size:.9rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s}.tog.active{background:var(--glow);color:var(--purple)}.btn{width:100%;padding:15px;border-radius:13px;background:linear-gradient(135deg,var(--purple),var(--purple2));border:none;color:var(--white);font-size:.97rem;font-weight:700;cursor:pointer;font-family:'Manrope',sans-serif;transition:opacity .2s,transform .2s}.btn:hover{opacity:.9;transform:translateY(-1px)}.result-card{background:linear-gradient(135deg,rgba(108,99,255,.08),rgba(79,70,229,.04));border:1px solid rgba(108,99,255,.25);border-radius:20px;padding:32px;display:none;text-align:center}.result-card.show{display:block}.r-big-label{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--grey);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}.r-date{font-family:'Manrope',sans-serif;font-size:2.8rem;font-weight:800;letter-spacing:-1.5px;background:linear-gradient(90deg,var(--purple),var(--purple2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1;margin-bottom:6px}.r-day{color:var(--grey);font-size:.9rem;margin-bottom:24px}.r-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px;text-align:left}.r-item{background:rgba(255,255,255,.04);border-radius:12px;padding:14px;border:1px solid var(--border)}.r-label{font-family:'DM Mono',monospace;font-size:.65rem;color:var(--grey);text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px}.r-val{font-family:'Manrope',sans-serif;font-size:1.05rem;font-weight:700}.tip-box{padding:14px 18px;background:var(--glow);border:1px solid rgba(108,99,255,.2);border-radius:12px;font-size:.85rem;color:var(--light);line-height:1.6;text-align:left}.tip-box strong{color:var(--purple)}@media(max-width:600px){nav{padding:14px 20px}.grid-2,.r-grid{grid-template-columns:1fr}.r-date{font-size:2rem}}</style></head>
+<body>
+<nav><a href="index.html" class="logo">Web<span>Tools</span>Kit</a><a href="index.html" class="back-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Freelance Tools</a></nav>
+<div class="container">
+  <div class="tool-header"><div class="tool-icon-big">📅</div><h1>Notice Period Calculator</h1><p>Find your exact last working day in seconds. Know your timeline so you can plan your next move with confidence.</p></div>
+  <div class="card">
+    <h2>// Your Details</h2>
+    <div class="toggle-row"><button class="tog active" id="btnCal" onclick="setType('calendar')">📅 Calendar Days</button><button class="tog" id="btnWork" onclick="setType('working')">💼 Working Days</button></div>
+    <div class="grid-2">
+      <div class="input-group"><label>Resignation Date</label><input type="date" id="resignDate"/></div>
+      <div class="input-group"><label>Notice Period (Days)</label><input type="number" id="noticeDays" placeholder="30"/></div>
+    </div>
+    <button class="btn" onclick="calculate()">Find My Last Working Day →</button>
+  </div>
+  <div class="result-card" id="result">
+    <div class="r-big-label">Your Last Working Day</div>
+    <div class="r-date" id="lastDay">—</div>
+    <div class="r-day" id="dayName"></div>
+    <div class="r-grid">
+      <div class="r-item"><div class="r-label">Days Remaining</div><div class="r-val" id="daysLeft">0</div></div>
+      <div class="r-item"><div class="r-label">Weeks Remaining</div><div class="r-val" id="weeksLeft">0</div></div>
+      <div class="r-item"><div class="r-label">Notice Type</div><div class="r-val" id="noticeType">—</div></div>
+    </div>
+    <div class="tip-box"><strong>💡 Use This Time Wisely:</strong> Document your work, get LinkedIn recommendations from your manager, complete knowledge transfers, and line up your next opportunity — all before your last day!</div>
+  </div>
+</div>
+<script>
+let nType='calendar';
+function setType(t){nType=t;document.getElementById('btnCal').classList.toggle('active',t==='calendar');document.getElementById('btnWork').classList.toggle('active',t==='working');}
+function addWorkDays(start,days){let d=new Date(start),added=0;while(added<days){d.setDate(d.getDate()+1);if(d.getDay()!==0&&d.getDay()!==6)added++;}return d;}
+function calculate(){
+  const resign=document.getElementById('resignDate').value;
+  const days=parseInt(document.getElementById('noticeDays').value)||0;
+  if(!resign)return;
+  const start=new Date(resign);
+  const last=nType==='calendar'?new Date(start.getTime()+days*86400000):addWorkDays(start,days);
+  const today=new Date();today.setHours(0,0,0,0);
+  const diff=Math.max(0,Math.ceil((last-today)/86400000));
+  const months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const days2=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  document.getElementById('lastDay').textContent=`${last.getDate()} ${months[last.getMonth()]} ${last.getFullYear()}`;
+  document.getElementById('dayName').textContent=days2[last.getDay()];
+  document.getElementById('daysLeft').textContent=diff+' days';
+  document.getElementById('weeksLeft').textContent=Math.floor(diff/7)+' weeks';
+  document.getElementById('noticeType').textContent=nType==='calendar'?'Calendar':'Working';
+  const res=document.getElementById('result');res.classList.add('show');res.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+document.getElementById('resignDate').valueAsDate=new Date();
+</script>
+</body></html>

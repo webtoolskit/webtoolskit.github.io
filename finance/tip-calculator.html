@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tip Calculator — WebToolsKit Finance</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#0a0a0a;--card:#141414;--border:#2a2a2a;--orange:#ff5500;--orange2:#ff2200;--og:rgba(255,85,0,0.12);--white:#fff;--grey:#999}
+    body{background:var(--bg);color:var(--white);font-family:'Inter',sans-serif;min-height:100vh}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:18px 40px;border-bottom:1px solid var(--border);background:rgba(10,10,10,.96);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100}
+    .logo{font-size:1.3rem;font-weight:900;text-decoration:none;color:var(--white)}.logo span{color:var(--orange)}
+    .back-btn{display:flex;align-items:center;gap:7px;color:var(--grey);text-decoration:none;font-size:.88rem;font-weight:600;border:1px solid var(--border);padding:7px 14px;border-radius:8px;transition:all .2s}
+    .back-btn:hover{color:var(--white);border-color:var(--orange)}
+    .container{max-width:700px;margin:0 auto;padding:56px 20px}
+    .tool-header{text-align:center;margin-bottom:44px}
+    .tool-icon-big{width:70px;height:70px;border-radius:20px;background:linear-gradient(135deg,var(--orange),var(--orange2));display:flex;align-items:center;justify-content:center;font-size:1.9rem;margin:0 auto 18px;box-shadow:0 10px 28px rgba(255,85,0,.35)}
+    .tool-header h1{font-size:1.9rem;font-weight:900;letter-spacing:-.5px;margin-bottom:9px}
+    .tool-header p{color:var(--grey);font-size:.96rem;line-height:1.6}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:32px;margin-bottom:20px}
+    .card h2{font-size:.9rem;font-weight:700;margin-bottom:22px;color:var(--orange);text-transform:uppercase;letter-spacing:1px}
+    .input-group{margin-bottom:18px}
+    label{display:block;font-size:.85rem;font-weight:600;color:var(--grey);margin-bottom:7px}
+    .input-wrap{position:relative}
+    .input-prefix{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--orange);font-weight:700;font-size:.9rem}
+    input[type=number]{width:100%;background:#0a0a0a;border:1px solid var(--border);border-radius:11px;padding:13px 14px 13px 44px;color:var(--white);font-size:.97rem;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s}
+    input[type=number]:focus{border-color:var(--orange)}
+    .tip-options{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:16px}
+    .tip-opt{padding:10px 4px;background:#0a0a0a;border:1px solid var(--border);border-radius:9px;color:var(--grey);font-size:.85rem;font-weight:700;cursor:pointer;text-align:center;transition:all .2s;font-family:'Inter',sans-serif}
+    .tip-opt:hover,.tip-opt.active{background:var(--og);border-color:var(--orange);color:var(--orange)}
+    .people-row{display:flex;align-items:center;gap:14px}
+    .people-btn{width:38px;height:38px;border-radius:9px;background:var(--og);border:1px solid rgba(255,85,0,.3);color:var(--orange);font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:700}
+    .people-num{font-size:1.4rem;font-weight:900;min-width:30px;text-align:center}
+    .btn{width:100%;padding:15px;border-radius:13px;background:linear-gradient(135deg,var(--orange),var(--orange2));border:none;color:var(--white);font-size:.97rem;font-weight:800;cursor:pointer;font-family:'Inter',sans-serif;transition:opacity .2s,transform .2s;margin-top:6px}
+    .btn:hover{opacity:.9;transform:translateY(-1px)}
+    .result-card{background:linear-gradient(135deg,rgba(255,85,0,.1),rgba(255,34,0,.05));border:1px solid rgba(255,85,0,.3);border-radius:18px;padding:32px;display:none}
+    .result-card.show{display:block}
+    .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}
+    .r-item{background:rgba(255,255,255,.04);border-radius:12px;padding:18px;border:1px solid var(--border);text-align:center}
+    .r-label{font-size:.72rem;color:var(--grey);font-weight:600;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px}
+    .r-val{font-size:1.4rem;font-weight:900}
+    .r-val.big{font-size:1.8rem;background:linear-gradient(90deg,var(--orange),var(--orange2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    @media(max-width:600px){nav{padding:14px 20px}.tip-options{grid-template-columns:repeat(3,1fr)}.result-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">Web<span>Tools</span>Kit</a>
+  <a href="index.html" class="back-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Finance Tools</a>
+</nav>
+<div class="container">
+  <div class="tool-header">
+    <div class="tool-icon-big">🍽️</div>
+    <h1>Tip Calculator</h1>
+    <p>Calculate the perfect tip and split your restaurant bill fairly among any number of people.</p>
+  </div>
+  <div class="card">
+    <h2>🧾 Bill Details</h2>
+    <div class="input-group">
+      <label>Total Bill Amount</label>
+      <div class="input-wrap"><span class="input-prefix">₹</span><input type="number" id="bill" placeholder="2500" oninput="calculate()"/></div>
+    </div>
+    <div class="input-group">
+      <label>Tip Percentage</label>
+      <div class="tip-options">
+        <button class="tip-opt" onclick="setTip(5)">5%</button>
+        <button class="tip-opt" onclick="setTip(10)">10%</button>
+        <button class="tip-opt active" onclick="setTip(15)">15%</button>
+        <button class="tip-opt" onclick="setTip(20)">20%</button>
+        <button class="tip-opt" onclick="setTip(25)">25%</button>
+      </div>
+      <div class="input-wrap"><span class="input-prefix">%</span><input type="number" id="tipPct" placeholder="15" value="15" oninput="calculate()"/></div>
+    </div>
+    <div class="input-group">
+      <label>Number of People</label>
+      <div class="people-row">
+        <button class="people-btn" onclick="changePeople(-1)">−</button>
+        <div class="people-num" id="peopleNum">2</div>
+        <button class="people-btn" onclick="changePeople(1)">+</button>
+      </div>
+    </div>
+  </div>
+  <div class="result-card show" id="result">
+    <div class="result-grid">
+      <div class="r-item"><div class="r-label">Tip Amount</div><div class="r-val" id="tipAmt">₹0</div></div>
+      <div class="r-item"><div class="r-label">Total with Tip</div><div class="r-val" id="totalAmt">₹0</div></div>
+      <div class="r-item"><div class="r-label">Per Person (Bill)</div><div class="r-val" id="perBill">₹0</div></div>
+      <div class="r-item"><div class="r-label">Per Person (Total)</div><div class="r-val big" id="perTotal">₹0</div></div>
+    </div>
+  </div>
+</div>
+<script>
+let people=2,tipPct=15;
+function fmt(n){return '₹'+n.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,',')}
+function setTip(v){tipPct=v;document.getElementById('tipPct').value=v;document.querySelectorAll('.tip-opt').forEach(b=>b.classList.remove('active'));event.target.classList.add('active');calculate();}
+function changePeople(d){people=Math.max(1,people+d);document.getElementById('peopleNum').textContent=people;calculate();}
+function calculate(){
+  const bill=parseFloat(document.getElementById('bill').value)||0;
+  tipPct=parseFloat(document.getElementById('tipPct').value)||0;
+  const tip=bill*tipPct/100;const total=bill+tip;
+  document.getElementById('tipAmt').textContent=fmt(tip);
+  document.getElementById('totalAmt').textContent=fmt(total);
+  document.getElementById('perBill').textContent=fmt(bill/people);
+  document.getElementById('perTotal').textContent=fmt(total/people);
+}
+calculate();
+</script>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WebToolsKit — 49 Free Online Tools</title>
+  <meta name="description" content="49 free online tools across Finance, Health, Freelance, Students and Utility. No signup, no cost, forever free."/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#080808;--card:#111111;--card-hover:#161616;--border:#1f1f1f;--white:#ffffff;--grey:#888888;--light:#cccccc;--orange:#ff5500;--green:#00e64d;--purple:#6c63ff;--yellow:#f5c518;--red:#c50337}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;min-height:100vh;overflow-x:hidden}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 48px;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(8,8,8,0.97);backdrop-filter:blur(16px);z-index:100}
+    .logo{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;text-decoration:none;color:var(--white);letter-spacing:.5px;font-style:italic}
+    .logo span{background:linear-gradient(90deg,var(--orange),var(--red));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .nav-links{display:flex;align-items:center;gap:4px}
+    .nav-link{color:var(--grey);text-decoration:none;font-size:.85rem;font-weight:600;padding:7px 14px;border-radius:8px;transition:all .2s;border:1px solid transparent}
+    .nav-link:hover{color:var(--white);border-color:var(--border)}
+    .nav-link.finance:hover{color:var(--orange);border-color:rgba(255,85,0,.3)}
+    .nav-link.health:hover{color:var(--green);border-color:rgba(0,230,77,.3)}
+    .nav-link.freelance:hover{color:var(--purple);border-color:rgba(108,99,255,.3)}
+    .nav-link.students:hover{color:var(--yellow);border-color:rgba(245,197,24,.3)}
+    .nav-link.utility:hover{color:var(--red);border-color:rgba(197,3,55,.3)}
+    .nav-about{color:var(--grey);text-decoration:none;font-size:.85rem;font-weight:600;padding:7px 14px;border-radius:8px;transition:all .2s;border:1px solid var(--border);margin-right:6px}
+    .nav-about:hover{color:var(--white);border-color:rgba(255,255,255,.3)}
+    .hero{text-align:center;padding:100px 20px 80px;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;top:-150px;left:50%;transform:translateX(-50%);width:900px;height:600px;background:radial-gradient(ellipse,rgba(255,85,0,0.07) 0%,rgba(108,99,255,0.04) 40%,transparent 70%);pointer-events:none}
+    .hero-eyebrow{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:var(--light);font-size:.75rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:7px 20px;border-radius:100px;margin-bottom:32px;font-family:'DM Mono',monospace}
+    .hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,8vw,6.5rem);font-weight:700;line-height:1;letter-spacing:-3px;margin-bottom:24px;font-style:italic}
+    .hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--orange),var(--red));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .hero-sub{font-size:1.05rem;color:var(--grey);max-width:520px;margin:0 auto 48px;line-height:1.7}
+    .hero-stats{display:flex;justify-content:center;margin-bottom:56px;border:1px solid var(--border);border-radius:16px;overflow:hidden;max-width:600px;margin-left:auto;margin-right:auto;margin-bottom:48px}
+    .stat{padding:22px 40px;border-right:1px solid var(--border);text-align:center;flex:1}
+    .stat:last-child{border-right:none}
+    .stat-num{font-family:'DM Mono',monospace;font-size:2rem;font-weight:500;color:var(--white);display:block}
+    .stat-label{font-size:.72rem;color:var(--grey);margin-top:4px;text-transform:uppercase;letter-spacing:1px}
+    .hero-cta{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;border-radius:12px;background:var(--white);color:var(--bg);font-size:.95rem;font-weight:700;text-decoration:none;font-family:'Outfit',sans-serif;transition:all .2s}
+    .hero-cta:hover{background:var(--light);transform:translateY(-2px)}
+    .niches-section{max-width:1280px;margin:0 auto;padding:60px 40px 100px}
+    .section-label{font-family:'DM Mono',monospace;font-size:.72rem;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--grey);margin-bottom:28px;text-align:center}
+    .niches-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .niche-card{border-radius:24px;padding:36px;text-decoration:none;color:var(--white);transition:all .3s;position:relative;overflow:hidden;display:block;border:1px solid var(--border)}
+    .niche-card::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity .3s}
+    .niche-card:hover{transform:translateY(-6px)}
+    .niche-card:hover::before{opacity:1}
+    .card-finance{background:linear-gradient(145deg,#0f0a06,#080604)}.card-finance::before{background:linear-gradient(145deg,rgba(255,85,0,.07),transparent)}.card-finance:hover{border-color:rgba(255,85,0,.4);box-shadow:0 24px 60px rgba(255,85,0,.15)}.card-finance .nc-icon{background:linear-gradient(135deg,#ff5500,#ff2200);box-shadow:0 8px 24px rgba(255,85,0,.35)}.card-finance .nc-tag{color:#ff5500;background:rgba(255,85,0,.1);border-color:rgba(255,85,0,.2)}.card-finance .nc-cta{color:#ff5500}.card-finance .tool-pill{background:rgba(255,85,0,.08);border-color:rgba(255,85,0,.2);color:#ff8844}.card-finance .nc-count{color:#ff5500}
+    .card-health{background:linear-gradient(145deg,#060f08,#040b06)}.card-health::before{background:linear-gradient(145deg,rgba(0,230,77,.07),transparent)}.card-health:hover{border-color:rgba(0,230,77,.4);box-shadow:0 24px 60px rgba(0,230,77,.12)}.card-health .nc-icon{background:linear-gradient(135deg,#00e64d,#00c43f);box-shadow:0 8px 24px rgba(0,230,77,.3)}.card-health .nc-tag{color:#00e64d;background:rgba(0,230,77,.1);border-color:rgba(0,230,77,.2)}.card-health .nc-cta{color:#00e64d}.card-health .tool-pill{background:rgba(0,230,77,.07);border-color:rgba(0,230,77,.2);color:#44ee88}.card-health .nc-count{color:#00e64d}
+    .card-freelance{background:linear-gradient(145deg,#09081a,#060510)}.card-freelance::before{background:linear-gradient(145deg,rgba(108,99,255,.07),transparent)}.card-freelance:hover{border-color:rgba(108,99,255,.4);box-shadow:0 24px 60px rgba(108,99,255,.15)}.card-freelance .nc-icon{background:linear-gradient(135deg,#6c63ff,#4f46e5);box-shadow:0 8px 24px rgba(108,99,255,.35)}.card-freelance .nc-tag{color:#6c63ff;background:rgba(108,99,255,.1);border-color:rgba(108,99,255,.2)}.card-freelance .nc-cta{color:#6c63ff}.card-freelance .tool-pill{background:rgba(108,99,255,.07);border-color:rgba(108,99,255,.2);color:#9b94ff}.card-freelance .nc-count{color:#6c63ff}
+    .card-students{background:linear-gradient(145deg,#0e0d03,#090801)}.card-students::before{background:linear-gradient(145deg,rgba(245,197,24,.07),transparent)}.card-students:hover{border-color:rgba(245,197,24,.4);box-shadow:0 24px 60px rgba(245,197,24,.12)}.card-students .nc-icon{background:linear-gradient(135deg,#f5c518,#e6b800);box-shadow:0 8px 24px rgba(245,197,24,.3)}.card-students .nc-tag{color:#f5c518;background:rgba(245,197,24,.1);border-color:rgba(245,197,24,.2)}.card-students .nc-cta{color:#f5c518}.card-students .tool-pill{background:rgba(245,197,24,.07);border-color:rgba(245,197,24,.2);color:#f5d060}.card-students .nc-count{color:#f5c518}
+    .card-utility{background:linear-gradient(145deg,#0e0306,#090204)}.card-utility::before{background:linear-gradient(145deg,rgba(197,3,55,.07),transparent)}.card-utility:hover{border-color:rgba(197,3,55,.4);box-shadow:0 24px 60px rgba(197,3,55,.15)}.card-utility .nc-icon{background:linear-gradient(135deg,#c50337,#8b0227);box-shadow:0 8px 24px rgba(197,3,55,.35)}.card-utility .nc-tag{color:#c50337;background:rgba(197,3,55,.1);border-color:rgba(197,3,55,.2)}.card-utility .nc-cta{color:#c50337}.card-utility .tool-pill{background:rgba(197,3,55,.07);border-color:rgba(197,3,55,.2);color:#e85580}.card-utility .nc-count{color:#c50337}
+    .nc-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}
+    .nc-icon{width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.6rem}
+    .nc-count{font-family:'DM Mono',monospace;font-size:.82rem;font-weight:500}
+    .nc-tag{display:inline-block;font-family:'DM Mono',monospace;font-size:.65rem;font-weight:500;letter-spacing:1px;text-transform:uppercase;border:1px solid;padding:3px 10px;border-radius:100px;margin-bottom:10px}
+    .nc-title{font-family:'Outfit',sans-serif;font-size:1.4rem;font-weight:700;letter-spacing:-.3px;margin-bottom:8px}
+    .nc-desc{font-size:.86rem;color:var(--grey);line-height:1.65;margin-bottom:20px}
+    .tool-pills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:22px}
+    .tool-pill{font-size:.72rem;font-weight:600;border:1px solid;padding:4px 10px;border-radius:100px;font-family:'DM Mono',monospace}
+    .nc-cta{display:flex;align-items:center;gap:6px;font-size:.85rem;font-weight:700}
+    .nc-cta svg{transition:transform .2s}
+    .niche-card:hover .nc-cta svg{transform:translateX(5px)}
+    .about-section{max-width:860px;margin:0 auto;padding:0 40px 100px;text-align:center}
+    .about-badge{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--grey);text-transform:uppercase;letter-spacing:2px;margin-bottom:20px;display:block}
+    .about-title{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:700;font-style:italic;letter-spacing:-1px;margin-bottom:20px;line-height:1.1}
+    .about-text{font-size:.97rem;color:var(--grey);line-height:1.8;margin-bottom:14px}
+    footer{border-top:1px solid var(--border);padding:60px 48px 32px;background:#050505}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;max-width:1280px;margin:0 auto 48px}
+    .footer-logo{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;font-style:italic;color:var(--white);margin-bottom:12px;display:block}
+    .footer-logo span{background:linear-gradient(90deg,var(--orange),var(--red));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .footer-brand p{font-size:.85rem;color:var(--grey);line-height:1.7;max-width:280px}
+    .footer-col h4{font-family:'Outfit',sans-serif;font-size:.78rem;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:16px}
+    .footer-col a{display:block;color:var(--grey);text-decoration:none;font-size:.85rem;margin-bottom:10px;transition:color .2s}
+    .footer-col a:hover{color:var(--white)}
+    .footer-col a.o:hover{color:var(--orange)}
+    .footer-col a.g:hover{color:var(--green)}
+    .footer-col a.p:hover{color:var(--purple)}
+    .footer-col a.y:hover{color:var(--yellow)}
+    .footer-col a.r:hover{color:var(--red)}
+    .footer-bottom{max-width:1280px;margin:0 auto;border-top:1px solid var(--border);padding-top:28px;display:flex;justify-content:space-between;align-items:center;font-size:.8rem;color:var(--grey)}
+    .footer-bottom a{color:var(--grey);text-decoration:none;transition:color .2s}
+    .footer-bottom a:hover{color:var(--white)}
+    @media(max-width:1024px){.niches-grid{grid-template-columns:1fr 1fr}.footer-grid{grid-template-columns:1fr 1fr;gap:32px}}
+    @media(max-width:768px){nav{padding:14px 20px}.nav-links{display:none}.hero{padding:60px 20px 50px}.hero-stats{flex-wrap:wrap}.stat{padding:14px 20px;flex:1;min-width:120px}.niches-section{padding:40px 16px 60px}.niches-grid{grid-template-columns:1fr}.about-section{padding:0 20px 60px}.about-title{font-size:2rem}footer{padding:40px 20px 24px}.footer-grid{grid-template-columns:1fr 1fr;gap:28px}.footer-bottom{flex-direction:column;gap:10px;text-align:center}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">Web<span>Tools</span>Kit</a>
+  <div class="nav-links">
+    <a href="#about" class="nav-about">About</a>
+    <a href="finance/index.html" class="nav-link finance">💰 Finance</a>
+    <a href="health/index.html" class="nav-link health">🌿 Health</a>
+    <a href="freelance/index.html" class="nav-link freelance">💼 Freelance</a>
+    <a href="students/index.html" class="nav-link students">🎓 Students</a>
+    <a href="utility/index.html" class="nav-link utility">⚡ Utility</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-eyebrow">⚡ 49 Free Tools &nbsp;·&nbsp; 5 Niches &nbsp;·&nbsp; Zero Cost</div>
+  <h1>Tools That Solve<br/><em>Real Problems</em></h1>
+  <p class="hero-sub">Free online calculators and tools for finance, health, freelancing, students, and everyday productivity. No signup. No clutter. Just tools that work.</p>
+  <div class="hero-stats">
+    <div class="stat"><span class="stat-num">49+</span><span class="stat-label">Free Tools</span></div>
+    <div class="stat"><span class="stat-num">5</span><span class="stat-label">Niches</span></div>
+    <div class="stat"><span class="stat-num">0₹</span><span class="stat-label">Cost</span></div>
+    <div class="stat"><span class="stat-num">∞</span><span class="stat-label">Uses</span></div>
+  </div>
+  <a href="#tools" class="hero-cta">Explore All Tools <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+</section>
+
+<section class="niches-section" id="tools">
+  <div class="section-label">// Explore by Category</div>
+  <div class="niches-grid">
+
+    <a href="finance/index.html" class="niche-card card-finance">
+      <div class="nc-header"><div class="nc-icon">💰</div><span class="nc-count">11 Tools</span></div>
+      <div class="nc-tag">Finance</div>
+      <div class="nc-title">Finance Tools</div>
+      <div class="nc-desc">Master your money with EMI calculators, SIP planners, salary hike tools, and smart budget allocators.</div>
+      <div class="tool-pills"><span class="tool-pill">EMI Calculator</span><span class="tool-pill">SIP Returns</span><span class="tool-pill">Salary Hike</span><span class="tool-pill">Rent vs Buy</span><span class="tool-pill">+7 more</span></div>
+      <div class="nc-cta">Explore Finance Tools <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
+
+    <a href="health/index.html" class="niche-card card-health">
+      <div class="nc-header"><div class="nc-icon">🌿</div><span class="nc-count">8 Tools</span></div>
+      <div class="nc-tag">Health</div>
+      <div class="nc-title">Health Tools</div>
+      <div class="nc-desc">Know your body better with BMI, TDEE, water intake, sleep cycle, and calorie calculators backed by science.</div>
+      <div class="tool-pills"><span class="tool-pill">BMI Calculator</span><span class="tool-pill">TDEE</span><span class="tool-pill">Sleep Cycle</span><span class="tool-pill">Calorie Burn</span><span class="tool-pill">+4 more</span></div>
+      <div class="nc-cta">Explore Health Tools <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
+
+    <a href="freelance/index.html" class="niche-card card-freelance">
+      <div class="nc-header"><div class="nc-icon">💼</div><span class="nc-count">8 Tools</span></div>
+      <div class="nc-tag">Freelance</div>
+      <div class="nc-title">Freelance Tools</div>
+      <div class="nc-desc">Know your worth, price your work, and grow your income with rate calculators, invoice generators, and profit tools.</div>
+      <div class="tool-pills"><span class="tool-pill">Rate Calculator</span><span class="tool-pill">Invoice Generator</span><span class="tool-pill">Project Profit</span><span class="tool-pill">+5 more</span></div>
+      <div class="nc-cta">Explore Freelance Tools <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
+
+    <a href="students/index.html" class="niche-card card-students">
+      <div class="nc-header"><div class="nc-icon">🎓</div><span class="nc-count">8 Tools</span></div>
+      <div class="nc-tag">Students</div>
+      <div class="nc-title">Student Tools</div>
+      <div class="nc-desc">Study smarter with CGPA calculators, attendance trackers, study planners, and scholarship checkers.</div>
+      <div class="tool-pills"><span class="tool-pill">CGPA Calculator</span><span class="tool-pill">Attendance</span><span class="tool-pill">Study Planner</span><span class="tool-pill">+5 more</span></div>
+      <div class="nc-cta">Explore Student Tools <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
+
+    <a href="utility/index.html" class="niche-card card-utility" style="grid-column:span 2">
+      <div class="nc-header"><div class="nc-icon">⚡</div><span class="nc-count">14 Tools</span></div>
+      <div class="nc-tag">Utility</div>
+      <div class="nc-title">Utility Tools</div>
+      <div class="nc-desc">Everyday tools for creators, writers, and developers. QR codes, password checkers, unit converters, Pomodoro timer, SEO meta checkers, and more.</div>
+      <div class="tool-pills"><span class="tool-pill">QR Generator</span><span class="tool-pill">Password Checker</span><span class="tool-pill">Word Counter</span><span class="tool-pill">Pomodoro Timer</span><span class="tool-pill">Unit Converter</span><span class="tool-pill">+9 more</span></div>
+      <div class="nc-cta">Explore Utility Tools <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
+
+  </div>
+</section>
+
+<section class="about-section" id="about">
+  <span class="about-badge">// About WebToolsKit</span>
+  <div class="about-title">Built for Real People,<br/>Solving Real Problems</div>
+  <p class="about-text">WebToolsKit is a collection of 49 free online calculators and tools built for everyday people — students, freelancers, professionals, and curious minds. Every tool is designed to be fast, accurate, and completely free to use without any signup or subscription.</p>
+  <p class="about-text">From calculating your EMI before taking a loan, to finding out how many classes you can skip while staying above 75% attendance — these tools exist because we believe useful software should be accessible to everyone.</p>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="footer-logo">Web<span>Tools</span>Kit</span>
+      <p>49 free online tools across 5 niches. No signup, no cost, no clutter. Built for real people solving real problems.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Tools</h4>
+      <a href="finance/index.html" class="o">💰 Finance Tools</a>
+      <a href="health/index.html" class="g">🌿 Health Tools</a>
+      <a href="freelance/index.html" class="p">💼 Freelance Tools</a>
+      <a href="students/index.html" class="y">🎓 Student Tools</a>
+      <a href="utility/index.html" class="r">⚡ Utility Tools</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="legal/privacy-policy.html">Privacy Policy</a>
+      <a href="legal/disclaimer.html">Disclaimer</a>
+      <a href="legal/terms-conditions.html">Terms & Conditions</a>
+      <a href="legal/contact.html">Contact Us</a>
+      <a href="legal/copyright.html">Copyright</a>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="#about">About Us</a>
+      <a href="finance/emi-calculator.html">EMI Calculator</a>
+      <a href="health/bmi-calculator.html">BMI Calculator</a>
+      <a href="utility/qr-generator.html">QR Generator</a>
+      <a href="utility/password-checker.html">Password Checker</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 WebToolsKit. All rights reserved.</span>
+    <div style="display:flex;gap:20px">
+      <a href="legal/privacy-policy.html">Privacy</a>
+      <a href="legal/terms-conditions.html">Terms</a>
+      <a href="legal/contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

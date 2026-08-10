@@ -1,110 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Currency Converter — WebToolsKit Finance</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Currency Converter — WebToolsKit</title>
+  <meta name="description" content="Convert between major world currencies instantly using standard reference rates."/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--bg:#0a0a0a;--card:#141414;--border:#2a2a2a;--orange:#ff5500;--orange2:#ff2200;--og:rgba(255,85,0,0.12);--white:#fff;--grey:#999}
-    body{background:var(--bg);color:var(--white);font-family:'Inter',sans-serif;min-height:100vh}
-    nav{display:flex;align-items:center;justify-content:space-between;padding:18px 40px;border-bottom:1px solid var(--border);background:rgba(10,10,10,.96);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100}
-    .logo{font-size:1.3rem;font-weight:900;text-decoration:none;color:var(--white)}.logo span{color:var(--orange)}
-    .back-btn{display:flex;align-items:center;gap:7px;color:var(--grey);text-decoration:none;font-size:.88rem;font-weight:600;border:1px solid var(--border);padding:7px 14px;border-radius:8px;transition:all .2s}
-    .back-btn:hover{color:var(--white);border-color:var(--orange)}
-    .container{max-width:700px;margin:0 auto;padding:56px 20px}
-    .tool-header{text-align:center;margin-bottom:44px}
-    .tool-icon-big{width:70px;height:70px;border-radius:20px;background:linear-gradient(135deg,var(--orange),var(--orange2));display:flex;align-items:center;justify-content:center;font-size:1.9rem;margin:0 auto 18px;box-shadow:0 10px 28px rgba(255,85,0,.35)}
-    .tool-header h1{font-size:1.9rem;font-weight:900;letter-spacing:-.5px;margin-bottom:9px}
-    .tool-header p{color:var(--grey);font-size:.96rem;line-height:1.6}
-    .card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:32px;margin-bottom:20px}
-    .card h2{font-size:.9rem;font-weight:700;margin-bottom:22px;color:var(--orange);text-transform:uppercase;letter-spacing:1px}
-    .conv-row{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:end;margin-bottom:22px}
+    :root{--bg:#0f1117;--nav:#000000;--footer-bg:#000000;--card:#1a1d27;--border:#2a2d3a;--white:#ffffff;--grey:#8b8fa8;--light:#c8cad8;--orange:#ff5500;--orange2:#ff2200;--red:#c50337}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;min-height:100vh}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:18px 48px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--nav);backdrop-filter:blur(16px);z-index:100}
+    .logo{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;text-decoration:none;color:var(--white);letter-spacing:.5px;font-style:italic}
+    .logo-accent{background:linear-gradient(90deg,var(--orange),var(--red));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .nav-links{display:flex;align-items:center;gap:4px}
+    .nav-home{color:var(--grey);text-decoration:none;font-size:.85rem;font-weight:600;padding:7px 14px;border-radius:8px;border:1px solid var(--border);transition:all .2s;margin-right:4px;font-family:'DM Sans',sans-serif}
+    .nav-home:hover{color:var(--white);border-color:rgba(255,255,255,.3)}
+    .nav-link{color:var(--grey);text-decoration:none;font-size:.85rem;font-weight:600;padding:7px 14px;border-radius:8px;border:1px solid transparent;transition:all .2s;font-family:'DM Sans',sans-serif}
+    .nav-link.c-g:hover{color:#00e64d;border-color:rgba(0,230,77,.3)}
+    .nav-link.c-p:hover{color:#6c63ff;border-color:rgba(108,99,255,.3)}
+    .nav-link.c-y:hover{color:#f5c518;border-color:rgba(245,197,24,.3)}
+    .nav-link.c-r:hover{color:#c50337;border-color:rgba(197,3,55,.3)}
+    .tool-hero{padding:60px 40px 40px;max-width:1000px;margin:0 auto}
+    .tool-breadcrumb{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--grey);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+    .tool-breadcrumb a{color:var(--orange);text-decoration:none}
+    .tool-title-row{display:flex;align-items:center;gap:20px;margin-bottom:16px}
+    .tool-icon-big{width:72px;height:72px;border-radius:20px;background:linear-gradient(135deg,var(--orange),var(--orange2));display:flex;align-items:center;justify-content:center;font-size:2rem;box-shadow:0 10px 28px rgba(255,85,0,.35);flex-shrink:0}
+    .tool-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:700;font-style:italic;letter-spacing:-1px;color:var(--white);line-height:1}
+    .tool-desc{font-size:1rem;color:var(--grey);line-height:1.7;font-family:'DM Sans',sans-serif;max-width:700px}
+    .tool-wrap{max-width:1000px;margin:0 auto;padding:0 40px 40px}
+    .calc-card{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:36px;margin-bottom:24px}
+    .calc-card h2{font-family:'DM Mono',monospace;font-size:.78rem;font-weight:500;color:var(--orange);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:24px}
+    .input-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
     .input-group{margin-bottom:0}
-    label{display:block;font-size:.85rem;font-weight:600;color:var(--grey);margin-bottom:7px}
-    input[type=number],select{width:100%;background:#0a0a0a;border:1px solid var(--border);border-radius:11px;padding:13px 14px;color:var(--white);font-size:.97rem;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s}
-    input[type=number]:focus,select:focus{border-color:var(--orange)}
-    select option{background:#141414}
-    .swap-btn{width:44px;height:44px;border-radius:11px;background:var(--og);border:1px solid rgba(255,85,0,.3);color:var(--orange);font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;margin-bottom:0}
-    .swap-btn:hover{background:rgba(255,85,0,.2)}
-    .btn{width:100%;padding:15px;border-radius:13px;background:linear-gradient(135deg,var(--orange),var(--orange2));border:none;color:var(--white);font-size:.97rem;font-weight:800;cursor:pointer;font-family:'Inter',sans-serif;transition:opacity .2s,transform .2s}
-    .btn:hover{opacity:.9;transform:translateY(-1px)}
-    .result-card{background:linear-gradient(135deg,rgba(255,85,0,.1),rgba(255,34,0,.05));border:1px solid rgba(255,85,0,.3);border-radius:18px;padding:32px;display:none;text-align:center}
+    .input-group label{display:block;font-size:.84rem;font-weight:600;color:var(--grey);margin-bottom:7px;font-family:'DM Sans',sans-serif}
+    .input-wrap{position:relative}
+    .input-prefix{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--orange);font-weight:600;font-size:.88rem;font-family:'DM Mono',monospace}
+    input[type=number],input[type=text],select{width:100%;background:#0f1117;border:1px solid var(--border);border-radius:12px;padding:13px 14px 13px 40px;color:var(--white);font-size:.97rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}
+    input.no-prefix{padding-left:14px}
+    input:focus,select:focus{border-color:var(--orange)}
+    select{-webkit-appearance:none;padding-left:14px}
+    .calc-btn{width:100%;padding:15px;border-radius:13px;background:linear-gradient(135deg,var(--orange),var(--orange2));border:none;color:#fff;font-size:.97rem;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;transition:opacity .2s,transform .2s;margin-top:20px}
+    .calc-btn:hover{opacity:.9;transform:translateY(-1px)}
+    .result-card{background:linear-gradient(135deg,rgba(255,85,0,.1),rgba(255,34,0,.05));border:1px solid rgba(255,85,0,.25);border-radius:20px;padding:32px;display:none;text-align:center;margin-bottom:24px}
     .result-card.show{display:block}
-    .result-number{font-size:3rem;font-weight:900;letter-spacing:-2px;background:linear-gradient(90deg,var(--orange),var(--orange2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px}
-    .result-rate{color:var(--grey);font-size:.9rem;margin-bottom:24px}
-    .quick-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-    .quick-item{background:rgba(255,255,255,.04);border-radius:10px;padding:12px 8px;border:1px solid var(--border);text-align:center}
-    .quick-amount{font-size:.72rem;color:var(--grey);margin-bottom:4px}
-    .quick-val{font-size:.9rem;font-weight:700}
-    .note{margin-top:16px;font-size:.78rem;color:var(--grey);text-align:center}
-    @media(max-width:600px){nav{padding:14px 20px}.conv-row{grid-template-columns:1fr;}.swap-btn{width:100%;height:38px}.quick-grid{grid-template-columns:1fr 1fr}}
+    .result-label{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--grey);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
+    .result-main{font-family:'Outfit',sans-serif;font-size:3.5rem;font-weight:800;letter-spacing:-2px;background:linear-gradient(90deg,var(--orange),var(--orange2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:8px}
+    .result-sub{font-size:.9rem;color:var(--grey);font-family:'DM Sans',sans-serif}
+    .result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+    .result-item{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;padding:14px;text-align:center}
+    .result-item-label{font-family:'DM Mono',monospace;font-size:.62rem;color:var(--grey);text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px}
+    .result-item-val{font-family:'Outfit',sans-serif;font-size:1.1rem;font-weight:700;color:var(--white)}
+    .content-section{max-width:1000px;margin:0 auto;padding:0 40px 80px}
+    .content-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:36px;margin-bottom:20px}
+    .content-card h2{font-family:'Outfit',sans-serif;font-size:1.2rem;font-weight:700;color:var(--white);margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+    .content-card p{font-size:.92rem;color:var(--light);line-height:1.85;margin-bottom:12px;font-family:'DM Sans',sans-serif}
+    .content-card ul{list-style:none;padding:0}
+    .content-card ul li{font-size:.92rem;color:var(--light);line-height:1.75;padding:6px 0 6px 20px;position:relative;font-family:'DM Sans',sans-serif}
+    .content-card ul li::before{content:'→';position:absolute;left:0;color:var(--orange);font-weight:700}
+    .steps{counter-reset:step}
+    .step{display:flex;gap:16px;margin-bottom:16px;align-items:flex-start}
+    .step-num{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--orange2));display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;flex-shrink:0;color:#fff}
+    .step-text{font-size:.92rem;color:var(--light);line-height:1.7;font-family:'DM Sans',sans-serif;padding-top:4px}
+    .faq-item{border-bottom:1px solid var(--border);padding:18px 0}
+    .faq-item:last-child{border-bottom:none}
+    .faq-q{font-family:'Outfit',sans-serif;font-size:.97rem;font-weight:700;color:var(--white);margin-bottom:8px}
+    .faq-a{font-size:.9rem;color:var(--light);line-height:1.75;font-family:'DM Sans',sans-serif}
+    .tip-box{background:rgba(255,85,0,.08);border:1px solid rgba(255,85,0,.2);border-radius:12px;padding:16px 20px;font-size:.88rem;color:var(--light);line-height:1.7;font-family:'DM Sans',sans-serif}
+    .tip-box strong{color:var(--orange)}
+    .site-footer{border-top:1px solid var(--border);padding:56px 48px 28px;background:var(--footer-bg)}
+    .site-footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;max-width:1200px;margin:0 auto 40px}
+    .sf-logo{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;font-style:italic;color:var(--white);margin-bottom:10px;display:block;text-decoration:none}
+    .sf-brand p{font-size:.83rem;color:var(--grey);line-height:1.7;max-width:240px;margin-top:8px;font-family:'DM Sans',sans-serif}
+    .sf-col h4{font-family:'Outfit',sans-serif;font-size:.75rem;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px}
+    .sf-col a{display:block;color:var(--grey);text-decoration:none;font-size:.83rem;margin-bottom:9px;transition:color .2s;font-family:'DM Sans',sans-serif}
+    .sf-col a:hover{color:var(--white)}
+    .sf-col a.c-o:hover{color:#ff5500}.sf-col a.c-g:hover{color:#00e64d}.sf-col a.c-p:hover{color:#6c63ff}.sf-col a.c-y:hover{color:#f5c518}.sf-col a.c-r:hover{color:#c50337}
+    .sf-bottom{max-width:1200px;margin:0 auto;border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:var(--grey);font-family:'DM Sans',sans-serif}
+    .sf-bottom a{color:var(--grey);text-decoration:none;margin-left:18px;transition:color .2s}
+    .sf-bottom a:hover{color:var(--white)}
+    @media(max-width:900px){.site-footer-grid{grid-template-columns:1fr 1fr;gap:28px}.site-footer{padding:40px 20px 24px}.sf-bottom{flex-direction:column;gap:10px;text-align:center}.input-grid{grid-template-columns:1fr}.result-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:768px){nav{padding:14px 20px}.nav-links{gap:0}.nav-link{padding:6px 8px;font-size:.78rem}.nav-home{padding:6px 10px;font-size:.78rem}.tool-hero{padding:40px 20px 24px}.tool-wrap{padding:0 16px 24px}.content-section{padding:0 16px 60px}.tool-title-row{flex-direction:column;align-items:flex-start;gap:12px}.result-main{font-size:2.5rem}}
   </style>
 </head>
 <body>
 <nav>
-  <a href="index.html" class="logo">Web<span>Tools</span>Kit</a>
-  <a href="index.html" class="back-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Finance Tools</a>
+  <a href="../index.html" class="logo">Web<span class="logo-accent">Tools</span>Kit</a>
+  <div class="nav-links">
+    <a href="../index.html" class="nav-home">🏠 Home</a>
+    <a href="../health/index.html" class="nav-link c-g">🌿 Health</a>
+    <a href="../freelance/index.html" class="nav-link c-p">💼 Freelance</a>
+    <a href="../students/index.html" class="nav-link c-y">🎓 Students</a>
+    <a href="../utility/index.html" class="nav-link c-r">⚡ Utility</a>
+  </div>
 </nav>
-<div class="container">
-  <div class="tool-header">
+<div class="tool-hero">
+  <div class="tool-breadcrumb"><a href="index.html">💰 Finance</a> → Currency Converter</div>
+  <div class="tool-title-row">
     <div class="tool-icon-big">💱</div>
-    <h1>Currency Converter</h1>
-    <p>Convert between 30+ world currencies instantly. Rates updated regularly for accuracy.</p>
+    <div class="tool-title">Currency Converter</div>
   </div>
-  <div class="card">
-    <h2>💱 Convert Currency</h2>
-    <div class="conv-row">
-      <div class="input-group">
-        <label>Amount</label>
-        <input type="number" id="amount" placeholder="1000" value="1000"/>
-      </div>
-      <button class="swap-btn" onclick="swapCurrencies()" title="Swap currencies">⇄</button>
-      <div></div>
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:22px">
-      <div class="input-group">
-        <label>From Currency</label>
-        <select id="fromCurrency"></select>
-      </div>
-      <div class="input-group">
-        <label>To Currency</label>
-        <select id="toCurrency"></select>
-      </div>
-    </div>
-    <button class="btn" onclick="convert()">Convert Now →</button>
-  </div>
-  <div class="result-card" id="result">
-    <div class="result-number" id="resultNum">0</div>
-    <div class="result-rate" id="resultRate"></div>
-    <div class="quick-grid" id="quickGrid"></div>
-    <div class="note">⚠️ Rates are indicative. For real transactions, check with your bank or exchange.</div>
-  </div>
+  <div class="tool-desc">Convert between major world currencies instantly using standard reference rates.</div>
 </div>
+<div class="tool-wrap">
+<div class="calc-card"><h2>// Currency Conversion</h2>
+<div class="input-grid">
+  <div class="input-group"><label>Amount</label><input type="number" id="amount" class="no-prefix" placeholder="1000" oninput="convert()" style="padding-left:14px"/></div>
+  <div class="input-group"><label>From Currency</label><select id="from" onchange="convert()" style="padding-left:14px"><option value="1">🇮🇳 INR</option><option value="83.5">🇺🇸 USD</option><option value="91">🇪🇺 EUR</option><option value="106">🇬🇧 GBP</option><option value="0.56">🇦🇪 AED</option><option value="61">🇸🇬 SGD</option><option value="55">🇦🇺 AUD</option></select></div>
+  <div class="input-group"><label>To Currency</label><select id="to" onchange="convert()" style="padding-left:14px"><option value="83.5">🇺🇸 USD</option><option value="1">🇮🇳 INR</option><option value="91">🇪🇺 EUR</option><option value="106">🇬🇧 GBP</option><option value="0.56">🇦🇪 AED</option><option value="61">🇸🇬 SGD</option><option value="55">🇦🇺 AUD</option></select></div>
+</div></div>
+<div class="result-card" id="result">
+  <div class="result-label">Converted Amount</div>
+  <div class="result-main" id="converted">0</div>
+  <div class="result-sub">Indicative rate — check with your bank for actual rates</div>
+</div></div>
+<section class="content-section">
+  <div class="content-card"><h2>What is this Tool?</h2><p>The Currency Converter allows you to quickly convert amounts between major world currencies. Whether you're planning international travel, making foreign purchases online, sending money abroad, or just curious about exchange rates, this tool gives you instant conversions for reference purposes.</p></div>
+  <div class="content-card"><h2>How to Use This Calculator</h2><div class="steps"><div class="step"><div class="step-num">1</div><div class="step-text">Select the currency you want to convert from.</div></div><div class="step"><div class="step-num">2</div><div class="step-text">Select the currency you want to convert to.</div></div><div class="step"><div class="step-num">3</div><div class="step-text">Enter the amount you want to convert.</div></div><div class="step"><div class="step-num">4</div><div class="step-text">The converted amount is displayed instantly for your reference.</div></div></div></div>
+  <div class="content-card"><h2>Why This Matters</h2><ul><li>Plan your international travel budget effectively</li><li>Compare prices across different countries</li><li>Calculate foreign transaction costs before making purchases</li><li>Understand how much international transfers will cost</li><li>Track currency trends for business planning</li></ul></div>
+  <div class="content-card"><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">Q: Are these exchange rates live?</div><div class="faq-a">A: These rates are indicative reference rates for estimation purposes. Always check with your bank or forex provider for the exact rates applicable to your transaction.</div></div><div class="faq-item"><div class="faq-q">Q: Why is the bank rate different?</div><div class="faq-a">A: Banks add a margin (typically 1-3%) over the interbank rate. Money transfer services like Wise offer rates closer to the real exchange rate.</div></div><div class="faq-item"><div class="faq-q">Q: What is the best way to convert currency?</div><div class="faq-a">A: For travel, use a zero-markup forex card. For transfers, use Wise or Remitly. Avoid airport currency counters as they offer the worst rates.</div></div><div class="faq-item"><div class="faq-q">Q: What is INR?</div><div class="faq-a">A: INR stands for Indian Rupee, the official currency of India, denoted by the symbol ₹.</div></div></div>
+  <div class="tip-box"><strong>💡 Pro Tip:</strong> Avoid converting currency at airports — they typically charge 5-8% above the market rate. Instead, use a multi-currency forex card loaded in India before you travel.</div>
+</section>
+<footer class="site-footer">
+  <div class="site-footer-grid">
+    <div class="sf-brand">
+      <a href="../index.html" class="sf-logo">Web<span style="background:linear-gradient(90deg,#ff5500,#c50337);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Tools</span>Kit</a>
+      <p>Free online tools for everyone. No signup, no cost. Part of the WebToolsKit network.</p>
+    </div>
+    <div class="sf-col"><h4>All Tools</h4>
+      <a href="../finance/index.html" class="c-o">💰 Finance</a>
+      <a href="../health/index.html" class="c-g">🌿 Health</a>
+      <a href="../freelance/index.html" class="c-p">💼 Freelance</a>
+      <a href="../students/index.html" class="c-y">🎓 Students</a>
+      <a href="../utility/index.html" class="c-r">⚡ Utility</a>
+    </div>
+    <div class="sf-col"><h4>Legal</h4>
+      <a href="../legal/privacy-policy.html">Privacy Policy</a>
+      <a href="../legal/disclaimer.html">Disclaimer</a>
+      <a href="../legal/terms-conditions.html">Terms &amp; Conditions</a>
+      <a href="../legal/contact.html">Contact Us</a>
+      <a href="../legal/copyright.html">Copyright</a>
+    </div>
+    <div class="sf-col"><h4>Quick Links</h4>
+      <a href="../index.html">🏠 Home</a>
+      <a href="index.html">💰 Finance Tools</a>
+      <a href="../legal/contact.html">Contact</a>
+      <a href="../legal/privacy-policy.html">Privacy</a>
+    </div>
+  </div>
+  <div class="sf-bottom">
+    <span>© 2026 WebToolsKit. All rights reserved.</span>
+    <div><a href="../legal/privacy-policy.html">Privacy</a><a href="../legal/terms-conditions.html">Terms</a><a href="../legal/contact.html">Contact</a></div>
+  </div>
+</footer>
 <script>
-const rates={USD:1,INR:83.5,EUR:0.92,GBP:0.79,JPY:149.5,CAD:1.36,AUD:1.53,CHF:0.89,CNY:7.24,SGD:1.34,AED:3.67,SAR:3.75,MYR:4.72,THB:35.8,HKD:7.82,KRW:1325,MXN:17.2,BRL:4.97,ZAR:18.7,NOK:10.6,SEK:10.4,DKK:6.89,NZD:1.62,TRY:32.1,RUB:90.2,PKR:278,BDT:110,LKR:305,NPR:133,PHP:56.8};
-const names={USD:'🇺🇸 USD - US Dollar',INR:'🇮🇳 INR - Indian Rupee',EUR:'🇪🇺 EUR - Euro',GBP:'🇬🇧 GBP - British Pound',JPY:'🇯🇵 JPY - Japanese Yen',CAD:'🇨🇦 CAD - Canadian Dollar',AUD:'🇦🇺 AUD - Australian Dollar',CHF:'🇨🇭 CHF - Swiss Franc',CNY:'🇨🇳 CNY - Chinese Yuan',SGD:'🇸🇬 SGD - Singapore Dollar',AED:'🇦🇪 AED - UAE Dirham',SAR:'🇸🇦 SAR - Saudi Riyal',MYR:'🇲🇾 MYR - Malaysian Ringgit',THB:'🇹🇭 THB - Thai Baht',HKD:'🇭🇰 HKD - Hong Kong Dollar',KRW:'🇰🇷 KRW - Korean Won',MXN:'🇲🇽 MXN - Mexican Peso',BRL:'🇧🇷 BRL - Brazilian Real',ZAR:'🇿🇦 ZAR - South African Rand',NOK:'🇳🇴 NOK - Norwegian Krone',SEK:'🇸🇪 SEK - Swedish Krona',DKK:'🇩🇰 DKK - Danish Krone',NZD:'🇳🇿 NZD - New Zealand Dollar',TRY:'🇹🇷 TRY - Turkish Lira',RUB:'🇷🇺 RUB - Russian Ruble',PKR:'🇵🇰 PKR - Pakistani Rupee',BDT:'🇧🇩 BDT - Bangladeshi Taka',LKR:'🇱🇰 LKR - Sri Lankan Rupee',NPR:'🇳🇵 NPR - Nepalese Rupee',PHP:'🇵🇭 PHP - Philippine Peso'};
-const fromSel=document.getElementById('fromCurrency'),toSel=document.getElementById('toCurrency');
-Object.keys(rates).forEach(c=>{
-  fromSel.innerHTML+=`<option value="${c}" ${c==='INR'?'selected':''}>${names[c]}</option>`;
-  toSel.innerHTML+=`<option value="${c}" ${c==='USD'?'selected':''}>${names[c]}</option>`;
-});
-function swapCurrencies(){const f=fromSel.value,t=toSel.value;fromSel.value=t;toSel.value=f;}
 function convert(){
-  const amount=parseFloat(document.getElementById('amount').value)||0;
-  const from=fromSel.value,to=toSel.value;
-  const inUSD=amount/rates[from];
-  const result=inUSD*rates[to];
-  const rate=rates[to]/rates[from];
-  document.getElementById('resultNum').textContent=result.toLocaleString('en-IN',{maximumFractionDigits:2})+' '+to;
-  document.getElementById('resultRate').textContent=`1 ${from} = ${rate.toFixed(4)} ${to}`;
-  const quicks=[100,500,1000,5000,10000,50000,100000,500000];
-  document.getElementById('quickGrid').innerHTML=quicks.map(q=>{
-    const v=(q/rates[from])*rates[to];
-    return `<div class="quick-item"><div class="quick-amount">${from} ${q.toLocaleString('en-IN')}</div><div class="quick-val">${v.toLocaleString('en-IN',{maximumFractionDigits:0})} ${to}</div></div>`;
-  }).join('');
-  const res=document.getElementById('result');res.classList.add('show');
-  res.scrollIntoView({behavior:'smooth',block:'nearest'});
+  const amt=parseFloat(document.getElementById('amount').value)||0;
+  const from=parseFloat(document.getElementById('from').value)||1;
+  const to=parseFloat(document.getElementById('to').value)||1;
+  if(!amt){document.getElementById('result').classList.remove('show');return;}
+  const inr=amt*from;const result=inr/to;
+  document.getElementById('converted').textContent=result.toLocaleString('en-IN',{maximumFractionDigits:2});
+  document.getElementById('result').classList.add('show');
 }
 </script>
 </body>

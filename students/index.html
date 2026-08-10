@@ -4,92 +4,82 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Student Tools — WebToolsKit</title>
-  <meta name="description" content="Free student calculators — CGPA, Attendance, Exam Marks, Study Planner, Scholarship, Student Loan and more."/>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <meta name="description" content="Free online student calculators — CGPA, Attendance, Study Planner, Marks Needed and more."/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
+
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{
-      --bg:#111214;--card:#1a1b1f;--card-hover:#212328;
-      --border:#2a2b30;--yellow:#f5c518;--yellow2:#e6b800;
-      --glow:rgba(245,197,24,0.12);--glow2:rgba(245,197,24,0.06);
-      --white:#ffffff;--grey:#8b8d97;--light:#d4d6e0;
+      --bg:#0f1117;--nav:#000000;--footer-bg:#000000;
+      --card:#1a1d27;--card-hover:#1e2130;--input:#222533;
+      --border:#2a2d3a;--white:#ffffff;--grey:#8b8fa8;--light:#c8cad8;
     }
+    html{scroll-behavior:smooth}
     body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;min-height:100vh}
-
-    nav{display:flex;align-items:center;justify-content:space-between;padding:18px 48px;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(17,18,20,0.97);backdrop-filter:blur(12px);z-index:100}
-    .logo{font-family:'Space Grotesk',sans-serif;font-size:1.4rem;font-weight:700;text-decoration:none;color:var(--white);letter-spacing:-.5px}
-    .logo span{color:var(--yellow)}
-    .back-btn{display:flex;align-items:center;gap:7px;color:var(--grey);text-decoration:none;font-size:.88rem;font-weight:600;border:1px solid var(--border);padding:7px 16px;border-radius:8px;transition:all .2s}
-    .back-btn:hover{color:var(--white);border-color:var(--yellow)}
-
-    .hero{text-align:center;padding:90px 20px 70px;position:relative;overflow:hidden}
-    .hero::before{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:700px;height:500px;background:radial-gradient(ellipse,rgba(245,197,24,0.1) 0%,transparent 70%);pointer-events:none}
-    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--glow);border:1px solid rgba(245,197,24,0.3);color:var(--yellow);font-size:.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:6px 18px;border-radius:100px;margin-bottom:28px;font-family:'DM Mono',monospace}
-    .hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:700;line-height:1.05;letter-spacing:-2px;margin-bottom:20px}
-    .hero h1 .highlight{background:linear-gradient(90deg,var(--yellow),var(--yellow2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-    .hero p{font-size:1rem;color:var(--grey);max-width:480px;margin:0 auto 44px;line-height:1.7}
-    .hero-stats{display:flex;justify-content:center;gap:60px}
-    .stat-num{font-family:'DM Mono',monospace;font-size:2rem;font-weight:500;background:linear-gradient(90deg,var(--yellow),var(--yellow2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-    .stat-label{font-size:.78rem;color:var(--grey);margin-top:4px}
-
-    .tools-section{max-width:1200px;margin:0 auto;padding:0 40px 80px}
-    .section-label{font-family:'DM Mono',monospace;font-size:.72rem;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--yellow);margin-bottom:24px}
-    .tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
-
-    .tool-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:28px;text-decoration:none;color:var(--white);transition:all .25s;position:relative;overflow:hidden;display:block}
-    .tool-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(245,197,24,0.4),transparent);opacity:0;transition:opacity .25s}
-    .tool-card:hover{border-color:rgba(245,197,24,0.4);background:var(--card-hover);transform:translateY(-3px);box-shadow:0 20px 40px rgba(0,0,0,0.5),0 0 0 1px rgba(245,197,24,0.08)}
-    .tool-card:hover::before{opacity:1}
-
-    .tool-icon{width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,var(--yellow),var(--yellow2));display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:18px;box-shadow:0 6px 20px rgba(245,197,24,0.25)}
-    .tool-tag{display:inline-block;font-family:'DM Mono',monospace;font-size:.65rem;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--yellow);background:var(--glow);border:1px solid rgba(245,197,24,0.2);padding:3px 10px;border-radius:100px;margin-bottom:10px}
-    .tool-card h3{font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:8px;letter-spacing:-.3px}
-    .tool-card p{font-size:.86rem;color:var(--grey);line-height:1.65;margin-bottom:20px}
-    .tool-cta{display:flex;align-items:center;gap:6px;font-size:.82rem;font-weight:600;color:var(--yellow)}
-    .tool-cta svg{transition:transform .2s}
-    .tool-card:hover .tool-cta svg{transform:translateX(4px)}
-
-    footer{border-top:1px solid var(--border);padding:36px 48px;text-align:center;color:var(--grey);font-size:.82rem}
-    footer span{color:var(--yellow)}
-
-    @media(max-width:768px){nav{padding:14px 20px}.hero{padding:60px 20px 50px}.hero-stats{gap:30px}.tools-section{padding:0 16px 60px}}
-  
-    .site-footer { border-top: 1px solid var(--border); padding: 56px 48px 28px; background: #050505; }
-    .site-footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; max-width: 1200px; margin: 0 auto 40px; }
-    .sf-brand .sf-logo { font-family: 'Inter', sans-serif; font-size: 1.3rem; font-weight: 900; color: var(--white); margin-bottom: 10px; display: block; }
-    .sf-brand .sf-logo span { color: #f5c518; }
-    .sf-brand p { font-size: .83rem; color: var(--grey); line-height: 1.7; max-width: 240px; }
-    .sf-col h4 { font-size: .75rem; font-weight: 700; color: var(--white); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 14px; }
-    .sf-col a { display: block; color: var(--grey); text-decoration: none; font-size: .83rem; margin-bottom: 9px; transition: color .2s; }
-    .sf-col a:hover { color: var(--white); }
-    .sf-col a.c-orange:hover { color: #ff5500; }
-    .sf-col a.c-green:hover { color: #00e64d; }
-    .sf-col a.c-purple:hover { color: #6c63ff; }
-    .sf-col a.c-yellow:hover { color: #f5c518; }
-    .sf-col a.c-red:hover { color: #c50337; }
-    .sf-bottom { max-width: 1200px; margin: 0 auto; border-top: 1px solid var(--border); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; font-size: .78rem; color: var(--grey); }
-    .sf-bottom a { color: var(--grey); text-decoration: none; margin-left: 18px; transition: color .2s; }
-    .sf-bottom a:hover { color: var(--white); }
-    @media(max-width:768px) { .site-footer { padding: 40px 20px 24px; } .site-footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; } .sf-bottom { flex-direction: column; gap: 10px; text-align: center; } }
-
-  
-    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(8,8,8,0.97);backdrop-filter:blur(14px);z-index:100}
-    .logo{font-size:1.3rem;font-weight:900;text-decoration:none;color:var(--white)}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:18px 48px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--nav);backdrop-filter:blur(16px);z-index:100}
+    .logo{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;text-decoration:none;color:var(--white);letter-spacing:.5px;font-style:italic}
     .nav-links{display:flex;align-items:center;gap:4px}
-    .nav-home{color:var(--grey);text-decoration:none;font-size:.85rem;font-weight:600;padding:7px 14px;border-radius:8px;border:1px solid var(--border);transition:all .2s;margin-right:4px}
+    .nav-home{color:var(--grey);text-decoration:none;font-size:.85rem;font-weight:600;padding:7px 14px;border-radius:8px;border:1px solid var(--border);transition:all .2s;margin-right:4px;font-family:'DM Sans',sans-serif}
     .nav-home:hover{color:var(--white);border-color:rgba(255,255,255,.3)}
-    .nav-link{color:var(--grey);text-decoration:none;font-size:.85rem;font-weight:600;padding:7px 14px;border-radius:8px;border:1px solid transparent;transition:all .2s}
+    .nav-link{color:var(--grey);text-decoration:none;font-size:.85rem;font-weight:600;padding:7px 14px;border-radius:8px;border:1px solid transparent;transition:all .2s;font-family:'DM Sans',sans-serif}
+    .nav-link:hover{color:var(--white);border-color:var(--border)}
     .nav-link.c-o:hover{color:#ff5500;border-color:rgba(255,85,0,.3)}
     .nav-link.c-g:hover{color:#00e64d;border-color:rgba(0,230,77,.3)}
     .nav-link.c-p:hover{color:#6c63ff;border-color:rgba(108,99,255,.3)}
     .nav-link.c-y:hover{color:#f5c518;border-color:rgba(245,197,24,.3)}
     .nav-link.c-r:hover{color:#c50337;border-color:rgba(197,3,55,.3)}
-    @media(max-width:768px){nav{padding:12px 16px}.nav-links{gap:0}.nav-link{padding:6px 8px;font-size:.78rem}.nav-home{padding:6px 10px;font-size:.78rem}}
+    .hero{text-align:center;padding:90px 20px 70px;position:relative;overflow:hidden}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid;color:inherit;font-size:.72rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:6px 18px;border-radius:100px;margin-bottom:28px;font-family:'DM Mono',monospace}
+    .hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,6vw,5rem);font-weight:700;line-height:1;letter-spacing:-2px;margin-bottom:18px;font-style:italic;color:var(--white)}
+    .hero p{font-size:1rem;color:var(--grey);max-width:500px;margin:0 auto 44px;line-height:1.7;font-family:'DM Sans',sans-serif}
+    .hero-stats{display:flex;justify-content:center;gap:0;margin-bottom:0;border:1px solid var(--border);border-radius:14px;overflow:hidden;max-width:420px;margin:0 auto;background:var(--card)}
+    .stat{padding:18px 0;border-right:1px solid var(--border);text-align:center;flex:1}
+    .stat:last-child{border-right:none}
+    .stat-num{font-family:'DM Mono',monospace;font-size:1.8rem;font-weight:500;display:block}
+    .stat-label{font-size:.7rem;color:var(--grey);margin-top:4px;text-transform:uppercase;letter-spacing:1px;font-family:'DM Mono',monospace}
+    .tools-section{max-width:1200px;margin:0 auto;padding:60px 40px 80px}
+    .section-label{font-family:'DM Mono',monospace;font-size:.72rem;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--grey);margin-bottom:24px}
+    .tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:18px}
+    .tool-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:28px;text-decoration:none;color:var(--white);transition:all .25s;position:relative;overflow:hidden;display:block}
+    .tool-card:hover{transform:translateY(-3px)}
+    .tool-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:18px}
+    .tool-tag{display:inline-block;font-family:'DM Mono',monospace;font-size:.65rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;border:1px solid;padding:3px 10px;border-radius:100px;margin-bottom:10px}
+    .tool-card h3{font-family:'Outfit',sans-serif;font-size:1.05rem;font-weight:700;margin-bottom:8px;letter-spacing:-.2px;color:var(--white)}
+    .tool-card p{font-size:.86rem;color:var(--grey);line-height:1.65;margin-bottom:20px;font-family:'DM Sans',sans-serif}
+    .tool-cta{display:flex;align-items:center;gap:6px;font-size:.82rem;font-weight:700;font-family:'DM Sans',sans-serif}
+    .tool-cta svg{transition:transform .2s}
+    .tool-card:hover .tool-cta svg{transform:translateX(4px)}
+    .site-footer{border-top:1px solid var(--border);padding:56px 48px 28px;background:var(--footer-bg)}
+    .site-footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;max-width:1200px;margin:0 auto 40px}
+    .sf-logo{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;font-style:italic;color:var(--white);margin-bottom:10px;display:block;text-decoration:none}
+    .sf-brand p{font-size:.83rem;color:var(--grey);line-height:1.7;max-width:240px;margin-top:8px;font-family:'DM Sans',sans-serif}
+    .sf-col h4{font-family:'Outfit',sans-serif;font-size:.75rem;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px}
+    .sf-col a{display:block;color:var(--grey);text-decoration:none;font-size:.83rem;margin-bottom:9px;transition:color .2s;font-family:'DM Sans',sans-serif}
+    .sf-col a:hover{color:var(--white)}
+    .sf-col a.c-o:hover{color:#ff5500}.sf-col a.c-g:hover{color:#00e64d}
+    .sf-col a.c-p:hover{color:#6c63ff}.sf-col a.c-y:hover{color:#f5c518}
+    .sf-col a.c-r:hover{color:#c50337}
+    .sf-bottom{max-width:1200px;margin:0 auto;border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:var(--grey);font-family:'DM Sans',sans-serif}
+    .sf-bottom a{color:var(--grey);text-decoration:none;margin-left:18px;transition:color .2s}
+    .sf-bottom a:hover{color:var(--white)}
+    @media(max-width:900px){.site-footer-grid{grid-template-columns:1fr 1fr;gap:28px}.site-footer{padding:40px 20px 24px}.sf-bottom{flex-direction:column;gap:10px;text-align:center}}
+    @media(max-width:768px){nav{padding:14px 20px}.nav-links{gap:0}.nav-link{padding:6px 8px;font-size:.78rem}.nav-home{padding:6px 10px;font-size:.78rem}.hero{padding:56px 20px 44px}.tools-section{padding:40px 16px 60px}}
+
+    .logo-accent{background:linear-gradient(90deg,#f5c518,#e6b800);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .hero::before{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:700px;height:400px;background:radial-gradient(ellipse,rgba(245,197,24,0.12) 0%,transparent 70%);pointer-events:none}
+    .hero-badge{background:rgba(245,197,24,0.1);border-color:rgba(245,197,24,0.3);color:#f5c518}
+    .stat-num{color:#f5c518}
+    .section-label{color:#f5c518}
+    .tool-icon{background:linear-gradient(135deg,#f5c518,#e6b800);box-shadow:0 6px 18px rgba(245,197,24,0.35)}
+    .tool-tag{color:#f5c518;background:rgba(245,197,24,0.1);border-color:rgba(245,197,24,0.2)}
+    .tool-cta{color:#f5c518}
+    .tool-card:hover{border-color:rgba(245,197,24,0.4);box-shadow:0 18px 40px rgba(0,0,0,0.5),0 0 0 1px rgba(245,197,24,0.1)}
   </style>
 </head>
 <body>
+
 <nav>
-  <a href="../index.html" class="logo">Web<span style="color:var(--yellow)">Tools</span>Kit</a>
+  <a href="../index.html" class="logo">Web<span style="background:linear-gradient(90deg,#ff5500,#c50337);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Tools</span>Kit</a>
   <div class="nav-links">
     <a href="../index.html" class="nav-home">🏠 Home</a>
     <a href="../finance/index.html" class="nav-link c-o">💰 Finance</a>
@@ -101,90 +91,81 @@
 
 <section class="hero">
   <div class="hero-badge">🎓 Student Tools</div>
-  <h1>Study Smart,<br/><span class="highlight">Score Higher</span></h1>
-  <p>8 essential calculators built for students. Track your grades, plan your studies, and stay ahead of the curve.</p>
+  <h1>Study <em>Smarter</em>,<br/>Score Higher</h1>
+  <p>Free student tools to track attendance, plan studies, calculate CGPA, and stay ahead of deadlines.</p>
   <div class="hero-stats">
-    <div class="stat"><div class="stat-num">8</div><div class="stat-label">Student Tools</div></div>
-    <div class="stat"><div class="stat-num">0₹</div><div class="stat-label">Cost to Use</div></div>
-    <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Free Forever</div></div>
+    <div class="stat"><span class="stat-num">8</span><span class="stat-label">Student Tools</span></div>
+    <div class="stat"><span class="stat-num">0₹</span><span class="stat-label">Cost</span></div>
+    <div class="stat"><span class="stat-num">∞</span><span class="stat-label">Uses</span></div>
   </div>
 </section>
 
 <section class="tools-section">
-  <div class="section-label">// All Student Tools</div>
+  <div class="section-label">// All Tools</div>
   <div class="tools-grid">
-
     <a href="cgpa-calculator.html" class="tool-card">
       <div class="tool-icon">🎓</div>
       <div class="tool-tag">Grades</div>
-      <h3>CGPA / GPA Calculator</h3>
-      <p>Calculate your semester GPA and cumulative CGPA instantly. Add all subjects and credits for an accurate result.</p>
+      <h3>CGPA Calculator</h3>
+      <p>Calculate your CGPA from semester grades and credit hours instantly.</p>
       <div class="tool-cta">Use Tool <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
     </a>
-
     <a href="percentage-grade.html" class="tool-card">
       <div class="tool-icon">📊</div>
       <div class="tool-tag">Grades</div>
-      <h3>Percentage to Grade Calculator</h3>
-      <p>Convert marks to percentage, letter grade, and GPA equivalent. Supports CBSE, university, and custom grading systems.</p>
+      <h3>Percentage & Grade Calculator</h3>
+      <p>Convert marks to percentage and find your grade with ease.</p>
       <div class="tool-cta">Use Tool <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
     </a>
-
     <a href="study-planner.html" class="tool-card">
-      <div class="tool-icon">📚</div>
+      <div class="tool-icon">📅</div>
       <div class="tool-tag">Planning</div>
-      <h3>Study Time Planner</h3>
-      <p>Plan your study hours smartly across subjects. Enter your exam date and available hours to get a daily study schedule.</p>
+      <h3>Study Planner</h3>
+      <p>Build a smart study schedule based on your exam dates and subjects.</p>
       <div class="tool-cta">Use Tool <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
     </a>
-
     <a href="attendance-calculator.html" class="tool-card">
       <div class="tool-icon">✅</div>
       <div class="tool-tag">Attendance</div>
       <h3>Attendance Calculator</h3>
-      <p>Know exactly how many classes you can skip while staying above 75%. Or find out how many you must attend to recover.</p>
+      <p>Check if you meet the 75% attendance requirement and how many classes you can skip.</p>
       <div class="tool-cta">Use Tool <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
     </a>
-
     <a href="marks-needed.html" class="tool-card">
       <div class="tool-icon">🎯</div>
-      <div class="tool-tag">Exams</div>
-      <h3>Exam Marks Needed Calculator</h3>
-      <p>Find out exactly what score you need in your final exam to achieve your target overall grade or percentage.</p>
+      <div class="tool-tag">Grades</div>
+      <h3>Marks Needed Calculator</h3>
+      <p>Find out exactly how many marks you need in finals to pass or get a distinction.</p>
       <div class="tool-cta">Use Tool <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
     </a>
-
     <a href="scholarship-checker.html" class="tool-card">
       <div class="tool-icon">🏆</div>
-      <div class="tool-tag">Scholarships</div>
-      <h3>Scholarship Eligibility Checker</h3>
-      <p>Check your eligibility for major Indian scholarships based on your marks, income, category, and course details.</p>
-      <div class="tool-cta">Use Tool <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-    </a>
-
-    <a href="student-loan.html" class="tool-card">
-      <div class="tool-icon">🏦</div>
       <div class="tool-tag">Finance</div>
-      <h3>Student Loan EMI Calculator</h3>
-      <p>Calculate your education loan EMI, total interest, and repayment schedule. Plan your finances before you borrow.</p>
+      <h3>Scholarship Eligibility Checker</h3>
+      <p>Check if your grades and profile meet common scholarship eligibility criteria.</p>
       <div class="tool-cta">Use Tool <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
     </a>
-
+    <a href="student-loan.html" class="tool-card">
+      <div class="tool-icon">💳</div>
+      <div class="tool-tag">Finance</div>
+      <h3>Student Loan Calculator</h3>
+      <p>Calculate your student loan EMI and plan your repayment schedule.</p>
+      <div class="tool-cta">Use Tool <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
     <a href="career-aptitude.html" class="tool-card">
       <div class="tool-icon">🧭</div>
       <div class="tool-tag">Career</div>
-      <h3>Career Aptitude Scorer</h3>
-      <p>Answer 15 quick questions about your strengths and interests to get personalized career path recommendations.</p>
+      <h3>Career Aptitude Quiz</h3>
+      <p>Discover which career paths suit your skills, interests, and strengths.</p>
       <div class="tool-cta">Use Tool <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
     </a>
-
   </div>
 </section>
 
 <footer class="site-footer">
   <div class="site-footer-grid">
     <div class="sf-brand">
-      <a href="../index.html" class="sf-logo">WebToolsKit</a>
+      <a href="../index.html" class="sf-logo">Web<span style="background:linear-gradient(90deg,#ff5500,#c50337);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Tools</span>Kit</a>
       <p>Free online tools for everyone. No signup, no cost. Part of the WebToolsKit network.</p>
     </div>
     <div class="sf-col">
@@ -220,5 +201,6 @@
     </div>
   </div>
 </footer>
+
 </body>
 </html>

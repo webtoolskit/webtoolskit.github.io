@@ -62,6 +62,25 @@
       .hero-stats{gap:30px}
       .tools-section{padding:0 16px 60px}
     }
+  
+    .site-footer { border-top: 1px solid var(--border); padding: 56px 48px 28px; background: #050505; }
+    .site-footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; max-width: 1200px; margin: 0 auto 40px; }
+    .sf-brand .sf-logo { font-family: 'Inter', sans-serif; font-size: 1.3rem; font-weight: 900; color: var(--white); margin-bottom: 10px; display: block; }
+    .sf-brand .sf-logo span { color: #00e64d; }
+    .sf-brand p { font-size: .83rem; color: var(--grey); line-height: 1.7; max-width: 240px; }
+    .sf-col h4 { font-size: .75rem; font-weight: 700; color: var(--white); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 14px; }
+    .sf-col a { display: block; color: var(--grey); text-decoration: none; font-size: .83rem; margin-bottom: 9px; transition: color .2s; }
+    .sf-col a:hover { color: var(--white); }
+    .sf-col a.c-orange:hover { color: #ff5500; }
+    .sf-col a.c-green:hover { color: #00e64d; }
+    .sf-col a.c-purple:hover { color: #6c63ff; }
+    .sf-col a.c-yellow:hover { color: #f5c518; }
+    .sf-col a.c-red:hover { color: #c50337; }
+    .sf-bottom { max-width: 1200px; margin: 0 auto; border-top: 1px solid var(--border); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; font-size: .78rem; color: var(--grey); }
+    .sf-bottom a { color: var(--grey); text-decoration: none; margin-left: 18px; transition: color .2s; }
+    .sf-bottom a:hover { color: var(--white); }
+    @media(max-width:768px) { .site-footer { padding: 40px 20px 24px; } .site-footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; } .sf-bottom { flex-direction: column; gap: 10px; text-align: center; } }
+
   </style>
 </head>
 <body>
@@ -155,8 +174,44 @@
   </div>
 </section>
 
-<footer>
-  <p>Built with ❤️ by <span>WebToolsKit</span> — Free tools for real people.</p>
+<footer class="site-footer">
+  <div class="site-footer-grid">
+    <div class="sf-brand">
+      <span class="sf-logo">Web<span>Tools</span>Kit</span>
+      <p>Free Health tools for everyone. No signup, no cost, no clutter. Part of the WebToolsKit network.</p>
+    </div>
+    <div class="sf-col">
+      <h4>All Tools</h4>
+      <a href="../finance/index.html" class="c-orange">💰 Finance Tools</a>
+      <a href="../health/index.html" class="c-green">🌿 Health Tools</a>
+      <a href="../freelance/index.html" class="c-purple">💼 Freelance Tools</a>
+      <a href="../students/index.html" class="c-yellow">🎓 Student Tools</a>
+      <a href="../utility/index.html" class="c-red">⚡ Utility Tools</a>
+    </div>
+    <div class="sf-col">
+      <h4>Legal</h4>
+      <a href="../legal/privacy-policy.html">Privacy Policy</a>
+      <a href="../legal/disclaimer.html">Disclaimer</a>
+      <a href="../legal/terms-conditions.html">Terms &amp; Conditions</a>
+      <a href="../legal/contact.html">Contact Us</a>
+      <a href="../legal/copyright.html">Copyright</a>
+    </div>
+    <div class="sf-col">
+      <h4>Quick Links</h4>
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#about">About Us</a>
+      <a href="../legal/contact.html">Contact</a>
+      <a href="../legal/privacy-policy.html">Privacy</a>
+    </div>
+  </div>
+  <div class="sf-bottom">
+    <span>© 2026 WebToolsKit. All rights reserved.</span>
+    <div>
+      <a href="../legal/privacy-policy.html">Privacy</a>
+      <a href="../legal/terms-conditions.html">Terms</a>
+      <a href="../legal/contact.html">Contact</a>
+    </div>
+  </div>
 </footer>
 </body>
 </html>

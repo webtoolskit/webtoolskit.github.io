@@ -81,15 +81,31 @@
     .sf-bottom a:hover { color: var(--white); }
     @media(max-width:768px) { .site-footer { padding: 40px 20px 24px; } .site-footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; } .sf-bottom { flex-direction: column; gap: 10px; text-align: center; } }
 
+  
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(8,8,8,0.97);backdrop-filter:blur(14px);z-index:100}
+    .logo{font-size:1.3rem;font-weight:900;text-decoration:none;color:var(--white)}
+    .nav-links{display:flex;align-items:center;gap:4px}
+    .nav-home{color:var(--grey);text-decoration:none;font-size:.85rem;font-weight:600;padding:7px 14px;border-radius:8px;border:1px solid var(--border);transition:all .2s;margin-right:4px}
+    .nav-home:hover{color:var(--white);border-color:rgba(255,255,255,.3)}
+    .nav-link{color:var(--grey);text-decoration:none;font-size:.85rem;font-weight:600;padding:7px 14px;border-radius:8px;border:1px solid transparent;transition:all .2s}
+    .nav-link.c-o:hover{color:#ff5500;border-color:rgba(255,85,0,.3)}
+    .nav-link.c-g:hover{color:#00e64d;border-color:rgba(0,230,77,.3)}
+    .nav-link.c-p:hover{color:#6c63ff;border-color:rgba(108,99,255,.3)}
+    .nav-link.c-y:hover{color:#f5c518;border-color:rgba(245,197,24,.3)}
+    .nav-link.c-r:hover{color:#c50337;border-color:rgba(197,3,55,.3)}
+    @media(max-width:768px){nav{padding:12px 16px}.nav-links{gap:0}.nav-link{padding:6px 8px;font-size:.78rem}.nav-home{padding:6px 10px;font-size:.78rem}}
   </style>
 </head>
 <body>
 <nav>
-  <a href="../index.html" class="logo">Web<span>Tools</span>Kit</a>
-  <a href="../index.html" class="back-btn">
-    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-    All Sites
-  </a>
+  <a href="../index.html" class="logo">Web<span style="color:var(--green)">Tools</span>Kit</a>
+  <div class="nav-links">
+    <a href="../index.html" class="nav-home">🏠 Home</a>
+    <a href="../finance/index.html" class="nav-link c-o">💰 Finance</a>
+    <a href="../freelance/index.html" class="nav-link c-p">💼 Freelance</a>
+    <a href="../students/index.html" class="nav-link c-y">🎓 Students</a>
+    <a href="../utility/index.html" class="nav-link c-r">⚡ Utility</a>
+  </div>
 </nav>
 
 <section class="hero">
@@ -177,16 +193,16 @@
 <footer class="site-footer">
   <div class="site-footer-grid">
     <div class="sf-brand">
-      <span class="sf-logo">Web<span>Tools</span>Kit</span>
-      <p>Free Health tools for everyone. No signup, no cost, no clutter. Part of the WebToolsKit network.</p>
+      <a href="../index.html" class="sf-logo">WebToolsKit</a>
+      <p>Free online tools for everyone. No signup, no cost. Part of the WebToolsKit network.</p>
     </div>
     <div class="sf-col">
       <h4>All Tools</h4>
-      <a href="../finance/index.html" class="c-orange">💰 Finance Tools</a>
-      <a href="../health/index.html" class="c-green">🌿 Health Tools</a>
-      <a href="../freelance/index.html" class="c-purple">💼 Freelance Tools</a>
-      <a href="../students/index.html" class="c-yellow">🎓 Student Tools</a>
-      <a href="../utility/index.html" class="c-red">⚡ Utility Tools</a>
+      <a href="../finance/index.html" class="c-o">💰 Finance</a>
+      <a href="../health/index.html" class="c-g">🌿 Health</a>
+      <a href="../freelance/index.html" class="c-p">💼 Freelance</a>
+      <a href="../students/index.html" class="c-y">🎓 Students</a>
+      <a href="../utility/index.html" class="c-r">⚡ Utility</a>
     </div>
     <div class="sf-col">
       <h4>Legal</h4>

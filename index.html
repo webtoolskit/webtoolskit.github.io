@@ -46,12 +46,20 @@
     .hero-cta:hover{background:var(--light);transform:translateY(-2px)}
 
     /* ── UTILITY BANNER — Bold, Solid Crimson, NO gradient ── */
+    .utility-banner-wrap{max-width:1280px;margin:0 auto;padding:0 40px}
     .utility-banner{
       background:#c50337;
-      padding:36px 60px;
+      padding:36px 48px;
       display:flex;align-items:center;justify-content:space-between;
       text-decoration:none;color:var(--white);
       position:relative;overflow:hidden;
+      border-radius:24px;
+      box-shadow:0 20px 60px rgba(197,3,55,.35),0 8px 24px rgba(197,3,55,.2);
+      transition:transform .25s,box-shadow .25s;
+    }
+    .utility-banner:hover{
+      transform:translateY(-3px);
+      box-shadow:0 28px 70px rgba(197,3,55,.45),0 12px 32px rgba(197,3,55,.25);
     }
     .utility-banner::before{
       content:'';position:absolute;top:-60px;right:-60px;
@@ -204,7 +212,8 @@
       nav{padding:14px 20px}.nav-links{display:none}
       .hero{padding:60px 20px 50px}
       .hero-stats{flex-wrap:wrap}.stat{padding:14px 0;flex:1;min-width:100px}
-      .utility-banner{padding:28px 20px;flex-direction:column;gap:20px;text-align:center}
+      .utility-banner-wrap{padding:0 16px}
+      .utility-banner{padding:28px 20px;flex-direction:column;gap:20px;text-align:center;border-radius:18px}
       .ub-left{flex-direction:column;text-align:center}
       .ub-pills{justify-content:center}
       .niches-section{padding:40px 16px 60px}
@@ -244,7 +253,8 @@
   <a href="#tools" class="hero-cta">Explore All Tools <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
 </section>
 
-<!-- UTILITY BANNER — Bold solid crimson, NO gradient -->
+<!-- UTILITY BANNER — Bold solid crimson card, NO gradient -->
+<div class="utility-banner-wrap">
 <a href="utility/index.html" class="utility-banner">
   <div class="ub-left">
     <div class="ub-icon">⚡</div>
@@ -264,6 +274,7 @@
     <div class="ub-cta">Explore Utility Tools <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
   </div>
 </a>
+</div>
 
 <!-- NICHE CARDS -->
 <section class="niches-section" id="tools">

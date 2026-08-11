@@ -1,66 +1,199 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Project Profit Calculator — WebToolsKit</title><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/><style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}:root{--bg:#0d0f1a;--card:#13162b;--border:#1e2240;--purple:#6c63ff;--purple2:#4f46e5;--glow:rgba(108,99,255,0.12);--white:#fff;--grey:#8892b0;--light:#ccd6f6}body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;min-height:100vh}nav{display:flex;align-items:center;justify-content:space-between;padding:18px 40px;border-bottom:1px solid var(--border);background:rgba(13,15,26,.96);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100}.logo{font-family:'Manrope',sans-serif;font-size:1.3rem;font-weight:800;text-decoration:none;color:var(--white)}.logo span{color:var(--purple)}.back-btn{display:flex;align-items:center;gap:7px;color:var(--grey);text-decoration:none;font-size:.88rem;font-weight:600;border:1px solid var(--border);padding:7px 14px;border-radius:8px;transition:all .2s}.back-btn:hover{color:var(--white);border-color:var(--purple)}.container{max-width:820px;margin:0 auto;padding:56px 20px}.tool-header{text-align:center;margin-bottom:44px}.tool-icon-big{width:72px;height:72px;border-radius:20px;background:linear-gradient(135deg,var(--purple),var(--purple2));display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 18px;box-shadow:0 10px 28px rgba(108,99,255,.3)}.tool-header h1{font-family:'Manrope',sans-serif;font-size:2rem;font-weight:800;letter-spacing:-1px;margin-bottom:9px}.tool-header p{color:var(--grey);font-size:.96rem;line-height:1.6}.card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:32px;margin-bottom:20px}.card h2{font-family:'DM Mono',monospace;font-size:.82rem;font-weight:500;margin-bottom:22px;color:var(--purple);text-transform:uppercase;letter-spacing:1.5px}.input-group{margin-bottom:18px}label{display:block;font-size:.84rem;font-weight:600;color:var(--grey);margin-bottom:7px}.input-wrap{position:relative}.ip{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--purple);font-weight:500;font-size:.88rem;font-family:'DM Mono',monospace}input[type=number]{width:100%;background:#0d0f1a;border:1px solid var(--border);border-radius:12px;padding:13px 14px 13px 46px;color:var(--white);font-size:.97rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}input:focus{border-color:var(--purple)}.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}.btn{width:100%;padding:15px;border-radius:13px;background:linear-gradient(135deg,var(--purple),var(--purple2));border:none;color:var(--white);font-size:.97rem;font-weight:700;cursor:pointer;font-family:'Manrope',sans-serif;transition:opacity .2s,transform .2s}.btn:hover{opacity:.9;transform:translateY(-1px)}.result-card{border-radius:20px;padding:32px;display:none}.result-card.show{display:block}.result-card.profit{background:linear-gradient(135deg,rgba(108,99,255,.08),rgba(79,70,229,.04));border:1px solid rgba(108,99,255,.25)}.result-card.loss{background:linear-gradient(135deg,rgba(255,50,50,.08),rgba(200,30,30,.04));border:1px solid rgba(255,50,50,.25)}.verdict{text-align:center;margin-bottom:24px}.v-label{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--grey);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}.v-big{font-family:'Manrope',sans-serif;font-size:3.5rem;font-weight:800;letter-spacing:-2px;line-height:1}.v-big.green{background:linear-gradient(90deg,var(--purple),var(--purple2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}.v-big.red{color:#ff4444}.v-status{font-size:1rem;font-weight:700;margin-top:8px}.r-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px}.r-item{background:rgba(255,255,255,.04);border-radius:12px;padding:14px;border:1px solid var(--border)}.r-label{font-family:'DM Mono',monospace;font-size:.65rem;color:var(--grey);text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px}.r-val{font-family:'Manrope',sans-serif;font-size:1.05rem;font-weight:700}.tip-box{padding:14px 18px;background:var(--glow);border:1px solid rgba(108,99,255,.2);border-radius:12px;font-size:.85rem;color:var(--light);line-height:1.6}.tip-box strong{color:var(--purple)}@media(max-width:600px){nav{padding:14px 20px}.grid-2,.r-grid{grid-template-columns:1fr}.v-big{font-size:2.5rem}}</style></head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Project Profit Calculator — WebToolsKit</title>
+  <meta name="description" content="Calculate the actual profit from any freelance project after accounting for all time and expenses."/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#0f1117;--nav:#000000;--footer-bg:#000000;--card:#1a1d27;--border:#2a2d3a;--white:#ffffff;--grey:#8b8fa8;--light:#c8cad8;--purple:#6c63ff;--purple2:#4f46e5}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;min-height:100vh}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:18px 48px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--nav);backdrop-filter:blur(16px);z-index:100}
+    .logo{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;text-decoration:none;color:var(--white);letter-spacing:.5px;font-style:italic}
+    .logo-accent{background:linear-gradient(90deg,#ff5500,#c50337);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .nav-links{display:flex;align-items:center;gap:4px}
+    .nav-home{color:var(--grey);text-decoration:none;font-size:.85rem;font-weight:600;padding:7px 14px;border-radius:8px;border:1px solid var(--border);transition:all .2s;margin-right:4px;font-family:'DM Sans',sans-serif}
+    .nav-home:hover{color:var(--white);border-color:rgba(255,255,255,.3)}
+    .nav-link{color:var(--grey);text-decoration:none;font-size:.85rem;font-weight:600;padding:7px 14px;border-radius:8px;border:1px solid transparent;transition:all .2s;font-family:'DM Sans',sans-serif}
+    .nav-link.c-o:hover{color:#ff5500;border-color:rgba(255,85,0,.3)}
+    .nav-link.c-g:hover{color:#00e64d;border-color:rgba(0,230,77,.3)}
+    .nav-link.c-y:hover{color:#f5c518;border-color:rgba(245,197,24,.3)}
+    .nav-link.c-r:hover{color:#c50337;border-color:rgba(197,3,55,.3)}
+    .tool-hero{padding:60px 40px 40px;max-width:1000px;margin:0 auto}
+    .tool-breadcrumb{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--grey);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+    .tool-breadcrumb a{color:var(--purple);text-decoration:none}
+    .tool-title-row{display:flex;align-items:center;gap:20px;margin-bottom:16px}
+    .tool-icon-big{width:72px;height:72px;border-radius:20px;background:linear-gradient(135deg,var(--purple),var(--purple2));display:flex;align-items:center;justify-content:center;font-size:2rem;box-shadow:0 10px 28px rgba(108,99,255,.35);flex-shrink:0}
+    .tool-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:700;font-style:italic;letter-spacing:-1px;color:var(--white);line-height:1}
+    .tool-desc{font-size:1rem;color:var(--grey);line-height:1.7;font-family:'DM Sans',sans-serif;max-width:700px}
+    .tool-wrap{max-width:1000px;margin:0 auto;padding:0 40px 40px}
+    .calc-card{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:36px;margin-bottom:24px}
+    .calc-card h2{font-family:'DM Mono',monospace;font-size:.78rem;font-weight:500;color:var(--purple);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:24px}
+    .input-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .input-group label{display:block;font-size:.84rem;font-weight:600;color:var(--grey);margin-bottom:7px;font-family:'DM Sans',sans-serif}
+    .input-wrap{position:relative}
+    .input-prefix{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--purple);font-weight:600;font-size:.88rem;font-family:'DM Mono',monospace}
+    input[type=number],input[type=text],input[type=date],select,textarea{width:100%;background:#0f1117;border:1px solid var(--border);border-radius:12px;padding:13px 14px 13px 48px;color:var(--white);font-size:.95rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}
+    input.no-prefix,select.no-prefix,textarea.no-prefix{padding-left:14px}
+    input:focus,select:focus,textarea:focus{border-color:var(--purple)}
+    select{-webkit-appearance:none}
+    textarea{resize:vertical;min-height:80px}
+    .calc-btn{width:100%;padding:15px;border-radius:13px;background:linear-gradient(135deg,var(--purple),var(--purple2));border:none;color:#fff;font-size:.97rem;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;transition:opacity .2s,transform .2s;margin-top:20px}
+    .calc-btn:hover{opacity:.9;transform:translateY(-1px)}
+    .result-card{background:linear-gradient(135deg,rgba(108,99,255,.1),rgba(79,70,229,.05));border:1px solid rgba(108,99,255,.25);border-radius:20px;padding:32px;display:none;text-align:center;margin-bottom:24px}
+    .result-card.show{display:block}
+    .result-label{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--grey);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
+    .result-main{font-family:'Outfit',sans-serif;font-size:3.5rem;font-weight:800;letter-spacing:-2px;background:linear-gradient(90deg,var(--purple),var(--purple2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:8px}
+    .result-sub{font-size:.9rem;color:var(--grey);font-family:'DM Sans',sans-serif}
+    .result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+    .result-item{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;padding:14px}
+    .result-item-label{font-family:'DM Mono',monospace;font-size:.62rem;color:var(--grey);text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px}
+    .result-item-val{font-family:'Outfit',sans-serif;font-size:1.05rem;font-weight:700;color:var(--white)}
+    .invoice-preview{background:#fff;border-radius:16px;padding:32px;color:#1a1a2e;margin-bottom:24px;display:none}
+    .invoice-preview.show{display:block}
+    .inv-header{display:flex;justify-content:space-between;margin-bottom:24px;padding-bottom:16px;border-bottom:2px solid #6c63ff}
+    .inv-logo{font-size:1.4rem;font-weight:800;color:#6c63ff}
+    .inv-title{font-size:1.8rem;font-weight:800;color:#1a1a2e;text-align:right}
+    .inv-meta{font-size:.82rem;color:#666;text-align:right}
+    .inv-parties{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px}
+    .inv-party h4{font-size:.75rem;text-transform:uppercase;letter-spacing:1px;color:#999;margin-bottom:6px;font-family:'DM Sans',sans-serif}
+    .inv-party p{font-size:.9rem;color:#333;line-height:1.6;font-family:'DM Sans',sans-serif}
+    .inv-table{width:100%;border-collapse:collapse;margin-bottom:20px}
+    .inv-table th{background:#f5f5f5;padding:10px 12px;text-align:left;font-size:.78rem;text-transform:uppercase;letter-spacing:.8px;color:#666;font-family:'DM Sans',sans-serif}
+    .inv-table td{padding:12px;border-bottom:1px solid #eee;font-size:.9rem;color:#333;font-family:'DM Sans',sans-serif}
+    .inv-total{text-align:right;font-size:1.2rem;font-weight:800;color:#6c63ff}
+    .inv-note{font-size:.82rem;color:#666;margin-top:16px;padding-top:16px;border-top:1px solid #eee;font-family:'DM Sans',sans-serif}
+    .copy-btn{background:linear-gradient(135deg,#6c63ff,#4f46e5);border:none;color:#fff;padding:12px 24px;border-radius:10px;font-size:.9rem;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;margin-top:12px}
+    .content-section{max-width:1000px;margin:0 auto;padding:0 40px 80px}
+    .content-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:36px;margin-bottom:20px}
+    .content-card h2{font-family:'Outfit',sans-serif;font-size:1.2rem;font-weight:700;color:var(--white);margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+    .content-card p{font-size:.92rem;color:var(--light);line-height:1.85;margin-bottom:12px;font-family:'DM Sans',sans-serif}
+    .content-card ul{list-style:none;padding:0}
+    .content-card ul li{font-size:.92rem;color:var(--light);line-height:1.75;padding:6px 0 6px 20px;position:relative;font-family:'DM Sans',sans-serif}
+    .content-card ul li::before{content:'→';position:absolute;left:0;color:var(--purple);font-weight:700}
+    .step{display:flex;gap:16px;margin-bottom:16px;align-items:flex-start}
+    .step-num{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--purple2));display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;flex-shrink:0;color:#fff}
+    .step-text{font-size:.92rem;color:var(--light);line-height:1.7;font-family:'DM Sans',sans-serif;padding-top:4px}
+    .faq-item{border-bottom:1px solid var(--border);padding:18px 0}
+    .faq-item:last-child{border-bottom:none}
+    .faq-q{font-family:'Outfit',sans-serif;font-size:.97rem;font-weight:700;color:var(--white);margin-bottom:8px}
+    .faq-a{font-size:.9rem;color:var(--light);line-height:1.75;font-family:'DM Sans',sans-serif}
+    .tip-box{background:rgba(108,99,255,.08);border:1px solid rgba(108,99,255,.2);border-radius:12px;padding:16px 20px;font-size:.88rem;color:var(--light);line-height:1.7;font-family:'DM Sans',sans-serif;margin-bottom:20px}
+    .tip-box strong{color:var(--purple)}
+    .site-footer{border-top:1px solid var(--border);padding:56px 48px 28px;background:var(--footer-bg)}
+    .site-footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;max-width:1200px;margin:0 auto 40px}
+    .sf-logo{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;font-style:italic;color:var(--white);margin-bottom:10px;display:block;text-decoration:none}
+    .sf-brand p{font-size:.83rem;color:var(--grey);line-height:1.7;max-width:240px;margin-top:8px;font-family:'DM Sans',sans-serif}
+    .sf-col h4{font-family:'Outfit',sans-serif;font-size:.75rem;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px}
+    .sf-col a{display:block;color:var(--grey);text-decoration:none;font-size:.83rem;margin-bottom:9px;transition:color .2s;font-family:'DM Sans',sans-serif}
+    .sf-col a:hover{color:var(--white)}
+    .sf-col a.c-o:hover{color:#ff5500}.sf-col a.c-g:hover{color:#00e64d}.sf-col a.c-p:hover{color:#6c63ff}.sf-col a.c-y:hover{color:#f5c518}.sf-col a.c-r:hover{color:#c50337}
+    .sf-bottom{max-width:1200px;margin:0 auto;border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:var(--grey);font-family:'DM Sans',sans-serif}
+    .sf-bottom a{color:var(--grey);text-decoration:none;margin-left:18px;transition:color .2s}
+    .sf-bottom a:hover{color:var(--white)}
+    @media(max-width:900px){.site-footer-grid{grid-template-columns:1fr 1fr;gap:28px}.site-footer{padding:40px 20px 24px}.sf-bottom{flex-direction:column;gap:10px;text-align:center}.input-grid{grid-template-columns:1fr}.result-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:768px){nav{padding:14px 20px}.nav-links{gap:0}.nav-link{padding:6px 8px;font-size:.78rem}.nav-home{padding:6px 10px;font-size:.78rem}.tool-hero{padding:40px 20px 24px}.tool-wrap{padding:0 16px 24px}.content-section{padding:0 16px 60px}.tool-title-row{flex-direction:column;align-items:flex-start;gap:12px}.result-main{font-size:2.5rem}.inv-parties{grid-template-columns:1fr}}
+  </style>
+</head>
 <body>
-<nav><a href="index.html" class="logo">Web<span>Tools</span>Kit</a><a href="index.html" class="back-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Freelance Tools</a></nav>
-<div class="container">
-  <div class="tool-header"><div class="tool-icon-big">📊</div><h1>Project Profit Calculator</h1><p>Know if a project is truly worth taking before you say yes. Calculate real profit after all hidden costs.</p></div>
-  <div class="card">
-    <h2>// Project Details</h2>
-    <div class="grid-2">
-      <div class="input-group"><label>Project Fee (₹)</label><div class="input-wrap"><span class="ip">₹</span><input type="number" id="fee" placeholder="50000"/></div></div>
-      <div class="input-group"><label>Estimated Hours</label><div class="input-wrap"><span class="ip">h</span><input type="number" id="hours" placeholder="40"/></div></div>
-      <div class="input-group"><label>Platform / Agency Fee (%)</label><div class="input-wrap"><span class="ip">%</span><input type="number" id="platformFee" placeholder="20"/></div></div>
-      <div class="input-group"><label>Tax Rate (%)</label><div class="input-wrap"><span class="ip">%</span><input type="number" id="taxRate" placeholder="18"/></div></div>
-      <div class="input-group"><label>Direct Expenses (tools, subscriptions, etc.)</label><div class="input-wrap"><span class="ip">₹</span><input type="number" id="expenses" placeholder="2000"/></div></div>
-      <div class="input-group"><label>Revision & Meeting Hours (non-billable)</label><div class="input-wrap"><span class="ip">h</span><input type="number" id="extraHours" placeholder="5"/></div></div>
-    </div>
-    <button class="btn" onclick="calculate()">Analyse Project Profitability →</button>
+<nav>
+  <a href="../index.html" class="logo">Web<span class="logo-accent">Tools</span>Kit</a>
+  <div class="nav-links">
+    <a href="../index.html" class="nav-home">🏠 Home</a>
+    <a href="../finance/index.html" class="nav-link c-o">💰 Finance</a>
+    <a href="../health/index.html" class="nav-link c-g">🌿 Health</a>
+    <a href="../students/index.html" class="nav-link c-y">🎓 Students</a>
+    <a href="../utility/index.html" class="nav-link c-r">⚡ Utility</a>
   </div>
-  <div class="result-card" id="result">
-    <div class="verdict">
-      <div class="v-label">Real Hourly Rate</div>
-      <div class="v-big" id="realRate">₹0/hr</div>
-      <div class="v-status" id="verdict">—</div>
-    </div>
-    <div class="r-grid">
-      <div class="r-item"><div class="r-label">Gross Revenue</div><div class="r-val" id="gross">₹0</div></div>
-      <div class="r-item"><div class="r-label">After Platform Fee</div><div class="r-val" id="afterPlatform">₹0</div></div>
-      <div class="r-item"><div class="r-label">Tax Deducted</div><div class="r-val" id="taxDed">₹0</div></div>
-      <div class="r-item"><div class="r-label">Direct Expenses</div><div class="r-val" id="expAmt">₹0</div></div>
-      <div class="r-item"><div class="r-label">Total Hours (incl. extras)</div><div class="r-val" id="totalHours">0</div></div>
-      <div class="r-item"><div class="r-label">Net Profit</div><div class="r-val" id="netProfit">₹0</div></div>
-    </div>
-    <div class="tip-box" id="tipBox"></div>
+</nav>
+<div class="tool-hero">
+  <div class="tool-breadcrumb"><a href="index.html">💼 Freelance</a> → Project Profit Calculator</div>
+  <div class="tool-title-row">
+    <div class="tool-icon-big">📊</div>
+    <div class="tool-title">Project Profit Calculator</div>
   </div>
+  <div class="tool-desc">Calculate the actual profit from any freelance project after accounting for all time and expenses.</div>
 </div>
+<div class="tool-wrap">
+<div class="calc-card"><h2>// Project Details</h2>
+<div class="input-grid">
+  <div class="input-group"><label>Project Fee (₹)</label><div class="input-wrap"><span class="input-prefix">₹</span><input type="number" id="ppFee" placeholder="50000" oninput="calcPP()"/></div></div>
+  <div class="input-group"><label>Hours Spent on Project</label><div class="input-wrap"><span class="input-prefix">hrs</span><input type="number" id="ppHours" placeholder="40" oninput="calcPP()"/></div></div>
+  <div class="input-group"><label>Direct Project Expenses (₹)</label><div class="input-wrap"><span class="input-prefix">₹</span><input type="number" id="ppExp" placeholder="5000" oninput="calcPP()"/></div></div>
+  <div class="input-group"><label>Your Target Hourly Rate (₹/hr)</label><div class="input-wrap"><span class="input-prefix">₹</span><input type="number" id="ppTargetRate" placeholder="1500" oninput="calcPP()"/></div></div>
+  <div class="input-group"><label>Tax Rate (%)</label><div class="input-wrap"><span class="input-prefix">%</span><input type="number" id="ppTax" placeholder="30" oninput="calcPP()"/></div></div>
+</div></div>
+<div class="result-card" id="result">
+  <div class="result-label">Project Profit</div>
+  <div class="result-main" id="ppProfit">₹0</div>
+  <div class="result-sub" id="ppSub"></div>
+  <div class="result-grid">
+    <div class="result-item"><div class="result-item-label">Effective Hourly Rate</div><div class="result-item-val" id="ppEffRate">₹0/hr</div></div>
+    <div class="result-item"><div class="result-item-label">Profit Margin</div><div class="result-item-val" id="ppMargin">0%</div></div>
+    <div class="result-item"><div class="result-item-label">vs Target Rate</div><div class="result-item-val" id="ppVsTarget">—</div></div>
+  </div>
+</div></div>
+<section class="content-section">
+  <div class="content-card"><h2>What is this Tool?</h2><p>The Project Profit Calculator reveals the true profitability of any freelance project by accounting for the time you invested, direct expenses, and taxes. Many freelancers accept projects based on the total fee alone, without calculating whether the time invested makes the project worthwhile at their target hourly rate. This tool shows you your effective hourly rate, actual profit after expenses and taxes, and whether the project met your income goals.</p></div>
+  <div class="content-card"><h2>How to Use This Tool</h2><div class="steps"><div class="step"><div class="step-num">1</div><div class="step-text">Enter the total project fee you charged or received.</div></div><div class="step"><div class="step-num">2</div><div class="step-text">Enter the actual hours you spent on the project — including revisions, meetings, and admin.</div></div><div class="step"><div class="step-num">3</div><div class="step-text">Enter any direct expenses for the project (stock photos, tools, outsourcing).</div></div><div class="step"><div class="step-num">4</div><div class="step-text">Enter your target hourly rate to compare against your actual effective rate.</div></div><div class="step"><div class="step-num">5</div><div class="step-text">Enter your tax rate to see the after-tax profit.</div></div><div class="step"><div class="step-num">6</div><div class="step-text">Your effective hourly rate, profit margin, and comparison to your target rate are shown instantly.</div></div></div></div>
+  <div class="content-card"><h2>Why This Matters</h2><ul><li>Identify which project types are most profitable for your time</li><li>Stop accepting unprofitable projects that drain your energy</li><li>Use data to adjust your rates for similar future projects</li><li>Track whether scope creep is destroying your project margins</li><li>Build a portfolio of only the most profitable client relationships</li></ul></div>
+  <div class="content-card"><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">Q: What is a good profit margin for freelance work?</div><div class="faq-a">A: A profit margin of 50-70% on your project fee (after expenses, before tax) is healthy for most freelance work. Below 30% margin usually means the project wasn't worth it.</div></div><div class="faq-item"><div class="faq-q">Q: What if my effective rate is below my target?</div><div class="faq-a">A: It means you underquoted, underestimated hours, or experienced scope creep. Use this data to requote similar projects 20-30% higher in the future.</div></div><div class="faq-item"><div class="faq-q">Q: How do I prevent scope creep?</div><div class="faq-a">A: Define deliverables specifically in your contract. Any additions should be quoted separately. Use phrases like 'as per the agreed scope' when discussing new requests.</div></div><div class="faq-item"><div class="faq-q">Q: Should I track time for every project?</div><div class="faq-a">A: Yes, absolutely. Use free tools like Toggl or Clockify to track time on every project. After 10 projects, you'll have accurate data to quote confidently and identify your most profitable work types.</div></div></div>
+  <div class="tip-box"><strong>💡 Pro Tip:</strong> Track time on every project — even fixed-fee ones. After 6 months you'll have data showing exactly which types of projects earn you the most per hour. Focus on getting more of those clients and politely declining the unprofitable ones.</div>
+</section>
+<footer class="site-footer">
+  <div class="site-footer-grid">
+    <div class="sf-brand">
+      <a href="../index.html" class="sf-logo">Web<span style="background:linear-gradient(90deg,#ff5500,#c50337);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Tools</span>Kit</a>
+      <p>Free online tools for everyone. No signup, no cost. Part of the WebToolsKit network.</p>
+    </div>
+    <div class="sf-col"><h4>All Tools</h4>
+      <a href="../finance/index.html" class="c-o">💰 Finance</a>
+      <a href="../health/index.html" class="c-g">🌿 Health</a>
+      <a href="../freelance/index.html" class="c-p">💼 Freelance</a>
+      <a href="../students/index.html" class="c-y">🎓 Students</a>
+      <a href="../utility/index.html" class="c-r">⚡ Utility</a>
+    </div>
+    <div class="sf-col"><h4>Legal</h4>
+      <a href="../legal/privacy-policy.html">Privacy Policy</a>
+      <a href="../legal/disclaimer.html">Disclaimer</a>
+      <a href="../legal/terms-conditions.html">Terms &amp; Conditions</a>
+      <a href="../legal/contact.html">Contact Us</a>
+      <a href="../legal/copyright.html">Copyright</a>
+    </div>
+    <div class="sf-col"><h4>Quick Links</h4>
+      <a href="../index.html">🏠 Home</a>
+      <a href="index.html">💼 Freelance Tools</a>
+      <a href="../legal/contact.html">Contact</a>
+      <a href="../legal/privacy-policy.html">Privacy</a>
+    </div>
+  </div>
+  <div class="sf-bottom">
+    <span>© 2026 WebToolsKit. All rights reserved.</span>
+    <div><a href="../legal/privacy-policy.html">Privacy</a><a href="../legal/terms-conditions.html">Terms</a><a href="../legal/contact.html">Contact</a></div>
+  </div>
+</footer>
 <script>
 function fmt(n){return '₹'+Math.round(n).toLocaleString('en-IN')}
-function calculate(){
-  const fee=parseFloat(document.getElementById('fee').value)||0;
-  const hours=parseFloat(document.getElementById('hours').value)||1;
-  const platform=parseFloat(document.getElementById('platformFee').value)||0;
-  const tax=parseFloat(document.getElementById('taxRate').value)||0;
-  const expenses=parseFloat(document.getElementById('expenses').value)||0;
-  const extra=parseFloat(document.getElementById('extraHours').value)||0;
-  const afterPlat=fee*(1-platform/100);
-  const taxAmt=afterPlat*(tax/100);
-  const afterTax=afterPlat-taxAmt;
-  const net=afterTax-expenses;
-  const totalH=hours+extra;
-  const realRate=net/totalH;
-  const isProfitable=realRate>300;
-  document.getElementById('realRate').textContent=fmt(realRate)+'/hr';
-  document.getElementById('realRate').className='v-big '+(isProfitable?'green':'red');
-  document.getElementById('verdict').textContent=isProfitable?'✅ Worth Taking':'⚠️ Reconsider Pricing';
-  document.getElementById('gross').textContent=fmt(fee);
-  document.getElementById('afterPlatform').textContent=fmt(afterPlat);
-  document.getElementById('taxDed').textContent=fmt(taxAmt);
-  document.getElementById('expAmt').textContent=fmt(expenses);
-  document.getElementById('totalHours').textContent=totalH+'h';
-  document.getElementById('netProfit').textContent=fmt(net);
-  const res=document.getElementById('result');
-  res.className='result-card show '+(isProfitable?'profit':'loss');
-  document.getElementById('tipBox').innerHTML=isProfitable?`<strong>💡 Good Deal!</strong> At ${fmt(realRate)}/hr effective rate, this project is worth your time. Make sure to document scope clearly to avoid scope creep.`:`<strong>⚠️ Low Rate Alert!</strong> At ${fmt(realRate)}/hr after all deductions, you might be undercharging. Try negotiating the fee up by ${Math.round((400*totalH/net-1)*100)}% or reducing non-billable hours.`;
-  res.scrollIntoView({behavior:'smooth',block:'nearest'});
+function calcPP(){
+  const fee=parseFloat(document.getElementById('ppFee').value)||0;
+  const hrs=parseFloat(document.getElementById('ppHours').value)||0;
+  const exp=parseFloat(document.getElementById('ppExp').value)||0;
+  const target=parseFloat(document.getElementById('ppTargetRate').value)||0;
+  const tax=parseFloat(document.getElementById('ppTax').value)||0;
+  if(!fee||!hrs){document.getElementById('result').classList.remove('show');return;}
+  const gross=fee-exp;const taxAmt=gross*tax/100;const profit=gross-taxAmt;
+  const effRate=profit/hrs;const margin=Math.round(profit/fee*100);
+  const vsTarget=target?((effRate-target)/target*100).toFixed(0):null;
+  document.getElementById('ppProfit').textContent=fmt(profit);
+  document.getElementById('ppSub').textContent=`After ₹${exp.toLocaleString('en-IN')} expenses and ${tax}% tax`;
+  document.getElementById('ppEffRate').textContent=fmt(effRate)+'/hr';
+  document.getElementById('ppMargin').textContent=margin+'%';
+  document.getElementById('ppVsTarget').textContent=vsTarget?(vsTarget>=0?'+'+vsTarget+'%':vsTarget+'%'):'N/A';
+  document.getElementById('result').classList.add('show');
 }
 </script>
-</body></html>
+</body>
+</html>

@@ -1,117 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CGPA Calculator — WebToolsKit Students</title>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CGPA Calculator — WebToolsKit</title>
+  <meta name="description" content="Calculate your CGPA from semester grades and credit hours. Supports all major grading systems."/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--bg:#111214;--card:#1a1b1f;--border:#2a2b30;--yellow:#f5c518;--yellow2:#e6b800;--glow:rgba(245,197,24,0.12);--white:#fff;--grey:#8b8d97;--light:#d4d6e0}
+    :root{--bg:#0f1117;--nav:#000000;--footer-bg:#000000;--card:#1a1d27;--border:#2a2d3a;--white:#ffffff;--grey:#8b8fa8;--light:#c8cad8;--yellow:#f5c518;--yellow2:#e6b800}
+    html{scroll-behavior:smooth}
     body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;min-height:100vh}
-    nav{display:flex;align-items:center;justify-content:space-between;padding:18px 40px;border-bottom:1px solid var(--border);background:rgba(17,18,20,.97);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100}
-    .logo{font-family:'Space Grotesk',sans-serif;font-size:1.3rem;font-weight:700;text-decoration:none;color:var(--white)}.logo span{color:var(--yellow)}
-    .back-btn{display:flex;align-items:center;gap:7px;color:var(--grey);text-decoration:none;font-size:.88rem;font-weight:600;border:1px solid var(--border);padding:7px 14px;border-radius:8px;transition:all .2s}
-    .back-btn:hover{color:var(--white);border-color:var(--yellow)}
-    .container{max-width:820px;margin:0 auto;padding:56px 20px}
-    .tool-header{text-align:center;margin-bottom:44px}
-    .tool-icon-big{width:72px;height:72px;border-radius:20px;background:linear-gradient(135deg,var(--yellow),var(--yellow2));display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 18px;box-shadow:0 10px 28px rgba(245,197,24,.25)}
-    .tool-header h1{font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:700;letter-spacing:-1px;margin-bottom:9px}
-    .tool-header p{color:var(--grey);font-size:.96rem;line-height:1.6}
-    .card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:32px;margin-bottom:20px}
-    .card h2{font-family:'DM Mono',monospace;font-size:.82rem;font-weight:500;margin-bottom:22px;color:var(--yellow);text-transform:uppercase;letter-spacing:1.5px}
-    .subject-row{display:grid;grid-template-columns:2fr 1fr 1fr 44px;gap:10px;align-items:center;margin-bottom:10px}
-    input[type=text],input[type=number]{width:100%;background:#111214;border:1px solid var(--border);border-radius:10px;padding:11px 14px;color:var(--white);font-size:.9rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}
-    input:focus{border-color:var(--yellow)}
-    select{width:100%;background:#111214;border:1px solid var(--border);border-radius:10px;padding:11px 14px;color:var(--white);font-size:.88rem;font-family:'DM Sans',sans-serif;outline:none;-webkit-appearance:none}
-    select:focus{border-color:var(--yellow)}
-    .del-btn{width:44px;height:42px;background:rgba(255,50,50,.1);border:1px solid rgba(255,50,50,.2);border-radius:9px;color:#ff4444;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
-    .add-btn{width:100%;padding:11px;background:transparent;border:1px dashed var(--border);border-radius:10px;color:var(--grey);font-size:.88rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;margin-top:4px}
-    .add-btn:hover{border-color:var(--yellow);color:var(--yellow)}
-    .btn{width:100%;padding:15px;border-radius:13px;background:linear-gradient(135deg,var(--yellow),var(--yellow2));border:none;color:#111214;font-size:.97rem;font-weight:700;cursor:pointer;font-family:'Space Grotesk',sans-serif;transition:opacity .2s,transform .2s;margin-top:16px}
-    .btn:hover{opacity:.9;transform:translateY(-1px)}
-    .result-card{background:linear-gradient(135deg,rgba(245,197,24,.08),rgba(230,184,0,.04));border:1px solid rgba(245,197,24,.25);border-radius:20px;padding:32px;display:none;text-align:center}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:18px 48px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--nav);backdrop-filter:blur(16px);z-index:100}
+    .logo{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;text-decoration:none;color:var(--white);letter-spacing:.5px;font-style:italic}
+    .logo-accent{background:linear-gradient(90deg,#ff5500,#c50337);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .nav-links{display:flex;align-items:center;gap:4px}
+    .nav-home{color:var(--grey);text-decoration:none;font-size:.85rem;font-weight:600;padding:7px 14px;border-radius:8px;border:1px solid var(--border);transition:all .2s;margin-right:4px;font-family:'DM Sans',sans-serif}
+    .nav-home:hover{color:var(--white);border-color:rgba(255,255,255,.3)}
+    .nav-link{color:var(--grey);text-decoration:none;font-size:.85rem;font-weight:600;padding:7px 14px;border-radius:8px;border:1px solid transparent;transition:all .2s;font-family:'DM Sans',sans-serif}
+    .nav-link.c-o:hover{color:#ff5500;border-color:rgba(255,85,0,.3)}
+    .nav-link.c-g:hover{color:#00e64d;border-color:rgba(0,230,77,.3)}
+    .nav-link.c-p:hover{color:#6c63ff;border-color:rgba(108,99,255,.3)}
+    .nav-link.c-r:hover{color:#c50337;border-color:rgba(197,3,55,.3)}
+    .tool-hero{padding:60px 40px 40px;max-width:1000px;margin:0 auto}
+    .tool-breadcrumb{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--grey);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+    .tool-breadcrumb a{color:var(--yellow);text-decoration:none}
+    .tool-title-row{display:flex;align-items:center;gap:20px;margin-bottom:16px}
+    .tool-icon-big{width:72px;height:72px;border-radius:20px;background:linear-gradient(135deg,var(--yellow),var(--yellow2));display:flex;align-items:center;justify-content:center;font-size:2rem;box-shadow:0 10px 28px rgba(245,197,24,.35);flex-shrink:0}
+    .tool-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:700;font-style:italic;letter-spacing:-1px;color:var(--white);line-height:1}
+    .tool-desc{font-size:1rem;color:var(--grey);line-height:1.7;font-family:'DM Sans',sans-serif;max-width:700px}
+    .tool-wrap{max-width:1000px;margin:0 auto;padding:0 40px 40px}
+    .calc-card{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:36px;margin-bottom:24px}
+    .calc-card h2{font-family:'DM Mono',monospace;font-size:.78rem;font-weight:500;color:var(--yellow);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:24px}
+    .input-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .input-group label{display:block;font-size:.84rem;font-weight:600;color:var(--grey);margin-bottom:7px;font-family:'DM Sans',sans-serif}
+    .input-wrap{position:relative}
+    .input-prefix{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--yellow);font-weight:600;font-size:.88rem;font-family:'DM Mono',monospace}
+    input[type=number],input[type=text],select{width:100%;background:#0f1117;border:1px solid var(--border);border-radius:12px;padding:13px 14px 13px 48px;color:var(--white);font-size:.95rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}
+    input.no-prefix,select.no-prefix{padding-left:14px}
+    input:focus,select:focus{border-color:var(--yellow)}
+    select{-webkit-appearance:none}
+    .calc-btn{width:100%;padding:15px;border-radius:13px;background:linear-gradient(135deg,var(--yellow),var(--yellow2));border:none;color:#000;font-size:.97rem;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;transition:opacity .2s,transform .2s;margin-top:20px}
+    .calc-btn:hover{opacity:.9;transform:translateY(-1px)}
+    .result-card{background:linear-gradient(135deg,rgba(245,197,24,.1),rgba(230,184,0,.05));border:1px solid rgba(245,197,24,.25);border-radius:20px;padding:32px;display:none;text-align:center;margin-bottom:24px}
     .result-card.show{display:block}
-    .r-big-label{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--grey);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
-    .r-big{font-family:'Space Grotesk',sans-serif;font-size:5rem;font-weight:700;letter-spacing:-3px;background:linear-gradient(90deg,var(--yellow),var(--yellow2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:6px}
-    .r-grade{font-size:1.2rem;font-weight:700;margin-bottom:24px}
-    .r-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px}
-    .r-item{background:rgba(255,255,255,.04);border-radius:12px;padding:14px;border:1px solid var(--border)}
-    .r-label{font-family:'DM Mono',monospace;font-size:.65rem;color:var(--grey);text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px}
-    .r-val{font-family:'Space Grotesk',sans-serif;font-size:1.05rem;font-weight:600}
-    .tip-box{padding:14px 18px;background:var(--glow);border:1px solid rgba(245,197,24,.2);border-radius:12px;font-size:.85rem;color:var(--light);line-height:1.6;text-align:left}
+    .result-label{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--grey);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
+    .result-main{font-family:'Outfit',sans-serif;font-size:3.5rem;font-weight:800;letter-spacing:-2px;background:linear-gradient(90deg,var(--yellow),var(--yellow2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:8px}
+    .result-sub{font-size:.9rem;color:var(--grey);font-family:'DM Sans',sans-serif}
+    .result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+    .result-item{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;padding:14px}
+    .result-item-label{font-family:'DM Mono',monospace;font-size:.62rem;color:var(--grey);text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px}
+    .result-item-val{font-family:'Outfit',sans-serif;font-size:1.05rem;font-weight:700;color:var(--white)}
+    .content-section{max-width:1000px;margin:0 auto;padding:0 40px 80px}
+    .content-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:36px;margin-bottom:20px}
+    .content-card h2{font-family:'Outfit',sans-serif;font-size:1.2rem;font-weight:700;color:var(--white);margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+    .content-card p{font-size:.92rem;color:var(--light);line-height:1.85;margin-bottom:12px;font-family:'DM Sans',sans-serif}
+    .content-card ul{list-style:none;padding:0}
+    .content-card ul li{font-size:.92rem;color:var(--light);line-height:1.75;padding:6px 0 6px 20px;position:relative;font-family:'DM Sans',sans-serif}
+    .content-card ul li::before{content:'→';position:absolute;left:0;color:var(--yellow);font-weight:700}
+    .step{display:flex;gap:16px;margin-bottom:16px;align-items:flex-start}
+    .step-num{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--yellow),var(--yellow2));display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;flex-shrink:0;color:#000}
+    .step-text{font-size:.92rem;color:var(--light);line-height:1.7;font-family:'DM Sans',sans-serif;padding-top:4px}
+    .faq-item{border-bottom:1px solid var(--border);padding:18px 0}
+    .faq-item:last-child{border-bottom:none}
+    .faq-q{font-family:'Outfit',sans-serif;font-size:.97rem;font-weight:700;color:var(--white);margin-bottom:8px}
+    .faq-a{font-size:.9rem;color:var(--light);line-height:1.75;font-family:'DM Sans',sans-serif}
+    .tip-box{background:rgba(245,197,24,.08);border:1px solid rgba(245,197,24,.2);border-radius:12px;padding:16px 20px;font-size:.88rem;color:var(--light);line-height:1.7;font-family:'DM Sans',sans-serif;margin-bottom:20px}
     .tip-box strong{color:var(--yellow)}
-    @media(max-width:600px){nav{padding:14px 20px}.subject-row{grid-template-columns:1fr 80px 80px 40px}.r-grid{grid-template-columns:1fr 1fr}.r-big{font-size:3.5rem}}
+    .subject-row{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:10px;margin-bottom:10px;align-items:end}
+    .subject-row input{padding-left:14px}
+    .del-btn{height:46px;width:46px;border-radius:10px;background:rgba(197,3,55,.15);border:1px solid rgba(197,3,55,.3);color:#ff6688;font-size:1.1rem;cursor:pointer}
+    .site-footer{border-top:1px solid var(--border);padding:56px 48px 28px;background:var(--footer-bg)}
+    .site-footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;max-width:1200px;margin:0 auto 40px}
+    .sf-logo{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;font-style:italic;color:var(--white);margin-bottom:10px;display:block;text-decoration:none}
+    .sf-brand p{font-size:.83rem;color:var(--grey);line-height:1.7;max-width:240px;margin-top:8px;font-family:'DM Sans',sans-serif}
+    .sf-col h4{font-family:'Outfit',sans-serif;font-size:.75rem;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px}
+    .sf-col a{display:block;color:var(--grey);text-decoration:none;font-size:.83rem;margin-bottom:9px;transition:color .2s;font-family:'DM Sans',sans-serif}
+    .sf-col a:hover{color:var(--white)}
+    .sf-col a.c-o:hover{color:#ff5500}.sf-col a.c-g:hover{color:#00e64d}.sf-col a.c-p:hover{color:#6c63ff}.sf-col a.c-y:hover{color:#f5c518}.sf-col a.c-r:hover{color:#c50337}
+    .sf-bottom{max-width:1200px;margin:0 auto;border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:var(--grey);font-family:'DM Sans',sans-serif}
+    .sf-bottom a{color:var(--grey);text-decoration:none;margin-left:18px;transition:color .2s}
+    .sf-bottom a:hover{color:var(--white)}
+    @media(max-width:900px){.site-footer-grid{grid-template-columns:1fr 1fr;gap:28px}.site-footer{padding:40px 20px 24px}.sf-bottom{flex-direction:column;gap:10px;text-align:center}.input-grid{grid-template-columns:1fr}.result-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:768px){nav{padding:14px 20px}.nav-links{gap:0}.nav-link{padding:6px 8px;font-size:.78rem}.nav-home{padding:6px 10px;font-size:.78rem}.tool-hero{padding:40px 20px 24px}.tool-wrap{padding:0 16px 24px}.content-section{padding:0 16px 60px}.tool-title-row{flex-direction:column;align-items:flex-start;gap:12px}.result-main{font-size:2.5rem}.subject-row{grid-template-columns:1fr 1fr}}
   </style>
 </head>
 <body>
 <nav>
-  <a href="index.html" class="logo">Web<span>Tools</span>Kit</a>
-  <a href="index.html" class="back-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Student Tools</a>
+  <a href="../index.html" class="logo">Web<span class="logo-accent">Tools</span>Kit</a>
+  <div class="nav-links">
+    <a href="../index.html" class="nav-home">🏠 Home</a>
+    <a href="../finance/index.html" class="nav-link c-o">💰 Finance</a>
+    <a href="../health/index.html" class="nav-link c-g">🌿 Health</a>
+    <a href="../freelance/index.html" class="nav-link c-p">💼 Freelance</a>
+    <a href="../utility/index.html" class="nav-link c-r">⚡ Utility</a>
+  </div>
 </nav>
-<div class="container">
-  <div class="tool-header">
+<div class="tool-hero">
+  <div class="tool-breadcrumb"><a href="index.html">🎓 Students</a> → CGPA Calculator</div>
+  <div class="tool-title-row">
     <div class="tool-icon-big">🎓</div>
-    <h1>CGPA / GPA Calculator</h1>
-    <p>Calculate your semester GPA and cumulative CGPA. Add all subjects with credits for a precise result.</p>
+    <div class="tool-title">CGPA Calculator</div>
   </div>
-  <div class="card">
-    <h2>// Your Subjects</h2>
-    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 44px;gap:10px;margin-bottom:8px;padding:0 2px">
-      <div style="font-size:.75rem;color:var(--grey);font-weight:600">Subject Name</div>
-      <div style="font-size:.75rem;color:var(--grey);font-weight:600">Credits</div>
-      <div style="font-size:.75rem;color:var(--grey);font-weight:600">Grade</div>
-      <div></div>
-    </div>
-    <div id="subjectList">
-      <div class="subject-row"><input type="text" placeholder="Mathematics" class="sname"/><input type="number" placeholder="4" class="credits"/><select class="grade"><option value="10">O (10)</option><option value="9">A+ (9)</option><option value="8" selected>A (8)</option><option value="7">B+ (7)</option><option value="6">B (6)</option><option value="5">C (5)</option><option value="4">D (4)</option><option value="0">F (0)</option></select><button class="del-btn" onclick="removeRow(this)">×</button></div>
-      <div class="subject-row"><input type="text" placeholder="Physics" class="sname"/><input type="number" placeholder="3" class="credits"/><select class="grade"><option value="10">O (10)</option><option value="9" selected>A+ (9)</option><option value="8">A (8)</option><option value="7">B+ (7)</option><option value="6">B (6)</option><option value="5">C (5)</option><option value="4">D (4)</option><option value="0">F (0)</option></select><button class="del-btn" onclick="removeRow(this)">×</button></div>
-      <div class="subject-row"><input type="text" placeholder="Chemistry" class="sname"/><input type="number" placeholder="3" class="credits"/><select class="grade"><option value="10">O (10)</option><option value="9">A+ (9)</option><option value="8">A (8)</option><option value="7" selected>B+ (7)</option><option value="6">B (6)</option><option value="5">C (5)</option><option value="4">D (4)</option><option value="0">F (0)</option></select><button class="del-btn" onclick="removeRow(this)">×</button></div>
-    </div>
-    <button class="add-btn" onclick="addRow()">+ Add Subject</button>
-    <button class="btn" onclick="calculate()">Calculate My GPA / CGPA →</button>
-  </div>
-  <div class="result-card" id="result">
-    <div class="r-big-label">Your CGPA</div>
-    <div class="r-big" id="cgpa">0.00</div>
-    <div class="r-grade" id="gradeClass"></div>
-    <div class="r-grid">
-      <div class="r-item"><div class="r-label">Total Credits</div><div class="r-val" id="totalCredits">0</div></div>
-      <div class="r-item"><div class="r-label">Grade Points</div><div class="r-val" id="gradePoints">0</div></div>
-      <div class="r-item"><div class="r-label">Percentage (~)</div><div class="r-val" id="percentage">0%</div></div>
-    </div>
-    <div class="tip-box" id="tipBox"></div>
-  </div>
+  <div class="tool-desc">Calculate your CGPA from semester grades and credit hours. Supports all major grading systems.</div>
 </div>
+<div class="tool-wrap">
+<div class="calc-card"><h2>// Semester Grades</h2>
+<div id="semList"></div>
+<button class="calc-btn" style="margin-top:0;margin-bottom:12px" onclick="addSem()">+ Add Semester</button>
+<button class="calc-btn" onclick="calcCGPA()">Calculate CGPA →</button>
+</div>
+<div class="result-card" id="result">
+  <div class="result-label">Your CGPA</div>
+  <div class="result-main" id="cgpaVal">0.00</div>
+  <div class="result-sub" id="cgpaSub"></div>
+  <div class="result-grid">
+    <div class="result-item"><div class="result-item-label">Total Credits</div><div class="result-item-val" id="totalCredits">0</div></div>
+    <div class="result-item"><div class="result-item-label">Grade Points</div><div class="result-item-val" id="totalPoints">0</div></div>
+    <div class="result-item"><div class="result-item-label">Percentage</div><div class="result-item-val" id="cgpaPct">0%</div></div>
+  </div>
+</div></div>
+<section class="content-section">
+  <div class="content-card"><h2>What is this Tool?</h2><p>The CGPA Calculator helps students calculate their Cumulative Grade Point Average from semester-wise grades and credit hours. CGPA is the weighted average of all grade points earned across all semesters, where each course's grade point is weighted by its credit hours. This tool supports the 10-point grading system used by most Indian universities including IITs, NITs, and affiliated colleges.</p></div>
+  <div class="content-card"><h2>How to Use This Tool</h2><div class="steps"><div class="step"><div class="step-num">1</div><div class="step-text">Click 'Add Semester' to add each semester.</div></div><div class="step"><div class="step-num">2</div><div class="step-text">Enter the semester name, total credits earned, and SGPA for that semester.</div></div><div class="step"><div class="step-num">3</div><div class="step-text">Add all completed semesters.</div></div><div class="step"><div class="step-num">4</div><div class="step-text">Click Calculate CGPA to see your cumulative result.</div></div><div class="step"><div class="step-num">5</div><div class="step-text">Your CGPA, total credits, and percentage equivalent are shown instantly.</div></div></div></div>
+  <div class="content-card"><h2>Why This Matters</h2><ul><li>Track academic progress across all semesters</li><li>Calculate CGPA for placement eligibility checks</li><li>Understand your percentage equivalent for applications</li><li>Set target CGPA goals for future semesters</li><li>Check eligibility for higher studies and scholarships</li></ul></div>
+  <div class="content-card"><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">Q: How is CGPA calculated?</div><div class="faq-a">A: CGPA = Sum of (SGPA × Credits for each semester) ÷ Total Credits across all semesters. Each semester's SGPA is weighted by its credit load.</div></div><div class="faq-item"><div class="faq-q">Q: How do I convert CGPA to percentage?</div><div class="faq-a">A: Most Indian universities use: Percentage = CGPA × 9.5. Some universities use CGPA × 10. Check your university's official conversion formula as it varies.</div></div><div class="faq-item"><div class="faq-q">Q: What CGPA is required for placements?</div><div class="faq-a">A: Most top companies require a minimum CGPA of 6.0 or 7.0. Premium companies and PSUs often require 7.5 or above. Government jobs through UPSC/SSC don't use CGPA.</div></div><div class="faq-item"><div class="faq-q">Q: What is the difference between SGPA and CGPA?</div><div class="faq-a">A: SGPA (Semester Grade Point Average) is your GPA for a single semester. CGPA (Cumulative GPA) is the weighted average across all completed semesters.</div></div></div>
+  <div class="tip-box"><strong>💡 Pro Tip:</strong> Even if your early semester CGPA is low, it can be significantly improved by consistently scoring high in later semesters — especially if later semesters have higher credit loads. Don't give up after a bad semester.</div>
+</section>
+<footer class="site-footer">
+  <div class="site-footer-grid">
+    <div class="sf-brand">
+      <a href="../index.html" class="sf-logo">Web<span style="background:linear-gradient(90deg,#ff5500,#c50337);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Tools</span>Kit</a>
+      <p>Free online tools for everyone. No signup, no cost. Part of the WebToolsKit network.</p>
+    </div>
+    <div class="sf-col"><h4>All Tools</h4>
+      <a href="../finance/index.html" class="c-o">💰 Finance</a>
+      <a href="../health/index.html" class="c-g">🌿 Health</a>
+      <a href="../freelance/index.html" class="c-p">💼 Freelance</a>
+      <a href="../students/index.html" class="c-y">🎓 Students</a>
+      <a href="../utility/index.html" class="c-r">⚡ Utility</a>
+    </div>
+    <div class="sf-col"><h4>Legal</h4>
+      <a href="../legal/privacy-policy.html">Privacy Policy</a>
+      <a href="../legal/disclaimer.html">Disclaimer</a>
+      <a href="../legal/terms-conditions.html">Terms &amp; Conditions</a>
+      <a href="../legal/contact.html">Contact Us</a>
+      <a href="../legal/copyright.html">Copyright</a>
+    </div>
+    <div class="sf-col"><h4>Quick Links</h4>
+      <a href="../index.html">🏠 Home</a>
+      <a href="index.html">🎓 Student Tools</a>
+      <a href="../legal/contact.html">Contact</a>
+      <a href="../legal/privacy-policy.html">Privacy</a>
+    </div>
+  </div>
+  <div class="sf-bottom">
+    <span>© 2026 WebToolsKit. All rights reserved.</span>
+    <div><a href="../legal/privacy-policy.html">Privacy</a><a href="../legal/terms-conditions.html">Terms</a><a href="../legal/contact.html">Contact</a></div>
+  </div>
+</footer>
 <script>
-function addRow(){
-  const row=document.createElement('div');row.className='subject-row';
-  row.innerHTML=`<input type="text" placeholder="Subject name" class="sname"/><input type="number" placeholder="3" class="credits"/><select class="grade"><option value="10">O (10)</option><option value="9">A+ (9)</option><option value="8" selected>A (8)</option><option value="7">B+ (7)</option><option value="6">B (6)</option><option value="5">C (5)</option><option value="4">D (4)</option><option value="0">F (0)</option></select><button class="del-btn" onclick="removeRow(this)">×</button>`;
-  document.getElementById('subjectList').appendChild(row);
+let sems=[];
+function addSem(){
+  const id=Date.now();sems.push(id);
+  const n=sems.length;
+  const div=document.createElement('div');
+  div.id='sem_'+id;
+  div.style.cssText='display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:10px;margin-bottom:10px;align-items:end';
+  div.innerHTML=`<div><label style="display:block;font-size:.84rem;font-weight:600;color:var(--grey);margin-bottom:7px;font-family:'DM Sans',sans-serif">Semester</label><input type="text" value="Semester ${n}" style="width:100%;background:#0f1117;border:1px solid var(--border);border-radius:12px;padding:13px 14px;color:#fff;font-size:.9rem;font-family:'DM Sans',sans-serif;outline:none"/></div><div><label style="display:block;font-size:.84rem;font-weight:600;color:var(--grey);margin-bottom:7px;font-family:'DM Sans',sans-serif">Credits</label><input type="number" placeholder="24" style="width:100%;background:#0f1117;border:1px solid var(--border);border-radius:12px;padding:13px 14px;color:#fff;font-size:.9rem;font-family:'DM Sans',sans-serif;outline:none"/></div><div><label style="display:block;font-size:.84rem;font-weight:600;color:var(--grey);margin-bottom:7px;font-family:'DM Sans',sans-serif">SGPA</label><input type="number" placeholder="8.5" step="0.01" max="10" style="width:100%;background:#0f1117;border:1px solid var(--border);border-radius:12px;padding:13px 14px;color:#fff;font-size:.9rem;font-family:'DM Sans',sans-serif;outline:none"/></div><button onclick="removeSem(${id})" class="del-btn" style="align-self:end">✕</button>`;
+  document.getElementById('semList').appendChild(div);
 }
-function removeRow(btn){const rows=document.querySelectorAll('.subject-row');if(rows.length>1)btn.closest('.subject-row').remove();}
-function calculate(){
+function removeSem(id){const el=document.getElementById('sem_'+id);if(el)el.remove();sems=sems.filter(s=>s!==id);}
+function calcCGPA(){
+  const items=document.getElementById('semList').querySelectorAll('div[id^="sem_"]');
   let totalCredits=0,totalPoints=0;
-  document.querySelectorAll('.subject-row').forEach(row=>{
-    const credits=parseFloat(row.querySelector('.credits').value)||0;
-    const grade=parseFloat(row.querySelector('.grade').value)||0;
-    totalCredits+=credits;totalPoints+=credits*grade;
+  items.forEach(item=>{
+    const inputs=item.querySelectorAll('input');
+    const credits=parseFloat(inputs[1].value)||0;
+    const sgpa=parseFloat(inputs[2].value)||0;
+    if(credits>0&&sgpa>0){totalCredits+=credits;totalPoints+=credits*sgpa;}
   });
-  const cgpa=totalCredits>0?totalPoints/totalCredits:0;
-  const pct=(cgpa-0.5)*10;
-  let cls='';
-  if(cgpa>=9)cls='🏆 Outstanding — First Class with Distinction';
-  else if(cgpa>=8)cls='⭐ Excellent — First Class';
-  else if(cgpa>=7)cls='✅ Good — Second Class';
-  else if(cgpa>=6)cls='📘 Average — Pass Class';
-  else cls='⚠️ Below average — needs improvement';
-  document.getElementById('cgpa').textContent=cgpa.toFixed(2);
-  document.getElementById('gradeClass').textContent=cls;
+  if(!totalCredits){alert('Add at least one semester!');return;}
+  const cgpa=totalPoints/totalCredits;
+  const pct=(cgpa*9.5).toFixed(1);
+  document.getElementById('cgpaVal').textContent=cgpa.toFixed(2);
+  document.getElementById('cgpaSub').textContent=`Based on ${totalCredits} total credits`;
   document.getElementById('totalCredits').textContent=totalCredits;
-  document.getElementById('gradePoints').textContent=totalPoints.toFixed(1);
-  document.getElementById('percentage').textContent=Math.min(100,Math.max(0,pct)).toFixed(1)+'%';
-  document.getElementById('tipBox').innerHTML=`<strong>💡 Formula Used:</strong> CGPA = Total Grade Points ÷ Total Credits. Percentage ≈ (CGPA × 10) - 5. This follows the standard 10-point grading system used by most Indian universities.`;
-  const res=document.getElementById('result');res.classList.add('show');res.scrollIntoView({behavior:'smooth',block:'nearest'});
+  document.getElementById('totalPoints').textContent=totalPoints.toFixed(1);
+  document.getElementById('cgpaPct').textContent=pct+'%';
+  document.getElementById('result').classList.add('show');
 }
+addSem();addSem();addSem();addSem();
 </script>
 </body>
 </html>

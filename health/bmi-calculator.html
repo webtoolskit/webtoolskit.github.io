@@ -1,125 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>BMI Calculator — WebToolsKit Health</title>
-  <meta name="description" content="Calculate your Body Mass Index and find out if you're at a healthy weight for your height."/>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BMI Calculator — WebToolsKit</title>
+  <meta name="description" content="Calculate your Body Mass Index and find out if you are in a healthy weight range for your height."/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--bg:#060f09;--card:#0d1f12;--border:#1a3526;--green:#00e64d;--green2:#00c43f;--glow:rgba(0,230,77,0.12);--white:#fff;--grey:#7a9e85;--light:#b8d4be}
-    body{background:var(--bg);color:var(--white);font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh}
-    nav{display:flex;align-items:center;justify-content:space-between;padding:18px 40px;border-bottom:1px solid var(--border);background:rgba(6,15,9,.96);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100}
-    .logo{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;text-decoration:none;color:var(--white)}.logo span{color:var(--green)}
-    .back-btn{display:flex;align-items:center;gap:7px;color:var(--grey);text-decoration:none;font-size:.88rem;font-weight:600;border:1px solid var(--border);padding:7px 14px;border-radius:8px;transition:all .2s}
-    .back-btn:hover{color:var(--white);border-color:var(--green)}
-    .container{max-width:760px;margin:0 auto;padding:56px 20px}
-    .tool-header{text-align:center;margin-bottom:44px}
-    .tool-icon-big{width:72px;height:72px;border-radius:20px;background:linear-gradient(135deg,var(--green),var(--green2));display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 18px;box-shadow:0 10px 28px rgba(0,230,77,0.25)}
-    .tool-header h1{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;letter-spacing:-1px;margin-bottom:9px}
-    .tool-header p{color:var(--grey);font-size:.96rem;line-height:1.6}
-    .card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:32px;margin-bottom:20px}
-    .card h2{font-family:'JetBrains Mono',monospace;font-size:.85rem;font-weight:600;margin-bottom:22px;color:var(--green);text-transform:uppercase;letter-spacing:1.5px}
-    .toggle-row{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:24px}
-    .tog{padding:11px;background:transparent;border:none;color:var(--grey);font-size:.9rem;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all .2s}
-    .tog.active{background:var(--glow);color:var(--green)}
-    .input-group{margin-bottom:18px}
-    label{display:block;font-size:.84rem;font-weight:600;color:var(--grey);margin-bottom:7px}
+    :root{--bg:#0f1117;--nav:#000000;--footer-bg:#000000;--card:#1a1d27;--border:#2a2d3a;--white:#ffffff;--grey:#8b8fa8;--light:#c8cad8;--green:#00e64d;--green2:#00c43f}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;min-height:100vh}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:18px 48px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--nav);backdrop-filter:blur(16px);z-index:100}
+    .logo{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;text-decoration:none;color:var(--white);letter-spacing:.5px;font-style:italic}
+    .logo-accent{background:linear-gradient(90deg,#ff5500,#c50337);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .nav-links{display:flex;align-items:center;gap:4px}
+    .nav-home{color:var(--grey);text-decoration:none;font-size:.85rem;font-weight:600;padding:7px 14px;border-radius:8px;border:1px solid var(--border);transition:all .2s;margin-right:4px;font-family:'DM Sans',sans-serif}
+    .nav-home:hover{color:var(--white);border-color:rgba(255,255,255,.3)}
+    .nav-link{color:var(--grey);text-decoration:none;font-size:.85rem;font-weight:600;padding:7px 14px;border-radius:8px;border:1px solid transparent;transition:all .2s;font-family:'DM Sans',sans-serif}
+    .nav-link.c-o:hover{color:#ff5500;border-color:rgba(255,85,0,.3)}
+    .nav-link.c-p:hover{color:#6c63ff;border-color:rgba(108,99,255,.3)}
+    .nav-link.c-y:hover{color:#f5c518;border-color:rgba(245,197,24,.3)}
+    .nav-link.c-r:hover{color:#c50337;border-color:rgba(197,3,55,.3)}
+    .tool-hero{padding:60px 40px 40px;max-width:1000px;margin:0 auto}
+    .tool-breadcrumb{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--grey);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+    .tool-breadcrumb a{color:var(--green);text-decoration:none}
+    .tool-title-row{display:flex;align-items:center;gap:20px;margin-bottom:16px}
+    .tool-icon-big{width:72px;height:72px;border-radius:20px;background:linear-gradient(135deg,var(--green),var(--green2));display:flex;align-items:center;justify-content:center;font-size:2rem;box-shadow:0 10px 28px rgba(0,230,77,.35);flex-shrink:0}
+    .tool-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:700;font-style:italic;letter-spacing:-1px;color:var(--white);line-height:1}
+    .tool-desc{font-size:1rem;color:var(--grey);line-height:1.7;font-family:'DM Sans',sans-serif;max-width:700px}
+    .tool-wrap{max-width:1000px;margin:0 auto;padding:0 40px 40px}
+    .calc-card{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:36px;margin-bottom:24px}
+    .calc-card h2{font-family:'DM Mono',monospace;font-size:.78rem;font-weight:500;color:var(--green);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:24px}
+    .input-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .input-group label{display:block;font-size:.84rem;font-weight:600;color:var(--grey);margin-bottom:7px;font-family:'DM Sans',sans-serif}
     .input-wrap{position:relative}
-    .input-prefix{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--green);font-weight:700;font-size:.88rem;font-family:'JetBrains Mono',monospace}
-    input[type=number]{width:100%;background:#060f09;border:1px solid var(--border);border-radius:12px;padding:13px 14px 13px 52px;color:var(--white);font-size:.97rem;font-family:'Plus Jakarta Sans',sans-serif;outline:none;transition:border-color .2s}
-    input[type=number]:focus{border-color:var(--green)}
-    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    .btn{width:100%;padding:15px;border-radius:13px;background:linear-gradient(135deg,var(--green),var(--green2));border:none;color:#060f09;font-size:.97rem;font-weight:800;cursor:pointer;font-family:'Syne',sans-serif;letter-spacing:.3px;transition:opacity .2s,transform .2s}
-    .btn:hover{opacity:.9;transform:translateY(-1px)}
-    .result-card{background:linear-gradient(135deg,rgba(0,230,77,.08),rgba(0,196,63,.04));border:1px solid rgba(0,230,77,.25);border-radius:20px;padding:32px;display:none}
+    .input-prefix{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--green);font-weight:600;font-size:.88rem;font-family:'DM Mono',monospace}
+    input[type=number],select{width:100%;background:#0f1117;border:1px solid var(--border);border-radius:12px;padding:13px 14px 13px 48px;color:var(--white);font-size:.97rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}
+    input.no-prefix,select.no-prefix{padding-left:14px}
+    input:focus,select:focus{border-color:var(--green)}
+    select{-webkit-appearance:none}
+    .calc-btn{width:100%;padding:15px;border-radius:13px;background:linear-gradient(135deg,var(--green),var(--green2));border:none;color:#000;font-size:.97rem;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;transition:opacity .2s,transform .2s;margin-top:20px}
+    .calc-btn:hover{opacity:.9;transform:translateY(-1px)}
+    .result-card{background:linear-gradient(135deg,rgba(0,230,77,.08),rgba(0,196,63,.04));border:1px solid rgba(0,230,77,.25);border-radius:20px;padding:32px;display:none;text-align:center;margin-bottom:24px}
     .result-card.show{display:block}
-    .bmi-display{text-align:center;margin-bottom:28px}
-    .bmi-label{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--grey);font-weight:600;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
-    .bmi-number{font-family:'Syne',sans-serif;font-size:5rem;font-weight:800;letter-spacing:-3px;background:linear-gradient(90deg,var(--green),var(--green2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
-    .bmi-category{font-size:1.1rem;font-weight:700;margin-top:8px}
-    .bmi-scale{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:24px}
-    .scale-item{border-radius:10px;padding:12px 8px;text-align:center;border:1px solid var(--border)}
-    .scale-item.active{border-color:var(--green);background:var(--glow)}
-    .scale-range{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--grey);margin-bottom:4px}
-    .scale-name{font-size:.78rem;font-weight:700}
-    .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
-    .r-item{background:rgba(255,255,255,.04);border-radius:12px;padding:16px;border:1px solid var(--border)}
-    .r-label{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--grey);font-weight:600;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px}
-    .r-val{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700}
-    .tip-box{padding:14px 18px;background:var(--glow);border:1px solid rgba(0,230,77,.2);border-radius:12px;font-size:.85rem;color:var(--light);line-height:1.6}
+    .result-label{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--grey);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
+    .result-main{font-family:'Outfit',sans-serif;font-size:3.5rem;font-weight:800;letter-spacing:-2px;background:linear-gradient(90deg,var(--green),var(--green2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:8px}
+    .result-sub{font-size:.9rem;color:var(--grey);font-family:'DM Sans',sans-serif}
+    .result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+    .result-item{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;padding:14px}
+    .result-item-label{font-family:'DM Mono',monospace;font-size:.62rem;color:var(--grey);text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px}
+    .result-item-val{font-family:'Outfit',sans-serif;font-size:1.1rem;font-weight:700;color:var(--white)}
+    .content-section{max-width:1000px;margin:0 auto;padding:0 40px 80px}
+    .content-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:36px;margin-bottom:20px}
+    .content-card h2{font-family:'Outfit',sans-serif;font-size:1.2rem;font-weight:700;color:var(--white);margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+    .content-card p{font-size:.92rem;color:var(--light);line-height:1.85;margin-bottom:12px;font-family:'DM Sans',sans-serif}
+    .content-card ul{list-style:none;padding:0}
+    .content-card ul li{font-size:.92rem;color:var(--light);line-height:1.75;padding:6px 0 6px 20px;position:relative;font-family:'DM Sans',sans-serif}
+    .content-card ul li::before{content:'→';position:absolute;left:0;color:var(--green);font-weight:700}
+    .step{display:flex;gap:16px;margin-bottom:16px;align-items:flex-start}
+    .step-num{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--green2));display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;flex-shrink:0;color:#000}
+    .step-text{font-size:.92rem;color:var(--light);line-height:1.7;font-family:'DM Sans',sans-serif;padding-top:4px}
+    .faq-item{border-bottom:1px solid var(--border);padding:18px 0}
+    .faq-item:last-child{border-bottom:none}
+    .faq-q{font-family:'Outfit',sans-serif;font-size:.97rem;font-weight:700;color:var(--white);margin-bottom:8px}
+    .faq-a{font-size:.9rem;color:var(--light);line-height:1.75;font-family:'DM Sans',sans-serif}
+    .tip-box{background:rgba(0,230,77,.08);border:1px solid rgba(0,230,77,.2);border-radius:12px;padding:16px 20px;font-size:.88rem;color:var(--light);line-height:1.7;font-family:'DM Sans',sans-serif;margin-bottom:20px}
     .tip-box strong{color:var(--green)}
-    @media(max-width:600px){nav{padding:14px 20px}.grid-2,.result-grid,.bmi-scale{grid-template-columns:1fr 1fr}.bmi-number{font-size:3.5rem}}
+    .bmi-scale{display:flex;border-radius:12px;overflow:hidden;height:12px;margin:16px 0}
+    .site-footer{border-top:1px solid var(--border);padding:56px 48px 28px;background:var(--footer-bg)}
+    .site-footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;max-width:1200px;margin:0 auto 40px}
+    .sf-logo{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;font-style:italic;color:var(--white);margin-bottom:10px;display:block;text-decoration:none}
+    .sf-brand p{font-size:.83rem;color:var(--grey);line-height:1.7;max-width:240px;margin-top:8px;font-family:'DM Sans',sans-serif}
+    .sf-col h4{font-family:'Outfit',sans-serif;font-size:.75rem;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px}
+    .sf-col a{display:block;color:var(--grey);text-decoration:none;font-size:.83rem;margin-bottom:9px;transition:color .2s;font-family:'DM Sans',sans-serif}
+    .sf-col a:hover{color:var(--white)}
+    .sf-col a.c-o:hover{color:#ff5500}.sf-col a.c-g:hover{color:#00e64d}.sf-col a.c-p:hover{color:#6c63ff}.sf-col a.c-y:hover{color:#f5c518}.sf-col a.c-r:hover{color:#c50337}
+    .sf-bottom{max-width:1200px;margin:0 auto;border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:var(--grey);font-family:'DM Sans',sans-serif}
+    .sf-bottom a{color:var(--grey);text-decoration:none;margin-left:18px;transition:color .2s}
+    .sf-bottom a:hover{color:var(--white)}
+    @media(max-width:900px){.site-footer-grid{grid-template-columns:1fr 1fr;gap:28px}.site-footer{padding:40px 20px 24px}.sf-bottom{flex-direction:column;gap:10px;text-align:center}.input-grid{grid-template-columns:1fr}.result-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:768px){nav{padding:14px 20px}.nav-links{gap:0}.nav-link{padding:6px 8px;font-size:.78rem}.nav-home{padding:6px 10px;font-size:.78rem}.tool-hero{padding:40px 20px 24px}.tool-wrap{padding:0 16px 24px}.content-section{padding:0 16px 60px}.tool-title-row{flex-direction:column;align-items:flex-start;gap:12px}.result-main{font-size:2.5rem}}
   </style>
 </head>
 <body>
 <nav>
-  <a href="index.html" class="logo">Web<span>Tools</span>Kit</a>
-  <a href="index.html" class="back-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Health Tools</a>
+  <a href="../index.html" class="logo">Web<span class="logo-accent">Tools</span>Kit</a>
+  <div class="nav-links">
+    <a href="../index.html" class="nav-home">🏠 Home</a>
+    <a href="../finance/index.html" class="nav-link c-o">💰 Finance</a>
+    <a href="../freelance/index.html" class="nav-link c-p">💼 Freelance</a>
+    <a href="../students/index.html" class="nav-link c-y">🎓 Students</a>
+    <a href="../utility/index.html" class="nav-link c-r">⚡ Utility</a>
+  </div>
 </nav>
-<div class="container">
-  <div class="tool-header">
+<div class="tool-hero">
+  <div class="tool-breadcrumb"><a href="index.html">🌿 Health</a> → BMI Calculator</div>
+  <div class="tool-title-row">
     <div class="tool-icon-big">⚖️</div>
-    <h1>BMI Calculator</h1>
-    <p>Calculate your Body Mass Index instantly and understand what it means for your health.</p>
+    <div class="tool-title">BMI Calculator</div>
   </div>
-  <div class="card">
-    <h2>// Your Details</h2>
-    <div class="toggle-row">
-      <button class="tog active" id="togMetric" onclick="setUnit('metric')">Metric (cm, kg)</button>
-      <button class="tog" id="togImperial" onclick="setUnit('imperial')">Imperial (ft, lbs)</button>
-    </div>
-    <div class="grid-2">
-      <div class="input-group">
-        <label id="heightLabel">Height (cm)</label>
-        <div class="input-wrap"><span class="input-prefix" id="heightUnit">cm</span><input type="number" id="height" placeholder="170"/></div>
-      </div>
-      <div class="input-group">
-        <label id="weightLabel">Weight (kg)</label>
-        <div class="input-wrap"><span class="input-prefix" id="weightUnit">kg</span><input type="number" id="weight" placeholder="70"/></div>
-      </div>
-    </div>
-    <button class="btn" onclick="calculate()">Calculate My BMI →</button>
-  </div>
-  <div class="result-card" id="result">
-    <div class="bmi-display">
-      <div class="bmi-label">Your BMI Score</div>
-      <div class="bmi-number" id="bmiNum">0</div>
-      <div class="bmi-category" id="bmiCat"></div>
-    </div>
-    <div class="bmi-scale">
-      <div class="scale-item" id="s1"><div class="scale-range">&lt; 18.5</div><div class="scale-name">Underweight</div></div>
-      <div class="scale-item" id="s2"><div class="scale-range">18.5–24.9</div><div class="scale-name">Normal</div></div>
-      <div class="scale-item" id="s3"><div class="scale-range">25–29.9</div><div class="scale-name">Overweight</div></div>
-      <div class="scale-item" id="s4"><div class="scale-range">≥ 30</div><div class="scale-name">Obese</div></div>
-    </div>
-    <div class="result-grid">
-      <div class="r-item"><div class="r-label">Healthy Weight Range</div><div class="r-val" id="healthyRange">—</div></div>
-      <div class="r-item"><div class="r-label">Weight to Lose/Gain</div><div class="r-val" id="weightDiff">—</div></div>
-    </div>
-    <div class="tip-box" id="tipBox"></div>
-  </div>
+  <div class="tool-desc">Calculate your Body Mass Index and find out if you are in a healthy weight range for your height.</div>
 </div>
+<div class="tool-wrap">
+<div class="calc-card"><h2>// Your Measurements</h2>
+<div class="input-grid">
+  <div class="input-group"><label>Weight (kg)</label><div class="input-wrap"><span class="input-prefix">kg</span><input type="number" id="weight" placeholder="70" step="0.1" oninput="calcBMI()"/></div></div>
+  <div class="input-group"><label>Height (cm)</label><div class="input-wrap"><span class="input-prefix">cm</span><input type="number" id="height" placeholder="170" oninput="calcBMI()"/></div></div>
+  <div class="input-group"><label>Age</label><div class="input-wrap"><span class="input-prefix">yr</span><input type="number" id="age" placeholder="30" oninput="calcBMI()"/></div></div>
+  <div class="input-group"><label>Gender</label><select id="gender" class="no-prefix" onchange="calcBMI()"><option value="male">Male</option><option value="female">Female</option></select></div>
+</div></div>
+<div class="result-card" id="result">
+  <div class="result-label">Your BMI</div>
+  <div class="result-main" id="bmiVal">0</div>
+  <div class="result-sub" id="bmiCat"></div>
+  <div class="result-grid">
+    <div class="result-item"><div class="result-item-label">Category</div><div class="result-item-val" id="bmiCatVal">—</div></div>
+    <div class="result-item"><div class="result-item-label">Healthy Range</div><div class="result-item-val" id="healthyRange">—</div></div>
+    <div class="result-item"><div class="result-item-label">Ideal Weight</div><div class="result-item-val" id="idealWt">—</div></div>
+  </div>
+</div></div>
+<div class="tip-box"><strong>⚠️ Disclaimer:</strong> This tool is for informational purposes only and does not constitute medical advice. Always consult a qualified healthcare professional before making health decisions.</div><section class="content-section">
+  <div class="content-card"><h2>What is this Tool?</h2><p>The BMI (Body Mass Index) Calculator measures your body weight relative to your height to determine whether you fall within a healthy weight range. BMI is one of the most widely used screening tools by doctors and health professionals worldwide. While it does not directly measure body fat, it provides a reliable indicator of weight-related health risks for most adults.</p></div>
+  <div class="content-card"><h2>How to Use This Calculator</h2><div class="steps"><div class="step"><div class="step-num">1</div><div class="step-text">Enter your current weight in kilograms.</div></div><div class="step"><div class="step-num">2</div><div class="step-text">Enter your height in centimetres.</div></div><div class="step"><div class="step-num">3</div><div class="step-text">Enter your age and select your gender for a more accurate healthy range reference.</div></div><div class="step"><div class="step-num">4</div><div class="step-text">Your BMI score and weight category are calculated and displayed instantly.</div></div></div></div>
+  <div class="content-card"><h2>Why This Matters</h2><ul><li>Quick screening tool to identify weight-related health risks</li><li>Used by doctors as a first-step health assessment</li><li>Helps set realistic and healthy weight loss or gain goals</li><li>Tracks progress during a fitness or weight management journey</li><li>Understand where you stand relative to global health guidelines</li></ul></div>
+  <div class="content-card"><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">Q: What is a healthy BMI?</div><div class="faq-a">A: For adults, a BMI of 18.5 to 24.9 is considered healthy. Below 18.5 is underweight, 25-29.9 is overweight, and 30 or above is classified as obese.</div></div><div class="faq-item"><div class="faq-q">Q: Is BMI accurate for everyone?</div><div class="faq-a">A: BMI is a useful screening tool but has limitations. It may overestimate fat in muscular people (like athletes) and underestimate fat in older adults who have lost muscle mass.</div></div><div class="faq-item"><div class="faq-q">Q: Is BMI different for Asians?</div><div class="faq-a">A: Yes. Health organisations recommend lower BMI cutoffs for South Asians. Overweight is classified at BMI ≥23 and obese at ≥27.5 for Asian populations.</div></div><div class="faq-item"><div class="faq-q">Q: Can children use this calculator?</div><div class="faq-a">A: This calculator is designed for adults. Children's BMI is assessed differently using age- and gender-specific growth charts. Consult your paediatrician for children's weight assessment.</div></div></div>
+  <div class="tip-box"><strong>💡 Pro Tip:</strong> BMI is a starting point, not the complete picture. Waist circumference is equally important — for Indians, a waist above 90cm (men) or 80cm (women) indicates increased health risk regardless of BMI.</div>
+</section>
+<footer class="site-footer">
+  <div class="site-footer-grid">
+    <div class="sf-brand">
+      <a href="../index.html" class="sf-logo">Web<span style="background:linear-gradient(90deg,#ff5500,#c50337);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Tools</span>Kit</a>
+      <p>Free online tools for everyone. No signup, no cost. Part of the WebToolsKit network.</p>
+    </div>
+    <div class="sf-col"><h4>All Tools</h4>
+      <a href="../finance/index.html" class="c-o">💰 Finance</a>
+      <a href="../health/index.html" class="c-g">🌿 Health</a>
+      <a href="../freelance/index.html" class="c-p">💼 Freelance</a>
+      <a href="../students/index.html" class="c-y">🎓 Students</a>
+      <a href="../utility/index.html" class="c-r">⚡ Utility</a>
+    </div>
+    <div class="sf-col"><h4>Legal</h4>
+      <a href="../legal/privacy-policy.html">Privacy Policy</a>
+      <a href="../legal/disclaimer.html">Disclaimer</a>
+      <a href="../legal/terms-conditions.html">Terms &amp; Conditions</a>
+      <a href="../legal/contact.html">Contact Us</a>
+      <a href="../legal/copyright.html">Copyright</a>
+    </div>
+    <div class="sf-col"><h4>Quick Links</h4>
+      <a href="../index.html">🏠 Home</a>
+      <a href="index.html">🌿 Health Tools</a>
+      <a href="../legal/contact.html">Contact</a>
+      <a href="../legal/privacy-policy.html">Privacy</a>
+    </div>
+  </div>
+  <div class="sf-bottom">
+    <span>© 2026 WebToolsKit. All rights reserved.</span>
+    <div><a href="../legal/privacy-policy.html">Privacy</a><a href="../legal/terms-conditions.html">Terms</a><a href="../legal/contact.html">Contact</a></div>
+  </div>
+</footer>
 <script>
-let unit='metric';
-function setUnit(u){unit=u;document.getElementById('togMetric').classList.toggle('active',u==='metric');document.getElementById('togImperial').classList.toggle('active',u==='imperial');document.getElementById('heightLabel').textContent=u==='metric'?'Height (cm)':'Height (ft)';document.getElementById('weightLabel').textContent=u==='metric'?'Weight (kg)':'Weight (lbs)';document.getElementById('heightUnit').textContent=u==='metric'?'cm':'ft';document.getElementById('weightUnit').textContent=u==='metric'?'kg':'lbs';}
-function calculate(){
-  let h=parseFloat(document.getElementById('height').value)||0;
-  let w=parseFloat(document.getElementById('weight').value)||0;
-  if(unit==='imperial'){h=h*30.48;w=w*0.453592;}
-  const hm=h/100;const bmi=w/(hm*hm);
-  const cats=[{id:'s1',max:18.5,name:'Underweight 🌱',tip:'You may need to gain some weight. Focus on nutrient-dense foods and strength training.'},{id:'s2',max:25,name:'Normal Weight ✅',tip:'Great job! You\'re at a healthy weight. Maintain it with balanced diet and regular exercise.'},{id:'s3',max:30,name:'Overweight ⚠️',tip:'Consider moderate calorie reduction and increasing physical activity to reach a healthier weight.'},{id:'s4',max:999,name:'Obese 🚨',tip:'Please consult a healthcare professional. Small sustainable lifestyle changes can make a big difference.'}];
-  let cat=cats[3];for(const c of cats){if(bmi<c.max){cat=c;break;}}
-  document.getElementById('bmiNum').textContent=bmi.toFixed(1);
-  document.getElementById('bmiCat').textContent=cat.name;
-  ['s1','s2','s3','s4'].forEach(id=>document.getElementById(id).classList.remove('active'));
-  document.getElementById(cat.id).classList.add('active');
-  const hm2=h/100;const minW=(18.5*hm2*hm2).toFixed(1),maxW=(24.9*hm2*hm2).toFixed(1);
-  document.getElementById('healthyRange').textContent=unit==='metric'?`${minW}–${maxW} kg`:`${(minW/0.453592).toFixed(0)}–${(maxW/0.453592).toFixed(0)} lbs`;
-  const idealW=(22*hm2*hm2);const diff=w-idealW;
-  document.getElementById('weightDiff').textContent=Math.abs(diff)<0.5?'At ideal weight!':`${Math.abs(diff).toFixed(1)}kg to ${diff>0?'lose':'gain'}`;
-  document.getElementById('tipBox').innerHTML=`<strong>💡 Health Insight:</strong> ${cat.tip}`;
-  const res=document.getElementById('result');res.classList.add('show');res.scrollIntoView({behavior:'smooth',block:'nearest'});
+function calcBMI(){
+  const w=parseFloat(document.getElementById('weight').value)||0;
+  const h=parseFloat(document.getElementById('height').value)||0;
+  if(!w||!h){document.getElementById('result').classList.remove('show');return;}
+  const bmi=w/((h/100)**2);
+  let cat,color;
+  if(bmi<18.5){cat='Underweight';color='#60a5fa';}
+  else if(bmi<23){cat='Healthy Weight';color='#00e64d';}
+  else if(bmi<27.5){cat='Overweight';color='#f59e0b';}
+  else{cat='Obese';color='#ef4444';}
+  const hMin=(18.5*(h/100)**2).toFixed(1);
+  const hMax=(24.9*(h/100)**2).toFixed(1);
+  const ideal=(22*(h/100)**2).toFixed(1);
+  document.getElementById('bmiVal').textContent=bmi.toFixed(1);
+  document.getElementById('bmiCat').textContent=cat;
+  document.getElementById('bmiCatVal').textContent=cat;
+  document.getElementById('healthyRange').textContent=hMin+'–'+hMax+' kg';
+  document.getElementById('idealWt').textContent=ideal+' kg';
+  document.getElementById('result').classList.add('show');
 }
 </script>
 </body>

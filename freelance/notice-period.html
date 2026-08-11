@@ -1,50 +1,208 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Notice Period Calculator — WebToolsKit</title><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/><style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}:root{--bg:#0d0f1a;--card:#13162b;--border:#1e2240;--purple:#6c63ff;--purple2:#4f46e5;--glow:rgba(108,99,255,0.12);--white:#fff;--grey:#8892b0;--light:#ccd6f6}body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;min-height:100vh}nav{display:flex;align-items:center;justify-content:space-between;padding:18px 40px;border-bottom:1px solid var(--border);background:rgba(13,15,26,.96);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100}.logo{font-family:'Manrope',sans-serif;font-size:1.3rem;font-weight:800;text-decoration:none;color:var(--white)}.logo span{color:var(--purple)}.back-btn{display:flex;align-items:center;gap:7px;color:var(--grey);text-decoration:none;font-size:.88rem;font-weight:600;border:1px solid var(--border);padding:7px 14px;border-radius:8px;transition:all .2s}.back-btn:hover{color:var(--white);border-color:var(--purple)}.container{max-width:720px;margin:0 auto;padding:56px 20px}.tool-header{text-align:center;margin-bottom:44px}.tool-icon-big{width:72px;height:72px;border-radius:20px;background:linear-gradient(135deg,var(--purple),var(--purple2));display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 18px;box-shadow:0 10px 28px rgba(108,99,255,.3)}.tool-header h1{font-family:'Manrope',sans-serif;font-size:2rem;font-weight:800;letter-spacing:-1px;margin-bottom:9px}.tool-header p{color:var(--grey);font-size:.96rem;line-height:1.6}.card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:32px;margin-bottom:20px}.card h2{font-family:'DM Mono',monospace;font-size:.82rem;font-weight:500;margin-bottom:22px;color:var(--purple);text-transform:uppercase;letter-spacing:1.5px}.input-group{margin-bottom:18px}label{display:block;font-size:.84rem;font-weight:600;color:var(--grey);margin-bottom:7px}input[type=date],input[type=number]{width:100%;background:#0d0f1a;border:1px solid var(--border);border-radius:12px;padding:13px 16px;color:var(--white);font-size:1rem;font-family:'DM Mono',monospace;outline:none;transition:border-color .2s;color-scheme:dark}input:focus{border-color:var(--purple)}.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}.toggle-row{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:20px}.tog{padding:12px;background:transparent;border:none;color:var(--grey);font-size:.9rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s}.tog.active{background:var(--glow);color:var(--purple)}.btn{width:100%;padding:15px;border-radius:13px;background:linear-gradient(135deg,var(--purple),var(--purple2));border:none;color:var(--white);font-size:.97rem;font-weight:700;cursor:pointer;font-family:'Manrope',sans-serif;transition:opacity .2s,transform .2s}.btn:hover{opacity:.9;transform:translateY(-1px)}.result-card{background:linear-gradient(135deg,rgba(108,99,255,.08),rgba(79,70,229,.04));border:1px solid rgba(108,99,255,.25);border-radius:20px;padding:32px;display:none;text-align:center}.result-card.show{display:block}.r-big-label{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--grey);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}.r-date{font-family:'Manrope',sans-serif;font-size:2.8rem;font-weight:800;letter-spacing:-1.5px;background:linear-gradient(90deg,var(--purple),var(--purple2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1;margin-bottom:6px}.r-day{color:var(--grey);font-size:.9rem;margin-bottom:24px}.r-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px;text-align:left}.r-item{background:rgba(255,255,255,.04);border-radius:12px;padding:14px;border:1px solid var(--border)}.r-label{font-family:'DM Mono',monospace;font-size:.65rem;color:var(--grey);text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px}.r-val{font-family:'Manrope',sans-serif;font-size:1.05rem;font-weight:700}.tip-box{padding:14px 18px;background:var(--glow);border:1px solid rgba(108,99,255,.2);border-radius:12px;font-size:.85rem;color:var(--light);line-height:1.6;text-align:left}.tip-box strong{color:var(--purple)}@media(max-width:600px){nav{padding:14px 20px}.grid-2,.r-grid{grid-template-columns:1fr}.r-date{font-size:2rem}}</style></head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Notice Period Calculator — WebToolsKit</title>
+  <meta name="description" content="Calculate your last working day based on your resignation date and notice period. Plan your transition perfectly."/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#0f1117;--nav:#000000;--footer-bg:#000000;--card:#1a1d27;--border:#2a2d3a;--white:#ffffff;--grey:#8b8fa8;--light:#c8cad8;--purple:#6c63ff;--purple2:#4f46e5}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;min-height:100vh}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:18px 48px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--nav);backdrop-filter:blur(16px);z-index:100}
+    .logo{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;text-decoration:none;color:var(--white);letter-spacing:.5px;font-style:italic}
+    .logo-accent{background:linear-gradient(90deg,#ff5500,#c50337);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .nav-links{display:flex;align-items:center;gap:4px}
+    .nav-home{color:var(--grey);text-decoration:none;font-size:.85rem;font-weight:600;padding:7px 14px;border-radius:8px;border:1px solid var(--border);transition:all .2s;margin-right:4px;font-family:'DM Sans',sans-serif}
+    .nav-home:hover{color:var(--white);border-color:rgba(255,255,255,.3)}
+    .nav-link{color:var(--grey);text-decoration:none;font-size:.85rem;font-weight:600;padding:7px 14px;border-radius:8px;border:1px solid transparent;transition:all .2s;font-family:'DM Sans',sans-serif}
+    .nav-link.c-o:hover{color:#ff5500;border-color:rgba(255,85,0,.3)}
+    .nav-link.c-g:hover{color:#00e64d;border-color:rgba(0,230,77,.3)}
+    .nav-link.c-y:hover{color:#f5c518;border-color:rgba(245,197,24,.3)}
+    .nav-link.c-r:hover{color:#c50337;border-color:rgba(197,3,55,.3)}
+    .tool-hero{padding:60px 40px 40px;max-width:1000px;margin:0 auto}
+    .tool-breadcrumb{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--grey);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+    .tool-breadcrumb a{color:var(--purple);text-decoration:none}
+    .tool-title-row{display:flex;align-items:center;gap:20px;margin-bottom:16px}
+    .tool-icon-big{width:72px;height:72px;border-radius:20px;background:linear-gradient(135deg,var(--purple),var(--purple2));display:flex;align-items:center;justify-content:center;font-size:2rem;box-shadow:0 10px 28px rgba(108,99,255,.35);flex-shrink:0}
+    .tool-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:700;font-style:italic;letter-spacing:-1px;color:var(--white);line-height:1}
+    .tool-desc{font-size:1rem;color:var(--grey);line-height:1.7;font-family:'DM Sans',sans-serif;max-width:700px}
+    .tool-wrap{max-width:1000px;margin:0 auto;padding:0 40px 40px}
+    .calc-card{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:36px;margin-bottom:24px}
+    .calc-card h2{font-family:'DM Mono',monospace;font-size:.78rem;font-weight:500;color:var(--purple);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:24px}
+    .input-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .input-group label{display:block;font-size:.84rem;font-weight:600;color:var(--grey);margin-bottom:7px;font-family:'DM Sans',sans-serif}
+    .input-wrap{position:relative}
+    .input-prefix{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--purple);font-weight:600;font-size:.88rem;font-family:'DM Mono',monospace}
+    input[type=number],input[type=text],input[type=date],select,textarea{width:100%;background:#0f1117;border:1px solid var(--border);border-radius:12px;padding:13px 14px 13px 48px;color:var(--white);font-size:.95rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}
+    input.no-prefix,select.no-prefix,textarea.no-prefix{padding-left:14px}
+    input:focus,select:focus,textarea:focus{border-color:var(--purple)}
+    select{-webkit-appearance:none}
+    textarea{resize:vertical;min-height:80px}
+    .calc-btn{width:100%;padding:15px;border-radius:13px;background:linear-gradient(135deg,var(--purple),var(--purple2));border:none;color:#fff;font-size:.97rem;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;transition:opacity .2s,transform .2s;margin-top:20px}
+    .calc-btn:hover{opacity:.9;transform:translateY(-1px)}
+    .result-card{background:linear-gradient(135deg,rgba(108,99,255,.1),rgba(79,70,229,.05));border:1px solid rgba(108,99,255,.25);border-radius:20px;padding:32px;display:none;text-align:center;margin-bottom:24px}
+    .result-card.show{display:block}
+    .result-label{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--grey);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
+    .result-main{font-family:'Outfit',sans-serif;font-size:3.5rem;font-weight:800;letter-spacing:-2px;background:linear-gradient(90deg,var(--purple),var(--purple2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:8px}
+    .result-sub{font-size:.9rem;color:var(--grey);font-family:'DM Sans',sans-serif}
+    .result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+    .result-item{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;padding:14px}
+    .result-item-label{font-family:'DM Mono',monospace;font-size:.62rem;color:var(--grey);text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px}
+    .result-item-val{font-family:'Outfit',sans-serif;font-size:1.05rem;font-weight:700;color:var(--white)}
+    .invoice-preview{background:#fff;border-radius:16px;padding:32px;color:#1a1a2e;margin-bottom:24px;display:none}
+    .invoice-preview.show{display:block}
+    .inv-header{display:flex;justify-content:space-between;margin-bottom:24px;padding-bottom:16px;border-bottom:2px solid #6c63ff}
+    .inv-logo{font-size:1.4rem;font-weight:800;color:#6c63ff}
+    .inv-title{font-size:1.8rem;font-weight:800;color:#1a1a2e;text-align:right}
+    .inv-meta{font-size:.82rem;color:#666;text-align:right}
+    .inv-parties{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px}
+    .inv-party h4{font-size:.75rem;text-transform:uppercase;letter-spacing:1px;color:#999;margin-bottom:6px;font-family:'DM Sans',sans-serif}
+    .inv-party p{font-size:.9rem;color:#333;line-height:1.6;font-family:'DM Sans',sans-serif}
+    .inv-table{width:100%;border-collapse:collapse;margin-bottom:20px}
+    .inv-table th{background:#f5f5f5;padding:10px 12px;text-align:left;font-size:.78rem;text-transform:uppercase;letter-spacing:.8px;color:#666;font-family:'DM Sans',sans-serif}
+    .inv-table td{padding:12px;border-bottom:1px solid #eee;font-size:.9rem;color:#333;font-family:'DM Sans',sans-serif}
+    .inv-total{text-align:right;font-size:1.2rem;font-weight:800;color:#6c63ff}
+    .inv-note{font-size:.82rem;color:#666;margin-top:16px;padding-top:16px;border-top:1px solid #eee;font-family:'DM Sans',sans-serif}
+    .copy-btn{background:linear-gradient(135deg,#6c63ff,#4f46e5);border:none;color:#fff;padding:12px 24px;border-radius:10px;font-size:.9rem;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;margin-top:12px}
+    .content-section{max-width:1000px;margin:0 auto;padding:0 40px 80px}
+    .content-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:36px;margin-bottom:20px}
+    .content-card h2{font-family:'Outfit',sans-serif;font-size:1.2rem;font-weight:700;color:var(--white);margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+    .content-card p{font-size:.92rem;color:var(--light);line-height:1.85;margin-bottom:12px;font-family:'DM Sans',sans-serif}
+    .content-card ul{list-style:none;padding:0}
+    .content-card ul li{font-size:.92rem;color:var(--light);line-height:1.75;padding:6px 0 6px 20px;position:relative;font-family:'DM Sans',sans-serif}
+    .content-card ul li::before{content:'→';position:absolute;left:0;color:var(--purple);font-weight:700}
+    .step{display:flex;gap:16px;margin-bottom:16px;align-items:flex-start}
+    .step-num{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--purple2));display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;flex-shrink:0;color:#fff}
+    .step-text{font-size:.92rem;color:var(--light);line-height:1.7;font-family:'DM Sans',sans-serif;padding-top:4px}
+    .faq-item{border-bottom:1px solid var(--border);padding:18px 0}
+    .faq-item:last-child{border-bottom:none}
+    .faq-q{font-family:'Outfit',sans-serif;font-size:.97rem;font-weight:700;color:var(--white);margin-bottom:8px}
+    .faq-a{font-size:.9rem;color:var(--light);line-height:1.75;font-family:'DM Sans',sans-serif}
+    .tip-box{background:rgba(108,99,255,.08);border:1px solid rgba(108,99,255,.2);border-radius:12px;padding:16px 20px;font-size:.88rem;color:var(--light);line-height:1.7;font-family:'DM Sans',sans-serif;margin-bottom:20px}
+    .tip-box strong{color:var(--purple)}
+    .site-footer{border-top:1px solid var(--border);padding:56px 48px 28px;background:var(--footer-bg)}
+    .site-footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;max-width:1200px;margin:0 auto 40px}
+    .sf-logo{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;font-style:italic;color:var(--white);margin-bottom:10px;display:block;text-decoration:none}
+    .sf-brand p{font-size:.83rem;color:var(--grey);line-height:1.7;max-width:240px;margin-top:8px;font-family:'DM Sans',sans-serif}
+    .sf-col h4{font-family:'Outfit',sans-serif;font-size:.75rem;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px}
+    .sf-col a{display:block;color:var(--grey);text-decoration:none;font-size:.83rem;margin-bottom:9px;transition:color .2s;font-family:'DM Sans',sans-serif}
+    .sf-col a:hover{color:var(--white)}
+    .sf-col a.c-o:hover{color:#ff5500}.sf-col a.c-g:hover{color:#00e64d}.sf-col a.c-p:hover{color:#6c63ff}.sf-col a.c-y:hover{color:#f5c518}.sf-col a.c-r:hover{color:#c50337}
+    .sf-bottom{max-width:1200px;margin:0 auto;border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:var(--grey);font-family:'DM Sans',sans-serif}
+    .sf-bottom a{color:var(--grey);text-decoration:none;margin-left:18px;transition:color .2s}
+    .sf-bottom a:hover{color:var(--white)}
+    @media(max-width:900px){.site-footer-grid{grid-template-columns:1fr 1fr;gap:28px}.site-footer{padding:40px 20px 24px}.sf-bottom{flex-direction:column;gap:10px;text-align:center}.input-grid{grid-template-columns:1fr}.result-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:768px){nav{padding:14px 20px}.nav-links{gap:0}.nav-link{padding:6px 8px;font-size:.78rem}.nav-home{padding:6px 10px;font-size:.78rem}.tool-hero{padding:40px 20px 24px}.tool-wrap{padding:0 16px 24px}.content-section{padding:0 16px 60px}.tool-title-row{flex-direction:column;align-items:flex-start;gap:12px}.result-main{font-size:2.5rem}.inv-parties{grid-template-columns:1fr}}
+  </style>
+</head>
 <body>
-<nav><a href="index.html" class="logo">Web<span>Tools</span>Kit</a><a href="index.html" class="back-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Freelance Tools</a></nav>
-<div class="container">
-  <div class="tool-header"><div class="tool-icon-big">📅</div><h1>Notice Period Calculator</h1><p>Find your exact last working day in seconds. Know your timeline so you can plan your next move with confidence.</p></div>
-  <div class="card">
-    <h2>// Your Details</h2>
-    <div class="toggle-row"><button class="tog active" id="btnCal" onclick="setType('calendar')">📅 Calendar Days</button><button class="tog" id="btnWork" onclick="setType('working')">💼 Working Days</button></div>
-    <div class="grid-2">
-      <div class="input-group"><label>Resignation Date</label><input type="date" id="resignDate"/></div>
-      <div class="input-group"><label>Notice Period (Days)</label><input type="number" id="noticeDays" placeholder="30"/></div>
-    </div>
-    <button class="btn" onclick="calculate()">Find My Last Working Day →</button>
+<nav>
+  <a href="../index.html" class="logo">Web<span class="logo-accent">Tools</span>Kit</a>
+  <div class="nav-links">
+    <a href="../index.html" class="nav-home">🏠 Home</a>
+    <a href="../finance/index.html" class="nav-link c-o">💰 Finance</a>
+    <a href="../health/index.html" class="nav-link c-g">🌿 Health</a>
+    <a href="../students/index.html" class="nav-link c-y">🎓 Students</a>
+    <a href="../utility/index.html" class="nav-link c-r">⚡ Utility</a>
   </div>
-  <div class="result-card" id="result">
-    <div class="r-big-label">Your Last Working Day</div>
-    <div class="r-date" id="lastDay">—</div>
-    <div class="r-day" id="dayName"></div>
-    <div class="r-grid">
-      <div class="r-item"><div class="r-label">Days Remaining</div><div class="r-val" id="daysLeft">0</div></div>
-      <div class="r-item"><div class="r-label">Weeks Remaining</div><div class="r-val" id="weeksLeft">0</div></div>
-      <div class="r-item"><div class="r-label">Notice Type</div><div class="r-val" id="noticeType">—</div></div>
-    </div>
-    <div class="tip-box"><strong>💡 Use This Time Wisely:</strong> Document your work, get LinkedIn recommendations from your manager, complete knowledge transfers, and line up your next opportunity — all before your last day!</div>
+</nav>
+<div class="tool-hero">
+  <div class="tool-breadcrumb"><a href="index.html">💼 Freelance</a> → Notice Period Calculator</div>
+  <div class="tool-title-row">
+    <div class="tool-icon-big">📅</div>
+    <div class="tool-title">Notice Period Calculator</div>
   </div>
+  <div class="tool-desc">Calculate your last working day based on your resignation date and notice period. Plan your transition perfectly.</div>
 </div>
+<div class="tool-wrap">
+<div class="calc-card"><h2>// Resignation Details</h2>
+<div class="input-grid">
+  <div class="input-group"><label>Resignation Date</label><input type="date" id="resignDate" class="no-prefix" oninput="calcNotice()"/></div>
+  <div class="input-group"><label>Notice Period</label><select id="noticePeriod" class="no-prefix" onchange="calcNotice()">
+    <option value="15">15 Days</option>
+    <option value="30" selected>30 Days (1 Month)</option>
+    <option value="60">60 Days (2 Months)</option>
+    <option value="90">90 Days (3 Months)</option>
+    <option value="custom">Custom</option>
+  </select></div>
+  <div class="input-group" id="customGroup" style="display:none"><label>Custom Notice Period (Days)</label><div class="input-wrap"><span class="input-prefix">days</span><input type="number" id="customDays" placeholder="45" oninput="calcNotice()"/></div></div>
+  <div class="input-group"><label>Count Weekends?</label><select id="weekends" class="no-prefix" onchange="calcNotice()"><option value="yes">Yes (Calendar Days)</option><option value="no">No (Working Days Only)</option></select></div>
+</div></div>
+<div class="result-card" id="result">
+  <div class="result-label">Last Working Day</div>
+  <div class="result-main" id="lastDay" style="font-size:2rem">—</div>
+  <div class="result-sub" id="noticeSub"></div>
+  <div class="result-grid">
+    <div class="result-item"><div class="result-item-label">Notice Days</div><div class="result-item-val" id="noticeDays">0</div></div>
+    <div class="result-item"><div class="result-item-label">Working Days</div><div class="result-item-val" id="workingDays">0</div></div>
+    <div class="result-item"><div class="result-item-label">Day of Week</div><div class="result-item-val" id="dayOfWeek">—</div></div>
+  </div>
+</div></div>
+<section class="content-section">
+  <div class="content-card"><h2>What is this Tool?</h2><p>The Notice Period Calculator helps you calculate your exact last working day after submitting your resignation. Whether you're switching jobs, starting freelancing, or taking a career break, knowing your exact last working day helps you plan your transition, negotiate with your new employer, and handle the handover process professionally. The calculator handles both calendar days and working days.</p></div>
+  <div class="content-card"><h2>How to Use This Tool</h2><div class="steps"><div class="step"><div class="step-num">1</div><div class="step-text">Enter the date you plan to submit your resignation letter.</div></div><div class="step"><div class="step-num">2</div><div class="step-text">Select your notice period from the dropdown or enter a custom number of days.</div></div><div class="step"><div class="step-num">3</div><div class="step-text">Choose whether your notice period counts weekends (calendar days) or excludes them (working days only).</div></div><div class="step"><div class="step-num">4</div><div class="step-text">Your last working day and the number of working days remaining are shown instantly.</div></div></div></div>
+  <div class="content-card"><h2>Why This Matters</h2><ul><li>Plan your joining date at a new company with confidence</li><li>Calculate notice period buyout amount if leaving early</li><li>Avoid disputes with your current employer about the last working day</li><li>Plan handover of responsibilities within the notice period</li><li>Time your resignation to coincide with bonus payments or vesting dates</li></ul></div>
+  <div class="content-card"><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">Q: Can my employer extend my notice period?</div><div class="faq-a">A: Your employment contract defines the notice period. Your employer cannot unilaterally extend it unless you agree. However, they can ask you to serve a longer period by mutual agreement.</div></div><div class="faq-item"><div class="faq-q">Q: What is notice period buyout?</div><div class="faq-a">A: Instead of serving the full notice period, you can pay your employer the equivalent salary for the remaining days. This is called notice period buyout. The amount is typically your basic salary for the remaining days.</div></div><div class="faq-item"><div class="faq-q">Q: Can I negotiate a shorter notice period?</div><div class="faq-a">A: Yes. If you have a replacement ready, all handovers are complete, or you have a compelling reason, many employers agree to early release. Always get early release in writing.</div></div><div class="faq-item"><div class="faq-q">Q: Should I resign on a Monday or Friday?</div><div class="faq-a">A: Resigning on a Friday gives both parties the weekend to process the news. However, resigning on a Monday means you leave on a Monday — giving you the full weekend before starting your new role. Choose based on what suits your new employer's joining date.</div></div></div>
+  <div class="tip-box"><strong>💡 Pro Tip:</strong> If your new employer wants you to join before your notice period ends, negotiate a joining date that works and request early release from your current employer in writing. Many employers are flexible if the handover is smooth.</div>
+</section>
+<footer class="site-footer">
+  <div class="site-footer-grid">
+    <div class="sf-brand">
+      <a href="../index.html" class="sf-logo">Web<span style="background:linear-gradient(90deg,#ff5500,#c50337);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Tools</span>Kit</a>
+      <p>Free online tools for everyone. No signup, no cost. Part of the WebToolsKit network.</p>
+    </div>
+    <div class="sf-col"><h4>All Tools</h4>
+      <a href="../finance/index.html" class="c-o">💰 Finance</a>
+      <a href="../health/index.html" class="c-g">🌿 Health</a>
+      <a href="../freelance/index.html" class="c-p">💼 Freelance</a>
+      <a href="../students/index.html" class="c-y">🎓 Students</a>
+      <a href="../utility/index.html" class="c-r">⚡ Utility</a>
+    </div>
+    <div class="sf-col"><h4>Legal</h4>
+      <a href="../legal/privacy-policy.html">Privacy Policy</a>
+      <a href="../legal/disclaimer.html">Disclaimer</a>
+      <a href="../legal/terms-conditions.html">Terms &amp; Conditions</a>
+      <a href="../legal/contact.html">Contact Us</a>
+      <a href="../legal/copyright.html">Copyright</a>
+    </div>
+    <div class="sf-col"><h4>Quick Links</h4>
+      <a href="../index.html">🏠 Home</a>
+      <a href="index.html">💼 Freelance Tools</a>
+      <a href="../legal/contact.html">Contact</a>
+      <a href="../legal/privacy-policy.html">Privacy</a>
+    </div>
+  </div>
+  <div class="sf-bottom">
+    <span>© 2026 WebToolsKit. All rights reserved.</span>
+    <div><a href="../legal/privacy-policy.html">Privacy</a><a href="../legal/terms-conditions.html">Terms</a><a href="../legal/contact.html">Contact</a></div>
+  </div>
+</footer>
 <script>
-let nType='calendar';
-function setType(t){nType=t;document.getElementById('btnCal').classList.toggle('active',t==='calendar');document.getElementById('btnWork').classList.toggle('active',t==='working');}
-function addWorkDays(start,days){let d=new Date(start),added=0;while(added<days){d.setDate(d.getDate()+1);if(d.getDay()!==0&&d.getDay()!==6)added++;}return d;}
-function calculate(){
-  const resign=document.getElementById('resignDate').value;
-  const days=parseInt(document.getElementById('noticeDays').value)||0;
-  if(!resign)return;
-  const start=new Date(resign);
-  const last=nType==='calendar'?new Date(start.getTime()+days*86400000):addWorkDays(start,days);
-  const today=new Date();today.setHours(0,0,0,0);
-  const diff=Math.max(0,Math.ceil((last-today)/86400000));
-  const months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+function calcNotice(){
+  const rd=document.getElementById('resignDate').value;
+  const np=document.getElementById('noticePeriod').value;
+  const wknd=document.getElementById('weekends').value;
+  document.getElementById('customGroup').style.display=np==='custom'?'block':'none';
+  if(!rd)return;
+  let days=np==='custom'?parseInt(document.getElementById('customDays').value)||30:parseInt(np);
+  const start=new Date(rd);
+  let end=new Date(start);
+  if(wknd==='yes'){end.setDate(end.getDate()+days);}
+  else{let added=0;let cur=new Date(start);while(added<days){cur.setDate(cur.getDate()+1);if(cur.getDay()!==0&&cur.getDay()!==6)added++;}end=cur;}
   const days2=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-  document.getElementById('lastDay').textContent=`${last.getDate()} ${months[last.getMonth()]} ${last.getFullYear()}`;
-  document.getElementById('dayName').textContent=days2[last.getDay()];
-  document.getElementById('daysLeft').textContent=diff+' days';
-  document.getElementById('weeksLeft').textContent=Math.floor(diff/7)+' weeks';
-  document.getElementById('noticeType').textContent=nType==='calendar'?'Calendar':'Working';
-  const res=document.getElementById('result');res.classList.add('show');res.scrollIntoView({behavior:'smooth',block:'nearest'});
+  const months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const wdCount=Array.from({length:Math.floor((end-start)/86400000)},(_,i)=>{const d=new Date(start);d.setDate(d.getDate()+i+1);return d.getDay();}).filter(d=>d!==0&&d!==6).length;
+  document.getElementById('lastDay').textContent=`${end.getDate()} ${months[end.getMonth()]} ${end.getFullYear()}`;
+  document.getElementById('noticeSub').textContent=`Your last working day after ${days} day notice period`;
+  document.getElementById('noticeDays').textContent=days+' days';
+  document.getElementById('workingDays').textContent=wdCount+' days';
+  document.getElementById('dayOfWeek').textContent=days2[end.getDay()];
+  document.getElementById('result').classList.add('show');
 }
-document.getElementById('resignDate').valueAsDate=new Date();
+const t=new Date();document.getElementById('resignDate').value=t.toISOString().split('T')[0];calcNotice();
 </script>
-</body></html>
+</body>
+</html>

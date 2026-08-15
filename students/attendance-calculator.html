@@ -70,6 +70,7 @@
     .content-section{max-width:1000px;margin:0 auto;padding:0 40px 80px}
     .content-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:36px;margin-bottom:20px}
     .content-card h2{font-family:'Outfit',sans-serif;font-size:1.2rem;font-weight:700;color:var(--white);margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+    .content-card h3{font-family:'Outfit',sans-serif;font-size:1rem;font-weight:700;color:var(--yellow);margin:20px 0 8px}
     .content-card p{font-size:.92rem;color:var(--light);line-height:1.85;margin-bottom:12px;font-family:'DM Sans',sans-serif}
     .content-card ul{list-style:none;padding:0}
     .content-card ul li{font-size:.92rem;color:var(--light);line-height:1.75;padding:6px 0 6px 20px;position:relative;font-family:'DM Sans',sans-serif}
@@ -86,6 +87,10 @@
     .subject-row{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:10px;margin-bottom:10px;align-items:end}
     .subject-row input{padding-left:14px}
     .del-btn{height:46px;width:46px;border-radius:10px;background:rgba(197,3,55,.15);border:1px solid rgba(197,3,55,.3);color:#ff6688;font-size:1.1rem;cursor:pointer}
+    .uni-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+    .uni-card{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;padding:12px 16px}
+    .uni-name{font-family:'Outfit',sans-serif;font-size:.88rem;font-weight:700;color:var(--white);margin-bottom:4px}
+    .uni-rule{font-size:.8rem;color:var(--grey);font-family:'DM Sans',sans-serif}
     .site-footer{border-top:1px solid var(--border);padding:56px 48px 28px;background:var(--footer-bg)}
     .site-footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;max-width:1200px;margin:0 auto 40px}
     .sf-logo{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;font-style:italic;color:var(--white);margin-bottom:10px;display:block;text-decoration:none}
@@ -97,7 +102,7 @@
     .sf-bottom{max-width:1200px;margin:0 auto;border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:var(--grey);font-family:'DM Sans',sans-serif}
     .sf-bottom a{color:var(--grey);text-decoration:none;margin-left:18px;transition:color .2s}
     .sf-bottom a:hover{color:var(--white)}
-    @media(max-width:900px){.site-footer-grid{grid-template-columns:1fr 1fr;gap:28px}.site-footer{padding:40px 20px 24px}.sf-bottom{flex-direction:column;gap:10px;text-align:center}.input-grid{grid-template-columns:1fr}.result-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:900px){.site-footer-grid{grid-template-columns:1fr 1fr;gap:28px}.site-footer{padding:40px 20px 24px}.sf-bottom{flex-direction:column;gap:10px;text-align:center}.input-grid{grid-template-columns:1fr}.result-grid{grid-template-columns:1fr 1fr}.uni-grid{grid-template-columns:1fr}}
     @media(max-width:768px){nav{padding:14px 20px}.nav-links{gap:0}.nav-link{padding:6px 8px;font-size:.78rem}.nav-home{padding:6px 10px;font-size:.78rem}.tool-hero{padding:40px 20px 24px}.tool-wrap{padding:0 16px 24px}.content-section{padding:0 16px 60px}.tool-title-row{flex-direction:column;align-items:flex-start;gap:12px}.result-main{font-size:2.5rem}.subject-row{grid-template-columns:1fr 1fr}}
   </style>
 </head>
@@ -118,7 +123,7 @@
     <div class="tool-icon-big">✅</div>
     <div class="tool-title">Attendance Calculator</div>
   </div>
-  <div class="tool-desc">Check if you meet the 75% attendance requirement and find out exactly how many classes you can still miss.</div>
+  <div class="tool-desc">Check if you meet the 75% attendance requirement and find out exactly how many classes you can still miss — the free class bunk calculator for Indian college students.</div>
 </div>
 <div class="tool-wrap">
 <div class="calc-card"><h2>// Attendance Details</h2>
@@ -139,11 +144,39 @@
   </div>
 </div></div>
 <section class="content-section">
-  <div class="content-card"><h2>What is this Tool?</h2><p>The Attendance Calculator helps students track their current attendance percentage and instantly find out how many more classes they can afford to miss — or how many consecutive classes they must attend to recover their attendance. The 75% attendance requirement is mandatory in most Indian universities, and falling below it can mean being barred from examinations or not earning exam eligibility.</p></div>
+  <div class="content-card"><h2>What is this Tool?</h2>
+  <p>The Attendance Calculator is a free student attendance calculator that helps you track your current attendance percentage and instantly find out how many more classes you can afford to miss — or how many consecutive classes you must attend to recover your attendance.</p>
+  <p>Also known as a <strong>class bunk calculator</strong>, this tool is designed specifically for Indian college students where the 75% attendance requirement is mandatory in most universities. Falling below 75% can mean being barred from examinations or not earning exam eligibility.</p>
+  <p>Whether you study at VIT, KLU, Anna University, Mumbai University, Delhi University, or any other Indian university — this <strong>75 attendance calculator</strong> works for all institutions and all minimum attendance requirements.</p>
+  </div>
+
   <div class="content-card"><h2>How to Use This Tool</h2><div class="steps"><div class="step"><div class="step-num">1</div><div class="step-text">Enter the total number of classes held so far this semester.</div></div><div class="step"><div class="step-num">2</div><div class="step-text">Enter the number of classes you have attended.</div></div><div class="step"><div class="step-num">3</div><div class="step-text">Enter your college's required minimum attendance percentage (usually 75%).</div></div><div class="step"><div class="step-num">4</div><div class="step-text">Enter the number of classes remaining in the semester.</div></div><div class="step"><div class="step-num">5</div><div class="step-text">Your current attendance, status, and how many classes you can still miss are shown instantly.</div></div></div></div>
-  <div class="content-card"><h2>Why This Matters</h2><ul><li>Know exactly how many classes you can safely skip</li><li>Plan leaves and absences without risking exam eligibility</li><li>Calculate how many consecutive classes you must attend to recover attendance</li><li>Track attendance subject-wise to identify risk areas</li><li>Avoid the shock of being debarred from exams due to low attendance</li></ul></div>
-  <div class="content-card"><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">Q: What happens if my attendance falls below 75%?</div><div class="faq-a">A: Most Indian universities debar students with less than 75% attendance from appearing in semester examinations. Some colleges have a condonation process for medical emergencies with documentation.</div></div><div class="faq-item"><div class="faq-q">Q: Is there any relaxation in attendance requirements?</div><div class="faq-a">A: Many colleges allow a 5-10% relaxation for participation in college events, sports, NCC, NSS, or medical reasons with valid documentation. Check your college's specific policy.</div></div><div class="faq-item"><div class="faq-q">Q: How is attendance percentage calculated?</div><div class="faq-a">A: Attendance % = (Classes Attended ÷ Total Classes Held) × 100. This is calculated for each subject separately in most universities, not as an overall average.</div></div><div class="faq-item"><div class="faq-q">Q: What if I have medical leave?</div><div class="faq-a">A: Keep all medical certificates from a registered doctor. Most universities require these to be submitted within a specified time (usually 7 days of return). Medical leave may or may not be condoned depending on university rules.</div></div></div>
-  <div class="tip-box"><strong>💡 Pro Tip:</strong> Track your attendance subject-by-subject, not just overall. You might have excellent overall attendance but be dangerously low in one specific subject that has fewer classes. Most universities calculate eligibility per subject, not in aggregate.</div>
+
+  <div class="content-card"><h2>Attendance Rules at Popular Indian Universities</h2>
+  <p>The minimum attendance requirement varies slightly across Indian universities. Here's a quick reference for common institutions:</p>
+  <div class="uni-grid">
+    <div class="uni-card"><div class="uni-name">VIT University</div><div class="uni-rule">Minimum 75% attendance required per subject</div></div>
+    <div class="uni-card"><div class="uni-name">KLU (K L University)</div><div class="uni-rule">Minimum 75% attendance required per subject</div></div>
+    <div class="uni-card"><div class="uni-name">Anna University</div><div class="uni-rule">Minimum 75% attendance required per subject</div></div>
+    <div class="uni-card"><div class="uni-name">Mumbai University</div><div class="uni-rule">Minimum 75% attendance required per subject</div></div>
+    <div class="uni-card"><div class="uni-name">Delhi University</div><div class="uni-rule">Minimum 75% attendance required per subject</div></div>
+    <div class="uni-card"><div class="uni-name">Pune University</div><div class="uni-rule">Minimum 75% attendance required per subject</div></div>
+  </div>
+  <p style="margin-top:16px">Use this <strong>student attendance calculator</strong> for any university — just enter your college's specific requirement in the percentage field.</p>
+  </div>
+
+  <div class="content-card"><h2>Why This Matters</h2><ul><li>Know exactly how many classes you can safely skip (bunk) without risking eligibility</li><li>Plan leaves and absences without falling below the 75% attendance requirement</li><li>Calculate how many consecutive classes you must attend to recover attendance</li><li>Track attendance subject-wise to identify risk areas early</li><li>Avoid the shock of being debarred from exams due to low attendance</li></ul></div>
+
+  <div class="content-card"><h2>Frequently Asked Questions</h2>
+    <div class="faq-item"><div class="faq-q">What is a class bunk calculator?</div><div class="faq-a">A class bunk calculator — also called a student attendance calculator — helps you find out exactly how many classes you can skip (bunk) while staying above your college's minimum attendance requirement, usually 75%. Enter your total classes, attended classes and remaining classes to get an instant answer.</div></div>
+    <div class="faq-item"><div class="faq-q">How does the 75 attendance calculator work?</div><div class="faq-a">The 75 attendance calculator uses a simple formula: Attendance % = (Classes Attended ÷ Total Classes Held) × 100. It then calculates the minimum classes you must attend out of the total (including remaining classes) to stay at or above 75%, and tells you how many you can safely skip.</div></div>
+    <div class="faq-item"><div class="faq-q">Does this attendance calculator work for VIT and KLU students?</div><div class="faq-a">Yes! This free attendance calculator works for all Indian universities including VIT University, KLU (K L University), Anna University, Mumbai University, Delhi University, Pune University and any college with a 75% or other minimum attendance requirement. Just enter your college's specific percentage in the required attendance field.</div></div>
+    <div class="faq-item"><div class="faq-q">What happens if my attendance falls below 75%?</div><div class="faq-a">Most Indian universities debar students with less than 75% attendance from appearing in semester examinations. Some colleges allow a 5–10% relaxation for medical emergencies, sports, NCC, NSS or college events with valid documentation. Always check your specific college's attendance policy.</div></div>
+    <div class="faq-item"><div class="faq-q">Is attendance calculated per subject or overall?</div><div class="faq-a">In most Indian universities, attendance is calculated per subject — not as an overall average. You might have excellent overall attendance but be dangerously low in one specific subject. Use this calculator for each subject separately to stay safe.</div></div>
+    <div class="faq-item"><div class="faq-q">What if I have medical leave?</div><div class="faq-a">Keep all medical certificates from a registered doctor. Most universities require these to be submitted within a specified time (usually 7 days of return). Medical leave may or may not be condoned depending on your university's rules — always check with your department.</div></div>
+  </div>
+
+  <div class="tip-box"><strong>💡 Pro Tip:</strong> Track your attendance subject-by-subject, not just overall. You might have excellent overall attendance but be dangerously low in one specific subject that has fewer classes. Most universities calculate eligibility per subject, not in aggregate. Use this class bunk calculator for each subject separately!</div>
 </section>
 <footer class="site-footer">
   <div class="site-footer-grid">
@@ -186,7 +219,6 @@ function calcAtt(){
   if(!total||att>total){document.getElementById('result').classList.remove('show');return;}
   const pct=att/total*100;
   const status=pct>=req?'✅ Safe':'⚠️ At Risk';
-  // How many can still miss
   const totalFinal=total+rem;
   const minAttend=Math.ceil(req/100*totalFinal);
   const canMiss=Math.max(0,att+rem-minAttend);

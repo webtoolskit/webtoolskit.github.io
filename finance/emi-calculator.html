@@ -15,7 +15,6 @@
 <meta property="og:title" content="EMI Calculator — Home, Car & Personal Loan"/>
 <meta property="og:description" content="Calculate your exact monthly EMI for home, car or personal loans in seconds. Enter loan amount, interest rate and tenure — free, no signup needed."/>
 <meta property="og:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
-
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:url" content="https://webtoolskit.github.io/finance/emi-calculator.html"/>
@@ -69,6 +68,8 @@
     .result-item{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;padding:14px;text-align:center}
     .result-item-label{font-family:'DM Mono',monospace;font-size:.62rem;color:var(--grey);text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px}
     .result-item-val{font-family:'Outfit',sans-serif;font-size:1.1rem;font-weight:700;color:var(--white)}
+    .chart-card{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:28px 28px 20px;margin-bottom:24px;display:none}
+    .chart-card h2{font-family:'DM Mono',monospace;font-size:.78rem;font-weight:500;color:var(--orange);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:20px}
     .content-section{max-width:1000px;margin:0 auto;padding:0 40px 80px}
     .content-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:36px;margin-bottom:20px}
     .content-card h2{font-family:'Outfit',sans-serif;font-size:1.2rem;font-weight:700;color:var(--white);margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border)}
@@ -136,7 +137,13 @@
     <div class="result-item"><div class="result-item-label">Total Interest</div><div class="result-item-val" id="rInterest">₹0</div></div>
     <div class="result-item"><div class="result-item-label">Total Payment</div><div class="result-item-val" id="rTotal">₹0</div></div>
   </div>
-</div></div>
+</div>
+<!-- ✅ NEW: Donut chart card -->
+<div class="chart-card" id="chartWrap">
+  <h2>// Principal vs Interest Breakdown</h2>
+  <canvas id="emiChart"></canvas>
+</div>
+</div>
 <section class="content-section">
   <div class="content-card"><h2>What is this Tool?</h2><p>An EMI (Equated Monthly Instalment) Calculator helps you calculate the fixed monthly amount you need to pay to repay a loan over a chosen period. Whether you're planning to take a home loan, car loan, or personal loan, knowing your EMI in advance helps you plan your monthly budget effectively and avoid financial stress.</p></div>
   <div class="content-card"><h2>How to Use This Calculator</h2><div class="steps"><div class="step"><div class="step-num">1</div><div class="step-text">Enter the loan amount you wish to borrow in rupees.</div></div><div class="step"><div class="step-num">2</div><div class="step-text">Enter the annual interest rate offered by your bank or lender.</div></div><div class="step"><div class="step-num">3</div><div class="step-text">Enter the loan tenure in years — how long you want to repay the loan.</div></div><div class="step"><div class="step-num">4</div><div class="step-text">Your EMI, total interest, and total repayment amount are calculated instantly.</div></div></div></div>
@@ -176,13 +183,16 @@
     <div><a href="../legal/privacy-policy.html">Privacy</a><a href="../legal/terms-conditions.html">Terms</a><a href="../legal/contact.html">Contact</a></div>
   </div>
 </footer>
+<!-- ✅ NEW: Chart.js + wtk-charts.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="/wtk-charts.js"></script>
 <script>
 function fmt(n){return '₹'+Math.round(n).toLocaleString('en-IN')}
 function calcEMI(){
   const P=parseFloat(document.getElementById('principal').value)||0;
   const r=parseFloat(document.getElementById('rate').value)||0;
   const n=parseFloat(document.getElementById('tenure').value)||0;
-  if(!P||!r||!n){document.getElementById('result').classList.remove('show');return;}
+  if(!P||!r||!n){document.getElementById('result').classList.remove('show');document.getElementById('chartWrap').style.display='none';return;}
   const rm=r/12/100;const months=n*12;
   const emi=P*rm*Math.pow(1+rm,months)/(Math.pow(1+rm,months)-1);
   const total=emi*months;const interest=total-P;
@@ -192,6 +202,18 @@ function calcEMI(){
   document.getElementById('rInterest').textContent=fmt(interest);
   document.getElementById('rTotal').textContent=fmt(total);
   document.getElementById('result').classList.add('show');
+
+  // ✅ NEW: Donut chart — Principal vs Interest
+  document.getElementById('chartWrap').style.display='block';
+  if(typeof WTKCharts!=='undefined'){
+    WTKCharts.donutChart(
+      'emiChart',
+      ['Principal Amount','Total Interest'],
+      [Math.round(P), Math.round(interest)],
+      '₹',
+      true
+    );
+  }
 }
 </script>
 </body>

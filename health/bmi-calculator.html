@@ -3,25 +3,24 @@
 <head>
   <meta charset="UTF-8"/>
   <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
   <link rel="canonical" href="https://webtoolskit.github.io/health/bmi-calculator.html"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>BMI Calculator — Body Mass Index for Men & Women | WebToolsKit</title>
-<meta name="description" content="Calculate your Body Mass Index instantly and find out if you are underweight, healthy, overweight or obese. Free BMI calculator with health range guide — no signup.">
+  <meta name="description" content="Calculate your Body Mass Index instantly and find out if you are underweight, healthy, overweight or obese. Free BMI checker for men and women — no signup.">
   <!-- Open Graph -->
-<meta property="og:type" content="website"/>
-<meta property="og:url" content="https://webtoolskit.github.io/health/bmi-calculator.html"/>
-<meta property="og:title" content="BMI Calculator — Are You in a Healthy Weight Range?"/>
-<meta property="og:description" content="Calculate your Body Mass Index instantly and find out if you are underweight, healthy, overweight or obese. Free BMI calculator with health range guide."/>
-<meta property="og:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
-
-<!-- Twitter / X -->
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:url" content="https://webtoolskit.github.io/health/bmi-calculator.html"/>
-<meta name="twitter:title" content="BMI Calculator — Are You in a Healthy Weight Range?"/>
-<meta name="twitter:description" content="Calculate your Body Mass Index instantly and find out if you are underweight, healthy, overweight or obese. Free BMI calculator with health range guide."/>
-<meta name="twitter:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://webtoolskit.github.io/health/bmi-calculator.html"/>
+  <meta property="og:title" content="BMI Calculator — Are You in a Healthy Weight Range?"/>
+  <meta property="og:description" content="Calculate your Body Mass Index instantly and find out if you are underweight, healthy, overweight or obese. Free BMI checker for men and women."/>
+  <meta property="og:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:url" content="https://webtoolskit.github.io/health/bmi-calculator.html"/>
+  <meta name="twitter:title" content="BMI Calculator — Are You in a Healthy Weight Range?"/>
+  <meta name="twitter:description" content="Calculate your Body Mass Index instantly and find out if you are underweight, healthy, overweight or obese. Free BMI checker for men and women."/>
+  <meta name="twitter:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -68,9 +67,12 @@
     .result-item{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;padding:14px}
     .result-item-label{font-family:'DM Mono',monospace;font-size:.62rem;color:var(--grey);text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px}
     .result-item-val{font-family:'Outfit',sans-serif;font-size:1.1rem;font-weight:700;color:var(--white)}
+    .chart-card{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:28px 28px 20px;margin-bottom:24px;display:none}
+    .chart-card h2{font-family:'DM Mono',monospace;font-size:.78rem;font-weight:500;color:var(--green);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:20px}
     .content-section{max-width:1000px;margin:0 auto;padding:0 40px 80px}
     .content-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:36px;margin-bottom:20px}
     .content-card h2{font-family:'Outfit',sans-serif;font-size:1.2rem;font-weight:700;color:var(--white);margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+    .content-card h3{font-family:'Outfit',sans-serif;font-size:1rem;font-weight:700;color:var(--green);margin:20px 0 8px}
     .content-card p{font-size:.92rem;color:var(--light);line-height:1.85;margin-bottom:12px;font-family:'DM Sans',sans-serif}
     .content-card ul{list-style:none;padding:0}
     .content-card ul li{font-size:.92rem;color:var(--light);line-height:1.75;padding:6px 0 6px 20px;position:relative;font-family:'DM Sans',sans-serif}
@@ -84,7 +86,23 @@
     .faq-a{font-size:.9rem;color:var(--light);line-height:1.75;font-family:'DM Sans',sans-serif}
     .tip-box{background:rgba(0,230,77,.08);border:1px solid rgba(0,230,77,.2);border-radius:12px;padding:16px 20px;font-size:.88rem;color:var(--light);line-height:1.7;font-family:'DM Sans',sans-serif;margin-bottom:20px}
     .tip-box strong{color:var(--green)}
-    .bmi-scale{display:flex;border-radius:12px;overflow:hidden;height:12px;margin:16px 0}
+    .hw-table{width:100%;border-collapse:collapse;margin-top:12px}
+    .hw-table th{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--grey);text-transform:uppercase;letter-spacing:.8px;padding:8px 12px;border-bottom:1px solid var(--border);text-align:left}
+    .hw-table td{font-size:.88rem;color:var(--light);padding:10px 12px;border-bottom:1px solid rgba(42,45,58,.5);font-family:'DM Sans',sans-serif}
+    .hw-table tr:last-child td{border-bottom:none}
+    .hw-table .healthy{color:var(--green);font-weight:600}
+    .bmi-range-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}
+    .bmi-range-card{border-radius:12px;padding:14px 12px;text-align:center}
+    .bmi-range-card.under{background:rgba(96,165,250,.1);border:1px solid rgba(96,165,250,.3)}
+    .bmi-range-card.healthy{background:rgba(0,230,77,.1);border:1px solid rgba(0,230,77,.3)}
+    .bmi-range-card.over{background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3)}
+    .bmi-range-card.obese{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3)}
+    .bmi-range-val{font-family:'Outfit',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:4px}
+    .bmi-range-card.under .bmi-range-val{color:#60a5fa}
+    .bmi-range-card.healthy .bmi-range-val{color:var(--green)}
+    .bmi-range-card.over .bmi-range-val{color:#f59e0b}
+    .bmi-range-card.obese .bmi-range-val{color:#ef4444}
+    .bmi-range-label{font-size:.78rem;color:var(--grey);font-family:'DM Sans',sans-serif}
     .site-footer{border-top:1px solid var(--border);padding:56px 48px 28px;background:var(--footer-bg)}
     .site-footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;max-width:1200px;margin:0 auto 40px}
     .sf-logo{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;font-style:italic;color:var(--white);margin-bottom:10px;display:block;text-decoration:none}
@@ -96,7 +114,7 @@
     .sf-bottom{max-width:1200px;margin:0 auto;border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:var(--grey);font-family:'DM Sans',sans-serif}
     .sf-bottom a{color:var(--grey);text-decoration:none;margin-left:18px;transition:color .2s}
     .sf-bottom a:hover{color:var(--white)}
-    @media(max-width:900px){.site-footer-grid{grid-template-columns:1fr 1fr;gap:28px}.site-footer{padding:40px 20px 24px}.sf-bottom{flex-direction:column;gap:10px;text-align:center}.input-grid{grid-template-columns:1fr}.result-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:900px){.site-footer-grid{grid-template-columns:1fr 1fr;gap:28px}.site-footer{padding:40px 20px 24px}.sf-bottom{flex-direction:column;gap:10px;text-align:center}.input-grid{grid-template-columns:1fr}.result-grid{grid-template-columns:1fr 1fr}.bmi-range-grid{grid-template-columns:1fr 1fr}}
     @media(max-width:768px){nav{padding:14px 20px}.nav-links{gap:0}.nav-link{padding:6px 8px;font-size:.78rem}.nav-home{padding:6px 10px;font-size:.78rem}.tool-hero{padding:40px 20px 24px}.tool-wrap{padding:0 16px 24px}.content-section{padding:0 16px 60px}.tool-title-row{flex-direction:column;align-items:flex-start;gap:12px}.result-main{font-size:2.5rem}}
   </style>
 </head>
@@ -117,7 +135,7 @@
     <div class="tool-icon-big">⚖️</div>
     <div class="tool-title">BMI Calculator</div>
   </div>
-  <div class="tool-desc">Calculate your Body Mass Index and find out if you are in a healthy weight range for your height.</div>
+  <div class="tool-desc">Free BMI checker for men and women — calculate your Body Mass Index instantly and find out your healthy weight range based on your height.</div>
 </div>
 <div class="tool-wrap">
 <div class="calc-card"><h2>// Your Measurements</h2>
@@ -126,7 +144,9 @@
   <div class="input-group"><label>Height (cm)</label><div class="input-wrap"><span class="input-prefix">cm</span><input type="number" id="height" placeholder="170" oninput="calcBMI()"/></div></div>
   <div class="input-group"><label>Age</label><div class="input-wrap"><span class="input-prefix">yr</span><input type="number" id="age" placeholder="30" oninput="calcBMI()"/></div></div>
   <div class="input-group"><label>Gender</label><select id="gender" class="no-prefix" onchange="calcBMI()"><option value="male">Male</option><option value="female">Female</option></select></div>
-</div></div>
+</div>
+<button class="calc-btn" onclick="calcBMI()">Check My BMI →</button>
+</div>
 <div class="result-card" id="result">
   <div class="result-label">Your BMI</div>
   <div class="result-main" id="bmiVal">0</div>
@@ -136,13 +156,93 @@
     <div class="result-item"><div class="result-item-label">Healthy Range</div><div class="result-item-val" id="healthyRange">—</div></div>
     <div class="result-item"><div class="result-item-label">Ideal Weight</div><div class="result-item-val" id="idealWt">—</div></div>
   </div>
-</div></div>
-<div class="tool-wrap" style="padding-bottom:0"><div class="tip-box" style="margin-bottom:8px"><strong>⚠️ Disclaimer:</strong> This tool is for informational purposes only and does not constitute medical advice. Always consult a qualified healthcare professional before making health decisions.</div><section class="content-section">
-  <div class="content-card"><h2>What is this Tool?</h2><p>The BMI (Body Mass Index) Calculator measures your body weight relative to your height to determine whether you fall within a healthy weight range. BMI is one of the most widely used screening tools by doctors and health professionals worldwide. While it does not directly measure body fat, it provides a reliable indicator of weight-related health risks for most adults.</p></div>
-  <div class="content-card"><h2>How to Use This Calculator</h2><div class="steps"><div class="step"><div class="step-num">1</div><div class="step-text">Enter your current weight in kilograms.</div></div><div class="step"><div class="step-num">2</div><div class="step-text">Enter your height in centimetres.</div></div><div class="step"><div class="step-num">3</div><div class="step-text">Enter your age and select your gender for a more accurate healthy range reference.</div></div><div class="step"><div class="step-num">4</div><div class="step-text">Your BMI score and weight category are calculated and displayed instantly.</div></div></div></div>
-  <div class="content-card"><h2>Why This Matters</h2><ul><li>Quick screening tool to identify weight-related health risks</li><li>Used by doctors as a first-step health assessment</li><li>Helps set realistic and healthy weight loss or gain goals</li><li>Tracks progress during a fitness or weight management journey</li><li>Understand where you stand relative to global health guidelines</li></ul></div>
-  <div class="content-card"><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">Q: What is a healthy BMI?</div><div class="faq-a">A: For adults, a BMI of 18.5 to 24.9 is considered healthy. Below 18.5 is underweight, 25-29.9 is overweight, and 30 or above is classified as obese.</div></div><div class="faq-item"><div class="faq-q">Q: Is BMI accurate for everyone?</div><div class="faq-a">A: BMI is a useful screening tool but has limitations. It may overestimate fat in muscular people (like athletes) and underestimate fat in older adults who have lost muscle mass.</div></div><div class="faq-item"><div class="faq-q">Q: Is BMI different for Asians?</div><div class="faq-a">A: Yes. Health organisations recommend lower BMI cutoffs for South Asians. Overweight is classified at BMI ≥23 and obese at ≥27.5 for Asian populations.</div></div><div class="faq-item"><div class="faq-q">Q: Can children use this calculator?</div><div class="faq-a">A: This calculator is designed for adults. Children's BMI is assessed differently using age- and gender-specific growth charts. Consult your paediatrician for children's weight assessment.</div></div></div>
-  <div class="tip-box"><strong>💡 Pro Tip:</strong> BMI is a starting point, not the complete picture. Waist circumference is equally important — for Indians, a waist above 90cm (men) or 80cm (women) indicates increased health risk regardless of BMI.</div>
+</div>
+<div class="chart-card" id="chartWrap">
+  <h2>// BMI Range Indicator</h2>
+  <canvas id="bmiChart"></canvas>
+</div>
+</div>
+<div class="tool-wrap" style="padding-bottom:0">
+<div class="tip-box" style="margin-bottom:8px"><strong>⚠️ Disclaimer:</strong> This tool is for informational purposes only and does not constitute medical advice. Always consult a qualified healthcare professional before making health decisions.</div>
+</div>
+<section class="content-section">
+
+  <div class="content-card">
+    <h2>What is a BMI Calculator?</h2>
+    <p>A <strong>BMI calculator</strong> — or Body Mass Index calculator — measures your body weight relative to your height to determine whether you fall in a healthy weight range. This free <strong>BMI checker for men and women</strong> uses the standard formula: <strong>BMI = Weight (kg) ÷ Height (m)²</strong>.</p>
+    <p>BMI is one of the most widely used health screening tools by doctors worldwide. While it doesn't directly measure body fat, it provides a reliable first-step indicator of weight-related health risks for most adults.</p>
+    <p>For Indian and South Asian adults, health organisations recommend using slightly lower BMI cutoffs — overweight starts at BMI 23 (not 25) and obese at 27.5 (not 30). This calculator uses Asian-specific cutoffs for more accurate results.</p>
+  </div>
+
+  <div class="content-card">
+    <h2>BMI Categories — Indian & Global Standards</h2>
+    <div class="bmi-range-grid">
+      <div class="bmi-range-card under"><div class="bmi-range-val">&lt; 18.5</div><div class="bmi-range-label">Underweight</div></div>
+      <div class="bmi-range-card healthy"><div class="bmi-range-val">18.5 – 22.9</div><div class="bmi-range-label">Healthy Weight</div></div>
+      <div class="bmi-range-card over"><div class="bmi-range-val">23 – 27.4</div><div class="bmi-range-label">Overweight (Asian)</div></div>
+      <div class="bmi-range-card obese"><div class="bmi-range-val">≥ 27.5</div><div class="bmi-range-label">Obese (Asian)</div></div>
+    </div>
+    <p style="margin-top:16px">Note: Global WHO standards use 25 for overweight and 30 for obese. Indian/Asian guidelines recommend lower thresholds as South Asians have higher body fat percentage at the same BMI as Caucasians.</p>
+  </div>
+
+  <div class="content-card">
+    <h2>Height vs Weight — Ideal Weight Reference Table</h2>
+    <p>This <strong>height vs weight calculator</strong> reference shows the healthy and ideal weight range for common heights. Use this as a guide alongside your BMI result:</p>
+    <table class="hw-table">
+      <thead><tr><th>Height</th><th>Healthy Weight Range</th><th>Ideal Weight (BMI 22)</th><th>For</th></tr></thead>
+      <tbody>
+        <tr><td>150 cm (4'11")</td><td>41.6 – 51.6 kg</td><td class="healthy">49.5 kg</td><td>Men & Women</td></tr>
+        <tr><td>155 cm (5'1")</td><td>44.4 – 55.0 kg</td><td class="healthy">52.8 kg</td><td>Men & Women</td></tr>
+        <tr><td>160 cm (5'3")</td><td>47.4 – 58.6 kg</td><td class="healthy">56.3 kg</td><td>Men & Women</td></tr>
+        <tr><td>165 cm (5'5")</td><td>50.3 – 62.4 kg</td><td class="healthy">59.9 kg</td><td>Men & Women</td></tr>
+        <tr><td>170 cm (5'7")</td><td>53.5 – 66.3 kg</td><td class="healthy">63.6 kg</td><td>Men & Women</td></tr>
+        <tr><td>175 cm (5'9")</td><td>56.7 – 70.3 kg</td><td class="healthy">67.4 kg</td><td>Men & Women</td></tr>
+        <tr><td>180 cm (5'11")</td><td>60.0 – 74.4 kg</td><td class="healthy">71.3 kg</td><td>Men</td></tr>
+        <tr><td>185 cm (6'1")</td><td>63.3 – 78.6 kg</td><td class="healthy">75.4 kg</td><td>Men</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:12px">Healthy weight range based on BMI 18.5–24.9. Ideal weight based on BMI 22 (midpoint of healthy range).</p>
+  </div>
+
+  <div class="content-card">
+    <h2>How to Use This BMI Checker</h2>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-text">Enter your current weight in kilograms.</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">Enter your height in centimetres — remove shoes for accuracy.</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">Enter your age and select your gender for accurate healthy range reference.</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text">Your BMI, category, healthy weight range and ideal weight are shown instantly with a visual gauge.</div></div>
+    </div>
+  </div>
+
+  <div class="content-card">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <div class="faq-q">What is a healthy BMI for men?</div>
+      <div class="faq-a">For Indian men, a healthy BMI is between 18.5 and 22.9. BMI 23–27.4 is considered overweight and BMI 27.5 or above is obese using Asian-specific cutoffs. For Western standards, healthy is 18.5–24.9, overweight is 25–29.9, and obese is 30+. This BMI checker for men uses Asian-specific thresholds for more relevant results.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What is a healthy BMI for women?</div>
+      <div class="faq-a">For Indian women, a healthy BMI is 18.5–22.9. Women naturally have slightly higher body fat than men at the same BMI, so context matters. A BMI of 20–22 is often considered the ideal range for women in terms of health outcomes. Use this free weight calculator for women to find your specific healthy range based on your height.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What is the ideal height weight for Indians?</div>
+      <div class="faq-a">The ideal height weight relationship for Indians follows BMI 20–22 as the optimal range. For example: at 160 cm, ideal weight is approximately 51–56 kg. At 170 cm, ideal weight is approximately 58–64 kg. At 175 cm, ideal weight is approximately 61–67 kg. Use the height vs weight table above for your specific height.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is BMI different for men and women?</div>
+      <div class="faq-a">The BMI formula (weight ÷ height²) is the same for both men and women, but the health interpretation differs slightly. Women naturally carry more body fat than men at the same BMI. Athletes and muscular men may show high BMI without being overweight. This is why age, gender and waist circumference context matters alongside BMI.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is BMI the same as a weight to age calculator?</div>
+      <div class="faq-a">BMI is a weight-to-height ratio, not a weight-to-age ratio. However, healthy BMI ranges do vary slightly by age — older adults (65+) may be healthier at a slightly higher BMI (23–27) as some extra weight can protect against bone loss. For children, BMI is assessed using age- and gender-specific growth charts, not adult BMI cutoffs.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is BMI accurate for everyone?</div>
+      <div class="faq-a">BMI is a useful first-step screening tool but has limitations. It may overestimate fat in muscular people like athletes and underestimate fat in older adults who have lost muscle. For a complete health picture, combine BMI with waist circumference, body fat percentage and a doctor's assessment.</div>
+    </div>
+  </div>
+
+  <div class="tip-box"><strong>💡 Pro Tip:</strong> BMI is a starting point, not the complete picture. Waist circumference is equally important — for Indians, a waist above 90cm (men) or 80cm (women) indicates increased health risk regardless of BMI. Measure both for a fuller picture of your health.</div>
 </section>
 <footer class="site-footer">
   <div class="site-footer-grid">
@@ -176,26 +276,42 @@
     <div><a href="../legal/privacy-policy.html">Privacy</a><a href="../legal/terms-conditions.html">Terms</a><a href="../legal/contact.html">Contact</a></div>
   </div>
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="/wtk-charts.js"></script>
 <script>
 function calcBMI(){
   const w=parseFloat(document.getElementById('weight').value)||0;
   const h=parseFloat(document.getElementById('height').value)||0;
-  if(!w||!h){document.getElementById('result').classList.remove('show');return;}
+  const gender=document.getElementById('gender').value;
+  if(!w||!h){document.getElementById('result').classList.remove('show');document.getElementById('chartWrap').style.display='none';return;}
   const bmi=w/((h/100)**2);
-  let cat,color;
-  if(bmi<18.5){cat='Underweight';color='#60a5fa';}
-  else if(bmi<23){cat='Healthy Weight';color='#00e64d';}
-  else if(bmi<27.5){cat='Overweight';color='#f59e0b';}
-  else{cat='Obese';color='#ef4444';}
+  let cat;
+  if(bmi<18.5){cat='Underweight';}
+  else if(bmi<23){cat='Healthy Weight';}
+  else if(bmi<27.5){cat='Overweight';}
+  else{cat='Obese';}
   const hMin=(18.5*(h/100)**2).toFixed(1);
-  const hMax=(24.9*(h/100)**2).toFixed(1);
+  const hMax=(22.9*(h/100)**2).toFixed(1);
   const ideal=(22*(h/100)**2).toFixed(1);
   document.getElementById('bmiVal').textContent=bmi.toFixed(1);
-  document.getElementById('bmiCat').textContent=cat;
+  document.getElementById('bmiCat').textContent=cat+' — based on Asian BMI standards';
   document.getElementById('bmiCatVal').textContent=cat;
   document.getElementById('healthyRange').textContent=hMin+'–'+hMax+' kg';
   document.getElementById('idealWt').textContent=ideal+' kg';
   document.getElementById('result').classList.add('show');
+
+  // Gauge chart
+  document.getElementById('chartWrap').style.display='block';
+  if(typeof WTKCharts!=='undefined'){
+    WTKCharts.gaugeChart(
+      'bmiChart',
+      parseFloat(bmi.toFixed(1)),
+      'BMI',
+      ['Underweight','Healthy','Overweight','Obese'],
+      [18.5,23,27.5,40],
+      ['#60a5fa','#00e64d','#f59e0b','#ef4444']
+    );
+  }
 }
 </script>
 </body>

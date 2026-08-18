@@ -15,7 +15,6 @@
 <meta property="og:title" content="Attendance Calculator — How Many Classes Can You Skip?"/>
 <meta property="og:description" content="Find out exactly how many classes you can skip and still stay above 75% attendance. Free attendance calculator for Indian college students — instant result."/>
 <meta property="og:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
-
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:url" content="https://webtoolskit.github.io/students/attendance-calculator.html"/>
@@ -68,6 +67,8 @@
     .result-item{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;padding:14px}
     .result-item-label{font-family:'DM Mono',monospace;font-size:.62rem;color:var(--grey);text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px}
     .result-item-val{font-family:'Outfit',sans-serif;font-size:1.05rem;font-weight:700;color:var(--white)}
+    .chart-card{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:28px 28px 20px;margin-bottom:24px;display:none}
+    .chart-card h2{font-family:'DM Mono',monospace;font-size:.78rem;font-weight:500;color:var(--yellow);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:20px}
     .content-section{max-width:1000px;margin:0 auto;padding:0 40px 80px}
     .content-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:36px;margin-bottom:20px}
     .content-card h2{font-family:'Outfit',sans-serif;font-size:1.2rem;font-weight:700;color:var(--white);margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border)}
@@ -143,7 +144,13 @@
     <div class="result-item"><div class="result-item-label">Can Still Miss</div><div class="result-item-val" id="canMiss">0 classes</div></div>
     <div class="result-item"><div class="result-item-label">Must Attend</div><div class="result-item-val" id="mustAttend">— classes</div></div>
   </div>
-</div></div>
+</div>
+<!-- ✅ NEW: Chart card -->
+<div class="chart-card" id="chartWrap">
+  <h2>// Attendance Status</h2>
+  <canvas id="attChart"></canvas>
+</div>
+</div>
 <section class="content-section">
   <div class="content-card"><h2>What is this Tool?</h2>
   <p>The Attendance Calculator is a free student attendance calculator that helps you track your current attendance percentage and instantly find out how many more classes you can afford to miss — or how many consecutive classes you must attend to recover your attendance.</p>
@@ -211,13 +218,16 @@
     <div><a href="../legal/privacy-policy.html">Privacy</a><a href="../legal/terms-conditions.html">Terms</a><a href="../legal/contact.html">Contact</a></div>
   </div>
 </footer>
+<!-- ✅ NEW: Chart.js + wtk-charts.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="/wtk-charts.js"></script>
 <script>
 function calcAtt(){
   const total=parseFloat(document.getElementById('totalClasses').value)||0;
   const att=parseFloat(document.getElementById('attended').value)||0;
   const req=parseFloat(document.getElementById('required').value)||75;
   const rem=parseFloat(document.getElementById('remaining').value)||0;
-  if(!total||att>total){document.getElementById('result').classList.remove('show');return;}
+  if(!total||att>total){document.getElementById('result').classList.remove('show');document.getElementById('chartWrap').style.display='none';return;}
   const pct=att/total*100;
   const status=pct>=req?'✅ Safe':'⚠️ At Risk';
   const totalFinal=total+rem;
@@ -230,6 +240,12 @@ function calcAtt(){
   document.getElementById('canMiss').textContent=canMiss+' classes';
   document.getElementById('mustAttend').textContent=pct>=req?'None required':mustAttend+' classes';
   document.getElementById('result').classList.add('show');
+
+  // ✅ NEW: Progress bar chart
+  document.getElementById('chartWrap').style.display='block';
+  if(typeof WTKCharts!=='undefined'){
+    WTKCharts.progressBar('attChart', parseFloat(pct.toFixed(1)), req, 'Your Attendance');
+  }
 }
 </script>
 </body>

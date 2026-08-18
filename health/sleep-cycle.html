@@ -3,25 +3,24 @@
 <head>
   <meta charset="UTF-8"/>
   <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
   <link rel="canonical" href="https://webtoolskit.github.io/health/sleep-cycle.html"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sleep Cycle Calculator — Best Wake Up Times | WebToolsKit</title>
-<meta name="description" content="Wake up feeling refreshed by sleeping through full cycles. Enter your bedtime and get the best wake-up times — free sleep cycle calculator, no signup needed.">
+  <meta name="description" content="Wake up feeling refreshed by sleeping through full cycles. Enter your bedtime and get the best wake-up times — free sleep cycle calculator, no signup needed.">
   <!-- Open Graph -->
-<meta property="og:type" content="website"/>
-<meta property="og:url" content="https://webtoolskit.github.io/health/sleep-cycle.html"/>
-<meta property="og:title" content="Sleep Cycle Calculator — Wake Up Feeling Refreshed"/>
-<meta property="og:description" content="Wake up feeling refreshed by timing your sleep cycles perfectly. Enter your bedtime and get the best wake-up times — free sleep cycle calculator."/>
-<meta property="og:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
-
-<!-- Twitter / X -->
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:url" content="https://webtoolskit.github.io/health/sleep-cycle.html"/>
-<meta name="twitter:title" content="Sleep Cycle Calculator — Wake Up Feeling Refreshed"/>
-<meta name="twitter:description" content="Wake up feeling refreshed by timing your sleep cycles perfectly. Enter your bedtime and get the best wake-up times — free sleep cycle calculator."/>
-<meta name="twitter:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://webtoolskit.github.io/health/sleep-cycle.html"/>
+  <meta property="og:title" content="Sleep Cycle Calculator — Wake Up Feeling Refreshed"/>
+  <meta property="og:description" content="Wake up feeling refreshed by timing your sleep cycles perfectly. Enter your bedtime and get the best wake-up times — free sleep cycle calculator."/>
+  <meta property="og:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:url" content="https://webtoolskit.github.io/health/sleep-cycle.html"/>
+  <meta name="twitter:title" content="Sleep Cycle Calculator — Wake Up Feeling Refreshed"/>
+  <meta name="twitter:description" content="Wake up feeling refreshed by timing your sleep cycles perfectly. Enter your bedtime and get the best wake-up times — free sleep cycle calculator."/>
+  <meta name="twitter:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -53,8 +52,7 @@
     .input-group label{display:block;font-size:.84rem;font-weight:600;color:var(--grey);margin-bottom:7px;font-family:'DM Sans',sans-serif}
     .input-wrap{position:relative}
     .input-prefix{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--green);font-weight:600;font-size:.88rem;font-family:'DM Mono',monospace}
-    input[type=number],select{width:100%;background:#0f1117;border:1px solid var(--border);border-radius:12px;padding:13px 14px 13px 48px;color:var(--white);font-size:.97rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}
-    input.no-prefix,select.no-prefix{padding-left:14px}
+    input[type=number],select,input[type=time]{width:100%;background:#0f1117;border:1px solid var(--border);border-radius:12px;padding:13px 14px;color:var(--white);font-size:.97rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}
     input:focus,select:focus{border-color:var(--green)}
     select{-webkit-appearance:none}
     .calc-btn{width:100%;padding:15px;border-radius:13px;background:linear-gradient(135deg,var(--green),var(--green2));border:none;color:#000;font-size:.97rem;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;transition:opacity .2s,transform .2s;margin-top:20px}
@@ -62,15 +60,20 @@
     .result-card{background:linear-gradient(135deg,rgba(0,230,77,.08),rgba(0,196,63,.04));border:1px solid rgba(0,230,77,.25);border-radius:20px;padding:32px;display:none;text-align:center;margin-bottom:24px}
     .result-card.show{display:block}
     .result-label{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--grey);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
-    .result-main{font-family:'Outfit',sans-serif;font-size:3.5rem;font-weight:800;letter-spacing:-2px;background:linear-gradient(90deg,var(--green),var(--green2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:8px}
+    .result-main{font-family:'Outfit',sans-serif;font-size:1.8rem;font-weight:800;letter-spacing:-1px;background:linear-gradient(90deg,var(--green),var(--green2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:8px}
     .result-sub{font-size:.9rem;color:var(--grey);font-family:'DM Sans',sans-serif}
-    .result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+    .result-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px}
     .result-item{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;padding:14px}
+    .result-item.best{border-color:rgba(0,230,77,.4);background:rgba(0,230,77,.06)}
     .result-item-label{font-family:'DM Mono',monospace;font-size:.62rem;color:var(--grey);text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px}
     .result-item-val{font-family:'Outfit',sans-serif;font-size:1.1rem;font-weight:700;color:var(--white)}
+    .result-item-badge{font-size:.65rem;color:var(--green);font-family:'DM Mono',monospace;margin-top:3px}
+    .chart-card{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:28px 28px 20px;margin-bottom:24px;display:none}
+    .chart-card h2{font-family:'DM Mono',monospace;font-size:.78rem;font-weight:500;color:var(--green);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:20px}
     .content-section{max-width:1000px;margin:0 auto;padding:0 40px 80px}
     .content-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:36px;margin-bottom:20px}
     .content-card h2{font-family:'Outfit',sans-serif;font-size:1.2rem;font-weight:700;color:var(--white);margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+    .content-card h3{font-family:'Outfit',sans-serif;font-size:1rem;font-weight:700;color:var(--green);margin:20px 0 8px}
     .content-card p{font-size:.92rem;color:var(--light);line-height:1.85;margin-bottom:12px;font-family:'DM Sans',sans-serif}
     .content-card ul{list-style:none;padding:0}
     .content-card ul li{font-size:.92rem;color:var(--light);line-height:1.75;padding:6px 0 6px 20px;position:relative;font-family:'DM Sans',sans-serif}
@@ -84,7 +87,10 @@
     .faq-a{font-size:.9rem;color:var(--light);line-height:1.75;font-family:'DM Sans',sans-serif}
     .tip-box{background:rgba(0,230,77,.08);border:1px solid rgba(0,230,77,.2);border-radius:12px;padding:16px 20px;font-size:.88rem;color:var(--light);line-height:1.7;font-family:'DM Sans',sans-serif;margin-bottom:20px}
     .tip-box strong{color:var(--green)}
-    .bmi-scale{display:flex;border-radius:12px;overflow:hidden;height:12px;margin:16px 0}
+    .cycle-table{width:100%;border-collapse:collapse;margin-top:12px}
+    .cycle-table th{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--grey);text-transform:uppercase;letter-spacing:.8px;padding:8px 12px;border-bottom:1px solid var(--border);text-align:left}
+    .cycle-table td{font-size:.88rem;color:var(--light);padding:10px 12px;border-bottom:1px solid rgba(42,45,58,.5);font-family:'DM Sans',sans-serif}
+    .cycle-table tr.highlight td{color:var(--green);font-weight:600}
     .site-footer{border-top:1px solid var(--border);padding:56px 48px 28px;background:var(--footer-bg)}
     .site-footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;max-width:1200px;margin:0 auto 40px}
     .sf-logo{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;font-style:italic;color:var(--white);margin-bottom:10px;display:block;text-decoration:none}
@@ -97,7 +103,7 @@
     .sf-bottom a{color:var(--grey);text-decoration:none;margin-left:18px;transition:color .2s}
     .sf-bottom a:hover{color:var(--white)}
     @media(max-width:900px){.site-footer-grid{grid-template-columns:1fr 1fr;gap:28px}.site-footer{padding:40px 20px 24px}.sf-bottom{flex-direction:column;gap:10px;text-align:center}.input-grid{grid-template-columns:1fr}.result-grid{grid-template-columns:1fr 1fr}}
-    @media(max-width:768px){nav{padding:14px 20px}.nav-links{gap:0}.nav-link{padding:6px 8px;font-size:.78rem}.nav-home{padding:6px 10px;font-size:.78rem}.tool-hero{padding:40px 20px 24px}.tool-wrap{padding:0 16px 24px}.content-section{padding:0 16px 60px}.tool-title-row{flex-direction:column;align-items:flex-start;gap:12px}.result-main{font-size:2.5rem}}
+    @media(max-width:768px){nav{padding:14px 20px}.nav-links{gap:0}.nav-link{padding:6px 8px;font-size:.78rem}.nav-home{padding:6px 10px;font-size:.78rem}.tool-hero{padding:40px 20px 24px}.tool-wrap{padding:0 16px 24px}.content-section{padding:0 16px 60px}.tool-title-row{flex-direction:column;align-items:flex-start;gap:12px}.result-main{font-size:1.4rem}}
   </style>
 </head>
 <body>
@@ -117,28 +123,113 @@
     <div class="tool-icon-big">😴</div>
     <div class="tool-title">Sleep Cycle Calculator</div>
   </div>
-  <div class="tool-desc">Calculate the best times to wake up or go to sleep based on 90-minute sleep cycles for maximum energy.</div>
+  <div class="tool-desc">Calculate the best times to wake up or go to sleep based on 90-minute sleep cycles — the free sleeping cycles calculator for maximum energy and zero grogginess.</div>
 </div>
 <div class="tool-wrap">
-<div class="calc-card"><h2>// Sleep Calculator</h2>
+<div class="calc-card"><h2>// Sleep Cycle Calculator</h2>
 <div class="input-grid">
   <div class="input-group"><label>I want to...</label><select id="sleepMode" class="no-prefix" onchange="toggleMode()"><option value="wakeup">Wake up at a specific time</option><option value="sleep">Go to sleep at a specific time</option></select></div>
-  <div class="input-group"><label id="timeLabel">Wake up time</label><input type="time" id="sleepTime" class="no-prefix" value="06:30" oninput="calcSleep()"/></div>
+  <div class="input-group"><label id="timeLabel">Wake up time</label><input type="time" id="sleepTime" value="06:30" oninput="calcSleep()"/></div>
 </div>
 <button class="calc-btn" onclick="calcSleep()">Calculate Sleep Times →</button>
 </div>
 <div class="result-card" id="result">
   <div class="result-label" id="resultLabel">Best Times to Sleep</div>
-  <div class="result-main" id="sleepMain" style="font-size:1.8rem">—</div>
+  <div class="result-main" id="sleepMain">—</div>
   <div class="result-sub">Based on 90-minute sleep cycles + 14 min to fall asleep</div>
   <div class="result-grid" id="sleepGrid"></div>
-</div></div>
-<div class="tool-wrap" style="padding-bottom:0"><div class="tip-box" style="margin-bottom:8px"><strong>⚠️ Disclaimer:</strong> This tool is for informational purposes only and does not constitute medical advice. Always consult a qualified healthcare professional before making health decisions.</div><section class="content-section">
-  <div class="content-card"><h2>What is this Tool?</h2><p>The Sleep Cycle Calculator helps you determine the ideal time to go to sleep or wake up based on your body's natural 90-minute sleep cycles. Sleep occurs in cycles of approximately 90 minutes, each consisting of light sleep, deep sleep, and REM sleep. Waking up at the end of a complete cycle — rather than in the middle of one — leaves you feeling refreshed and alert instead of groggy and tired.</p></div>
-  <div class="content-card"><h2>How to Use This Calculator</h2><div class="steps"><div class="step"><div class="step-num">1</div><div class="step-text">Select whether you want to calculate bedtime (given a wake-up time) or wake-up time (given a bedtime).</div></div><div class="step"><div class="step-num">2</div><div class="step-text">Enter your desired wake-up time or planned sleep time.</div></div><div class="step"><div class="step-num">3</div><div class="step-text">Click Calculate to see multiple optimal sleep or wake-up time options.</div></div><div class="step"><div class="step-num">4</div><div class="step-text">Choose the time that best fits your schedule — ideally 5 or 6 complete cycles (7.5 or 9 hours).</div></div></div></div>
-  <div class="content-card"><h2>Why This Matters</h2><ul><li>Wake up naturally refreshed by aligning with sleep cycle completion</li><li>Reduce morning grogginess caused by waking mid-cycle</li><li>Understand how many hours of sleep you actually need</li><li>Plan sleep schedules around work, school, or travel</li><li>Improve energy, mood, and cognitive performance throughout the day</li></ul></div>
-  <div class="content-card"><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">Q: How many sleep cycles do I need?</div><div class="faq-a">A: Most adults need 5-6 complete cycles (7.5-9 hours). Teenagers need 6-7 cycles. Short sleepers can function on 4-5 cycles but this is rare and not recommended long-term.</div></div><div class="faq-item"><div class="faq-q">Q: What is REM sleep?</div><div class="faq-a">A: REM (Rapid Eye Movement) sleep is the phase where most dreaming occurs. It is critical for memory consolidation, learning, and emotional regulation. It occurs more in the later cycles of the night.</div></div><div class="faq-item"><div class="faq-q">Q: Is a 20-minute nap beneficial?</div><div class="faq-a">A: Yes! A 20-minute power nap (before entering deep sleep) can significantly boost alertness and performance. Napping beyond 30 minutes risks sleep inertia — that groggy feeling.</div></div><div class="faq-item"><div class="faq-q">Q: What ruins sleep quality?</div><div class="faq-a">A: Screen exposure before bed (blue light suppresses melatonin), caffeine after 2 PM, irregular sleep schedules, alcohol, and sleeping in a warm room all significantly reduce sleep quality.</div></div></div>
-  <div class="tip-box"><strong>💡 Pro Tip:</strong> The most consistent predictor of good sleep quality is waking up at the same time every day — even on weekends. A consistent wake time anchors your circadian rhythm better than any supplement.</div>
+</div>
+<div class="chart-card" id="chartWrap">
+  <h2>// Wake-Up Time Options</h2>
+  <canvas id="sleepChart"></canvas>
+</div>
+</div>
+<div class="tool-wrap" style="padding-bottom:0">
+<div class="tip-box" style="margin-bottom:8px"><strong>⚠️ Disclaimer:</strong> This tool is for informational purposes only and does not constitute medical advice. Always consult a qualified healthcare professional before making health decisions.</div>
+</div>
+<section class="content-section">
+  <div class="content-card">
+    <h2>What is a Sleep Cycle Calculator?</h2>
+    <p>A <strong>sleep cycle calculator</strong> — also called a <strong>sleeping cycles calculator</strong> or <strong>cycle sleep calculator</strong> — helps you find the ideal time to wake up or go to sleep based on your body's natural 90-minute sleep cycles.</p>
+    <p>Sleep occurs in repeating cycles of approximately 90 minutes each, consisting of light sleep, deep sleep, and REM sleep stages. Waking up at the end of a complete cycle — rather than in the middle of one — leaves you feeling refreshed and alert. Waking mid-cycle causes that groggy, heavy feeling known as sleep inertia.</p>
+    <p>This free sleep cycle time calculator adds 14 minutes to fall asleep (the average sleep onset time) and calculates the exact wake-up times or bedtimes that align with full cycle completions.</p>
+  </div>
+
+  <div class="content-card">
+    <h2>How Many Hours is Each Sleep Cycle Count?</h2>
+    <p>Each sleep cycle is 90 minutes long. Here's exactly how many hours different cycle counts give you — a common question people search for:</p>
+    <table class="cycle-table">
+      <thead><tr><th>Sleep Cycles</th><th>Sleep Duration</th><th>Total with Fall-Asleep Time</th><th>Recommended For</th></tr></thead>
+      <tbody>
+        <tr><td>3 cycles</td><td>4 hours 30 min</td><td>~4h 44min</td><td>Emergency only</td></tr>
+        <tr><td>4 cycles</td><td>6 hours</td><td>~6h 14min</td><td>Minimum viable sleep</td></tr>
+        <tr class="highlight"><td>5 cycles ⭐</td><td>7 hours 30 min</td><td>~7h 44min</td><td>Most adults (recommended)</td></tr>
+        <tr class="highlight"><td>6 cycles ⭐</td><td>9 hours</td><td>~9h 14min</td><td>Teens and heavy recoverers</td></tr>
+        <tr><td>7 cycles</td><td>10 hours 30 min</td><td>~10h 44min</td><td>Recovery from sleep debt</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:16px">So if you're wondering <strong>how many hours is 4 sleep cycles</strong> — it's 6 hours. <strong>How many hours is 1 sleep cycle</strong> — it's 90 minutes (1.5 hours). <strong>How many sleep cycles in 8 hours</strong> — approximately 5 full cycles with time to fall asleep.</p>
+  </div>
+
+  <div class="content-card">
+    <h2>How to Use This Sleep Cycle Time Calculator</h2>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-text">Select whether you want to calculate bedtime (given a wake-up time) or wake-up time (given a bedtime).</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">Enter your desired wake-up time or planned sleep time.</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">Click Calculate to see multiple optimal sleep or wake-up time options based on full 90-minute cycles.</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text">Choose the time that best fits your schedule — ideally 5 or 6 complete cycles (7.5 or 9 hours).</div></div>
+    </div>
+  </div>
+
+  <div class="content-card">
+    <h2>Why This Matters</h2>
+    <ul>
+      <li>Wake up naturally refreshed by aligning with sleep cycle completion</li>
+      <li>Reduce morning grogginess caused by waking mid-cycle</li>
+      <li>Understand exactly how many hours of sleep you actually need</li>
+      <li>Plan sleep schedules around work, school, or travel</li>
+      <li>Improve energy, mood, and cognitive performance throughout the day</li>
+      <li>Calculate the perfect nap length — 20 min (power nap) or 90 min (full cycle)</li>
+    </ul>
+  </div>
+
+  <div class="content-card">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <div class="faq-q">How many hours is 4 sleep cycles?</div>
+      <div class="faq-a">4 sleep cycles = 6 hours of sleep (4 × 90 minutes). Add approximately 14 minutes to fall asleep, so you need to be in bed about 6 hours and 14 minutes before your wake time. This is considered the minimum viable sleep for most adults — functional but not ideal long-term.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How many hours is 1 sleep cycle?</div>
+      <div class="faq-a">One sleep cycle is 90 minutes — or 1.5 hours. Each cycle consists of light sleep (NREM 1 and 2), deep sleep (NREM 3), and REM sleep. The cycle length stays consistent at ~90 minutes throughout the night, though the proportion of deep vs REM sleep shifts.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How many sleep cycles in 8 hours?</div>
+      <div class="faq-a">In 8 hours of total sleep time, you get approximately 5 complete sleep cycles — since each cycle is 90 minutes and you need around 14 minutes to fall asleep. 5 cycles × 90 minutes = 450 minutes (7.5 hours) + 14 minutes fall-asleep time = ~7h 44min, leaving a small buffer within 8 hours.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How to calculate sleep cycles?</div>
+      <div class="faq-a">To calculate sleep cycles: take your wake-up time, subtract 14 minutes (average time to fall asleep), then subtract multiples of 90 minutes to find your ideal bedtime. For example, to wake at 7:00 AM with 5 cycles: 7:00 AM minus 14 min minus 450 min (5×90) = 10:56 PM bedtime.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What is sleep cycle time — how long does one last?</div>
+      <div class="faq-a">A sleep cycle lasts approximately 90 minutes on average, though this can range from 80 to 110 minutes depending on the individual and age. Children have shorter cycles (~60 min) and elderly people may have slightly longer cycles. This sleeping cycles calculator uses the standard 90-minute cycle for adults.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How many sleep cycles do I need?</div>
+      <div class="faq-a">Most adults need 5–6 complete sleep cycles per night (7.5–9 hours). Teenagers typically need 6–7 cycles. Some people function on 4–5 cycles but this is uncommon and not recommended long-term. The quality of cycles matters too — uninterrupted cycles are significantly more restorative.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What ruins sleep quality?</div>
+      <div class="faq-a">Screen exposure before bed (blue light suppresses melatonin), caffeine after 2 PM, irregular sleep schedules, alcohol, and sleeping in a warm room all significantly reduce sleep quality and fragment your sleep cycles.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is a 20-minute nap beneficial?</div>
+      <div class="faq-a">Yes! A 20-minute power nap (before entering deep sleep) boosts alertness and performance significantly. Napping for exactly 90 minutes (one full cycle) is also effective. Avoid napping for 30–80 minutes — you'll wake mid-cycle feeling worse than before.</div>
+    </div>
+  </div>
+
+  <div class="tip-box"><strong>💡 Pro Tip:</strong> The most consistent predictor of good sleep quality is waking up at the same time every day — even on weekends. A consistent wake time anchors your circadian rhythm better than any supplement or sleep aid. Use this cycle sleep calculator to find your ideal wake time and stick to it daily.</div>
 </section>
 <footer class="site-footer">
   <div class="site-footer-grid">
@@ -172,6 +263,8 @@
     <div><a href="../legal/privacy-policy.html">Privacy</a><a href="../legal/terms-conditions.html">Terms</a><a href="../legal/contact.html">Contact</a></div>
   </div>
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="/wtk-charts.js"></script>
 <script>
 function toggleMode(){
   const mode=document.getElementById('sleepMode').value;
@@ -181,7 +274,7 @@ function toggleMode(){
 function calcSleep(){
   const mode=document.getElementById('sleepMode').value;
   const timeVal=document.getElementById('sleepTime').value;
-  if(!timeVal){return;}
+  if(!timeVal)return;
   const [h,m]=timeVal.split(':').map(Number);
   const baseMin=h*60+m;
   const cycles=[6,5,4,3];
@@ -190,13 +283,38 @@ function calcSleep(){
     const cycleMin=c*90+14;
     let t=mode==='wakeup'?baseMin-cycleMin:baseMin+cycleMin;
     t=((t%1440)+1440)%1440;
-    const th=Math.floor(t/60)%24;const tm=t%60;
-    times.push({label:`${c} cycles (${Math.floor(c*1.5)}h ${c%2===0?'':'30min'})`,time:`${String(th).padStart(2,'0')}:${String(tm).padStart(2,'0')}`});
+    const th=Math.floor(t/60)%24;
+    const tm=t%60;
+    const hrs=Math.floor(c*1.5);
+    const mins=c%2===0?0:30;
+    times.push({
+      label:`${c} cycles`,
+      sublabel:`${hrs}h${mins>0?' 30min':''}`,
+      time:`${String(th).padStart(2,'0')}:${String(tm).padStart(2,'0')}`,
+      cycles:c,
+      recommended:c===5||c===6
+    });
   });
   document.getElementById('resultLabel').textContent=mode==='wakeup'?'Best Times to Sleep':'Best Times to Wake Up';
   document.getElementById('sleepMain').textContent=times[0].time+' or '+times[1].time;
-  document.getElementById('sleepGrid').innerHTML=times.map(t=>`<div class="result-item"><div class="result-item-label">${t.label}</div><div class="result-item-val">${t.time}</div></div>`).join('');
+  document.getElementById('sleepGrid').innerHTML=times.map(t=>`
+    <div class="result-item${t.recommended?' best':''}">
+      <div class="result-item-label">${t.label}</div>
+      <div class="result-item-val">${t.time}</div>
+      <div class="result-item-badge">${t.sublabel}${t.recommended?' ⭐':''}</div>
+    </div>`).join('');
   document.getElementById('result').classList.add('show');
+
+  // Chart
+  document.getElementById('chartWrap').style.display='block';
+  const wakeOptions=times.map(t=>({
+    time:t.time,
+    label:`${t.cycles} cycles (${t.sublabel})`,
+    recommended:t.recommended
+  }));
+  if(typeof WTKCharts!=='undefined'){
+    WTKCharts.sleepTimeline('sleepChart',wakeOptions);
+  }
 }
 calcSleep();
 </script>

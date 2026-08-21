@@ -7,24 +7,22 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
   <link rel="canonical" href="https://webtoolskit.github.io/students/index.html"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Free Student Tools — CGPA, Attendance & More | WebToolsKit</title>
-<meta name="description" content="8 free tools for Indian students — CGPA calculator, attendance tracker, study planner, marks needed, scholarship checker, student loan and career aptitude quiz.">
+  <title>Free Student Tools — CGPA, Attendance, NEET & More | WebToolsKit</title>
+<meta name="description" content="9 free tools for Indian students — CGPA calculator, attendance tracker, NEET study planner, study planner, marks needed, scholarship checker and more. No signup.">
   <!-- Open Graph -->
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://webtoolskit.github.io/students/index.html"/>
-<meta property="og:title" content="Free Student Tools — CGPA, Attendance & More"/>
-<meta property="og:description" content="8 free tools for Indian students — CGPA calculator, attendance tracker, study planner, marks needed, scholarship checker, student loan and career aptitude quiz."/>
+<meta property="og:title" content="Free Student Tools — CGPA, Attendance, NEET & More"/>
+<meta property="og:description" content="9 free tools for Indian students — CGPA calculator, attendance tracker, NEET study planner, study planner, marks needed, scholarship checker and more. No signup."/>
 <meta property="og:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
-
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:url" content="https://webtoolskit.github.io/students/index.html"/>
-<meta name="twitter:title" content="Free Student Tools — CGPA, Attendance & More"/>
-<meta name="twitter:description" content="8 free tools for Indian students — CGPA calculator, attendance tracker, study planner, marks needed, scholarship checker, student loan and career aptitude quiz."/>
+<meta name="twitter:title" content="Free Student Tools — CGPA, Attendance, NEET & More"/>
+<meta name="twitter:description" content="9 free tools for Indian students — CGPA calculator, attendance tracker, NEET study planner, study planner, marks needed, scholarship checker and more. No signup."/>
 <meta name="twitter:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
-
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{
       --bg:#0f1117;--nav:#000000;--footer-bg:#000000;
@@ -66,6 +64,10 @@
     .tool-cta{display:flex;align-items:center;gap:6px;font-size:.82rem;font-weight:700;font-family:'DM Sans',sans-serif}
     .tool-cta svg{transition:transform .2s}
     .tool-card:hover .tool-cta svg{transform:translateX(4px)}
+    /* NEET card special highlight */
+    .tool-card.neet-card{border-color:rgba(245,197,24,.3);background:linear-gradient(135deg,#1a1d27 0%,#1e1a0f 100%)}
+    .tool-card.neet-card:hover{border-color:rgba(245,197,24,.6);box-shadow:0 18px 40px rgba(0,0,0,.5),0 0 0 1px rgba(245,197,24,.15)}
+    .new-badge{display:inline-block;background:rgba(245,197,24,.15);color:#f5c518;border:1px solid rgba(245,197,24,.3);font-family:'DM Mono',monospace;font-size:.6rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:2px 8px;border-radius:4px;margin-left:8px;vertical-align:middle}
     .site-footer{border-top:1px solid var(--border);padding:56px 48px 28px;background:var(--footer-bg)}
     .site-footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;max-width:1200px;margin:0 auto 40px}
     .sf-logo{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;font-style:italic;color:var(--white);margin-bottom:10px;display:block;text-decoration:none}
@@ -81,7 +83,6 @@
     .sf-bottom a:hover{color:var(--white)}
     @media(max-width:900px){.site-footer-grid{grid-template-columns:1fr 1fr;gap:28px}.site-footer{padding:40px 20px 24px}.sf-bottom{flex-direction:column;gap:10px;text-align:center}}
     @media(max-width:768px){nav{padding:14px 20px}.nav-links{gap:0}.nav-link{padding:6px 8px;font-size:.78rem}.nav-home{padding:6px 10px;font-size:.78rem}.hero{padding:56px 20px 44px}.tools-section{padding:40px 16px 60px}}
-
     .logo-accent{background:linear-gradient(90deg,#f5c518,#e6b800);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
     .hero::before{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:700px;height:400px;background:radial-gradient(ellipse,rgba(245,197,24,0.12) 0%,transparent 70%);pointer-events:none}
     .hero-badge{background:rgba(245,197,24,0.1);border-color:rgba(245,197,24,0.3);color:#f5c518}
@@ -108,10 +109,10 @@
 
 <section class="hero">
   <div class="hero-badge">🎓 Student Tools</div>
-  <h1>Study <em>Smarter</em>,<br/>Score Higher</h1>
-  <p>Free student tools to track attendance, plan studies, calculate CGPA, and stay ahead of deadlines.</p>
+  <h1>Study <em class="logo-accent">Smarter</em>,<br/>Score Higher</h1>
+  <p>9 free tools for Indian students — CGPA, attendance, NEET study planner, marks needed and more. No signup, no cost.</p>
   <div class="hero-stats">
-    <div class="stat"><span class="stat-num">8</span><span class="stat-label">Student Tools</span></div>
+    <div class="stat"><span class="stat-num">9</span><span class="stat-label">Student Tools</span></div>
     <div class="stat"><span class="stat-num">0₹</span><span class="stat-label">Cost</span></div>
     <div class="stat"><span class="stat-num">∞</span><span class="stat-label">Uses</span></div>
   </div>
@@ -120,6 +121,16 @@
 <section class="tools-section">
   <div class="section-label">// All Tools</div>
   <div class="tools-grid">
+
+    <!-- NEET Study Planner — NEW, shown first for SEO -->
+    <a href="neet-study-planner.html" class="tool-card neet-card">
+      <div class="tool-icon">🩺</div>
+      <div class="tool-tag">NEET <span class="new-badge">NEW</span></div>
+      <h3>NEET Study Planner 2026</h3>
+      <p>Personalized NEET study schedule based on your weak subjects in Physics, Chemistry and Biology. Days countdown, chapter-wise planning and mock test slots included.</p>
+      <div class="tool-cta">Use Tool <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
+
     <a href="cgpa-calculator.html" class="tool-card">
       <div class="tool-icon">🎓</div>
       <div class="tool-tag">Grades</div>
@@ -127,6 +138,7 @@
       <p>Calculate your CGPA from semester grades and credit hours instantly.</p>
       <div class="tool-cta">Use Tool <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
     </a>
+
     <a href="percentage-grade.html" class="tool-card">
       <div class="tool-icon">📊</div>
       <div class="tool-tag">Grades</div>
@@ -134,13 +146,15 @@
       <p>Convert marks to percentage and find your grade with ease.</p>
       <div class="tool-cta">Use Tool <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
     </a>
+
     <a href="study-planner.html" class="tool-card">
       <div class="tool-icon">📅</div>
       <div class="tool-tag">Planning</div>
       <h3>Study Planner</h3>
-      <p>Build a smart study schedule based on your exam dates and subjects.</p>
+      <p>Build a smart study schedule for NEET, JEE, UPSC or any exam based on your weak subjects and exam date.</p>
       <div class="tool-cta">Use Tool <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
     </a>
+
     <a href="attendance-calculator.html" class="tool-card">
       <div class="tool-icon">✅</div>
       <div class="tool-tag">Attendance</div>
@@ -148,6 +162,7 @@
       <p>Check if you meet the 75% attendance requirement and how many classes you can skip.</p>
       <div class="tool-cta">Use Tool <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
     </a>
+
     <a href="marks-needed.html" class="tool-card">
       <div class="tool-icon">🎯</div>
       <div class="tool-tag">Grades</div>
@@ -155,6 +170,7 @@
       <p>Find out exactly how many marks you need in finals to pass or get a distinction.</p>
       <div class="tool-cta">Use Tool <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
     </a>
+
     <a href="scholarship-checker.html" class="tool-card">
       <div class="tool-icon">🏆</div>
       <div class="tool-tag">Finance</div>
@@ -162,6 +178,7 @@
       <p>Check if your grades and profile meet common scholarship eligibility criteria.</p>
       <div class="tool-cta">Use Tool <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
     </a>
+
     <a href="student-loan.html" class="tool-card">
       <div class="tool-icon">💳</div>
       <div class="tool-tag">Finance</div>
@@ -169,6 +186,7 @@
       <p>Calculate your student loan EMI and plan your repayment schedule.</p>
       <div class="tool-cta">Use Tool <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
     </a>
+
     <a href="career-aptitude.html" class="tool-card">
       <div class="tool-icon">🧭</div>
       <div class="tool-tag">Career</div>
@@ -176,6 +194,7 @@
       <p>Discover which career paths suit your skills, interests, and strengths.</p>
       <div class="tool-cta">Use Tool <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
     </a>
+
   </div>
 </section>
 

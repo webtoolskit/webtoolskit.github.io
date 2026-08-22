@@ -3,25 +3,22 @@
 <head>
   <meta charset="UTF-8"/>
   <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
   <link rel="canonical" href="https://webtoolskit.github.io/utility/word-counter.html"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Word & Character Counter — Live Word Count Online | WebToolsKit</title>
-<meta name="description" content="Count words, characters, sentences and reading time live as you type. Free online word and character counter — perfect for essays, SEO content and social media.">
-  <!-- Open Graph -->
-<meta property="og:type" content="website"/>
-<meta property="og:url" content="https://webtoolskit.github.io/utility/word-counter.html"/>
-<meta property="og:title" content="Word & Character Counter — Live Count as You Type"/>
-<meta property="og:description" content="Count words, characters, sentences and reading time live as you type. Free online word and character counter — perfect for essays, SEO content and social posts."/>
-<meta property="og:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
-
-<!-- Twitter / X -->
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:url" content="https://webtoolskit.github.io/utility/word-counter.html"/>
-<meta name="twitter:title" content="Word & Character Counter — Live Count as You Type"/>
-<meta name="twitter:description" content="Count words, characters, sentences and reading time live as you type. Free online word and character counter — perfect for essays, SEO content and social posts."/>
-<meta name="twitter:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
+  <meta name="description" content="Count words, characters, sentences and reading time live as you type. Free online word and character counter — perfect for essays, SEO content and social media.">
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://webtoolskit.github.io/utility/word-counter.html"/>
+  <meta property="og:title" content="Word & Character Counter — Live Count as You Type"/>
+  <meta property="og:description" content="Count words, characters, sentences and reading time live as you type. Free online word and character counter — perfect for essays, SEO content and social posts."/>
+  <meta property="og:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:url" content="https://webtoolskit.github.io/utility/word-counter.html"/>
+  <meta name="twitter:title" content="Word & Character Counter — Live Count as You Type"/>
+  <meta name="twitter:description" content="Count words, characters, sentences and reading time live as you type. Free online word and character counter — perfect for essays, SEO content and social posts."/>
+  <meta name="twitter:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -49,23 +46,8 @@
     .tool-wrap{max-width:1000px;margin:0 auto;padding:0 40px 40px}
     .calc-card{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:36px;margin-bottom:24px}
     .calc-card h2{font-family:'DM Mono',monospace;font-size:.78rem;font-weight:500;color:var(--red);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:24px}
-    .input-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-    .input-group label{display:block;font-size:.84rem;font-weight:600;color:var(--grey);margin-bottom:7px;font-family:'DM Sans',sans-serif}
-    .input-wrap{position:relative}
-    .input-prefix{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--red);font-weight:600;font-size:.88rem;font-family:'DM Mono',monospace}
-    input[type=number],input[type=text],input[type=date],input[type=datetime-local],input[type=time],input[type=email],select,textarea{width:100%;background:#0f1117;border:1px solid var(--border);border-radius:12px;padding:13px 14px 13px 48px;color:var(--white);font-size:.95rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s;color-scheme:dark}
-    input.no-prefix,select.no-prefix,textarea.no-prefix{padding-left:14px}
-    input:focus,select:focus,textarea:focus{border-color:var(--red)}
-    select{-webkit-appearance:none}
-    textarea{resize:vertical}
-    .calc-btn{width:100%;padding:15px;border-radius:13px;background:linear-gradient(135deg,var(--red),var(--red2));border:none;color:#fff;font-size:.97rem;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;transition:opacity .2s,transform .2s;margin-top:20px}
-    .calc-btn:hover{opacity:.9;transform:translateY(-1px)}
-    .result-card{background:linear-gradient(135deg,rgba(197,3,55,.1),rgba(139,2,39,.05));border:1px solid rgba(197,3,55,.25);border-radius:20px;padding:32px;display:none;text-align:center;margin-bottom:24px}
-    .result-card.show{display:block}
-    .result-label{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--grey);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
-    .result-main{font-family:'Outfit',sans-serif;font-size:3.5rem;font-weight:800;letter-spacing:-2px;background:linear-gradient(90deg,var(--red),var(--red2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:8px}
-    .result-sub{font-size:.9rem;color:var(--grey);font-family:'DM Sans',sans-serif}
-    .result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+    textarea{width:100%;background:#0f1117;border:1px solid var(--border);border-radius:12px;padding:14px;color:var(--white);font-size:.95rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s;color-scheme:dark;resize:vertical;min-height:220px;line-height:1.7}
+    textarea:focus{border-color:var(--red)}
     .result-item{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;padding:14px}
     .result-item-label{font-family:'DM Mono',monospace;font-size:.62rem;color:var(--grey);text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px}
     .result-item-val{font-family:'Outfit',sans-serif;font-size:1.05rem;font-weight:700;color:var(--white)}
@@ -85,6 +67,9 @@
     .faq-a{font-size:.9rem;color:var(--light);line-height:1.75;font-family:'DM Sans',sans-serif}
     .tip-box{background:rgba(197,3,55,.08);border:1px solid rgba(197,3,55,.2);border-radius:12px;padding:16px 20px;font-size:.88rem;color:var(--light);line-height:1.7;font-family:'DM Sans',sans-serif;margin-bottom:20px}
     .tip-box strong{color:var(--red)}
+    .limit-btn{padding:6px 14px;background:transparent;border:1px solid var(--border);border-radius:8px;color:var(--grey);font-size:.8rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s}
+    .limit-btn:hover{border-color:rgba(197,3,55,.4);color:var(--red)}
+    .limit-btn.active{color:var(--red);border-color:rgba(197,3,55,.4);background:rgba(197,3,55,.08)}
     .site-footer{border-top:1px solid var(--border);padding:56px 48px 28px;background:var(--footer-bg)}
     .site-footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;max-width:1200px;margin:0 auto 40px}
     .sf-logo{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;font-style:italic;color:var(--white);margin-bottom:10px;display:block;text-decoration:none}
@@ -96,9 +81,8 @@
     .sf-bottom{max-width:1200px;margin:0 auto;border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:var(--grey);font-family:'DM Sans',sans-serif}
     .sf-bottom a{color:var(--grey);text-decoration:none;margin-left:18px;transition:color .2s}
     .sf-bottom a:hover{color:var(--white)}
-    @media(max-width:900px){.site-footer-grid{grid-template-columns:1fr 1fr;gap:28px}.site-footer{padding:40px 20px 24px}.sf-bottom{flex-direction:column;gap:10px;text-align:center}.input-grid{grid-template-columns:1fr}.result-grid{grid-template-columns:1fr 1fr}}
-    @media(max-width:768px){nav{padding:14px 20px}.nav-links{gap:0}.nav-link{padding:6px 8px;font-size:.78rem}.nav-home{padding:6px 10px;font-size:.78rem}.tool-hero{padding:40px 20px 24px}.tool-wrap{padding:0 16px 24px}.content-section{padding:0 16px 60px}.tool-title-row{flex-direction:column;align-items:flex-start;gap:12px}.result-main{font-size:2.5rem}}
-    
+    @media(max-width:900px){.site-footer-grid{grid-template-columns:1fr 1fr;gap:28px}.site-footer{padding:40px 20px 24px}.sf-bottom{flex-direction:column;gap:10px;text-align:center}}
+    @media(max-width:768px){nav{padding:14px 20px}.nav-links{gap:0}.nav-link{padding:6px 8px;font-size:.78rem}.nav-home{padding:6px 10px;font-size:.78rem}.tool-hero{padding:40px 20px 24px}.tool-wrap{padding:0 16px 24px}.content-section{padding:0 16px 60px}.tool-title-row{flex-direction:column;align-items:flex-start;gap:12px}}
   </style>
 </head>
 <body>
@@ -130,25 +114,44 @@
     <div class="result-item"><div class="result-item-label">Paragraphs</div><div class="result-item-val" id="paragraphs">0</div></div>
     <div class="result-item"><div class="result-item-label">Read Time</div><div class="result-item-val" id="readTime">0 min</div></div>
   </div>
-  <textarea id="textArea" class="no-prefix" rows="10" placeholder="Start typing or paste your text here..." oninput="count()" style="min-height:220px"></textarea>
-  <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap">
-    <span style="font-size:.82rem;color:var(--grey);font-weight:600;align-self:center">Set limit:</span>
-    <button onclick="setLimit(280,this)" style="padding:6px 14px;background:transparent;border:1px solid var(--border);border-radius:8px;color:var(--grey);font-size:.8rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif">Twitter (280)</button>
-    <button onclick="setLimit(2200,this)" style="padding:6px 14px;background:transparent;border:1px solid var(--border);border-radius:8px;color:var(--grey);font-size:.8rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif">Instagram (2200)</button>
-    <button onclick="setLimit(700,this)" style="padding:6px 14px;background:transparent;border:1px solid var(--border);border-radius:8px;color:var(--grey);font-size:.8rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif">LinkedIn (700)</button>
-    <button onclick="setLimit(160,this)" style="padding:6px 14px;background:transparent;border:1px solid var(--border);border-radius:8px;color:var(--grey);font-size:.8rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif">SMS (160)</button>
-    <button onclick="setLimit(0,this)" style="padding:6px 14px;background:transparent;border:1px solid var(--border);border-radius:8px;color:var(--grey);font-size:.8rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif">No Limit</button>
+  <textarea id="textArea" rows="10" placeholder="Start typing or paste your text here..." oninput="count()"></textarea>
+  <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;align-items:center">
+    <span style="font-size:.82rem;color:var(--grey);font-weight:600">Set limit:</span>
+    <button class="limit-btn" onclick="setLimit(280,this)">Twitter (280)</button>
+    <button class="limit-btn" onclick="setLimit(500,this)">Threads (500)</button>
+    <button class="limit-btn" onclick="setLimit(2200,this)">Instagram (2200)</button>
+    <button class="limit-btn" onclick="setLimit(700,this)">LinkedIn (700)</button>
+    <button class="limit-btn" onclick="setLimit(160,this)">SMS (160)</button>
+    <button class="limit-btn" onclick="setLimit(0,this)">No Limit</button>
   </div>
   <div id="limitBar" style="display:none;margin-top:12px">
-    <div style="display:flex;justify-content:space-between;font-size:.8rem;color:var(--grey);margin-bottom:6px"><span id="limitText">0/280</span><span id="limitRemain">280 remaining</span></div>
-    <div style="height:6px;background:rgba(255,255,255,.06);border-radius:100px;overflow:hidden"><div id="limitFill" style="height:100%;border-radius:100px;background:var(--red);transition:width .3s;width:0%"></div></div>
+    <div style="display:flex;justify-content:space-between;font-size:.8rem;color:var(--grey);margin-bottom:6px">
+      <span id="limitText">0/280</span>
+      <span id="limitRemain">280 remaining</span>
+    </div>
+    <div style="height:6px;background:rgba(255,255,255,.06);border-radius:100px;overflow:hidden">
+      <div id="limitFill" style="height:100%;border-radius:100px;background:var(--red);transition:width .3s;width:0%"></div>
+    </div>
   </div>
-</div></div>
+</div>
+</div>
 <section class="content-section">
   <div class="content-card"><h2>What is this Tool?</h2><p>The Word and Character Counter is an essential writing tool that tracks words, characters, sentences, paragraphs, and estimated reading time in real time as you type or paste text. Whether you're writing a tweet, crafting an Instagram caption, drafting an email, or checking the length of a blog post, this tool ensures your content fits the platform's requirements perfectly.</p></div>
-  <div class="content-card"><h2>How to Use This Tool</h2><div class="steps"><div class="step"><div class="step-num">1</div><div class="step-text">Type or paste your text into the editor.</div></div><div class="step"><div class="step-num">2</div><div class="step-text">See word count, character count, sentences, paragraphs, and reading time update in real time.</div></div><div class="step"><div class="step-num">3</div><div class="step-text">Click a platform button (Twitter, Instagram, LinkedIn, SMS) to set a character limit.</div></div><div class="step"><div class="step-num">4</div><div class="step-text">A visual progress bar shows how close you are to the limit.</div></div><div class="step"><div class="step-num">5</div><div class="step-text">When you exceed the limit, the bar turns red as a warning.</div></div></div></div>
+  <div class="content-card"><h2>How to Use This Tool</h2>
+    <div class="step"><div class="step-num">1</div><div class="step-text">Type or paste your text into the editor.</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-text">See word count, character count, sentences, paragraphs, and reading time update in real time.</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-text">Click a platform button (Twitter, Threads, Instagram, LinkedIn, SMS) to set a character limit.</div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-text">A visual progress bar shows how close you are to the limit.</div></div>
+    <div class="step"><div class="step-num">5</div><div class="step-text">When you exceed the limit, the bar turns red as a warning.</div></div>
+  </div>
   <div class="content-card"><h2>Why This Matters</h2><ul><li>Write within platform character limits with confidence</li><li>Track blog post length for optimal SEO performance</li><li>Ensure SMS messages don't exceed the 160-character limit</li><li>Check email length before sending</li><li>Monitor reading time for presentation scripts and podcasts</li></ul></div>
-  <div class="content-card"><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">Q: What is the ideal blog post length for SEO?</div><div class="faq-a">A: For SEO, aim for 1,500-2,500 words for informational posts. Longer content (2,500+ words) tends to rank better for competitive keywords. However, quality matters more than length — don't pad content unnecessarily.</div></div><div class="faq-item"><div class="faq-q">Q: How many words per minute is the average reading speed?</div><div class="faq-a">A: The average adult reads approximately 200-250 words per minute silently. This calculator uses 200 WPM as the baseline. For audio content, the average speaking pace is 130-150 words per minute.</div></div><div class="faq-item"><div class="faq-q">Q: What is the ideal email length?</div><div class="faq-a">A: Research suggests emails between 50-125 words get the highest response rates. Marketing emails perform best at 200-500 words. Long emails (1,000+ words) should use clear headings and bullet points for scannability.</div></div><div class="faq-item"><div class="faq-q">Q: Does Twitter count spaces and punctuation?</div><div class="faq-a">A: Yes, every character including spaces, punctuation, and emojis counts toward Twitter's 280-character limit. URLs are automatically shortened to 23 characters regardless of actual length.</div></div></div>
+  <div class="content-card"><h2>Frequently Asked Questions</h2>
+    <div class="faq-item"><div class="faq-q">What is the ideal blog post length for SEO?</div><div class="faq-a">For SEO, aim for 1,500–2,500 words for informational posts. Longer content (2,500+ words) tends to rank better for competitive keywords. However, quality matters more than length — don't pad content unnecessarily.</div></div>
+    <div class="faq-item"><div class="faq-q">How many words per minute is the average reading speed?</div><div class="faq-a">The average adult reads approximately 200–250 words per minute silently. This calculator uses 200 WPM as the baseline. For audio content, the average speaking pace is 130–150 words per minute.</div></div>
+    <div class="faq-item"><div class="faq-q">What is the ideal email length?</div><div class="faq-a">Research suggests emails between 50–125 words get the highest response rates. Marketing emails perform best at 200–500 words. Long emails (1,000+ words) should use clear headings and bullet points for scannability.</div></div>
+    <div class="faq-item"><div class="faq-q">Does Twitter count spaces and punctuation?</div><div class="faq-a">Yes, every character including spaces, punctuation, and emojis counts toward Twitter's 280-character limit. URLs are automatically shortened to 23 characters regardless of actual length.</div></div>
+    <div class="faq-item"><div class="faq-q">What is Threads character limit?</div><div class="faq-a">Threads allows up to 500 characters per post — this tool now includes a Threads limit button so you can write and check your posts before publishing.</div></div>
+  </div>
   <div class="tip-box"><strong>💡 Pro Tip:</strong> For social media, write your full message first without worrying about the character limit, then edit down. Cutting 20% of your words almost always makes writing stronger and more impactful.</div>
 </section>
 <footer class="site-footer">
@@ -184,30 +187,60 @@
   </div>
 </footer>
 <script>
-let charLimit=0;
-function count(){
-  const text=document.getElementById('textArea').value;
-  const words=text.trim()===''?0:text.trim().split(/\s+/).length;
-  const chars=text.length;
-  const sentences=text.split(/[.!?]+/).filter(s=>s.trim().length>0).length;
-  const paras=text.split(/
-\s*
-/).filter(p=>p.trim().length>0).length||Math.min(1,words>0?1:0);
-  const rt=Math.ceil(words/200);
-  document.getElementById('words').textContent=words.toLocaleString('en-IN');
-  document.getElementById('chars').textContent=chars.toLocaleString('en-IN');
-  document.getElementById('sentences').textContent=sentences;
-  document.getElementById('paragraphs').textContent=paras;
-  document.getElementById('readTime').textContent=rt<1?'<1 min':rt+' min';
-  if(charLimit>0){
-    const pct=Math.min(100,chars/charLimit*100);const over=chars>charLimit;
-    document.getElementById('limitText').textContent=`${chars}/${charLimit}`;
-    document.getElementById('limitRemain').textContent=over?`${chars-charLimit} over`:`${charLimit-chars} remaining`;
-    document.getElementById('limitFill').style.width=pct+'%';
-    document.getElementById('limitFill').style.background=over?'#ef4444':'var(--red)';
+let charLimit = 0;
+
+function count() {
+  var text = document.getElementById('textArea').value;
+
+  // Words — split on whitespace, filter empty
+  var words = text.trim() === '' ? 0 : text.trim().split(/\s+/).length;
+
+  // Characters — total length
+  var chars = text.length;
+
+  // Sentences — split on . ! ? followed by space or end
+  var sentences = text.split(/[.!?]+/).filter(function(s){ return s.trim().length > 0; }).length;
+
+  // Paragraphs — FIX: split on one or more blank lines (\n\n)
+  var paras = 0;
+  if (text.trim().length > 0) {
+    paras = text.split(/\n\s*\n/).filter(function(p){ return p.trim().length > 0; }).length;
+    if (paras === 0) paras = 1;
+  }
+
+  // Reading time — 200 WPM
+  var rt = words === 0 ? 0 : Math.ceil(words / 200);
+
+  document.getElementById('words').textContent = words.toLocaleString('en-IN');
+  document.getElementById('chars').textContent = chars.toLocaleString('en-IN');
+  document.getElementById('sentences').textContent = sentences;
+  document.getElementById('paragraphs').textContent = paras;
+  document.getElementById('readTime').textContent = rt < 1 ? (words > 0 ? '<1 min' : '0 min') : rt + ' min';
+
+  // Limit bar update
+  if (charLimit > 0) {
+    var pct = Math.min(100, chars / charLimit * 100);
+    var over = chars > charLimit;
+    document.getElementById('limitText').textContent = chars + '/' + charLimit;
+    document.getElementById('limitRemain').textContent = over ? (chars - charLimit) + ' over limit' : (charLimit - chars) + ' remaining';
+    document.getElementById('limitFill').style.width = pct + '%';
+    document.getElementById('limitFill').style.background = over ? '#ef4444' : 'var(--red)';
   }
 }
-function setLimit(n,el){charLimit=n;document.querySelectorAll('[onclick^="setLimit"]').forEach(b=>{b.style.color='var(--grey)';b.style.borderColor='var(--border)';b.style.background='transparent';});if(n>0){el.style.color='var(--red)';el.style.borderColor='rgba(197,3,55,.4)';el.style.background='rgba(197,3,55,.08)';document.getElementById('limitBar').style.display='block';}else{document.getElementById('limitBar').style.display='none';}count();}
+
+function setLimit(n, el) {
+  charLimit = n;
+  document.querySelectorAll('.limit-btn').forEach(function(b){
+    b.classList.remove('active');
+  });
+  if (n > 0) {
+    el.classList.add('active');
+    document.getElementById('limitBar').style.display = 'block';
+  } else {
+    document.getElementById('limitBar').style.display = 'none';
+  }
+  count();
+}
 </script>
 </body>
 </html>

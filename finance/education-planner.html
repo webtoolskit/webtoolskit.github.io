@@ -3,103 +3,22 @@
 <head>
   <meta charset="UTF-8"/>
   <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
   <link rel="canonical" href="https://webtoolskit.github.io/finance/education-planner.html"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Education Loan Planner — EMI & Repayment | WebToolsKit</title>
-<meta name="description" content="Plan your education loan EMI and total repayment amount before you borrow. Free student loan planner for Indian colleges and universities — no signup needed.">
-  <!-- Open Graph -->
-<meta property="og:type" content="website"/>
-<meta property="og:url" content="https://webtoolskit.github.io/finance/education-planner.html"/>
-<meta property="og:title" content="Education Loan Planner — EMI & Repayment Guide"/>
-<meta property="og:description" content="Plan your education loan EMI and total repayment amount before you borrow. Free student loan planner for Indian colleges and universities — no signup."/>
-<meta property="og:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
-
-<!-- Twitter / X -->
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:url" content="https://webtoolskit.github.io/finance/education-planner.html"/>
-<meta name="twitter:title" content="Education Loan Planner — EMI & Repayment Guide"/>
-<meta name="twitter:description" content="Plan your education loan EMI and total repayment amount before you borrow. Free student loan planner for Indian colleges and universities — no signup."/>
-<meta name="twitter:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
-  <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--bg:#0f1117;--nav:#000000;--footer-bg:#000000;--card:#1a1d27;--border:#2a2d3a;--white:#ffffff;--grey:#8b8fa8;--light:#c8cad8;--orange:#ff5500;--orange2:#ff2200;--red:#c50337}
-    html{scroll-behavior:smooth}
-    body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;min-height:100vh}
-    nav{display:flex;align-items:center;justify-content:space-between;padding:18px 48px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--nav);backdrop-filter:blur(16px);z-index:100}
-    .logo{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;text-decoration:none;color:var(--white);letter-spacing:.5px;font-style:italic}
-    .logo-accent{background:linear-gradient(90deg,var(--orange),var(--red));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-    .nav-links{display:flex;align-items:center;gap:4px}
-    .nav-home{color:var(--grey);text-decoration:none;font-size:.85rem;font-weight:600;padding:7px 14px;border-radius:8px;border:1px solid var(--border);transition:all .2s;margin-right:4px;font-family:'DM Sans',sans-serif}
-    .nav-home:hover{color:var(--white);border-color:rgba(255,255,255,.3)}
-    .nav-link{color:var(--grey);text-decoration:none;font-size:.85rem;font-weight:600;padding:7px 14px;border-radius:8px;border:1px solid transparent;transition:all .2s;font-family:'DM Sans',sans-serif}
-    .nav-link.c-g:hover{color:#00e64d;border-color:rgba(0,230,77,.3)}
-    .nav-link.c-p:hover{color:#6c63ff;border-color:rgba(108,99,255,.3)}
-    .nav-link.c-y:hover{color:#f5c518;border-color:rgba(245,197,24,.3)}
-    .nav-link.c-r:hover{color:#c50337;border-color:rgba(197,3,55,.3)}
-    .tool-hero{padding:60px 40px 40px;max-width:1000px;margin:0 auto}
-    .tool-breadcrumb{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--grey);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:20px;display:flex;align-items:center;gap:8px}
-    .tool-breadcrumb a{color:var(--orange);text-decoration:none}
-    .tool-title-row{display:flex;align-items:center;gap:20px;margin-bottom:16px}
-    .tool-icon-big{width:72px;height:72px;border-radius:20px;background:linear-gradient(135deg,var(--orange),var(--orange2));display:flex;align-items:center;justify-content:center;font-size:2rem;box-shadow:0 10px 28px rgba(255,85,0,.35);flex-shrink:0}
-    .tool-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:700;font-style:italic;letter-spacing:-1px;color:var(--white);line-height:1}
-    .tool-desc{font-size:1rem;color:var(--grey);line-height:1.7;font-family:'DM Sans',sans-serif;max-width:700px}
-    .tool-wrap{max-width:1000px;margin:0 auto;padding:0 40px 40px}
-    .calc-card{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:36px;margin-bottom:24px}
-    .calc-card h2{font-family:'DM Mono',monospace;font-size:.78rem;font-weight:500;color:var(--orange);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:24px}
-    .input-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-    .input-group{margin-bottom:0}
-    .input-group label{display:block;font-size:.84rem;font-weight:600;color:var(--grey);margin-bottom:7px;font-family:'DM Sans',sans-serif}
-    .input-wrap{position:relative}
-    .input-prefix{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--orange);font-weight:600;font-size:.88rem;font-family:'DM Mono',monospace}
-    input[type=number],input[type=text],select{width:100%;background:#0f1117;border:1px solid var(--border);border-radius:12px;padding:13px 14px 13px 40px;color:var(--white);font-size:.97rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}
-    input.no-prefix{padding-left:14px}
-    input:focus,select:focus{border-color:var(--orange)}
-    select{-webkit-appearance:none;padding-left:14px}
-    .calc-btn{width:100%;padding:15px;border-radius:13px;background:linear-gradient(135deg,var(--orange),var(--orange2));border:none;color:#fff;font-size:.97rem;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;transition:opacity .2s,transform .2s;margin-top:20px}
-    .calc-btn:hover{opacity:.9;transform:translateY(-1px)}
-    .result-card{background:linear-gradient(135deg,rgba(255,85,0,.1),rgba(255,34,0,.05));border:1px solid rgba(255,85,0,.25);border-radius:20px;padding:32px;display:none;text-align:center;margin-bottom:24px}
-    .result-card.show{display:block}
-    .result-label{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--grey);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
-    .result-main{font-family:'Outfit',sans-serif;font-size:3.5rem;font-weight:800;letter-spacing:-2px;background:linear-gradient(90deg,var(--orange),var(--orange2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:8px}
-    .result-sub{font-size:.9rem;color:var(--grey);font-family:'DM Sans',sans-serif}
-    .result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
-    .result-item{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;padding:14px;text-align:center}
-    .result-item-label{font-family:'DM Mono',monospace;font-size:.62rem;color:var(--grey);text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px}
-    .result-item-val{font-family:'Outfit',sans-serif;font-size:1.1rem;font-weight:700;color:var(--white)}
-    .content-section{max-width:1000px;margin:0 auto;padding:0 40px 80px}
-    .content-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:36px;margin-bottom:20px}
-    .content-card h2{font-family:'Outfit',sans-serif;font-size:1.2rem;font-weight:700;color:var(--white);margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border)}
-    .content-card p{font-size:.92rem;color:var(--light);line-height:1.85;margin-bottom:12px;font-family:'DM Sans',sans-serif}
-    .content-card ul{list-style:none;padding:0}
-    .content-card ul li{font-size:.92rem;color:var(--light);line-height:1.75;padding:6px 0 6px 20px;position:relative;font-family:'DM Sans',sans-serif}
-    .content-card ul li::before{content:'→';position:absolute;left:0;color:var(--orange);font-weight:700}
-    .steps{counter-reset:step}
-    .step{display:flex;gap:16px;margin-bottom:16px;align-items:flex-start}
-    .step-num{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--orange2));display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:700;flex-shrink:0;color:#fff}
-    .step-text{font-size:.92rem;color:var(--light);line-height:1.7;font-family:'DM Sans',sans-serif;padding-top:4px}
-    .faq-item{border-bottom:1px solid var(--border);padding:18px 0}
-    .faq-item:last-child{border-bottom:none}
-    .faq-q{font-family:'Outfit',sans-serif;font-size:.97rem;font-weight:700;color:var(--white);margin-bottom:8px}
-    .faq-a{font-size:.9rem;color:var(--light);line-height:1.75;font-family:'DM Sans',sans-serif}
-    .tip-box{background:rgba(255,85,0,.08);border:1px solid rgba(255,85,0,.2);border-radius:12px;padding:16px 20px;font-size:.88rem;color:var(--light);line-height:1.7;font-family:'DM Sans',sans-serif}
-    .tip-box strong{color:var(--orange)}
-    .site-footer{border-top:1px solid var(--border);padding:56px 48px 28px;background:var(--footer-bg)}
-    .site-footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;max-width:1200px;margin:0 auto 40px}
-    .sf-logo{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;font-style:italic;color:var(--white);margin-bottom:10px;display:block;text-decoration:none}
-    .sf-brand p{font-size:.83rem;color:var(--grey);line-height:1.7;max-width:240px;margin-top:8px;font-family:'DM Sans',sans-serif}
-    .sf-col h4{font-family:'Outfit',sans-serif;font-size:.75rem;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px}
-    .sf-col a{display:block;color:var(--grey);text-decoration:none;font-size:.83rem;margin-bottom:9px;transition:color .2s;font-family:'DM Sans',sans-serif}
-    .sf-col a:hover{color:var(--white)}
-    .sf-col a.c-o:hover{color:#ff5500}.sf-col a.c-g:hover{color:#00e64d}.sf-col a.c-p:hover{color:#6c63ff}.sf-col a.c-y:hover{color:#f5c518}.sf-col a.c-r:hover{color:#c50337}
-    .sf-bottom{max-width:1200px;margin:0 auto;border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:var(--grey);font-family:'DM Sans',sans-serif}
-    .sf-bottom a{color:var(--grey);text-decoration:none;margin-left:18px;transition:color .2s}
-    .sf-bottom a:hover{color:var(--white)}
-    @media(max-width:900px){.site-footer-grid{grid-template-columns:1fr 1fr;gap:28px}.site-footer{padding:40px 20px 24px}.sf-bottom{flex-direction:column;gap:10px;text-align:center}.input-grid{grid-template-columns:1fr}.result-grid{grid-template-columns:1fr 1fr}}
-    @media(max-width:768px){nav{padding:14px 20px}.nav-links{gap:0}.nav-link{padding:6px 8px;font-size:.78rem}.nav-home{padding:6px 10px;font-size:.78rem}.tool-hero{padding:40px 20px 24px}.tool-wrap{padding:0 16px 24px}.content-section{padding:0 16px 60px}.tool-title-row{flex-direction:column;align-items:flex-start;gap:12px}.result-main{font-size:2.5rem}}
-  </style>
+  <title>Education Cost Planner — College & Course Fee Calculator India | WebToolsKit</title>
+  <meta name="description" content="Calculate total education costs for college, MBA, engineering or any course in India. Plan fees, hostel, books and living expenses. Free education cost planner — no signup.">
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://webtoolskit.github.io/finance/education-planner.html"/>
+  <meta property="og:title" content="Education Cost Planner — College & Course Fee Calculator India"/>
+  <meta property="og:description" content="Calculate total education costs for college, MBA, engineering or any course in India. Plan fees, hostel, books and living expenses. Free — no signup."/>
+  <meta property="og:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:url" content="https://webtoolskit.github.io/finance/education-planner.html"/>
+  <meta name="twitter:title" content="Education Cost Planner — College & Course Fee Calculator India"/>
+  <meta name="twitter:description" content="Calculate total education costs for college, MBA, engineering or any course in India. Plan fees, hostel, books and living expenses. Free — no signup."/>
+  <meta name="twitter:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
   <!-- Meta Pixel -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -118,6 +37,97 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
 </noscript>
 <!-- End Meta Pixel -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#0f1117;--nav:#000000;--footer-bg:#000000;--card:#1a1d27;--border:#2a2d3a;--white:#ffffff;--grey:#8b8fa8;--light:#c8cad8;--orange:#ff5500;--orange2:#ff2200;--red:#c50337}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;min-height:100vh}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:18px 48px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--nav);backdrop-filter:blur(16px);z-index:100}
+    .logo{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;text-decoration:none;color:var(--white);letter-spacing:.5px;font-style:italic}
+    .logo-accent{background:linear-gradient(90deg,var(--orange),var(--red));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .nav-links{display:flex;align-items:center;gap:4px}
+    .nav-home{color:var(--grey);text-decoration:none;font-size:.85rem;font-weight:600;padding:7px 14px;border-radius:8px;border:1px solid var(--border);transition:all .2s;margin-right:4px}
+    .nav-home:hover{color:var(--white);border-color:rgba(255,255,255,.3)}
+    .nav-link{color:var(--grey);text-decoration:none;font-size:.85rem;font-weight:600;padding:7px 14px;border-radius:8px;border:1px solid transparent;transition:all .2s}
+    .nav-link.c-g:hover{color:#00e64d;border-color:rgba(0,230,77,.3)}
+    .nav-link.c-p:hover{color:#6c63ff;border-color:rgba(108,99,255,.3)}
+    .nav-link.c-y:hover{color:#f5c518;border-color:rgba(245,197,24,.3)}
+    .nav-link.c-r:hover{color:#c50337;border-color:rgba(197,3,55,.3)}
+    .tool-hero{padding:60px 40px 40px;max-width:1000px;margin:0 auto}
+    .tool-breadcrumb{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--grey);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+    .tool-breadcrumb a{color:var(--orange);text-decoration:none}
+    .tool-title-row{display:flex;align-items:center;gap:20px;margin-bottom:16px}
+    .tool-icon-big{width:72px;height:72px;border-radius:20px;background:linear-gradient(135deg,var(--orange),var(--orange2));display:flex;align-items:center;justify-content:center;font-size:2rem;box-shadow:0 10px 28px rgba(255,85,0,.35);flex-shrink:0}
+    .tool-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:700;font-style:italic;letter-spacing:-1px;color:var(--white);line-height:1}
+    .tool-desc{font-size:1rem;color:var(--grey);line-height:1.7;max-width:700px}
+    .tool-wrap{max-width:1000px;margin:0 auto;padding:0 40px 40px}
+    .calc-card{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:36px;margin-bottom:24px}
+    .calc-card h2{font-family:'DM Mono',monospace;font-size:.78rem;font-weight:500;color:var(--orange);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:24px}
+    .input-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:20px}
+    .input-group label{display:block;font-size:.84rem;font-weight:600;color:var(--grey);margin-bottom:7px}
+    .input-wrap{position:relative}
+    .input-prefix{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--orange);font-weight:600;font-size:.88rem;font-family:'DM Mono',monospace;pointer-events:none}
+    input[type=number],select{width:100%;background:#0f1117;border:1px solid var(--border);border-radius:12px;padding:13px 14px 13px 48px;color:var(--white);font-size:.97rem;outline:none;transition:border-color .2s;font-family:'DM Sans',sans-serif}
+    input.no-prefix,select.no-prefix{padding-left:14px}
+    input:focus,select:focus{border-color:var(--orange)}
+    select{-webkit-appearance:none}
+    .section-label{font-family:'DM Mono',monospace;font-size:.75rem;color:var(--orange);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px;margin-top:4px}
+    .expense-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px}
+    .expense-item{background:#0f1117;border:1px solid var(--border);border-radius:12px;padding:14px 16px;transition:border-color .2s}
+    .expense-item:focus-within{border-color:rgba(255,85,0,.4)}
+    .expense-item label{display:flex;align-items:center;gap:6px;font-size:.84rem;font-weight:600;color:var(--grey);margin-bottom:7px}
+    .expense-item input{width:100%;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:8px;padding:9px 10px 9px 28px;color:var(--white);font-size:.9rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}
+    .expense-item input:focus{border-color:var(--orange)}
+    .expense-prefix{position:relative}
+    .expense-prefix::before{content:'₹';position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--orange);font-weight:600;font-size:.82rem;font-family:'DM Mono',monospace;pointer-events:none}
+    .calc-btn{width:100%;padding:15px;border-radius:13px;background:linear-gradient(135deg,var(--orange),var(--orange2));border:none;color:#fff;font-size:.97rem;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;transition:opacity .2s,transform .2s}
+    .calc-btn:hover{opacity:.9;transform:translateY(-1px)}
+    .result-card{background:linear-gradient(135deg,rgba(255,85,0,.1),rgba(255,34,0,.05));border:1px solid rgba(255,85,0,.25);border-radius:20px;padding:32px;display:none;margin-bottom:24px;text-align:center}
+    .result-card.show{display:block}
+    .result-label{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--grey);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
+    .result-main{font-family:'Outfit',sans-serif;font-size:3rem;font-weight:800;letter-spacing:-2px;background:linear-gradient(90deg,var(--orange),var(--orange2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:8px}
+    .result-sub{font-size:.9rem;color:var(--grey);margin-bottom:16px}
+    .result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+    .result-item{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;padding:12px;text-align:center}
+    .result-item-label{font-family:'DM Mono',monospace;font-size:.6rem;color:var(--grey);text-transform:uppercase;letter-spacing:.8px;margin-bottom:4px}
+    .result-item-val{font-family:'Outfit',sans-serif;font-size:.95rem;font-weight:700;color:var(--white)}
+    .breakdown-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+    .breakdown-item{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:8px;padding:10px 14px;display:flex;justify-content:space-between;align-items:center}
+    .breakdown-name{font-size:.82rem;color:var(--light)}
+    .breakdown-val{font-family:'Outfit',sans-serif;font-size:.85rem;font-weight:700;color:var(--white)}
+    .content-section{max-width:1000px;margin:0 auto;padding:0 40px 80px}
+    .content-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:36px;margin-bottom:20px}
+    .content-card h2{font-family:'Outfit',sans-serif;font-size:1.2rem;font-weight:700;color:var(--white);margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+    .content-card p{font-size:.92rem;color:var(--light);line-height:1.85;margin-bottom:12px}
+    .content-card ul{list-style:none;padding:0}
+    .content-card ul li{font-size:.92rem;color:var(--light);line-height:1.75;padding:6px 0 6px 20px;position:relative}
+    .content-card ul li::before{content:'→';position:absolute;left:0;color:var(--orange);font-weight:700}
+    .faq-item{border-bottom:1px solid var(--border);padding:18px 0}
+    .faq-item:last-child{border-bottom:none}
+    .faq-q{font-family:'Outfit',sans-serif;font-size:.97rem;font-weight:700;color:var(--white);margin-bottom:8px}
+    .faq-a{font-size:.9rem;color:var(--light);line-height:1.75}
+    .tip-box{background:rgba(255,85,0,.08);border:1px solid rgba(255,85,0,.2);border-radius:12px;padding:16px 20px;font-size:.88rem;color:var(--light);line-height:1.7;margin-bottom:20px}
+    .tip-box strong{color:var(--orange)}
+    .cost-table{width:100%;border-collapse:collapse;margin-top:12px}
+    .cost-table th{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--grey);text-transform:uppercase;letter-spacing:.8px;padding:8px 12px;border-bottom:1px solid var(--border);text-align:left}
+    .cost-table td{font-size:.88rem;color:var(--light);padding:10px 12px;border-bottom:1px solid rgba(42,45,58,.5)}
+    .cost-table tr:last-child td{border-bottom:none}
+    .cost-table td.highlight{color:var(--orange);font-weight:600}
+    .site-footer{border-top:1px solid var(--border);padding:56px 48px 28px;background:var(--footer-bg)}
+    .site-footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;max-width:1200px;margin:0 auto 40px}
+    .sf-logo{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;font-style:italic;color:var(--white);margin-bottom:10px;display:block;text-decoration:none}
+    .sf-brand p{font-size:.83rem;color:var(--grey);line-height:1.7;max-width:240px;margin-top:8px}
+    .sf-col h4{font-family:'Outfit',sans-serif;font-size:.75rem;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px}
+    .sf-col a{display:block;color:var(--grey);text-decoration:none;font-size:.83rem;margin-bottom:9px;transition:color .2s}
+    .sf-col a:hover{color:var(--white)}
+    .sf-col a.c-o:hover{color:#ff5500}.sf-col a.c-g:hover{color:#00e64d}.sf-col a.c-p:hover{color:#6c63ff}.sf-col a.c-y:hover{color:#f5c518}.sf-col a.c-r:hover{color:#c50337}
+    .sf-bottom{max-width:1200px;margin:0 auto;border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:var(--grey)}
+    .sf-bottom a{color:var(--grey);text-decoration:none;margin-left:18px;transition:color .2s}
+    .sf-bottom a:hover{color:var(--white)}
+    @media(max-width:900px){.expense-grid{grid-template-columns:1fr}.input-grid{grid-template-columns:1fr}.result-grid{grid-template-columns:1fr 1fr}.breakdown-grid{grid-template-columns:1fr}.site-footer-grid{grid-template-columns:1fr 1fr;gap:28px}.site-footer{padding:40px 20px 24px}.sf-bottom{flex-direction:column;gap:10px;text-align:center}}
+    @media(max-width:768px){nav{padding:14px 20px}.nav-links{gap:0}.nav-link{padding:6px 8px;font-size:.78rem}.nav-home{padding:6px 10px;font-size:.78rem}.tool-hero,.tool-wrap,.content-section{padding-left:16px;padding-right:16px}.tool-title-row{flex-direction:column;align-items:flex-start;gap:12px}.result-main{font-size:2.2rem}}
+  </style>
 </head>
 <body>
 <nav>
@@ -130,37 +140,153 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
     <a href="../utility/index.html" class="nav-link c-r">⚡ Utility</a>
   </div>
 </nav>
+
 <div class="tool-hero">
-  <div class="tool-breadcrumb"><a href="index.html">💰 Finance</a> → Education Loan Planner</div>
+  <div class="tool-breadcrumb"><a href="index.html">💰 Finance</a> → Education Cost Planner</div>
   <div class="tool-title-row">
     <div class="tool-icon-big">🎓</div>
-    <div class="tool-title">Education Loan Planner</div>
+    <div class="tool-title">Education Cost Planner</div>
   </div>
-  <div class="tool-desc">Plan your education loan EMI, total repayment, and understand the real cost of your degree.</div>
+  <div class="tool-desc">Calculate the total cost of college, engineering, MBA or any course in India — tuition fees, hostel, books, transport and living expenses all in one place.</div>
 </div>
+
 <div class="tool-wrap">
-<div class="calc-card"><h2>// Your Subscriptions</h2>
-<div id="subList"></div>
-<button class="calc-btn" style="margin-top:0;margin-bottom:12px" onclick="addSub()">+ Add Subscription</button>
-<button class="calc-btn" onclick="calcSubs()">Calculate Total Cost →</button>
-</div>
-<div class="result-card" id="result">
-  <div class="result-label">Annual Subscription Cost</div>
-  <div class="result-main" id="annual">₹0</div>
-  <div class="result-sub" id="subSub"></div>
-  <div class="result-grid">
-    <div class="result-item"><div class="result-item-label">Monthly Cost</div><div class="result-item-val" id="monthly">₹0</div></div>
-    <div class="result-item"><div class="result-item-label">5-Year Cost</div><div class="result-item-val" id="fiveYear">₹0</div></div>
-    <div class="result-item"><div class="result-item-label">No. of Subs</div><div class="result-item-val" id="subCount">0</div></div>
+<div class="calc-card">
+  <h2>// Course & Education Details</h2>
+  <div class="input-grid">
+    <div class="input-group">
+      <label>Course Type</label>
+      <select id="courseType" class="no-prefix" onchange="loadDefaults()">
+        <option value="engineering">B.Tech / B.E. (Engineering)</option>
+        <option value="mbbs">MBBS (Medical)</option>
+        <option value="mba">MBA</option>
+        <option value="bcom">B.Com / BBA / BA</option>
+        <option value="mtech">M.Tech / M.E.</option>
+        <option value="ca">CA (Chartered Accountancy)</option>
+        <option value="custom">Custom Course</option>
+      </select>
+    </div>
+    <div class="input-group">
+      <label>Course Duration (Years)</label>
+      <div class="input-wrap"><span class="input-prefix">yr</span><input type="number" id="duration" value="4" min="1" max="7" oninput="calcTotal()"/></div>
+    </div>
+    <div class="input-group">
+      <label>College Type</label>
+      <select id="collegeType" class="no-prefix" onchange="loadDefaults()">
+        <option value="govt">Government College</option>
+        <option value="private" selected>Private College</option>
+        <option value="deemed">Deemed University</option>
+        <option value="iit">IIT / IIM / NIT</option>
+      </select>
+    </div>
+    <div class="input-group">
+      <label>Staying</label>
+      <select id="staying" class="no-prefix" onchange="calcTotal()">
+        <option value="hostel" selected>College Hostel</option>
+        <option value="home">Living at Home</option>
+        <option value="pg">PG / Rented Room</option>
+      </select>
+    </div>
   </div>
-</div></div>
+
+  <div class="section-label">📋 Annual Costs (per year)</div>
+  <div class="expense-grid">
+    <div class="expense-item">
+      <label>🎓 Tuition Fee (per year)</label>
+      <div class="expense-prefix"><input type="number" id="tuition" placeholder="150000" oninput="calcTotal()"/></div>
+    </div>
+    <div class="expense-item">
+      <label>🏠 Hostel / Accommodation</label>
+      <div class="expense-prefix"><input type="number" id="hostel" placeholder="80000" oninput="calcTotal()"/></div>
+    </div>
+    <div class="expense-item">
+      <label>🍽️ Food & Mess</label>
+      <div class="expense-prefix"><input type="number" id="food" placeholder="36000" oninput="calcTotal()"/></div>
+    </div>
+    <div class="expense-item">
+      <label>📚 Books & Stationery</label>
+      <div class="expense-prefix"><input type="number" id="books" placeholder="15000" oninput="calcTotal()"/></div>
+    </div>
+    <div class="expense-item">
+      <label>🚌 Transport</label>
+      <div class="expense-prefix"><input type="number" id="transport" placeholder="12000" oninput="calcTotal()"/></div>
+    </div>
+    <div class="expense-item">
+      <label>💻 Laptop & Electronics</label>
+      <div class="expense-prefix"><input type="number" id="laptop" placeholder="20000" oninput="calcTotal()"/></div>
+    </div>
+    <div class="expense-item">
+      <label>👕 Clothing & Personal</label>
+      <div class="expense-prefix"><input type="number" id="personal" placeholder="15000" oninput="calcTotal()"/></div>
+    </div>
+    <div class="expense-item">
+      <label>🎉 Entertainment & Misc</label>
+      <div class="expense-prefix"><input type="number" id="misc" placeholder="18000" oninput="calcTotal()"/></div>
+    </div>
+  </div>
+
+  <button class="calc-btn" onclick="calcTotal(true)">Calculate Total Education Cost →</button>
+</div>
+
+<div class="result-card" id="result">
+  <div class="result-label">Total Course Cost</div>
+  <div class="result-main" id="totalCost">₹0</div>
+  <div class="result-sub" id="costSub"></div>
+  <div class="result-grid">
+    <div class="result-item"><div class="result-item-label">Per Year</div><div class="result-item-val" id="perYear">₹0</div></div>
+    <div class="result-item"><div class="result-item-label">Per Month</div><div class="result-item-val" id="perMonth">₹0</div></div>
+    <div class="result-item"><div class="result-item-label">Tuition Only</div><div class="result-item-val" id="tuitionTotal">₹0</div></div>
+  </div>
+  <div class="breakdown-grid" id="breakdownGrid"></div>
+</div>
+</div>
+
 <section class="content-section">
-  <div class="content-card"><h2>What is this Tool?</h2><p>The Education Loan Planner helps students and parents calculate the EMI, total repayment amount, and interest burden of an education loan. With the cost of higher education — especially for professional courses like MBA, medical, or engineering abroad — increasing every year, an education loan is often unavoidable. This tool helps you understand exactly what you're committing to before you sign the loan agreement.</p></div>
-  <div class="content-card"><h2>How to Use This Calculator</h2><div class="steps"><div class="step"><div class="step-num">1</div><div class="step-text">Enter the total education loan amount you need.</div></div><div class="step"><div class="step-num">2</div><div class="step-text">Enter the interest rate offered by your bank (typically 8-12% for education loans).</div></div><div class="step"><div class="step-num">3</div><div class="step-text">Enter the repayment tenure (typically 5-15 years including moratorium).</div></div><div class="step"><div class="step-num">4</div><div class="step-text">The calculator shows your EMI, total interest, and total repayment amount.</div></div></div></div>
-  <div class="content-card"><h2>Why This Matters</h2><ul><li>Understand the full financial commitment before taking a loan</li><li>Compare loan offers from different banks</li><li>Plan your career income requirements to comfortably repay the loan</li><li>Decide how much loan is prudent based on expected salary</li><li>Factor loan repayment into your post-graduation budget</li></ul></div>
-  <div class="content-card"><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">Q: What is the moratorium period on education loans?</div><div class="faq-a">A: Most education loans have a moratorium period — typically the course duration plus 6-12 months after completion — during which you don't need to pay EMI. Interest may still accrue.</div></div><div class="faq-item"><div class="faq-q">Q: What is the maximum education loan amount?</div><div class="faq-a">A: Banks typically offer up to ₹7.5 lakh without collateral and up to ₹1 crore with collateral for foreign education. Government schemes may offer more.</div></div><div class="faq-item"><div class="faq-q">Q: Is education loan interest tax deductible?</div><div class="faq-a">A: Yes. Under Section 80E of the Income Tax Act, you can deduct the entire interest paid on an education loan from your taxable income for up to 8 years.</div></div><div class="faq-item"><div class="faq-q">Q: What documents are needed for an education loan?</div><div class="faq-a">A: Admission letter, fee structure, mark sheets, income proof of co-applicant (parent/guardian), collateral documents if applicable, and KYC documents.</div></div></div>
-  <div class="tip-box"><strong>💡 Pro Tip:</strong> A useful rule of thumb: your total education loan should not exceed your expected first year's annual salary. This ensures you can repay it within 3-4 years without financial stress.</div>
+  <div class="content-card">
+    <h2>What is this Education Cost Planner?</h2>
+    <p>This free <strong>education cost planner</strong> helps students and parents calculate the total cost of a college degree or professional course in India — including tuition fees, hostel, food, books, transport, laptop and living expenses. Unlike just looking at the fee structure, this tool gives you the <strong>real total cost of education</strong> including all hidden expenses.</p>
+    <p>Whether you're planning for <strong>B.Tech engineering fees</strong>, <strong>MBBS costs</strong>, <strong>MBA expenses</strong> or any other course, this planner helps you budget for the full duration and decide whether to take a student loan — and for how much.</p>
+  </div>
+
+  <div class="content-card">
+    <h2>Average Education Costs in India — Reference Table</h2>
+    <table class="cost-table">
+      <thead><tr><th>Course</th><th>Duration</th><th>Govt College (Total)</th><th>Private College (Total)</th></tr></thead>
+      <tbody>
+        <tr><td>B.Tech / B.E.</td><td>4 years</td><td class="highlight">₹1–4 lakh</td><td class="highlight">₹4–20 lakh</td></tr>
+        <tr><td>MBBS</td><td>5.5 years</td><td class="highlight">₹1–5 lakh</td><td class="highlight">₹25–80 lakh</td></tr>
+        <tr><td>MBA (IIM)</td><td>2 years</td><td class="highlight">₹15–25 lakh</td><td class="highlight">₹8–25 lakh</td></tr>
+        <tr><td>B.Com / BBA / BA</td><td>3 years</td><td class="highlight">₹30k–1.5 lakh</td><td class="highlight">₹1.5–8 lakh</td></tr>
+        <tr><td>M.Tech / M.E.</td><td>2 years</td><td class="highlight">₹50k–2 lakh</td><td class="highlight">₹2–8 lakh</td></tr>
+        <tr><td>CA (all levels)</td><td>4–5 years</td><td class="highlight">₹1–2 lakh</td><td class="highlight">₹2–5 lakh</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:12px">Costs above are tuition fees only. Add ₹1–1.5 lakh per year for hostel, food and living expenses for out-of-city students.</p>
+  </div>
+
+  <div class="content-card">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <div class="faq-q">What is the total cost of B.Tech in India?</div>
+      <div class="faq-a">The total cost of a B.Tech degree in India ranges from ₹1–4 lakh at government colleges to ₹4–20 lakh at private colleges for tuition alone. Adding hostel, food, books and living expenses of approximately ₹1–1.5 lakh per year, the total 4-year cost at a private engineering college is typically ₹8–26 lakh. Use this calculator to plan your specific college's costs.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How much does an MBA cost in India?</div>
+      <div class="faq-a">MBA fees in India range from ₹15–25 lakh at IIMs to ₹8–20 lakh at top private B-schools and ₹3–8 lakh at smaller private institutes. Living expenses for a 2-year MBA add approximately ₹2–4 lakh. Many students take education loans for MBA given the high expected ROI.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Should I take an education loan for college?</div>
+      <div class="faq-a">Education loans make sense when: (1) the course has strong career ROI — engineering, MBA, medical; (2) the loan amount is under 10x your expected first-year salary; (3) you've exhausted scholarship options. For a ₹10 lakh loan at 10% over 7 years, the EMI is approximately ₹16,600/month. Use the EMI calculator on this site to plan your repayment.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What are the hidden costs of college education?</div>
+      <div class="faq-a">Hidden costs of college that parents often miss: exam fees (₹2,000–10,000/year), college event fees, uniform/lab coats, project materials, study tours and field trips, sports fees, identity card fees, laptop (₹30,000–80,000 one-time), and internet/mobile recharge costs. This planner includes miscellaneous expenses to account for these.</div>
+    </div>
+  </div>
+
+  <div class="tip-box"><strong>💡 Pro Tip:</strong> Always apply for government scholarships before taking an education loan. National Scholarship Portal (scholarships.gov.in) lists hundreds of central and state government scholarships. Even ₹20,000–50,000/year in scholarship reduces your total loan burden significantly over a 4-year course.</div>
 </section>
+
 <footer class="site-footer">
   <div class="site-footer-grid">
     <div class="sf-brand">
@@ -193,31 +319,66 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
     <div><a href="../legal/privacy-policy.html">Privacy</a><a href="../legal/terms-conditions.html">Terms</a><a href="../legal/contact.html">Contact</a></div>
   </div>
 </footer>
+
 <script>
-let subs=[];
-function addSub(){
-  const id=Date.now();subs.push(id);
-  const div=document.createElement('div');
-  div.id='sub_'+id;div.style.cssText='display:grid;grid-template-columns:2fr 1fr auto;gap:10px;margin-bottom:10px;align-items:end';
-  div.innerHTML=`<div><label style="display:block;font-size:.84rem;font-weight:600;color:var(--grey);margin-bottom:7px;font-family:'DM Sans',sans-serif">Service Name</label><input type="text" class="no-prefix" placeholder="Netflix, Spotify..." style="width:100%;background:#0f1117;border:1px solid var(--border);border-radius:12px;padding:13px 14px;color:#fff;font-size:.95rem;font-family:'DM Sans',sans-serif;outline:none"/></div><div><label style="display:block;font-size:.84rem;font-weight:600;color:var(--grey);margin-bottom:7px;font-family:'DM Sans',sans-serif">Monthly (₹)</label><input type="number" class="no-prefix" placeholder="199" style="width:100%;background:#0f1117;border:1px solid var(--border);border-radius:12px;padding:13px 14px;color:#fff;font-size:.95rem;font-family:'DM Sans',sans-serif;outline:none"/></div><button onclick="removeSub(${id})" style="height:46px;width:46px;border-radius:10px;background:rgba(197,3,55,.2);border:1px solid rgba(197,3,55,.3);color:#ff6688;font-size:1.1rem;cursor:pointer;align-self:end">✕</button>`;
-  document.getElementById('subList').appendChild(div);
+var defaults={
+  engineering:{tuition:150000,hostel:80000,food:36000,books:15000,transport:12000,laptop:20000,personal:15000,misc:18000,duration:4},
+  mbbs:{tuition:500000,hostel:90000,food:42000,books:20000,transport:10000,laptop:10000,personal:15000,misc:18000,duration:5},
+  mba:{tuition:600000,hostel:100000,food:48000,books:20000,transport:15000,laptop:25000,personal:20000,misc:24000,duration:2},
+  bcom:{tuition:40000,hostel:60000,food:30000,books:8000,transport:12000,laptop:15000,personal:12000,misc:12000,duration:3},
+  mtech:{tuition:80000,hostel:70000,food:36000,books:12000,transport:10000,laptop:15000,personal:12000,misc:12000,duration:2},
+  ca:{tuition:30000,hostel:0,food:0,books:20000,transport:12000,laptop:15000,personal:10000,misc:10000,duration:4},
+  custom:{tuition:100000,hostel:60000,food:36000,books:12000,transport:12000,laptop:15000,personal:12000,misc:15000,duration:3}
+};
+
+function loadDefaults(){
+  var type=document.getElementById('courseType').value;
+  var d=defaults[type];
+  document.getElementById('duration').value=d.duration;
+  document.getElementById('tuition').value=d.tuition;
+  document.getElementById('hostel').value=d.hostel;
+  document.getElementById('food').value=d.food;
+  document.getElementById('books').value=d.books;
+  document.getElementById('transport').value=d.transport;
+  document.getElementById('laptop').value=d.laptop;
+  document.getElementById('personal').value=d.personal;
+  document.getElementById('misc').value=d.misc;
+  calcTotal(false);
 }
-function removeSub(id){const el=document.getElementById('sub_'+id);if(el)el.remove();subs=subs.filter(s=>s!==id);}
-function calcSubs(){
-  const items=document.getElementById('subList').querySelectorAll('div[id^="sub_"]');
-  let monthly=0;let count=0;
-  items.forEach(item=>{const inputs=item.querySelectorAll('input');const val=parseFloat(inputs[1].value)||0;if(val>0){monthly+=val;count++;}});
-  if(!monthly){alert('Add at least one subscription!');return;}
-  const annual=monthly*12;
-  document.getElementById('annual').textContent='₹'+Math.round(annual).toLocaleString('en-IN');
-  document.getElementById('subSub').textContent=count+' active subscriptions draining your account';
-  document.getElementById('monthly').textContent='₹'+Math.round(monthly).toLocaleString('en-IN');
-  document.getElementById('fiveYear').textContent='₹'+Math.round(annual*5).toLocaleString('en-IN');
-  document.getElementById('subCount').textContent=count;
+
+function fmt(n){return '₹'+Math.round(n).toLocaleString('en-IN');}
+
+function calcTotal(show){
+  var dur=parseFloat(document.getElementById('duration').value)||1;
+  var fields=['tuition','hostel','food','books','transport','laptop','personal','misc'];
+  var labels=['🎓 Tuition','🏠 Hostel','🍽️ Food & Mess','📚 Books','🚌 Transport','💻 Laptop & Electronics','👕 Personal','🎉 Entertainment'];
+  var perYear=0;
+  fields.forEach(function(f){perYear+=parseFloat(document.getElementById(f).value)||0;});
+  var total=perYear*dur;
+  var tuitionTotal=(parseFloat(document.getElementById('tuition').value)||0)*dur;
+  if(!show){return;}
+  document.getElementById('totalCost').textContent=fmt(total);
+  document.getElementById('costSub').textContent=dur+'-year course · '+fmt(perYear)+' per year';
+  document.getElementById('perYear').textContent=fmt(perYear);
+  document.getElementById('perMonth').textContent=fmt(perYear/12);
+  document.getElementById('tuitionTotal').textContent=fmt(tuitionTotal);
+  var grid=document.getElementById('breakdownGrid');
+  grid.innerHTML='';
+  fields.forEach(function(f,i){
+    var val=(parseFloat(document.getElementById(f).value)||0)*dur;
+    if(val>0){
+      var div=document.createElement('div');
+      div.className='breakdown-item';
+      div.innerHTML='<span class="breakdown-name">'+labels[i]+'</span><span class="breakdown-val">'+fmt(val)+'</span>';
+      grid.appendChild(div);
+    }
+  });
   document.getElementById('result').classList.add('show');
+  document.getElementById('result').scrollIntoView({behavior:'smooth',block:'start'});
 }
-// Add 3 default subs on load
-window.onload=function(){addSub();addSub();addSub();}
+
+// Load defaults on page load
+loadDefaults();
 </script>
 </body>
 </html>

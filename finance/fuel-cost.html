@@ -7,18 +7,36 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
   <link rel="canonical" href="https://webtoolskit.github.io/finance/fuel-cost.html"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fuel Cost Calculator — Petrol & Diesel Trip Cost | WebToolsKit</title>
-  <meta name="description" content="Calculate exact petrol cost for any journey instantly. Enter distance, mileage and fuel price — free petrol cost calculator for road trips and daily commute. No signup.">
+  <title>Fuel Cost Calculator — Petrol Cost in Miles & km | WebToolsKit</title>
+  <meta name="description" content="Calculate petrol cost for any journey in miles or kilometres. Free fuel cost calculator for road trips — supports km/litres and miles/MPG. No signup needed.">
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://webtoolskit.github.io/finance/fuel-cost.html"/>
-  <meta property="og:title" content="Fuel Cost Calculator — Petrol & Diesel Trip Cost"/>
-  <meta property="og:description" content="Calculate the exact petrol cost for any road trip or daily commute. Free journey fuel cost calculator — instant result, no signup needed."/>
+  <meta property="og:title" content="Fuel Cost Calculator — Petrol Cost in Miles & km"/>
+  <meta property="og:description" content="Calculate petrol cost for any journey in miles or kilometres. Free fuel cost calculator — supports km/litres and miles/MPG. No signup needed."/>
   <meta property="og:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
   <meta name="twitter:card" content="summary_large_image"/>
   <meta name="twitter:url" content="https://webtoolskit.github.io/finance/fuel-cost.html"/>
-  <meta name="twitter:title" content="Fuel Cost Calculator — Petrol & Diesel Trip Cost"/>
-  <meta name="twitter:description" content="Calculate the exact petrol cost for any road trip or daily commute. Free journey fuel cost calculator — instant result, no signup needed."/>
+  <meta name="twitter:title" content="Fuel Cost Calculator — Petrol Cost in Miles & km"/>
+  <meta name="twitter:description" content="Calculate petrol cost for any journey in miles or kilometres. Free fuel cost calculator — supports km/litres and miles/MPG. No signup needed."/>
   <meta name="twitter:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
+  <!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1359980555679976');
+fbq('track', 'PageView');
+</script>
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
+</noscript>
+<!-- End Meta Pixel -->
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -43,29 +61,29 @@
     .tool-icon-big{width:72px;height:72px;border-radius:20px;background:linear-gradient(135deg,var(--orange),var(--orange2));display:flex;align-items:center;justify-content:center;font-size:2rem;box-shadow:0 10px 28px rgba(255,85,0,.35);flex-shrink:0}
     .tool-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:700;font-style:italic;letter-spacing:-1px;color:var(--white);line-height:1}
     .tool-desc{font-size:1rem;color:var(--grey);line-height:1.7;font-family:'DM Sans',sans-serif;max-width:700px}
-
-    /* ── Split layout ── */
     .tool-wrap{max-width:1200px;margin:0 auto;padding:0 40px 40px}
     .split-card{background:var(--card);border:1px solid var(--border);border-radius:24px;display:grid;grid-template-columns:1fr 1.5fr;min-height:520px;overflow:hidden;margin-bottom:24px}
     .split-left{padding:36px;border-right:1px solid var(--border);display:flex;flex-direction:column}
-    .split-left h2{font-family:'DM Mono',monospace;font-size:.78rem;font-weight:500;color:var(--orange);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:24px}
+    .split-left h2{font-family:'DM Mono',monospace;font-size:.78rem;font-weight:500;color:var(--orange);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:16px}
     .split-right{display:flex;flex-direction:column}
     .split-right-top{padding:28px 32px;border-bottom:1px solid var(--border);display:flex;flex-direction:column;justify-content:center;text-align:center}
     .split-right-bottom{padding:20px 32px 24px;flex:1;display:flex;flex-direction:column;min-height:0}
     .split-right-bottom h2{font-family:'DM Mono',monospace;font-size:.72rem;font-weight:500;color:var(--orange);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px}
-
+    /* Unit toggle */
+    .unit-toggle{display:flex;gap:6px;margin-bottom:20px;background:#0f1117;border:1px solid var(--border);border-radius:10px;padding:4px}
+    .unit-btn{flex:1;padding:7px;border:none;border-radius:7px;font-size:.8rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;background:transparent;color:var(--grey);transition:all .2s}
+    .unit-btn.active{background:var(--orange);color:#fff}
     /* inputs */
-    .input-group{margin-bottom:16px}
+    .input-group{margin-bottom:14px}
     .input-group label{display:block;font-size:.84rem;font-weight:600;color:var(--grey);margin-bottom:7px;font-family:'DM Sans',sans-serif}
     .input-wrap{position:relative}
-    .input-prefix{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--orange);font-weight:600;font-size:.88rem;font-family:'DM Mono',monospace}
+    .input-prefix{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--orange);font-weight:600;font-size:.88rem;font-family:'DM Mono',monospace;pointer-events:none}
     input[type=number],select{width:100%;background:#0f1117;border:1px solid var(--border);border-radius:12px;padding:13px 14px 13px 48px;color:var(--white);font-size:.97rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}
     input.no-prefix,select.no-prefix{padding-left:14px}
     input:focus,select:focus{border-color:var(--orange)}
     select{-webkit-appearance:none}
     .calc-btn{width:100%;padding:14px;border-radius:13px;background:linear-gradient(135deg,var(--orange),var(--orange2));border:none;color:#fff;font-size:.95rem;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;transition:opacity .2s,transform .2s;margin-top:auto}
     .calc-btn:hover{opacity:.9;transform:translateY(-1px)}
-
     /* result */
     .result-label{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--grey);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px}
     .result-main{font-family:'Outfit',sans-serif;font-size:2.8rem;font-weight:800;letter-spacing:-2px;background:linear-gradient(90deg,var(--orange),var(--orange2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:4px}
@@ -75,11 +93,8 @@
     .result-item-label{font-family:'DM Mono',monospace;font-size:.58rem;color:var(--grey);text-transform:uppercase;letter-spacing:.8px;margin-bottom:3px}
     .result-item-val{font-family:'Outfit',sans-serif;font-size:.88rem;font-weight:700;color:var(--white)}
     .placeholder-state{color:var(--grey);font-size:.9rem;font-family:'DM Sans',sans-serif;opacity:.5;text-align:center;padding:20px 0}
-
-    /* chart */
     .chart-wrap{flex:1;min-height:0}
     .chart-wrap canvas{max-height:230px !important;width:100% !important}
-
     /* content */
     .content-section{max-width:1200px;margin:0 auto;padding:0 40px 80px}
     .content-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:36px;margin-bottom:20px}
@@ -113,40 +128,9 @@
     .sf-bottom{max-width:1200px;margin:0 auto;border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:var(--grey);font-family:'DM Sans',sans-serif}
     .sf-bottom a{color:var(--grey);text-decoration:none;margin-left:18px;transition:color .2s}
     .sf-bottom a:hover{color:var(--white)}
-    @media(max-width:900px){
-      .split-card{grid-template-columns:1fr;min-height:auto}
-      .split-left{border-right:none;border-bottom:1px solid var(--border)}
-      .split-right-top{border-bottom:1px solid var(--border)}
-      .fuel-ref-grid{grid-template-columns:1fr 1fr}
-      .site-footer-grid{grid-template-columns:1fr 1fr;gap:28px}
-      .site-footer{padding:40px 20px 24px}
-      .sf-bottom{flex-direction:column;gap:10px;text-align:center}
-    }
-    @media(max-width:768px){
-      nav{padding:14px 20px}.nav-links{gap:0}.nav-link{padding:6px 8px;font-size:.78rem}.nav-home{padding:6px 10px;font-size:.78rem}
-      .tool-hero{padding:40px 20px 24px}.tool-wrap{padding:0 16px 24px}.content-section{padding:0 16px 60px}
-      .tool-title-row{flex-direction:column;align-items:flex-start;gap:12px}.result-main{font-size:2rem}
-      .fuel-ref-grid{grid-template-columns:1fr}
-    }
+    @media(max-width:900px){.split-card{grid-template-columns:1fr;min-height:auto}.split-left{border-right:none;border-bottom:1px solid var(--border)}.split-right-top{border-bottom:1px solid var(--border)}.fuel-ref-grid{grid-template-columns:1fr 1fr}.site-footer-grid{grid-template-columns:1fr 1fr;gap:28px}.site-footer{padding:40px 20px 24px}.sf-bottom{flex-direction:column;gap:10px;text-align:center}}
+    @media(max-width:768px){nav{padding:14px 20px}.nav-links{gap:0}.nav-link{padding:6px 8px;font-size:.78rem}.nav-home{padding:6px 10px;font-size:.78rem}.tool-hero{padding:40px 20px 24px}.tool-wrap{padding:0 16px 24px}.content-section{padding:0 16px 60px}.tool-title-row{flex-direction:column;align-items:flex-start;gap:12px}.result-main{font-size:2rem}.fuel-ref-grid{grid-template-columns:1fr}}
   </style>
-  <!-- Meta Pixel -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1359980555679976');
-fbq('track', 'PageView');
-</script>
-<noscript>
-<img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
-</noscript>
-<!-- End Meta Pixel -->
 </head>
 <body>
 <nav>
@@ -159,31 +143,39 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
     <a href="../utility/index.html" class="nav-link c-r">⚡ Utility</a>
   </div>
 </nav>
+
 <div class="tool-hero">
   <div class="tool-breadcrumb"><a href="index.html">💰 Finance</a> → Fuel Cost Calculator</div>
   <div class="tool-title-row">
     <div class="tool-icon-big">⛽</div>
     <div class="tool-title">Fuel Cost Calculator</div>
   </div>
-  <div class="tool-desc">Calculate the exact petrol or diesel cost for any journey — road trip, daily commute or monthly driving. See how your cost compares across different mileage vehicles.</div>
+  <div class="tool-desc">Calculate petrol or diesel cost for any journey — in miles or kilometres. Supports km/litres (India) and miles/MPG (UK & US). Instant result, no signup.</div>
 </div>
+
 <div class="tool-wrap">
   <div class="split-card">
-
-    <!-- LEFT — Inputs -->
+    <!-- LEFT -->
     <div class="split-left">
       <h2>// Journey Details</h2>
+
+      <!-- Unit Toggle -->
+      <div class="unit-toggle">
+        <button class="unit-btn active" id="btn-metric" onclick="setUnit('metric')">🇮🇳 km / Litres</button>
+        <button class="unit-btn" id="btn-imperial" onclick="setUnit('imperial')">🇬🇧🇺🇸 Miles / MPG</button>
+      </div>
+
       <div class="input-group">
-        <label>Distance (km)</label>
-        <div class="input-wrap"><span class="input-prefix">km</span><input type="number" id="distance" placeholder="100" oninput="calcFuel()"/></div>
+        <label id="distLabel">Distance (km)</label>
+        <div class="input-wrap"><span class="input-prefix" id="distPrefix">km</span><input type="number" id="distance" placeholder="100" oninput="calcFuel()"/></div>
       </div>
       <div class="input-group">
-        <label>Vehicle Mileage (km/litre)</label>
-        <div class="input-wrap"><span class="input-prefix">⛽</span><input type="number" id="mileage" placeholder="15" step="0.5" oninput="calcFuel()"/></div>
+        <label id="effLabel">Vehicle Mileage (km/litre)</label>
+        <div class="input-wrap"><span class="input-prefix" id="effPrefix">⛽</span><input type="number" id="efficiency" placeholder="15" step="0.5" oninput="calcFuel()"/></div>
       </div>
       <div class="input-group">
-        <label>Fuel Price (₹ per litre)</label>
-        <div class="input-wrap"><span class="input-prefix">₹</span><input type="number" id="fuelPrice" placeholder="103" step="0.5" oninput="calcFuel()"/></div>
+        <label id="priceLabel">Fuel Price (₹ per litre)</label>
+        <div class="input-wrap"><span class="input-prefix" id="pricePrefix">₹</span><input type="number" id="fuelPrice" placeholder="103" step="0.5" oninput="calcFuel()"/></div>
       </div>
       <div class="input-group">
         <label>Trip Type</label>
@@ -197,74 +189,84 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
 
     <!-- RIGHT -->
     <div class="split-right">
-
-      <!-- RIGHT TOP — Numbers -->
       <div class="split-right-top">
         <div class="placeholder-state" id="placeholder">Enter journey details to calculate fuel cost</div>
         <div id="resultContent" style="display:none">
           <div class="result-label">Total Fuel Cost</div>
-          <div class="result-main" id="totalCost">₹0</div>
+          <div class="result-main" id="totalCost">—</div>
           <div class="result-sub" id="fuelSub"></div>
           <div class="result-grid">
-            <div class="result-item"><div class="result-item-label">Fuel Needed</div><div class="result-item-val" id="fuelNeeded">0 L</div></div>
-            <div class="result-item"><div class="result-item-label">Cost per km</div><div class="result-item-val" id="costPerKm">₹0</div></div>
-            <div class="result-item"><div class="result-item-label">Monthly Cost</div><div class="result-item-val" id="monthlyCost">₹0</div></div>
+            <div class="result-item"><div class="result-item-label">Fuel Needed</div><div class="result-item-val" id="fuelNeeded">—</div></div>
+            <div class="result-item"><div class="result-item-label" id="costPerLabel">Cost per km</div><div class="result-item-val" id="costPer">—</div></div>
+            <div class="result-item"><div class="result-item-label">Monthly Est.</div><div class="result-item-val" id="monthlyCost">—</div></div>
           </div>
         </div>
       </div>
-
-      <!-- RIGHT BOTTOM — Bar Chart -->
       <div class="split-right-bottom">
-        <h2>// Cost at Different Mileages</h2>
-        <div class="chart-wrap">
-          <canvas id="fuelChart"></canvas>
-        </div>
+        <h2 id="chartTitle">// Cost at Different Mileages</h2>
+        <div class="chart-wrap"><canvas id="fuelChart"></canvas></div>
       </div>
-
     </div>
   </div>
 </div>
 
 <section class="content-section">
   <div class="content-card">
-    <h2>What is this Petrol Cost Calculator?</h2>
-    <p>This free <strong>petrol cost calculator</strong> — also called a <strong>journey fuel cost calculator</strong> or <strong>rough petrol cost calculator</strong> — helps you find out exactly how much fuel will cost for any trip. Just enter your distance, vehicle mileage and current fuel price to get an instant result.</p>
-    <p>The bar chart on the right compares your fuel cost at 6 different mileage levels — so you can instantly see how much you'd save with a more fuel-efficient vehicle for the same journey.</p>
-    <p>The formula is simple: <strong>Fuel Cost = (Distance ÷ Mileage) × Fuel Price</strong>. Our calculator does this instantly, with round trip support and monthly cost estimation built in.</p>
+    <h2>What is this Fuel Cost Calculator?</h2>
+    <p>This free <strong>fuel cost calculator</strong> works for both metric (km/litres) and imperial (miles/MPG) systems — making it useful for drivers in India, the UK, and the US. Whether you want to <strong>calculate petrol cost for 44 miles</strong>, plan a road trip in kilometres, or work out your daily commute cost, this tool gives you an instant result.</p>
+    <p>Switch between <strong>km/Litres mode</strong> for Indian drivers and <strong>Miles/MPG mode</strong> for UK and US drivers using the toggle at the top of the calculator. The formula is: <strong>Fuel Cost = (Distance ÷ Efficiency) × Fuel Price</strong> — automatically adjusted for your chosen unit system.</p>
   </div>
 
   <div class="content-card">
-    <h2>Average Mileage Reference — Indian Vehicles</h2>
-    <p>Not sure what mileage to enter? Here's a quick reference for common Indian vehicles:</p>
+    <h2>Average Mileage Reference — Indian & UK Vehicles</h2>
     <div class="fuel-ref-grid">
-      <div class="fuel-ref-card"><div class="fuel-ref-name">Maruti Alto/S-Presso</div><div class="fuel-ref-val">22–24 km/l</div><div class="fuel-ref-desc">Petrol, city driving</div></div>
-      <div class="fuel-ref-card"><div class="fuel-ref-name">Maruti Swift / Baleno</div><div class="fuel-ref-val">19–22 km/l</div><div class="fuel-ref-desc">Petrol, highway</div></div>
-      <div class="fuel-ref-card"><div class="fuel-ref-name">Hyundai i20 / Creta</div><div class="fuel-ref-val">17–20 km/l</div><div class="fuel-ref-desc">Petrol, mixed driving</div></div>
-      <div class="fuel-ref-card"><div class="fuel-ref-name">Honda City / Amaze</div><div class="fuel-ref-val">17–19 km/l</div><div class="fuel-ref-desc">Petrol, city</div></div>
-      <div class="fuel-ref-card"><div class="fuel-ref-name">Diesel SUV (Fortuner etc.)</div><div class="fuel-ref-val">12–15 km/l</div><div class="fuel-ref-desc">Diesel, highway</div></div>
-      <div class="fuel-ref-card"><div class="fuel-ref-name">Bajaj Pulsar / Hero Splendor</div><div class="fuel-ref-val">40–55 km/l</div><div class="fuel-ref-desc">Petrol bike</div></div>
+      <div class="fuel-ref-card"><div class="fuel-ref-name">Maruti Alto/S-Presso</div><div class="fuel-ref-val">22–24 km/l · 52–56 MPG</div><div class="fuel-ref-desc">Petrol, city driving</div></div>
+      <div class="fuel-ref-card"><div class="fuel-ref-name">Maruti Swift / Baleno</div><div class="fuel-ref-val">19–22 km/l · 45–52 MPG</div><div class="fuel-ref-desc">Petrol, highway</div></div>
+      <div class="fuel-ref-card"><div class="fuel-ref-name">Hyundai i20 / Creta</div><div class="fuel-ref-val">17–20 km/l · 40–47 MPG</div><div class="fuel-ref-desc">Petrol, mixed</div></div>
+      <div class="fuel-ref-card"><div class="fuel-ref-name">VW Golf / Ford Focus</div><div class="fuel-ref-val">35–45 MPG · 15–19 km/l</div><div class="fuel-ref-desc">UK petrol, mixed</div></div>
+      <div class="fuel-ref-card"><div class="fuel-ref-name">Toyota Prius (Hybrid)</div><div class="fuel-ref-val">50–60 MPG · 21–25 km/l</div><div class="fuel-ref-desc">UK/US hybrid</div></div>
+      <div class="fuel-ref-card"><div class="fuel-ref-name">Bajaj Pulsar / Splendor</div><div class="fuel-ref-val">40–55 km/l · 95–130 MPG</div><div class="fuel-ref-desc">Petrol bike</div></div>
     </div>
   </div>
 
   <div class="content-card">
-    <h2>How to Calculate Petrol Cost for a Journey</h2>
-    <div class="step"><div class="step-num">1</div><div class="step-text">Enter the total distance of your journey in kilometres — use Google Maps to find the exact distance.</div></div>
-    <div class="step"><div class="step-num">2</div><div class="step-text">Enter your vehicle's mileage in km/litre — check your car manual or use the reference table above.</div></div>
-    <div class="step"><div class="step-num">3</div><div class="step-text">Enter the current petrol or diesel price per litre in your city — this varies by state in India.</div></div>
-    <div class="step"><div class="step-num">4</div><div class="step-text">Select One Way or Round Trip — round trip doubles the distance automatically.</div></div>
-    <div class="step"><div class="step-num">5</div><div class="step-text">Your total fuel cost, litres needed, cost per km and a mileage comparison chart appear instantly on the right.</div></div>
+    <h2>How to Calculate Petrol Cost for a Journey in Miles</h2>
+    <div class="step"><div class="step-num">1</div><div class="step-text">Click the <strong>Miles/MPG</strong> toggle at the top of the calculator to switch to imperial mode.</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-text">Enter your journey distance in miles — for example, 44 miles.</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-text">Enter your vehicle's MPG (miles per gallon) — check your car manual or use the reference table above.</div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-text">Enter the current petrol price per litre in your currency.</div></div>
+    <div class="step"><div class="step-num">5</div><div class="step-text">Your total fuel cost, litres needed, cost per mile and a comparison chart appear instantly.</div></div>
   </div>
 
   <div class="content-card">
     <h2>Frequently Asked Questions</h2>
-    <div class="faq-item"><div class="faq-q">How do I calculate petrol costs for a journey?</div><div class="faq-a">The formula to calculate petrol costs is: Fuel Cost = (Distance in km ÷ Vehicle mileage in km/l) × Fuel price per litre. For example, a 100 km journey in a car with 15 km/l mileage at ₹103/litre costs: (100 ÷ 15) × 103 = ₹686.67.</div></div>
-    <div class="faq-item"><div class="faq-q">How much petrol for 13 km?</div><div class="faq-a">For a 13 km journey, at 15 km/l: 13 ÷ 15 = 0.87 litres = ~₹89.50 at ₹103/litre. At 20 km/l: 0.65 litres = ~₹67. Use the calculator above with your specific mileage for an exact result.</div></div>
-    <div class="faq-item"><div class="faq-q">How to work out how much petrol will cost for a journey?</div><div class="faq-a">Find the distance on Google Maps, note your car's mileage, check the current petrol price, then use: Cost = (Distance ÷ Mileage) × Price. Or enter these three numbers above for an instant result with a visual comparison chart.</div></div>
-    <div class="faq-item"><div class="faq-q">Are petrol prices the same across India?</div><div class="faq-a">No — petrol and diesel prices vary significantly by state due to different VAT and cess rates. Always check the current price at your local petrol pump before planning a long trip.</div></div>
-    <div class="faq-item"><div class="faq-q">How do I calculate petrol money to split among passengers?</div><div class="faq-a">Calculate the total petrol cost using this calculator, then divide by the number of passengers. For example, ₹1,200 total fuel cost among 4 people = ₹300 each.</div></div>
+    <div class="faq-item">
+      <div class="faq-q">How do I calculate petrol cost for 44 miles?</div>
+      <div class="faq-a">To calculate petrol cost for 44 miles: switch to Miles/MPG mode in the calculator above, enter 44 as the distance, enter your car's MPG, and enter the petrol price per litre. The calculator converts miles to km (44 miles = 70.8 km), calculates litres needed, and gives you the exact cost instantly. For a typical UK car at 40 MPG with petrol at £1.50/litre, 44 miles costs approximately £7.50.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How do I calculate petrol cost per mile?</div>
+      <div class="faq-a">To calculate petrol cost per mile: divide your car's fuel consumption (litres per mile) by your MPG, then multiply by the petrol price per litre. For example, at 40 MPG and £1.50/litre: 1 ÷ 40 × 4.546 × 1.50 = £0.17 per mile. The calculator shows cost per mile automatically in Miles/MPG mode.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How much petrol does a 100 mile journey use?</div>
+      <div class="faq-a">A 100 mile journey uses approximately 2.27 gallons (10.3 litres) in a car getting 44 MPG, or 3.33 gallons (15.1 litres) in a car getting 30 MPG. Enter your exact distance and MPG in the Miles/MPG mode above for a precise result.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How do I calculate petrol costs for a journey in km?</div>
+      <div class="faq-a">Use km/Litres mode: Fuel Cost = (Distance in km ÷ Vehicle mileage in km/l) × Fuel price per litre. For example, 100 km at 15 km/l at ₹103/litre = ₹686.67. This is the standard formula used for Indian vehicles.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What is the difference between MPG and km/l?</div>
+      <div class="faq-a">MPG (miles per gallon) is used in the UK and US, while km/l (kilometres per litre) is used in India and most of Asia. To convert: multiply km/l by 2.825 to get UK MPG, or multiply km/l by 2.352 to get US MPG. For example, 15 km/l = 42.4 UK MPG.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How do I split petrol cost among passengers?</div>
+      <div class="faq-a">Calculate the total petrol cost using this calculator, then divide by the number of passengers. For example, £15 total fuel cost among 3 people = £5 each. Round trip mode doubles the distance automatically for return journey splits.</div>
+    </div>
   </div>
 
-  <div class="tip-box"><strong>💡 Pro Tip:</strong> Carpooling with just one colleague cuts your monthly fuel cost by 50%. Use this petrol cost calculator to show your colleague exactly how much each person saves — it's the most convincing argument for carpooling!</div>
+  <div class="tip-box"><strong>💡 Pro Tip:</strong> Carpooling with just one passenger cuts your fuel cost by 50%. Use this calculator to show exactly how much each person saves — it's the most convincing argument for carpooling on any journey!</div>
 </section>
 
 <footer class="site-footer">
@@ -302,35 +304,104 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="/wtk-charts.js"></script>
 <script>
-function fmt(n){return '₹'+n.toLocaleString('en-IN',{minimumFractionDigits:2,maximumFractionDigits:2})}
-function calcFuel(){
-  const dist=parseFloat(document.getElementById('distance').value)||0;
-  const mileage=parseFloat(document.getElementById('mileage').value)||0;
-  const price=parseFloat(document.getElementById('fuelPrice').value)||0;
-  const tripType=parseFloat(document.getElementById('tripType').value)||1;
-  if(!dist||!mileage||!price){
-    document.getElementById('placeholder').style.display='block';
-    document.getElementById('resultContent').style.display='none';
+// Unit system state
+var unitMode = 'metric'; // metric = km/litres, imperial = miles/MPG
+
+function setUnit(mode) {
+  unitMode = mode;
+  document.getElementById('btn-metric').classList.toggle('active', mode === 'metric');
+  document.getElementById('btn-imperial').classList.toggle('active', mode === 'imperial');
+
+  if (mode === 'metric') {
+    document.getElementById('distLabel').textContent = 'Distance (km)';
+    document.getElementById('distPrefix').textContent = 'km';
+    document.getElementById('distance').placeholder = '100';
+    document.getElementById('effLabel').textContent = 'Vehicle Mileage (km/litre)';
+    document.getElementById('effPrefix').textContent = '⛽';
+    document.getElementById('efficiency').placeholder = '15';
+    document.getElementById('priceLabel').textContent = 'Fuel Price (₹ per litre)';
+    document.getElementById('pricePrefix').textContent = '₹';
+    document.getElementById('fuelPrice').placeholder = '103';
+    document.getElementById('costPerLabel').textContent = 'Cost per km';
+    document.getElementById('chartTitle').textContent = '// Cost at Different Mileages';
+  } else {
+    document.getElementById('distLabel').textContent = 'Distance (miles)';
+    document.getElementById('distPrefix').textContent = 'mi';
+    document.getElementById('distance').placeholder = '44';
+    document.getElementById('effLabel').textContent = 'Vehicle Efficiency (MPG)';
+    document.getElementById('effPrefix').textContent = '⛽';
+    document.getElementById('efficiency').placeholder = '40';
+    document.getElementById('priceLabel').textContent = 'Fuel Price (£/€/$ per litre)';
+    document.getElementById('pricePrefix').textContent = '£';
+    document.getElementById('fuelPrice').placeholder = '1.50';
+    document.getElementById('costPerLabel').textContent = 'Cost per mile';
+    document.getElementById('chartTitle').textContent = '// Cost at Different MPG';
+  }
+  calcFuel();
+}
+
+function calcFuel() {
+  var dist = parseFloat(document.getElementById('distance').value) || 0;
+  var eff = parseFloat(document.getElementById('efficiency').value) || 0;
+  var price = parseFloat(document.getElementById('fuelPrice').value) || 0;
+  var tripType = parseFloat(document.getElementById('tripType').value) || 1;
+
+  if (!dist || !eff || !price) {
+    document.getElementById('placeholder').style.display = 'block';
+    document.getElementById('resultContent').style.display = 'none';
     return;
   }
-  const totalDist=dist*tripType;
-  const litres=totalDist/mileage;
-  const cost=litres*price;
-  const costPerKm=cost/totalDist;
-  const monthly=cost*22;
-  document.getElementById('totalCost').textContent=fmt(cost);
-  document.getElementById('fuelSub').textContent=`For ${totalDist} km${tripType===2?' (round trip)':''} at ${mileage} km/l`;
-  document.getElementById('fuelNeeded').textContent=litres.toFixed(2)+' L';
-  document.getElementById('costPerKm').textContent=fmt(costPerKm)+'/km';
-  document.getElementById('monthlyCost').textContent=fmt(monthly);
-  document.getElementById('placeholder').style.display='none';
-  document.getElementById('resultContent').style.display='block';
-  const mileages=[10,12,15,18,20,25];
-  const labels=mileages.map(m=>m+' km/l');
-  const costs=mileages.map(m=>parseFloat(((totalDist/m)*price).toFixed(2)));
-  if(typeof WTKCharts!=='undefined'){
-    WTKCharts.barChart('fuelChart',labels,costs,`Cost for ${totalDist}km`,'₹','yellow');
+
+  var totalDist = dist * tripType;
+  var litres, costPerUnit, currencySymbol, distUnit, volUnit;
+
+  if (unitMode === 'metric') {
+    // km/litres
+    litres = totalDist / eff;
+    var cost = litres * price;
+    costPerUnit = cost / totalDist;
+    currencySymbol = '₹';
+    distUnit = 'km';
+    volUnit = 'L';
+
+    document.getElementById('totalCost').textContent = '₹' + cost.toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+    document.getElementById('fuelSub').textContent = 'For ' + totalDist + ' km' + (tripType === 2 ? ' (round trip)' : '') + ' at ' + eff + ' km/l';
+    document.getElementById('fuelNeeded').textContent = litres.toFixed(2) + ' L';
+    document.getElementById('costPer').textContent = '₹' + costPerUnit.toFixed(2) + '/km';
+    document.getElementById('monthlyCost').textContent = '₹' + (cost * 22).toLocaleString('en-IN', {maximumFractionDigits: 0});
+
+    // Chart — different mileages
+    var mileages = [10, 12, 15, 18, 20, 25];
+    var labels = mileages.map(function(m){ return m + ' km/l'; });
+    var costs = mileages.map(function(m){ return parseFloat(((totalDist / m) * price).toFixed(2)); });
+    if (typeof WTKCharts !== 'undefined') {
+      WTKCharts.barChart('fuelChart', labels, costs, 'Cost for ' + totalDist + 'km', '₹', 'yellow');
+    }
+
+  } else {
+    // miles/MPG — 1 UK gallon = 4.54609 litres
+    var gallons = totalDist / eff;
+    litres = gallons * 4.54609;
+    var cost = litres * price;
+    costPerUnit = cost / totalDist;
+
+    document.getElementById('totalCost').textContent = cost.toFixed(2);
+    document.getElementById('fuelSub').textContent = 'For ' + totalDist + ' miles' + (tripType === 2 ? ' (round trip)' : '') + ' at ' + eff + ' MPG';
+    document.getElementById('fuelNeeded').textContent = litres.toFixed(2) + ' L (' + gallons.toFixed(2) + ' gal)';
+    document.getElementById('costPer').textContent = costPerUnit.toFixed(3) + '/mile';
+    document.getElementById('monthlyCost').textContent = (cost * 22).toFixed(2);
+
+    // Chart — different MPGs
+    var mpgs = [25, 30, 35, 40, 45, 55];
+    var labels = mpgs.map(function(m){ return m + ' MPG'; });
+    var costs = mpgs.map(function(m){ return parseFloat(((totalDist / m) * 4.54609 * price).toFixed(2)); });
+    if (typeof WTKCharts !== 'undefined') {
+      WTKCharts.barChart('fuelChart', labels, costs, 'Cost for ' + totalDist + ' miles', '', 'orange');
+    }
   }
+
+  document.getElementById('placeholder').style.display = 'none';
+  document.getElementById('resultContent').style.display = 'block';
 }
 </script>
 </body>

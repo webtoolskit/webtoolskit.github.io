@@ -7,8 +7,8 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
   <link rel="canonical" href="https://webtoolskit.github.io/finance/fuel-cost.html"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fuel Cost Calculator — Petrol Cost in Miles & km | WebToolsKit</title>
-  <meta name="description" content="Calculate petrol cost for any journey in miles or kilometres. Free fuel cost calculator for road trips — supports km/litres and miles/MPG. No signup needed.">
+  <title>Fuel Cost Calculator — Car, Bike & Petrol Cost in Miles & km | WebToolsKit</title>
+  <meta name="description" content="Calculate petrol cost for car, bike or any vehicle in miles or km. Free fuel cost calculator — supports km/litres, miles/MPG and bike mileage. No signup needed.">
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://webtoolskit.github.io/finance/fuel-cost.html"/>
   <meta property="og:title" content="Fuel Cost Calculator — Petrol Cost in Miles & km"/>
@@ -165,6 +165,17 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
         <button class="unit-btn" id="btn-imperial" onclick="setUnit('imperial')">🇬🇧🇺🇸 Miles / MPG</button>
       </div>
 
+
+      <!-- Vehicle Type -->
+      <div style="margin-bottom:14px">
+        <label style="display:block;font-size:.84rem;font-weight:600;color:var(--grey);margin-bottom:7px;font-family:'DM Sans',sans-serif">Vehicle Type</label>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px">
+          <button class="unit-btn active" id="veh-car" onclick="setVehicle('car',this)" style="font-size:.82rem">🚗 Car</button>
+          <button class="unit-btn" id="veh-bike" onclick="setVehicle('bike',this)" style="font-size:.82rem">🏍️ Bike</button>
+          <button class="unit-btn" id="veh-suv" onclick="setVehicle('suv',this)" style="font-size:.82rem">🚙 SUV/Truck</button>
+        </div>
+      </div>
+
       <div class="input-group">
         <label id="distLabel">Distance (km)</label>
         <div class="input-wrap"><span class="input-prefix" id="distPrefix">km</span><input type="number" id="distance" placeholder="100" oninput="calcFuel()"/></div>
@@ -240,6 +251,14 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
 
   <div class="content-card">
     <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+      <div class="faq-q">How do I calculate petrol cost for a bike for 100 km?</div>
+      <div class="faq-a">To calculate bike petrol cost for 100 km: select 🏍️ Bike from the vehicle type buttons above (sets mileage to 45 km/l automatically), enter 100 as the distance, and enter the current petrol price per litre (approximately ₹103 in India). At 45 km/l and ₹103/litre, 100 km on a bike costs approximately ₹229. Bikes like Bajaj Pulsar get 40–50 km/l while Honda Splendor gets 50–60 km/l.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What is the average mileage of a bike in km/l?</div>
+      <div class="faq-a">Average bike mileage in India: Honda Activa (45–50 km/l), Honda Splendor (55–60 km/l), Bajaj Pulsar 150 (40–45 km/l), Royal Enfield Bullet (30–35 km/l), TVS Apache (35–42 km/l). City riding reduces mileage by 10–15% compared to highway riding. Use the 🏍️ Bike mode above and enter your bike's specific mileage for an accurate petrol cost calculation.</div>
+    </div>
     <div class="faq-item">
       <div class="faq-q">How do I calculate petrol cost for 44 miles?</div>
       <div class="faq-a">To calculate petrol cost for 44 miles: switch to Miles/MPG mode in the calculator above, enter 44 as the distance, enter your car's MPG, and enter the petrol price per litre. The calculator converts miles to km (44 miles = 70.8 km), calculates litres needed, and gives you the exact cost instantly. For a typical UK car at 40 MPG with petrol at £1.50/litre, 44 miles costs approximately £7.50.</div>
@@ -304,6 +323,30 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="/wtk-charts.js"></script>
 <script>
+
+// Vehicle type defaults (metric km/l)
+var vehicleDefaults = {
+  car: {metric: 15, imperial: 35},
+  bike: {metric: 45, imperial: 105},
+  suv: {metric: 8, imperial: 19}
+};
+var currentVehicle = 'car';
+
+function setVehicle(type, btn) {
+  currentVehicle = type;
+  document.querySelectorAll('[id^="veh-"]').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+  var def = vehicleDefaults[type];
+  if (unitMode === 'metric') {
+    document.getElementById('efficiency').value = def.metric;
+    document.getElementById('efficiency').placeholder = def.metric;
+  } else {
+    document.getElementById('efficiency').value = def.imperial;
+    document.getElementById('efficiency').placeholder = def.imperial;
+  }
+  calcFuel();
+}
+
 // Unit system state
 var unitMode = 'metric'; // metric = km/litres, imperial = miles/MPG
 

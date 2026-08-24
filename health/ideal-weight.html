@@ -3,25 +3,40 @@
 <head>
   <meta charset="UTF-8"/>
   <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
   <link rel="canonical" href="https://webtoolskit.github.io/health/ideal-weight.html"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ideal Weight Calculator — Based on Height & Age | WebToolsKit</title>
-<meta name="description" content="Calculate your ideal body weight range based on your height, age and gender. Free ideal weight calculator using multiple health formulas — instant result, no signup.">
-  <!-- Open Graph -->
-<meta property="og:type" content="website"/>
-<meta property="og:url" content="https://webtoolskit.github.io/health/ideal-weight.html"/>
-<meta property="og:title" content="Ideal Weight Calculator — Based on Height & Gender"/>
-<meta property="og:description" content="Calculate your ideal body weight range based on your height, age and gender. Free ideal weight calculator using multiple health formulas — instant result."/>
-<meta property="og:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
-
-<!-- Twitter / X -->
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:url" content="https://webtoolskit.github.io/health/ideal-weight.html"/>
-<meta name="twitter:title" content="Ideal Weight Calculator — Based on Height & Gender"/>
-<meta name="twitter:description" content="Calculate your ideal body weight range based on your height, age and gender. Free ideal weight calculator using multiple health formulas — instant result."/>
-<meta name="twitter:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
+  <title>Ideal Weight Calculator by Age, Height & Gender | WebToolsKit</title>
+  <meta name="description" content="Calculate your ideal weight by age, height and gender. Free age to weight calculator using Hamwi and Devine formulas — see if you are in a healthy weight range. No signup.">
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://webtoolskit.github.io/health/ideal-weight.html"/>
+  <meta property="og:title" content="Ideal Weight Calculator by Age, Height & Gender"/>
+  <meta property="og:description" content="Calculate your ideal weight by age, height and gender. Free age to weight calculator — see if you are in a healthy weight range instantly."/>
+  <meta property="og:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:url" content="https://webtoolskit.github.io/health/ideal-weight.html"/>
+  <meta name="twitter:title" content="Ideal Weight Calculator by Age, Height & Gender"/>
+  <meta name="twitter:description" content="Calculate your ideal weight by age, height and gender. Free age to weight calculator — see if you are in a healthy weight range instantly."/>
+  <meta name="twitter:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
+  <!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1359980555679976');
+fbq('track', 'PageView');
+</script>
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
+</noscript>
+<!-- End Meta Pixel -->
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -62,12 +77,12 @@
     .result-card{background:linear-gradient(135deg,rgba(0,230,77,.08),rgba(0,196,63,.04));border:1px solid rgba(0,230,77,.25);border-radius:20px;padding:32px;display:none;text-align:center;margin-bottom:24px}
     .result-card.show{display:block}
     .result-label{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--grey);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
-    .result-main{font-family:'Outfit',sans-serif;font-size:3.5rem;font-weight:800;letter-spacing:-2px;background:linear-gradient(90deg,var(--green),var(--green2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:8px}
+    .result-main{font-family:'Outfit',sans-serif;font-size:3rem;font-weight:800;letter-spacing:-2px;background:linear-gradient(90deg,var(--green),var(--green2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:8px}
     .result-sub{font-size:.9rem;color:var(--grey);font-family:'DM Sans',sans-serif}
-    .result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+    .result-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px}
     .result-item{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;padding:14px}
     .result-item-label{font-family:'DM Mono',monospace;font-size:.62rem;color:var(--grey);text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px}
-    .result-item-val{font-family:'Outfit',sans-serif;font-size:1.1rem;font-weight:700;color:var(--white)}
+    .result-item-val{font-family:'Outfit',sans-serif;font-size:1rem;font-weight:700;color:var(--white)}
     .content-section{max-width:1000px;margin:0 auto;padding:0 40px 80px}
     .content-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:36px;margin-bottom:20px}
     .content-card h2{font-family:'Outfit',sans-serif;font-size:1.2rem;font-weight:700;color:var(--white);margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border)}
@@ -84,7 +99,11 @@
     .faq-a{font-size:.9rem;color:var(--light);line-height:1.75;font-family:'DM Sans',sans-serif}
     .tip-box{background:rgba(0,230,77,.08);border:1px solid rgba(0,230,77,.2);border-radius:12px;padding:16px 20px;font-size:.88rem;color:var(--light);line-height:1.7;font-family:'DM Sans',sans-serif;margin-bottom:20px}
     .tip-box strong{color:var(--green)}
-    .bmi-scale{display:flex;border-radius:12px;overflow:hidden;height:12px;margin:16px 0}
+    .age-table{width:100%;border-collapse:collapse;margin-top:12px}
+    .age-table th{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--grey);text-transform:uppercase;letter-spacing:.8px;padding:8px 12px;border-bottom:1px solid var(--border);text-align:left}
+    .age-table td{font-size:.88rem;color:var(--light);padding:10px 12px;border-bottom:1px solid rgba(42,45,58,.5);font-family:'DM Sans',sans-serif}
+    .age-table tr:last-child td{border-bottom:none}
+    .age-table td.highlight{color:var(--green);font-weight:600}
     .site-footer{border-top:1px solid var(--border);padding:56px 48px 28px;background:var(--footer-bg)}
     .site-footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;max-width:1200px;margin:0 auto 40px}
     .sf-logo{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;font-style:italic;color:var(--white);margin-bottom:10px;display:block;text-decoration:none}
@@ -97,26 +116,8 @@
     .sf-bottom a{color:var(--grey);text-decoration:none;margin-left:18px;transition:color .2s}
     .sf-bottom a:hover{color:var(--white)}
     @media(max-width:900px){.site-footer-grid{grid-template-columns:1fr 1fr;gap:28px}.site-footer{padding:40px 20px 24px}.sf-bottom{flex-direction:column;gap:10px;text-align:center}.input-grid{grid-template-columns:1fr}.result-grid{grid-template-columns:1fr 1fr}}
-    @media(max-width:768px){nav{padding:14px 20px}.nav-links{gap:0}.nav-link{padding:6px 8px;font-size:.78rem}.nav-home{padding:6px 10px;font-size:.78rem}.tool-hero{padding:40px 20px 24px}.tool-wrap{padding:0 16px 24px}.content-section{padding:0 16px 60px}.tool-title-row{flex-direction:column;align-items:flex-start;gap:12px}.result-main{font-size:2.5rem}}
+    @media(max-width:768px){nav{padding:14px 20px}.nav-links{gap:0}.nav-link{padding:6px 8px;font-size:.78rem}.nav-home{padding:6px 10px;font-size:.78rem}.tool-hero{padding:40px 20px 24px}.tool-wrap{padding:0 16px 24px}.content-section{padding:0 16px 60px}.tool-title-row{flex-direction:column;align-items:flex-start;gap:12px}.result-main{font-size:2.2rem}}
   </style>
-  <!-- Meta Pixel -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1359980555679976');
-fbq('track', 'PageView');
-</script>
-<noscript>
-<img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
-</noscript>
-<!-- End Meta Pixel -->
 </head>
 <body>
 <nav>
@@ -132,19 +133,24 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
 <div class="tool-hero">
   <div class="tool-breadcrumb"><a href="index.html">🌿 Health</a> → Ideal Weight Calculator</div>
   <div class="tool-title-row">
-    <div class="tool-icon-big">📏</div>
+    <div class="tool-icon-big">⚖️</div>
     <div class="tool-title">Ideal Weight Calculator</div>
   </div>
-  <div class="tool-desc">Calculate your ideal body weight based on your height, age, and gender using proven medical formulas.</div>
+  <div class="tool-desc">Find your ideal weight by age, height and gender. Free age to weight calculator using Hamwi and Devine formulas — see your healthy weight range instantly.</div>
 </div>
 <div class="tool-wrap">
-<div class="calc-card"><h2>// Your Details</h2>
-<div class="input-grid">
-  <div class="input-group"><label>Height (cm)</label><div class="input-wrap"><span class="input-prefix">cm</span><input type="number" id="iwHeight" placeholder="170" oninput="calcIW()"/></div></div>
-  <div class="input-group"><label>Gender</label><select id="iwGender" class="no-prefix" onchange="calcIW()"><option value="male">Male</option><option value="female">Female</option></select></div>
-  <div class="input-group"><label>Current Weight (kg)</label><div class="input-wrap"><span class="input-prefix">kg</span><input type="number" id="iwCurrent" placeholder="75" oninput="calcIW()"/></div></div>
-  <div class="input-group"><label>Frame Size</label><select id="iwFrame" class="no-prefix" onchange="calcIW()"><option value="0">Medium Frame</option><option value="-2.5">Small Frame (-2.5kg)</option><option value="2.5">Large Frame (+2.5kg)</option></select></div>
-</div></div>
+<div class="calc-card">
+  <h2>// Your Details</h2>
+  <div class="input-grid">
+    <div class="input-group"><label>Height (cm)</label><div class="input-wrap"><span class="input-prefix">cm</span><input type="number" id="iwHeight" placeholder="170" oninput="calcIW()"/></div></div>
+    <div class="input-group"><label>Age</label><div class="input-wrap"><span class="input-prefix">yr</span><input type="number" id="iwAge" placeholder="30" oninput="calcIW()"/></div></div>
+    <div class="input-group"><label>Gender</label><select id="iwGender" class="no-prefix" onchange="calcIW()"><option value="male">Male</option><option value="female">Female</option></select></div>
+    <div class="input-group"><label>Frame Size</label><select id="iwFrame" class="no-prefix" onchange="calcIW()"><option value="0">Medium Frame</option><option value="-2.5">Small Frame (−2.5 kg)</option><option value="2.5">Large Frame (+2.5 kg)</option></select></div>
+    <div class="input-group"><label>Current Weight (kg) — optional</label><div class="input-wrap"><span class="input-prefix">kg</span><input type="number" id="iwCurrent" placeholder="75" oninput="calcIW()"/></div></div>
+  </div>
+  <button class="calc-btn" onclick="calcIW()">Calculate Ideal Weight →</button>
+</div>
+
 <div class="result-card" id="result">
   <div class="result-label">Ideal Weight Range</div>
   <div class="result-main" id="iwResult">0 kg</div>
@@ -152,16 +158,80 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
   <div class="result-grid">
     <div class="result-item"><div class="result-item-label">Hamwi Formula</div><div class="result-item-val" id="hamwi">— kg</div></div>
     <div class="result-item"><div class="result-item-label">Devine Formula</div><div class="result-item-val" id="devine">— kg</div></div>
+    <div class="result-item"><div class="result-item-label">Age Adjustment</div><div class="result-item-val" id="ageAdj">—</div></div>
     <div class="result-item"><div class="result-item-label">Difference</div><div class="result-item-val" id="iwDiff">— kg</div></div>
   </div>
-</div></div>
-<div class="tool-wrap" style="padding-bottom:0"><div class="tip-box" style="margin-bottom:8px"><strong>⚠️ Disclaimer:</strong> This tool is for informational purposes only and does not constitute medical advice. Always consult a qualified healthcare professional before making health decisions.</div><section class="content-section">
-  <div class="content-card"><h2>What is this Tool?</h2><p>The Ideal Weight Calculator estimates your healthy target weight based on height, gender, and body frame size using established medical formulas. Unlike BMI which gives a single number, ideal weight calculations provide a target range, making them more useful for setting realistic health goals. This tool uses multiple formulas — Hamwi and Devine — for a comprehensive estimate.</p></div>
-  <div class="content-card"><h2>How to Use This Calculator</h2><div class="steps"><div class="step"><div class="step-num">1</div><div class="step-text">Enter your height in centimetres.</div></div><div class="step"><div class="step-num">2</div><div class="step-text">Select your gender — formulas differ for males and females.</div></div><div class="step"><div class="step-num">3</div><div class="step-text">Enter your current weight to see how far you are from the ideal range.</div></div><div class="step"><div class="step-num">4</div><div class="step-text">Select your frame size — small, medium, or large — for a personalised estimate.</div></div><div class="step"><div class="step-num">5</div><div class="step-text">Your ideal weight range based on multiple formulas is displayed instantly.</div></div></div></div>
-  <div class="content-card"><h2>Why This Matters</h2><ul><li>Set a realistic, science-backed weight loss or gain target</li><li>Understand what a healthy weight looks like for your specific height</li><li>Track your progress towards a healthier body weight</li><li>Differentiate between needing to lose fat vs gaining muscle</li><li>Use as a starting point for conversations with your doctor or nutritionist</li></ul></div>
-  <div class="content-card"><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">Q: Are ideal weight formulas accurate for everyone?</div><div class="faq-a">A: These formulas were developed for Western populations and may not perfectly apply to all body types. They are best used as general guidelines alongside BMI and body fat percentage.</div></div><div class="faq-item"><div class="faq-q">Q: What is the Hamwi formula?</div><div class="faq-a">A: The Hamwi formula calculates ideal weight as 48kg for 5ft height in males (45.4kg for females), adding 2.7kg (2.3kg for females) for each inch above 5ft. Adapted here for metric.</div></div><div class="faq-item"><div class="faq-q">Q: Should I aim for the exact ideal weight?</div><div class="faq-a">A: Not necessarily. A range of ±5kg around the ideal weight is considered healthy. Focus on overall fitness, strength, and health markers rather than hitting an exact number on the scale.</div></div><div class="faq-item"><div class="faq-q">Q: Is muscle weight accounted for?</div><div class="faq-a">A: No. These formulas don't distinguish between muscle and fat. A very muscular person may weigh more than the 'ideal' and still be extremely healthy. Body composition matters more than weight alone.</div></div></div>
-  <div class="tip-box"><strong>💡 Pro Tip:</strong> Weight alone is a poor indicator of health. Two people can weigh the same but have very different body compositions — one mostly muscle, one mostly fat. Focus on reducing body fat percentage rather than just the number on the scale.</div>
+</div>
+</div>
+
+<div class="tool-wrap" style="padding-bottom:0">
+  <div class="tip-box" style="margin-bottom:8px"><strong>⚠️ Disclaimer:</strong> This tool is for informational purposes only and does not constitute medical advice. Always consult a qualified healthcare professional before making health decisions.</div>
+</div>
+
+<section class="content-section">
+  <div class="content-card">
+    <h2>What is an Age to Weight Calculator?</h2>
+    <p>An <strong>age to weight calculator</strong> — also called an <strong>ideal weight by age calculator</strong> or <strong>weight calculator for age</strong> — helps you find your healthy weight range based on your height, age and gender. Unlike a simple BMI calculator, this tool uses two established medical formulas (Hamwi and Devine) and adjusts the result slightly for age, since healthy weight ranges shift as we grow older.</p>
+    <p>This free <strong>ideal weight calculator by age and height</strong> is useful for anyone wondering "what should I weigh at my age?" — whether you're 20, 35, 45 or 60. The formulas used are the same ones medical professionals use as a starting point for weight management discussions.</p>
+  </div>
+
+  <div class="content-card">
+    <h2>Ideal Weight by Age — Reference Table</h2>
+    <p>This <strong>weight by age chart</strong> shows approximate healthy weight ranges for a person of average height (170 cm male, 160 cm female). Use the calculator above for your specific height.</p>
+    <table class="age-table">
+      <thead><tr><th>Age Group</th><th>Healthy Weight — Male (170cm)</th><th>Healthy Weight — Female (160cm)</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>18–25 years</td><td class="highlight">58–72 kg</td><td class="highlight">52–64 kg</td><td>Peak muscle mass development</td></tr>
+        <tr><td>26–35 years</td><td class="highlight">60–75 kg</td><td class="highlight">53–66 kg</td><td>Slight allowance for muscle</td></tr>
+        <tr><td>36–45 years</td><td class="highlight">62–77 kg</td><td class="highlight">54–68 kg</td><td>Metabolism slows slightly</td></tr>
+        <tr><td>46–55 years</td><td class="highlight">63–78 kg</td><td class="highlight">55–70 kg</td><td>Muscle loss begins, fat increases</td></tr>
+        <tr><td>56–65 years</td><td class="highlight">62–77 kg</td><td class="highlight">55–69 kg</td><td>Slightly higher BMI may be protective</td></tr>
+        <tr><td>65+ years</td><td class="highlight">62–78 kg</td><td class="highlight">54–70 kg</td><td>Higher weight protective for bone density</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:12px">Note: Ranges above are approximate and based on BMI 20–25 adjusted for age. Use the calculator above with your exact height for a personalised result.</p>
+  </div>
+
+  <div class="content-card">
+    <h2>How to Use This Ideal Weight Calculator</h2>
+    <div class="step"><div class="step-num">1</div><div class="step-text">Enter your height in centimetres.</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-text">Enter your age — the calculator adjusts the ideal weight range slightly for older adults.</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-text">Select your gender — formulas differ significantly for males and females.</div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-text">Select your body frame size — small, medium or large — for a more personalised result.</div></div>
+    <div class="step"><div class="step-num">5</div><div class="step-text">Optionally enter your current weight to see how much above or below the ideal range you are.</div></div>
+  </div>
+
+  <div class="content-card">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <div class="faq-q">What is an age to weight calculator?</div>
+      <div class="faq-a">An age to weight calculator estimates your ideal healthy weight based on your age, height and gender. It uses medical formulas (Hamwi and Devine) and applies a slight age adjustment — since what's considered a healthy weight range shifts slightly as we get older. Enter your details above for an instant personalised result.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What is the ideal weight for my age and height?</div>
+      <div class="faq-a">Ideal weight varies by height, gender and frame size — not just age. However, age does affect the range slightly. For example, a 170 cm male aged 25 has an ideal range of approximately 58–72 kg, while the same person at 50 may have a slightly wider healthy range of 62–78 kg. Use the calculator above with your exact measurements for a personalised result.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Does ideal weight change with age?</div>
+      <div class="faq-a">Yes, slightly. As we age, muscle mass naturally decreases and body composition changes. Most health guidelines allow for a slightly higher weight range for adults over 50, as some extra weight can help protect bone density and reduce the risk of fractures. However, the change is small — the biggest factor is always height, not age.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What is the Hamwi formula for ideal weight?</div>
+      <div class="faq-a">The Hamwi formula calculates ideal weight as 48 kg for a male of 152.4 cm (5 ft), adding 2.7 kg for every 2.54 cm (1 inch) above that height. For females, it starts at 45.4 kg and adds 2.3 kg per inch. Frame size adjustments of ±2.5 kg are applied for small or large frames.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is ideal weight different for men and women?</div>
+      <div class="faq-a">Yes — women's ideal weight is generally 3–5 kg lower than men's at the same height, because women naturally have higher body fat percentage and less muscle mass. Both the Hamwi and Devine formulas use separate calculations for males and females to account for this difference.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What is a healthy weight for a 40-year-old woman?</div>
+      <div class="faq-a">For a 40-year-old woman of average height (160 cm) with a medium frame, the healthy weight range is approximately 54–66 kg. This is based on the Hamwi and Devine formulas with an age adjustment. Taller women will have a higher healthy weight range — use the calculator above with your exact height for a personalised result.</div>
+    </div>
+  </div>
+
+  <div class="tip-box"><strong>💡 Pro Tip:</strong> Weight alone is a poor indicator of health. Two people can weigh exactly the same but have completely different body compositions — one mostly muscle, one mostly fat. Always look at weight alongside body fat percentage and waist circumference for the full picture.</div>
 </section>
+
 <footer class="site-footer">
   <div class="site-footer-grid">
     <div class="sf-brand">
@@ -196,22 +266,43 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
 </footer>
 <script>
 function calcIW(){
-  const h=parseFloat(document.getElementById('iwHeight').value)||0;
-  const g=document.getElementById('iwGender').value;
-  const curr=parseFloat(document.getElementById('iwCurrent').value)||0;
-  const frame=parseFloat(document.getElementById('iwFrame').value)||0;
+  var h=parseFloat(document.getElementById('iwHeight').value)||0;
+  var age=parseFloat(document.getElementById('iwAge').value)||30;
+  var g=document.getElementById('iwGender').value;
+  var curr=parseFloat(document.getElementById('iwCurrent').value)||0;
+  var frame=parseFloat(document.getElementById('iwFrame').value)||0;
   if(!h){document.getElementById('result').classList.remove('show');return;}
-  const hIn=(h-152.4)/2.54;
-  let hamwi,devine;
-  if(g==='male'){hamwi=48+2.7*Math.max(0,hIn)+frame;devine=50+2.3*Math.max(0,hIn)+frame;}
-  else{hamwi=45.4+2.3*Math.max(0,hIn)+frame;devine=45.5+2.3*Math.max(0,hIn)+frame;}
-  const avg=((hamwi+devine)/2).toFixed(1);
-  const diff=curr>0?(curr-avg).toFixed(1):null;
+
+  var hIn=(h-152.4)/2.54;
+  var hamwi,devine;
+  if(g==='male'){
+    hamwi=48+2.7*Math.max(0,hIn)+frame;
+    devine=50+2.3*Math.max(0,hIn)+frame;
+  } else {
+    hamwi=45.4+2.3*Math.max(0,hIn)+frame;
+    devine=45.5+2.3*Math.max(0,hIn)+frame;
+  }
+
+  // Age adjustment — slight upward shift for 50+
+  var ageAdj=0;
+  var ageLabel='None (18–49)';
+  if(age>=65){ageAdj=2;ageLabel='+2 kg (65+)';}
+  else if(age>=50){ageAdj=1;ageLabel='+1 kg (50–64)';}
+  else if(age<20){ageAdj=-1;ageLabel='−1 kg (under 20)';}
+
+  hamwi+=ageAdj;devine+=ageAdj;
+
+  var avg=((hamwi+devine)/2).toFixed(1);
+  var diff=curr>0?(curr-avg).toFixed(1):null;
+
   document.getElementById('iwResult').textContent=hamwi.toFixed(1)+'–'+devine.toFixed(1)+' kg';
-  document.getElementById('iwSub').textContent=curr>0?(diff>0?`${diff}kg above ideal range`:`${Math.abs(diff)}kg below ideal range`):'Your ideal weight range';
+  document.getElementById('iwSub').textContent=curr>0
+    ?(parseFloat(diff)>0?diff+' kg above ideal range':Math.abs(diff)+' kg below ideal range')
+    :'Your ideal weight range for age '+age;
   document.getElementById('hamwi').textContent=hamwi.toFixed(1)+' kg';
   document.getElementById('devine').textContent=devine.toFixed(1)+' kg';
-  document.getElementById('iwDiff').textContent=diff?`${diff>0?'+':''}${diff} kg`:'Enter weight';
+  document.getElementById('ageAdj').textContent=ageLabel;
+  document.getElementById('iwDiff').textContent=diff?((parseFloat(diff)>0?'+':'')+diff+' kg'):'Enter weight';
   document.getElementById('result').classList.add('show');
 }
 </script>

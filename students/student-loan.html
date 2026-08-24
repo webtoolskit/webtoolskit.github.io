@@ -7,21 +7,38 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
   <link rel="canonical" href="https://webtoolskit.github.io/students/student-loan.html"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Student Loan Calculator — EMI & Repayment Planner | WebToolsKit</title>
-<meta name="description" content="Calculate your student loan EMI and plan your full repayment schedule before you borrow. Free student loan calculator for Indian education loans — no signup.">
+  <title>Education Loan EMI Calculator — Credila, SBI, HDFC & All Banks | WebToolsKit</title>
+<meta name="description" content="Calculate your Credila education loan EMI instantly. Enter loan amount, rate and tenure — see monthly EMI, total repayment and affordability. Credila rates from 10.5%. Free calculator, no signup.">
   <!-- Open Graph -->
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://webtoolskit.github.io/students/student-loan.html"/>
-<meta property="og:title" content="Student Loan Calculator — EMI & Repayment Planner"/>
-<meta property="og:description" content="Calculate your student loan EMI and plan your full repayment schedule before you borrow. Free student loan calculator for Indian education loans — no signup."/>
+<meta property="og:title" content="Education Loan EMI Calculator — Credila, SBI, HDFC & All Banks"/>
+<meta property="og:description" content="Calculate EMI for education loans from Credila, SBI, HDFC, Axis and all Indian banks. Free student loan EMI calculator — instant result, no signup."/>
 <meta property="og:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
-
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:url" content="https://webtoolskit.github.io/students/student-loan.html"/>
-<meta name="twitter:title" content="Student Loan Calculator — EMI & Repayment Planner"/>
-<meta name="twitter:description" content="Calculate your student loan EMI and plan your full repayment schedule before you borrow. Free student loan calculator for Indian education loans — no signup."/>
+<meta name="twitter:title" content="Education Loan EMI Calculator — Credila, SBI, HDFC & All Banks"/>
+<meta name="twitter:description" content="Calculate EMI for education loans from Credila, SBI, HDFC, Axis and all Indian banks. Free student loan EMI calculator — instant result, no signup."/>
 <meta name="twitter:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
+  <!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1359980555679976');
+fbq('track', 'PageView');
+</script>
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
+</noscript>
+<!-- End Meta Pixel -->
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -53,10 +70,15 @@
     .input-group label{display:block;font-size:.84rem;font-weight:600;color:var(--grey);margin-bottom:7px;font-family:'DM Sans',sans-serif}
     .input-wrap{position:relative}
     .input-prefix{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--yellow);font-weight:600;font-size:.88rem;font-family:'DM Mono',monospace}
-    input[type=number],input[type=text],select{width:100%;background:#0f1117;border:1px solid var(--border);border-radius:12px;padding:13px 14px 13px 48px;color:var(--white);font-size:.95rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}
+    input[type=number],select{width:100%;background:#0f1117;border:1px solid var(--border);border-radius:12px;padding:13px 14px 13px 48px;color:var(--white);font-size:.95rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}
     input.no-prefix,select.no-prefix{padding-left:14px}
     input:focus,select:focus{border-color:var(--yellow)}
     select{-webkit-appearance:none}
+    .lender-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:20px}
+    .lender-btn{padding:8px 10px;border:1px solid var(--border);border-radius:8px;background:transparent;color:var(--grey);font-size:.78rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;text-align:center}
+    .lender-btn:hover{border-color:rgba(245,197,24,.4);color:var(--yellow)}
+    .lender-btn.active{border-color:rgba(245,197,24,.5);color:var(--yellow);background:rgba(245,197,24,.08)}
+    .lender-label{font-family:'DM Mono',monospace;font-size:.75rem;color:var(--yellow);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px}
     .calc-btn{width:100%;padding:15px;border-radius:13px;background:linear-gradient(135deg,var(--yellow),var(--yellow2));border:none;color:#000;font-size:.97rem;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;transition:opacity .2s,transform .2s;margin-top:20px}
     .calc-btn:hover{opacity:.9;transform:translateY(-1px)}
     .result-card{background:linear-gradient(135deg,rgba(245,197,24,.1),rgba(230,184,0,.05));border:1px solid rgba(245,197,24,.25);border-radius:20px;padding:32px;display:none;text-align:center;margin-bottom:24px}
@@ -84,9 +106,11 @@
     .faq-a{font-size:.9rem;color:var(--light);line-height:1.75;font-family:'DM Sans',sans-serif}
     .tip-box{background:rgba(245,197,24,.08);border:1px solid rgba(245,197,24,.2);border-radius:12px;padding:16px 20px;font-size:.88rem;color:var(--light);line-height:1.7;font-family:'DM Sans',sans-serif;margin-bottom:20px}
     .tip-box strong{color:var(--yellow)}
-    .subject-row{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:10px;margin-bottom:10px;align-items:end}
-    .subject-row input{padding-left:14px}
-    .del-btn{height:46px;width:46px;border-radius:10px;background:rgba(197,3,55,.15);border:1px solid rgba(197,3,55,.3);color:#ff6688;font-size:1.1rem;cursor:pointer}
+    .lender-table{width:100%;border-collapse:collapse;margin-top:12px}
+    .lender-table th{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--grey);text-transform:uppercase;letter-spacing:.8px;padding:8px 12px;border-bottom:1px solid var(--border);text-align:left}
+    .lender-table td{font-size:.88rem;color:var(--light);padding:10px 12px;border-bottom:1px solid rgba(42,45,58,.5);font-family:'DM Sans',sans-serif}
+    .lender-table tr:last-child td{border-bottom:none}
+    .lender-table td.rate{color:var(--yellow);font-weight:600;font-family:'DM Mono',monospace}
     .site-footer{border-top:1px solid var(--border);padding:56px 48px 28px;background:var(--footer-bg)}
     .site-footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;max-width:1200px;margin:0 auto 40px}
     .sf-logo{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;font-style:italic;color:var(--white);margin-bottom:10px;display:block;text-decoration:none}
@@ -98,27 +122,9 @@
     .sf-bottom{max-width:1200px;margin:0 auto;border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:var(--grey);font-family:'DM Sans',sans-serif}
     .sf-bottom a{color:var(--grey);text-decoration:none;margin-left:18px;transition:color .2s}
     .sf-bottom a:hover{color:var(--white)}
-    @media(max-width:900px){.site-footer-grid{grid-template-columns:1fr 1fr;gap:28px}.site-footer{padding:40px 20px 24px}.sf-bottom{flex-direction:column;gap:10px;text-align:center}.input-grid{grid-template-columns:1fr}.result-grid{grid-template-columns:1fr 1fr}}
-    @media(max-width:768px){nav{padding:14px 20px}.nav-links{gap:0}.nav-link{padding:6px 8px;font-size:.78rem}.nav-home{padding:6px 10px;font-size:.78rem}.tool-hero{padding:40px 20px 24px}.tool-wrap{padding:0 16px 24px}.content-section{padding:0 16px 60px}.tool-title-row{flex-direction:column;align-items:flex-start;gap:12px}.result-main{font-size:2.5rem}.subject-row{grid-template-columns:1fr 1fr}}
+    @media(max-width:900px){.site-footer-grid{grid-template-columns:1fr 1fr;gap:28px}.site-footer{padding:40px 20px 24px}.sf-bottom{flex-direction:column;gap:10px;text-align:center}.input-grid{grid-template-columns:1fr}.result-grid{grid-template-columns:1fr 1fr}.lender-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:768px){nav{padding:14px 20px}.nav-links{gap:0}.nav-link{padding:6px 8px;font-size:.78rem}.nav-home{padding:6px 10px;font-size:.78rem}.tool-hero{padding:40px 20px 24px}.tool-wrap{padding:0 16px 24px}.content-section{padding:0 16px 60px}.tool-title-row{flex-direction:column;align-items:flex-start;gap:12px}.result-main{font-size:2.5rem}.lender-grid{grid-template-columns:1fr 1fr}}
   </style>
-  <!-- Meta Pixel -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1359980555679976');
-fbq('track', 'PageView');
-</script>
-<noscript>
-<img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
-</noscript>
-<!-- End Meta Pixel -->
 </head>
 <body>
 <nav>
@@ -132,23 +138,39 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
   </div>
 </nav>
 <div class="tool-hero">
-  <div class="tool-breadcrumb"><a href="index.html">🎓 Students</a> → Student Loan Calculator</div>
+  <div class="tool-breadcrumb"><a href="index.html">🎓 Students</a> → Education Loan EMI Calculator</div>
   <div class="tool-title-row">
-    <div class="tool-icon-big">💳</div>
-    <div class="tool-title">Student Loan Calculator</div>
+    <div class="tool-icon-big">🎓</div>
+    <div class="tool-title">Education Loan EMI Calculator</div>
   </div>
-  <div class="tool-desc">Calculate your education loan EMI, total repayment, and plan your post-graduation financial commitment.</div>
+  <div class="tool-desc">Calculate your education loan EMI for Credila, SBI, HDFC, Axis and all Indian banks. See monthly EMI, total repayment and affordability as a percentage of your expected salary.</div>
 </div>
 <div class="tool-wrap">
-<div class="calc-card"><h2>// Education Loan Details</h2>
-<div class="input-grid">
-  <div class="input-group"><label>Total Loan Amount (₹)</label><div class="input-wrap"><span class="input-prefix">₹</span><input type="number" id="slAmount" placeholder="1500000" oninput="calcSL()"/></div></div>
-  <div class="input-group"><label>Annual Interest Rate (%)</label><div class="input-wrap"><span class="input-prefix">%</span><input type="number" id="slRate" placeholder="9.5" step="0.1" oninput="calcSL()"/></div></div>
-  <div class="input-group"><label>Course Duration (Years)</label><div class="input-wrap"><span class="input-prefix">yr</span><input type="number" id="slCourse" placeholder="2" oninput="calcSL()"/></div></div>
-  <div class="input-group"><label>Moratorium Period (Years)</label><div class="input-wrap"><span class="input-prefix">yr</span><input type="number" id="slMora" placeholder="1" oninput="calcSL()"/></div></div>
-  <div class="input-group"><label>Repayment Tenure (Years)</label><div class="input-wrap"><span class="input-prefix">yr</span><input type="number" id="slTenure" placeholder="10" oninput="calcSL()"/></div></div>
-  <div class="input-group"><label>Expected Starting Salary (₹/month)</label><div class="input-wrap"><span class="input-prefix">₹</span><input type="number" id="slSalary" placeholder="60000" oninput="calcSL()"/></div></div>
-</div></div>
+<div class="calc-card">
+  <h2>// Education Loan Details</h2>
+
+  <!-- Lender quick-select -->
+  <div class="lender-label">Quick Select Lender Rate</div>
+  <div class="lender-grid">
+    <button class="lender-btn" onclick="setLender('Credila',10.5,this)">🏦 Credila<br/><span style="font-size:.72rem;color:var(--grey)">~10.5%</span></button>
+    <button class="lender-btn" onclick="setLender('SBI',8.65,this)">🏦 SBI<br/><span style="font-size:.72rem;color:var(--grey)">~8.65%</span></button>
+    <button class="lender-btn" onclick="setLender('HDFC',9.5,this)">🏦 HDFC<br/><span style="font-size:.72rem;color:var(--grey)">~9.5%</span></button>
+    <button class="lender-btn" onclick="setLender('Axis Bank',13.7,this)">🏦 Axis Bank<br/><span style="font-size:.72rem;color:var(--grey)">~13.7%</span></button>
+    <button class="lender-btn" onclick="setLender('Canara Bank',8.8,this)">🏦 Canara Bank<br/><span style="font-size:.72rem;color:var(--grey)">~8.8%</span></button>
+    <button class="lender-btn" onclick="setLender('Custom',0,this)">✏️ Custom Rate</button>
+  </div>
+
+  <div class="input-grid">
+    <div class="input-group"><label>Loan Amount (₹)</label><div class="input-wrap"><span class="input-prefix">₹</span><input type="number" id="slAmount" placeholder="500000" oninput="calcSL()"/></div></div>
+    <div class="input-group"><label>Annual Interest Rate (%)</label><div class="input-wrap"><span class="input-prefix">%</span><input type="number" id="slRate" placeholder="10.5" step="0.05" oninput="calcSL()"/></div></div>
+    <div class="input-group"><label>Course Duration (Years)</label><div class="input-wrap"><span class="input-prefix">yr</span><input type="number" id="slCourse" placeholder="4" oninput="calcSL()"/></div></div>
+    <div class="input-group"><label>Moratorium Period (Years)</label><div class="input-wrap"><span class="input-prefix">yr</span><input type="number" id="slMora" placeholder="0.5" step="0.5" oninput="calcSL()"/></div></div>
+    <div class="input-group"><label>Repayment Tenure (Years)</label><div class="input-wrap"><span class="input-prefix">yr</span><input type="number" id="slTenure" placeholder="10" oninput="calcSL()"/></div></div>
+    <div class="input-group"><label>Expected Starting Salary (₹/month)</label><div class="input-wrap"><span class="input-prefix">₹</span><input type="number" id="slSalary" placeholder="60000" oninput="calcSL()"/></div></div>
+  </div>
+  <button class="calc-btn" onclick="calcSL()">Calculate Loan EMI →</button>
+</div>
+
 <div class="result-card" id="result">
   <div class="result-label">Monthly EMI After Moratorium</div>
   <div class="result-main" id="slEMI">₹0</div>
@@ -158,14 +180,78 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
     <div class="result-item"><div class="result-item-label">Total Repayment</div><div class="result-item-val" id="slTotal">₹0</div></div>
     <div class="result-item"><div class="result-item-label">EMI % of Salary</div><div class="result-item-val" id="slPct">0%</div></div>
   </div>
-</div></div>
+</div>
+</div>
+
 <section class="content-section">
-  <div class="content-card"><h2>What is this Tool?</h2><p>The Student Loan Calculator helps students and parents understand the full financial commitment of an education loan — including the monthly EMI after the moratorium period, total interest paid, and what percentage of the expected starting salary will go towards loan repayment. Education loans are one of the most common forms of student debt in India, especially for professional courses and foreign education.</p></div>
-  <div class="content-card"><h2>How to Use This Tool</h2><div class="steps"><div class="step"><div class="step-num">1</div><div class="step-text">Enter the total education loan amount.</div></div><div class="step"><div class="step-num">2</div><div class="step-text">Enter the annual interest rate — typically 8.5-12% for education loans in India.</div></div><div class="step"><div class="step-num">3</div><div class="step-text">Enter your course duration and moratorium period (usually course duration + 6-12 months).</div></div><div class="step"><div class="step-num">4</div><div class="step-text">Enter the repayment tenure you prefer (typically 5-15 years).</div></div><div class="step"><div class="step-num">5</div><div class="step-text">Enter your expected starting salary after graduation.</div></div><div class="step"><div class="step-num">6</div><div class="step-text">Your EMI, total interest, and affordability as a percentage of salary are shown instantly.</div></div></div></div>
-  <div class="content-card"><h2>Why This Matters</h2><ul><li>Understand the full financial commitment before taking the loan</li><li>Check if the EMI is affordable against expected starting salary</li><li>Compare loan offers from different banks</li><li>Plan your career income requirements to comfortably service the loan</li><li>Make informed decisions about loan amount and course choices</li></ul></div>
-  <div class="content-card"><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">Q: What is a moratorium period?</div><div class="faq-a">A: The moratorium period is the time during which you don't need to make EMI payments — typically the course duration plus 6-12 months after completion. Interest usually accrues during this period.</div></div><div class="faq-item"><div class="faq-q">Q: Which banks offer the best education loan rates in India?</div><div class="faq-a">A: SBI Scholar Loan, Canara Bank, Bank of Baroda, and Axis Bank offer competitive rates. Government bank rates are typically lower than private banks. HDFC Credila specialises in education loans.</div></div><div class="faq-item"><div class="faq-q">Q: Is education loan interest tax deductible?</div><div class="faq-a">A: Yes. Under Section 80E, the entire interest paid on an education loan is deductible from taxable income for up to 8 years from the year repayment begins. This can significantly reduce your tax liability.</div></div><div class="faq-item"><div class="faq-q">Q: What is the maximum education loan amount?</div><div class="faq-a">A: Banks typically offer up to ₹7.5 lakh without collateral. With collateral, loans of ₹20 lakh to ₹1.5 crore are available. Government banks have higher limits for premier institutions.</div></div></div>
-  <div class="tip-box"><strong>💡 Pro Tip:</strong> A safe guideline: your total education loan should not exceed 1x your expected annual starting salary. This way you can realistically repay the loan within 3-5 years without it becoming a financial burden.</div>
+  <div class="content-card">
+    <h2>What is this Education Loan EMI Calculator?</h2>
+    <p>This free <strong>education loan EMI calculator</strong> helps students and parents calculate the exact monthly EMI for education loans from <strong>Credila</strong>, SBI, HDFC, Axis Bank, Canara Bank and all major Indian lenders. Simply select your lender from the quick-select buttons — the interest rate fills in automatically — then enter your loan amount and tenure for an instant result.</p>
+    <p>Unlike a standard EMI calculator, this tool accounts for the <strong>moratorium period</strong> — the time during which no EMI is paid (typically the course duration + 6 months). Interest accrues during this period, increasing the effective loan amount before repayment begins. This gives you the true, accurate EMI — not an underestimate.</p>
+  </div>
+
+  <div class="content-card">
+    <h2>Education Loan Interest Rates — All Major Lenders</h2>
+    <p>Here are indicative interest rates from major Indian education loan providers. Use these in the calculator above — rates may vary based on course, institution and credit profile:</p>
+    <table class="lender-table">
+      <thead><tr><th>Lender</th><th>Interest Rate</th><th>Max Loan</th><th>Best For</th></tr></thead>
+      <tbody>
+        <tr><td>SBI Student Loan / Scholar Loan</td><td class="rate">8.65–10.5%</td><td>₹1.5 Cr</td><td>IIT, IIM, premier institutes</td></tr>
+        <tr><td>Canara Bank Vidya Turant</td><td class="rate">8.8–10.75%</td><td>₹40 Lakh</td><td>Domestic education</td></tr>
+        <tr><td>Bank of Baroda Baroda Scholar</td><td class="rate">9.15–11%</td><td>₹80 Lakh</td><td>India + abroad</td></tr>
+        <tr><td>HDFC Bank Education Loan</td><td class="rate">9.5–13.5%</td><td>₹45 Lakh</td><td>Domestic education</td></tr>
+        <tr><td>Credila Financial Services</td><td class="rate">10.5–13%</td><td>No upper limit</td><td>India + abroad, flexible</td></tr>
+        <tr><td>Axis Bank Education Loan</td><td class="rate">13.7–15.2%</td><td>₹75 Lakh</td><td>India + abroad</td></tr>
+        <tr><td>ICICI Bank Education Loan</td><td class="rate">10.5–14%</td><td>₹1 Cr</td><td>India + abroad</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:12px">Rates above are indicative and subject to change. Always check the lender's official website for current rates before applying.</p>
+  </div>
+
+  <div class="content-card">
+    <h2>How to Calculate Credila Education Loan EMI</h2>
+    <div class="step"><div class="step-num">1</div><div class="step-text">Click the <strong>Credila</strong> button above — the interest rate (10.5%) fills in automatically.</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-text">Enter your loan amount — Credila offers education loans with no upper limit for eligible students.</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-text">Enter your course duration and moratorium period (Credila typically offers course duration + 6–12 months moratorium).</div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-text">Enter your repayment tenure — Credila offers up to 15 years repayment.</div></div>
+    <div class="step"><div class="step-num">5</div><div class="step-text">Enter your expected starting salary to see what % of your income the EMI will consume.</div></div>
+  </div>
+
+  <div class="content-card">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <div class="faq-q">How do I calculate my Credila education loan EMI?</div>
+      <div class="faq-a">To calculate your Credila education loan EMI: click the Credila button above (sets the rate to ~10.5%), enter your loan amount, course duration, moratorium period (course + 6 months), and repayment tenure (up to 15 years). The calculator accounts for interest accrual during the moratorium period — giving you the accurate post-moratorium EMI. Credila loans typically range from ₹2 lakh to several crores depending on eligibility.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What is Credila education loan interest rate?</div>
+      <div class="faq-a">Credila (formerly HDFC Credila) offers education loans at interest rates typically ranging from 10.5% to 13% per annum, depending on the course, institution, loan amount and borrower profile. Credila is an NBFC (non-banking financial company) so its rates are generally higher than government banks like SBI (8.65%) but it offers more flexibility — no upper loan limit, multi-city co-borrowers and collateral flexibility.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What is the difference between Credila and SBI education loan?</div>
+      <div class="faq-a">SBI education loans offer lower interest rates (8.65–10.5%) and are backed by a government bank, making them the first choice for premier institutes. Credila offers higher rates (10.5–13%) but has no upper loan limit, faster processing (21 days), more flexible collateral requirements and can fund institutions that government banks may not cover. For large loans or less conventional courses, Credila is often a better fit.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What is a moratorium period in an education loan?</div>
+      <div class="faq-a">The moratorium period is the time during which you don't make EMI payments — typically the course duration plus 6–12 months after completion. Interest still accrues during this period, increasing the effective outstanding amount. This calculator accounts for moratorium interest accrual to give you the accurate EMI — unlike simple EMI calculators that ignore this.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is education loan interest tax deductible?</div>
+      <div class="faq-a">Yes. Under Section 80E of the Income Tax Act, the entire interest paid on an education loan is deductible from taxable income for up to 8 years from the year repayment begins. This applies to loans from banks and approved financial institutions including Credila. The principal repayment is not deductible — only the interest portion. This benefit can significantly reduce your effective loan cost.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How much education loan can I get without collateral?</div>
+      <div class="faq-a">Government banks typically offer up to ₹7.5 lakh without collateral. With collateral, amounts up to ₹1.5 crore are available. Credila and private NBFCs can offer higher collateral-free amounts depending on the institution and course — IIT/IIM students can often get ₹20–40 lakh without collateral. The eligible amount depends on the course, institution ranking and co-borrower's income.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What is the student loan planner tool?</div>
+      <div class="faq-a">This student loan planner calculates your education loan EMI and shows the total repayment amount, total interest paid, and what percentage of your expected starting salary the EMI will consume. A safe rule of thumb is that your EMI should not exceed 25–30% of your monthly starting salary to avoid financial stress in your early career.</div>
+    </div>
+  </div>
+
+  <div class="tip-box"><strong>💡 Pro Tip:</strong> A safe guideline — your total education loan should not exceed 1x your expected annual starting salary. For a ₹10 lakh loan, aim for a job paying at least ₹10 lakh per year (₹83,000/month). This way you can realistically repay the loan within 3–5 years without it becoming a financial burden.</div>
 </section>
+
 <footer class="site-footer">
   <div class="site-footer-grid">
     <div class="sf-brand">
@@ -199,23 +285,33 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
   </div>
 </footer>
 <script>
-function fmt(n){return '₹'+Math.round(n).toLocaleString('en-IN')}
+function fmt(n){return '₹'+Math.round(n).toLocaleString('en-IN');}
+
+function setLender(name, rate, btn){
+  document.querySelectorAll('.lender-btn').forEach(function(b){b.classList.remove('active');});
+  btn.classList.add('active');
+  if(rate>0){document.getElementById('slRate').value=rate;}
+  calcSL();
+}
+
 function calcSL(){
-  const P=parseFloat(document.getElementById('slAmount').value)||0;
-  const r=parseFloat(document.getElementById('slRate').value)||0;
-  const course=parseFloat(document.getElementById('slCourse').value)||0;
-  const mora=parseFloat(document.getElementById('slMora').value)||0;
-  const tenure=parseFloat(document.getElementById('slTenure').value)||0;
-  const salary=parseFloat(document.getElementById('slSalary').value)||0;
+  var P=parseFloat(document.getElementById('slAmount').value)||0;
+  var r=parseFloat(document.getElementById('slRate').value)||0;
+  var course=parseFloat(document.getElementById('slCourse').value)||0;
+  var mora=parseFloat(document.getElementById('slMora').value)||0;
+  var tenure=parseFloat(document.getElementById('slTenure').value)||0;
+  var salary=parseFloat(document.getElementById('slSalary').value)||0;
   if(!P||!r||!tenure){document.getElementById('result').classList.remove('show');return;}
-  const rm=r/12/100;const moraMonths=(course+mora)*12;
-  const accrued=P*Math.pow(1+rm,moraMonths);
-  const n=tenure*12;
-  const emi=accrued*rm*Math.pow(1+rm,n)/(Math.pow(1+rm,n)-1);
-  const total=emi*n;const interest=total-P;
-  const pct=salary>0?((emi/salary)*100).toFixed(1):null;
+  var rm=r/12/100;
+  var moraMonths=(course+mora)*12;
+  var accrued=P*Math.pow(1+rm,moraMonths);
+  var n=tenure*12;
+  var emi=accrued*rm*Math.pow(1+rm,n)/(Math.pow(1+rm,n)-1);
+  var total=emi*n;
+  var interest=total-P;
+  var pct=salary>0?((emi/salary)*100).toFixed(1):null;
   document.getElementById('slEMI').textContent=fmt(emi);
-  document.getElementById('slSub').textContent=`After ${course+mora} year moratorium, repay over ${tenure} years`;
+  document.getElementById('slSub').textContent='After '+(course+mora)+' year moratorium · Repay over '+tenure+' years';
   document.getElementById('slInterest').textContent=fmt(interest);
   document.getElementById('slTotal').textContent=fmt(total);
   document.getElementById('slPct').textContent=pct?pct+'% of salary':'Enter salary';

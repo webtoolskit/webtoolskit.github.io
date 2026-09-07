@@ -41,6 +41,18 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{--bg:#0f1117;--nav:#000000;--footer-bg:#000000;--card:#1a1d27;--border:#2a2d3a;--white:#ffffff;--grey:#8b8fa8;--light:#c8cad8;--orange:#ff5500;--orange2:#ff2200;--red:#c50337}
+    .search-wrap{position:relative;margin-left:8px}
+    .search-btn{background:transparent;border:1px solid var(--border);color:var(--grey);padding:7px 14px;border-radius:8px;cursor:pointer;font-size:.85rem;font-family:'DM Sans',sans-serif;font-weight:600;transition:all .2s;display:flex;align-items:center;gap:6px}
+    .search-btn:hover{color:var(--white);border-color:rgba(255,255,255,.3)}
+    .search-box{display:none;position:absolute;top:calc(100% + 10px);right:0;width:300px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:12px;z-index:200;box-shadow:0 20px 40px rgba(0,0,0,.5)}
+    .search-box.open{display:block}
+    .search-input{width:100%;background:#0f1117;border:1px solid var(--border);border-radius:10px;padding:10px 14px;color:var(--white);font-size:.9rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}
+    .search-input:focus{border-color:var(--orange)}
+    .search-results{margin-top:8px;max-height:280px;overflow-y:auto}
+    .search-item{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;text-decoration:none;color:var(--light);font-size:.85rem;transition:background .15s}
+    .search-item:hover{background:rgba(255,255,255,.06);color:var(--white)}
+    .search-item-icon{font-size:1rem;width:24px;text-align:center;flex-shrink:0}
+    .search-empty{font-size:.82rem;color:var(--grey);text-align:center;padding:16px 0;font-family:'DM Sans',sans-serif}
     html{scroll-behavior:smooth}
     body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;min-height:100vh}
     nav{display:flex;align-items:center;justify-content:space-between;padding:18px 48px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--nav);backdrop-filter:blur(16px);z-index:100}
@@ -141,6 +153,13 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
     <a href="../freelance/index.html" class="nav-link c-p">💼 Freelance</a>
     <a href="../students/index.html" class="nav-link c-y">🎓 Students</a>
     <a href="../utility/index.html" class="nav-link c-r">⚡ Utility</a>
+  </div>
+  <div class="search-wrap">
+    <button class="search-btn" onclick="toggleSearch()">🔍 Search</button>
+    <div class="search-box" id="searchBox">
+      <input type="text" class="search-input" id="searchInput" placeholder="Search tools..." oninput="runSearch()"/>
+      <div class="search-results" id="searchResults"></div>
+    </div>
   </div>
 </nav>
 
@@ -302,6 +321,22 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
   </div>
 
   <div class="tip-box"><strong>💡 Pro Tip:</strong> Carpooling with just one passenger cuts your fuel cost by 50%. Use this calculator to show exactly how much each person saves — it's the most convincing argument for carpooling on any journey!</div>
+  <div class="content-card" style="background:linear-gradient(135deg,var(--orange),var(--orange2));border:1px solid var(--orange);margin-top:32px">
+    <h2 style="color:#fff">Recommended — Engine Oils</h2>
+    <p style="font-size:.8rem;color:rgba(255,255,255,.8);margin-bottom:16px">⚠️ Affiliate disclosure: We may earn a small commission if you purchase through these links at no extra cost to you. <a href="../legal/affiliate-disclosure.html" style="color:#fff;font-weight:700">Learn more</a></p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+      <div style="background:#0f1117;border:1px solid var(--border);border-radius:12px;padding:14px">
+        <div style="font-size:.9rem;font-weight:700;color:var(--white);margin-bottom:6px">🏍️ Motul 7100 4T 10W-50 — 1.5L</div>
+        <p style="font-size:.8rem;color:var(--light);margin-bottom:10px">Fully synthetic motorcycle engine oil — API SN, high performance, smooth gear shifting & superior engine care.</p>
+        <a href="https://link.amazon/B0dzjF8bx" target="_blank" rel="nofollow sponsored" style="display:inline-block;background:var(--card);color:var(--orange);font-weight:700;padding:6px 14px;border-radius:8px;text-decoration:none;font-size:.8rem;border:1px solid var(--orange)">View on Amazon →</a>
+      </div>
+      <div style="background:#0f1117;border:1px solid var(--border);border-radius:12px;padding:14px">
+        <div style="font-size:.9rem;font-weight:700;color:var(--white);margin-bottom:6px">🚗 Shell Helix Extra 5W-30 — 3.5L</div>
+        <p style="font-size:.8rem;color:var(--light);margin-bottom:10px">Fully synthetic API SP oil for petrol, diesel & CNG cars. Enhanced efficiency with anti-friction technology.</p>
+        <a href="https://link.amazon/B07CaC254" target="_blank" rel="nofollow sponsored" style="display:inline-block;background:var(--card);color:var(--orange);font-weight:700;padding:6px 14px;border-radius:8px;text-decoration:none;font-size:.8rem;border:1px solid var(--orange)">View on Amazon →</a>
+      </div>
+    </div>
+  </div>
 </section>
 
 <footer class="site-footer">
@@ -464,5 +499,23 @@ function calcFuel() {
   document.getElementById('resultContent').style.display = 'block';
 }
 </script>
-</body>
+<script>
+var tools=[
+  {name:'EMI Calculator',icon:'💰',url:'../finance/emi-calculator.html',tags:'emi loan home car'},
+  {name:'SIP Calculator',icon:'📈',url:'../finance/sip-calculator.html',tags:'sip mutual fund investment'},
+  {name:'Fuel Cost Calculator',icon:'⛽',url:'../finance/fuel-cost.html',tags:'petrol fuel cost miles km bike'},
+  {name:'Grocery Budget',icon:'🛒',url:'../finance/grocery-budget.html',tags:'grocery budget food shopping'},
+  {name:'Wedding Budget',icon:'💍',url:'../finance/wedding-budget.html',tags:'wedding budget marriage cost'},
+  {name:'BMI Calculator',icon:'⚖️',url:'../health/bmi-calculator.html',tags:'bmi weight height'},
+  {name:'Sleep Cycle',icon:'😴',url:'../health/sleep-cycle.html',tags:'sleep cycle wake up'},
+  {name:'Attendance Calculator',icon:'✅',url:'../students/attendance-calculator.html',tags:'attendance viit vit sppu bunk'},
+  {name:'NEET Study Planner',icon:'🧪',url:'../students/neet-study-planner.html',tags:'neet study planner'},
+  {name:'Word Counter',icon:'📝',url:'../utility/word-counter.html',tags:'word count characters'},
+  {name:'Password Checker',icon:'🔒',url:'../utility/password-checker.html',tags:'password strength'},
+  {name:'QR Generator',icon:'📱',url:'../utility/qr-generator.html',tags:'qr code generator'},
+];
+function toggleSearch(){var box=document.getElementById('searchBox');box.classList.toggle('open');if(box.classList.contains('open')){document.getElementById('searchInput').focus();runSearch();}}
+document.addEventListener('click',function(e){var wrap=document.querySelector('.search-wrap');if(wrap&&!wrap.contains(e.target))document.getElementById('searchBox').classList.remove('open');});
+function runSearch(){var q=document.getElementById('searchInput').value.toLowerCase();var res=document.getElementById('searchResults');if(!q){res.innerHTML='<div class="search-empty">Type to search tools...</div>';return;}var matches=tools.filter(function(t){return t.name.toLowerCase().includes(q)||t.tags.includes(q);});if(!matches.length){res.innerHTML='<div class="search-empty">No tools found</div>';return;}res.innerHTML=matches.slice(0,8).map(function(t){return '<a href="'+t.url+'" class="search-item"><span class="search-item-icon">'+t.icon+'</span>'+t.name+'</a>';}).join('');}
+</script></body>
 </html>

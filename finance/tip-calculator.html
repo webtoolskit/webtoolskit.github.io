@@ -26,6 +26,18 @@
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{--bg:#0f1117;--nav:#000000;--footer-bg:#000000;--card:#1a1d27;--border:#2a2d3a;--white:#ffffff;--grey:#8b8fa8;--light:#c8cad8;--orange:#ff5500;--orange2:#ff2200;--red:#c50337}
+    .search-wrap{position:relative;margin-left:8px}
+    .search-btn{background:transparent;border:1px solid var(--border);color:var(--grey);padding:7px 14px;border-radius:8px;cursor:pointer;font-size:.85rem;font-family:'DM Sans',sans-serif;font-weight:600;transition:all .2s;display:flex;align-items:center;gap:6px}
+    .search-btn:hover{color:var(--white);border-color:rgba(255,255,255,.3)}
+    .search-box{display:none;position:absolute;top:calc(100% + 10px);right:0;width:300px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:12px;z-index:200;box-shadow:0 20px 40px rgba(0,0,0,.5)}
+    .search-box.open{display:block}
+    .search-input{width:100%;background:#0f1117;border:1px solid var(--border);border-radius:10px;padding:10px 14px;color:var(--white);font-size:.9rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}
+    .search-input:focus{border-color:var(--orange)}
+    .search-results{margin-top:8px;max-height:280px;overflow-y:auto}
+    .search-item{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;text-decoration:none;color:var(--light);font-size:.85rem;transition:background .15s}
+    .search-item:hover{background:rgba(255,255,255,.06);color:var(--white)}
+    .search-item-icon{font-size:1rem;width:24px;text-align:center;flex-shrink:0}
+    .search-empty{font-size:.82rem;color:var(--grey);text-align:center;padding:16px 0;font-family:'DM Sans',sans-serif}
     html{scroll-behavior:smooth}
     body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;min-height:100vh}
     nav{display:flex;align-items:center;justify-content:space-between;padding:18px 48px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--nav);backdrop-filter:blur(16px);z-index:100}
@@ -129,6 +141,13 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
     <a href="../students/index.html" class="nav-link c-y">🎓 Students</a>
     <a href="../utility/index.html" class="nav-link c-r">⚡ Utility</a>
   </div>
+  <div class="search-wrap">
+    <button class="search-btn" onclick="toggleSearch()">🔍 Search</button>
+    <div class="search-box" id="searchBox">
+      <input type="text" class="search-input" id="searchInput" placeholder="Search tools..." oninput="runSearch()"/>
+      <div class="search-results" id="searchResults"></div>
+    </div>
+  </div>
 </nav>
 <div class="tool-hero">
   <div class="tool-breadcrumb"><a href="index.html">💰 Finance</a> → Tip Calculator</div>
@@ -177,6 +196,22 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
   </div>
   <div class="content-card"><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">Q: What is the standard tip in India?</div><div class="faq-a">A: Tipping is not mandatory in India but is appreciated. 10% is common at restaurants. High-end restaurants often include a service charge of 5-10% in the bill.</div></div><div class="faq-item"><div class="faq-q">Q: Should I tip on the pre-tax or post-tax amount?</div><div class="faq-a">A: It is generally accepted to tip on the pre-tax amount, though tipping on the total is also fine and appreciated.</div></div><div class="faq-item"><div class="faq-q">Q: What if someone ordered more expensive items?</div><div class="faq-a">A: For fairness, you may want to split based on individual orders. This calculator handles equal splits — for unequal splits, calculate each person's bill separately.</div></div><div class="faq-item"><div class="faq-q">Q: Is a service charge the same as a tip?</div><div class="faq-a">A: No. A service charge added to the bill goes to the restaurant. A tip you leave separately goes directly to the staff.</div></div></div>
   <div class="tip-box"><strong>💡 Pro Tip:</strong> In India, if a restaurant adds a 'service charge', you are legally not obligated to pay it as per consumer protection guidelines. You can request it to be removed if the service was unsatisfactory.</div>
+  <div class="content-card" style="background:linear-gradient(135deg,var(--orange),var(--orange2));border:1px solid var(--orange)">
+    <h2 style="color:#fff">Recommended — Desktop Calculators</h2>
+    <p style="font-size:.8rem;color:rgba(255,255,255,.8);margin-bottom:16px">⚠️ Affiliate disclosure: We may earn a small commission if you purchase through these links at no extra cost to you. <a href="../legal/affiliate-disclosure.html" style="color:#fff;font-weight:700">Learn more</a></p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+      <div style="background:#0f1117;border:1px solid var(--border);border-radius:12px;padding:14px;min-height:160px;display:flex;flex-direction:column;justify-content:space-between">
+        <div><div style="font-size:.9rem;font-weight:700;color:var(--white);margin-bottom:6px">🖩 OREVA OR-1600-C 12-Digit Desktop</div>
+        <p style="font-size:.8rem;color:var(--light);margin-bottom:10px">Aluminium face, GST calculation, 120 steps check, solar & battery. Elegant silver design. 1 year warranty.</p></div>
+        <a href="https://link.amazon/B04j2DpPG" target="_blank" rel="nofollow sponsored" style="display:inline-block;background:var(--card);color:var(--orange);font-weight:700;padding:6px 14px;border-radius:8px;text-decoration:none;font-size:.8rem;border:1px solid var(--orange)">View on Amazon →</a>
+      </div>
+      <div style="background:#0f1117;border:1px solid var(--border);border-radius:12px;padding:14px;min-height:160px;display:flex;flex-direction:column;justify-content:space-between">
+        <div><div style="font-size:.9rem;font-weight:700;color:var(--white);margin-bottom:6px">📝 CBK 2-in-1 Calculator & LCD Notepad</div>
+        <p style="font-size:.8rem;color:var(--light);margin-bottom:10px">12-digit calculator with 7.5" LCD writing tablet & stylus. Perfect for students, kids, school & office.</p></div>
+        <a href="https://link.amazon/B05CDAjYz" target="_blank" rel="nofollow sponsored" style="display:inline-block;background:var(--card);color:var(--orange);font-weight:700;padding:6px 14px;border-radius:8px;text-decoration:none;font-size:.8rem;border:1px solid var(--orange)">View on Amazon →</a>
+      </div>
+    </div>
+  </div>
 </section>
 <footer class="site-footer">
   <div class="site-footer-grid">
@@ -227,5 +262,23 @@ function calcTip(){
   document.getElementById('result').classList.add('show');
 }
 </script>
-</body>
+<script>
+var tools=[
+  {name:'Tip Calculator',icon:'🍽️',url:'../finance/tip-calculator.html',tags:'tip restaurant bill split'},
+  {name:'EMI Calculator',icon:'💰',url:'../finance/emi-calculator.html',tags:'emi loan home car'},
+  {name:'SIP Calculator',icon:'📈',url:'../finance/sip-calculator.html',tags:'sip mutual fund investment'},
+  {name:'Currency Converter',icon:'💱',url:'../finance/currency-converter.html',tags:'currency convert exchange'},
+  {name:'Salary Hike',icon:'💼',url:'../finance/salary-hike.html',tags:'salary hike appraisal'},
+  {name:'Grocery Budget',icon:'🛒',url:'../finance/grocery-budget.html',tags:'grocery budget food'},
+  {name:'Wedding Budget',icon:'💍',url:'../finance/wedding-budget.html',tags:'wedding budget marriage'},
+  {name:'BMI Calculator',icon:'⚖️',url:'../health/bmi-calculator.html',tags:'bmi weight height'},
+  {name:'Attendance Calculator',icon:'✅',url:'../students/attendance-calculator.html',tags:'attendance viit vit sppu'},
+  {name:'NEET Study Planner',icon:'🧪',url:'../students/neet-study-planner.html',tags:'neet study planner'},
+  {name:'Word Counter',icon:'📝',url:'../utility/word-counter.html',tags:'word count characters'},
+  {name:'QR Generator',icon:'📱',url:'../utility/qr-generator.html',tags:'qr code generator'},
+];
+function toggleSearch(){var box=document.getElementById('searchBox');box.classList.toggle('open');if(box.classList.contains('open')){document.getElementById('searchInput').focus();runSearch();}}
+document.addEventListener('click',function(e){var wrap=document.querySelector('.search-wrap');if(wrap&&!wrap.contains(e.target))document.getElementById('searchBox').classList.remove('open');});
+function runSearch(){var q=document.getElementById('searchInput').value.toLowerCase();var res=document.getElementById('searchResults');if(!q){res.innerHTML='<div class="search-empty">Type to search tools...</div>';return;}var matches=tools.filter(function(t){return t.name.toLowerCase().includes(q)||t.tags.includes(q);});if(!matches.length){res.innerHTML='<div class="search-empty">No tools found</div>';return;}res.innerHTML=matches.slice(0,8).map(function(t){return '<a href="'+t.url+'" class="search-item"><span class="search-item-icon">'+t.icon+'</span>'+t.name+'</a>';}).join('');}
+</script></body>
 </html>

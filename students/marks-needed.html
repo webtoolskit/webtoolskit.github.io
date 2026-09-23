@@ -7,25 +7,37 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
   <link rel="canonical" href="https://webtoolskit.github.io/students/marks-needed.html"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Marks Needed Calculator — Pass or Distinction | WebToolsKit</title>
-<meta name="description" content="Find out exactly how many marks you need in your final exam to pass, get a distinction or hit your target grade. Free marks needed calculator — no signup needed.">
+  <title>Marks Needed Calculator — Pass Marks &amp; Distinction Out of 100, 80, 70 | WebToolsKit</title>
+<meta name="description" content="Find how many marks you need in your final exam to pass or get a distinction. Pass marks out of 100, 80, 70 and 200 explained. Free marks needed calculator.">
   <!-- Open Graph -->
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://webtoolskit.github.io/students/marks-needed.html"/>
-<meta property="og:title" content="Marks Needed Calculator — Pass or Get Distinction"/>
-<meta property="og:description" content="Find out exactly how many marks you need in your final exam to pass, get a distinction or hit your target grade. Free marks needed calculator — no signup."/>
+<meta property="og:title" content="Marks Needed Calculator — Pass Marks &amp; Distinction Out of 100, 80, 70"/>
+<meta property="og:description" content="Find how many marks you need in your final exam to pass or get a distinction. Pass marks out of 100, 80, 70 and 200 explained. Free marks needed calculator."/>
 <meta property="og:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
 
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:url" content="https://webtoolskit.github.io/students/marks-needed.html"/>
-<meta name="twitter:title" content="Marks Needed Calculator — Pass or Get Distinction"/>
-<meta name="twitter:description" content="Find out exactly how many marks you need in your final exam to pass, get a distinction or hit your target grade. Free marks needed calculator — no signup."/>
+<meta name="twitter:title" content="Marks Needed Calculator — Pass Marks &amp; Distinction Out of 100, 80, 70"/>
+<meta name="twitter:description" content="Find how many marks you need in your final exam to pass or get a distinction. Pass marks out of 100, 80, 70 and 200 explained. Free marks needed calculator."/>
 <meta name="twitter:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{--bg:#0f1117;--nav:#000000;--footer-bg:#000000;--card:#1a1d27;--border:#2a2d3a;--white:#ffffff;--grey:#8b8fa8;--light:#c8cad8;--yellow:#f5c518;--yellow2:#e6b800}
+    .search-wrap{position:relative;margin-left:8px}
+    .search-btn{background:transparent;border:1px solid var(--border);color:var(--grey);padding:7px 14px;border-radius:8px;cursor:pointer;font-size:.85rem;font-family:'DM Sans',sans-serif;font-weight:600;transition:all .2s;display:flex;align-items:center;gap:6px}
+    .search-btn:hover{color:var(--white);border-color:rgba(255,255,255,.3)}
+    .search-box{display:none;position:absolute;top:calc(100% + 10px);right:0;width:300px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:12px;z-index:200;box-shadow:0 20px 40px rgba(0,0,0,.5)}
+    .search-box.open{display:block}
+    .search-input{width:100%;background:#0f1117;border:1px solid var(--border);border-radius:10px;padding:10px 14px;color:var(--white);font-size:.9rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}
+    .search-input:focus{border-color:var(--yellow)}
+    .search-results{margin-top:8px;max-height:280px;overflow-y:auto}
+    .search-item{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;text-decoration:none;color:var(--light);font-size:.85rem;transition:background .15s}
+    .search-item:hover{background:rgba(255,255,255,.06);color:var(--white)}
+    .search-item-icon{font-size:1rem;width:24px;text-align:center;flex-shrink:0}
+    .search-empty{font-size:.82rem;color:var(--grey);text-align:center;padding:16px 0;font-family:'DM Sans',sans-serif}
     html{scroll-behavior:smooth}
     body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;min-height:100vh}
     nav{display:flex;align-items:center;justify-content:space-between;padding:18px 48px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--nav);backdrop-filter:blur(16px);z-index:100}
@@ -126,34 +138,114 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Q: What if the marks needed exceed the maximum?",
+      "name": "What if the marks needed exceed the maximum?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: If the calculator shows you need more than the maximum possible marks, your target is no longer achievable with the current scores. Adjust your target to the maximum achievable percentage given your current marks."
+        "text": "If the calculator shows you need more than the maximum possible marks, your target is no longer achievable with the current scores. Adjust your target to the maximum achievable percentage given your current marks."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: Can internal marks compensate for poor finals?",
+      "name": "Can internal marks compensate for poor finals?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: In most universities, you need to pass the final exam separately regardless of internal marks. A high internal score helps your aggregate but usually cannot compensate for failing the final."
+        "text": "In most universities, you need to pass the final exam separately regardless of internal marks. A high internal score helps your aggregate but usually cannot compensate for failing the final."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: What is the minimum passing marks in Indian universities?",
+      "name": "What is the minimum passing marks in Indian universities?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: Most universities require 35-40% in each subject to pass. Some professional courses require 45-50%. Always check your specific university's regulations."
+        "text": "Most universities require 35-40% in each subject to pass. Some professional courses require 45-50%. Always check your specific university's regulations."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: How are internal marks typically weighted?",
+      "name": "How are internal marks typically weighted?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: In most Indian universities, internals carry 20-30% weightage and finals carry 70-80%. Some universities use 40:60 or 50:50 splits. Check your examination regulations for exact weightage."
+        "text": "In most Indian universities, internals carry 20-30% weightage and finals carry 70-80%. Some universities use 40:60 or 50:50 splits. Check your examination regulations for exact weightage."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many marks do I need in my final exam to pass?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Enter your marks so far, the maximum marks so far, the final exam's maximum marks and your pass percentage. For example, with 30 out of 50 in internals, a 100-mark final and a 40% pass mark, you need 30 out of 100 in the final."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many marks do I need for a distinction?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Set the target to your university's distinction percentage (commonly 75%). With 30/50 in internals and a 100-mark final, you'd need 83 out of 100 in the final to reach 75% overall."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the pass marks out of 100?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on your board or university. CBSE's pass mark is 33% per subject, so 33 out of 100. Many universities use 35% or 40%, which means 35 or 40 out of 100. Check your own university's rules."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the pass marks out of 80?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "At 33% you need 27 out of 80 (26.4 rounded up), at 35% you need 28, and at 40% you need 32."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the pass marks out of 70?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "At 33% you need 24 out of 70 (23.1 rounded up), at 35% you need 25, and at 40% you need 28."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the pass mark for 200?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "At 33% the pass mark is 66 out of 200, at 35% it's 70, and at 40% it's 80."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many marks is a distinction out of 300?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If distinction is 75%, you need 225 out of 300. If your university uses 70%, it's 210. First class at 60% would be 180 out of 300."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What percentage is first class and distinction?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In many Indian universities, first class is 60% and above and distinction is 75% and above, though some use 70% for distinction. Your marksheet or university rules will state the exact cut-offs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does the calculator say my target is not possible?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It means the marks you need are more than the final exam's maximum. Lower your target percentage to see what is still achievable, or check whether internal marks, practicals or improvement exams can still be added."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this for internal assessments and practicals too?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Add all the marks you've already received — internals, assignments, practicals — to \"Marks Scored So Far\" and their total to \"Max Marks So Far\", then enter the remaining exam's maximum marks."
       }
     }
   ]
@@ -169,6 +261,13 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
     <a href="../health/index.html" class="nav-link c-g">🌿 Health</a>
     <a href="../freelance/index.html" class="nav-link c-p">💼 Freelance</a>
     <a href="../utility/index.html" class="nav-link c-r">⚡ Utility</a>
+  </div>
+  <div class="search-wrap">
+    <button class="search-btn" onclick="toggleSearch()">🔍 Search</button>
+    <div class="search-box" id="searchBox">
+      <input type="text" class="search-input" id="searchInput" placeholder="Search tools..." oninput="runSearch()"/>
+      <div class="search-results" id="searchResults"></div>
+    </div>
   </div>
 </nav>
 <div class="tool-hero">
@@ -201,7 +300,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
   <div class="content-card"><h2>What is this Tool?</h2><p>The Marks Needed Calculator tells you exactly how many marks you need to score in your upcoming final exam to achieve your desired overall percentage or grade. This tool eliminates the uncertainty of 'how much do I need to score?' that students face before final exams. Whether you're aiming to pass, get a first class, distinction, or a specific percentage for scholarship eligibility, this calculator gives you a clear target.</p></div>
   <div class="content-card"><h2>How to Use This Tool</h2><div class="steps"><div class="step"><div class="step-num">1</div><div class="step-text">Enter all the marks you have scored in assignments, internals, and midterms so far.</div></div><div class="step"><div class="step-num">2</div><div class="step-text">Enter the maximum possible marks for those assessments.</div></div><div class="step"><div class="step-num">3</div><div class="step-text">Enter the maximum marks for the final exam.</div></div><div class="step"><div class="step-num">4</div><div class="step-text">Enter your target overall percentage.</div></div><div class="step"><div class="step-num">5</div><div class="step-text">The exact marks you need in the final exam and whether it's achievable are shown instantly.</div></div></div></div>
   <div class="content-card"><h2>Why This Matters</h2><ul><li>Eliminate uncertainty and set a clear exam target</li><li>Know if your target is still achievable before the exam</li><li>Focus preparation energy on achievable and meaningful goals</li><li>Avoid over-preparing when you've already secured your target</li><li>Calculate minimum passing marks needed in each subject</li></ul></div>
-  <div class="content-card"><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">Q: What if the marks needed exceed the maximum?</div><div class="faq-a">A: If the calculator shows you need more than the maximum possible marks, your target is no longer achievable with the current scores. Adjust your target to the maximum achievable percentage given your current marks.</div></div><div class="faq-item"><div class="faq-q">Q: Can internal marks compensate for poor finals?</div><div class="faq-a">A: In most universities, you need to pass the final exam separately regardless of internal marks. A high internal score helps your aggregate but usually cannot compensate for failing the final.</div></div><div class="faq-item"><div class="faq-q">Q: What is the minimum passing marks in Indian universities?</div><div class="faq-a">A: Most universities require 35-40% in each subject to pass. Some professional courses require 45-50%. Always check your specific university's regulations.</div></div><div class="faq-item"><div class="faq-q">Q: How are internal marks typically weighted?</div><div class="faq-a">A: In most Indian universities, internals carry 20-30% weightage and finals carry 70-80%. Some universities use 40:60 or 50:50 splits. Check your examination regulations for exact weightage.</div></div></div>
+  <div class="content-card"><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">What if the marks needed exceed the maximum?</div><div class="faq-a">If the calculator shows you need more than the maximum possible marks, your target is no longer achievable with the current scores. Adjust your target to the maximum achievable percentage given your current marks.</div></div><div class="faq-item"><div class="faq-q">Can internal marks compensate for poor finals?</div><div class="faq-a">In most universities, you need to pass the final exam separately regardless of internal marks. A high internal score helps your aggregate but usually cannot compensate for failing the final.</div></div><div class="faq-item"><div class="faq-q">What is the minimum passing marks in Indian universities?</div><div class="faq-a">Most universities require 35-40% in each subject to pass. Some professional courses require 45-50%. Always check your specific university's regulations.</div></div><div class="faq-item"><div class="faq-q">How are internal marks typically weighted?</div><div class="faq-a">In most Indian universities, internals carry 20-30% weightage and finals carry 70-80%. Some universities use 40:60 or 50:50 splits. Check your examination regulations for exact weightage.</div></div><div class="faq-item"><div class="faq-q">How many marks do I need in my final exam to pass?</div><div class="faq-a">Enter your marks so far, the maximum marks so far, the final exam's maximum marks and your pass percentage. For example, with 30 out of 50 in internals, a 100-mark final and a 40% pass mark, you need <strong>30 out of 100</strong> in the final.</div></div><div class="faq-item"><div class="faq-q">How many marks do I need for a distinction?</div><div class="faq-a">Set the target to your university's distinction percentage (commonly 75%). With 30/50 in internals and a 100-mark final, you'd need <strong>83 out of 100</strong> in the final to reach 75% overall.</div></div><div class="faq-item"><div class="faq-q">What are the pass marks out of 100?</div><div class="faq-a">It depends on your board or university. CBSE's pass mark is 33% per subject, so 33 out of 100. Many universities use 35% or 40%, which means 35 or 40 out of 100. Check your own university's rules.</div></div><div class="faq-item"><div class="faq-q">What are the pass marks out of 80?</div><div class="faq-a">At 33% you need 27 out of 80 (26.4 rounded up), at 35% you need 28, and at 40% you need 32.</div></div><div class="faq-item"><div class="faq-q">What are the pass marks out of 70?</div><div class="faq-a">At 33% you need 24 out of 70 (23.1 rounded up), at 35% you need 25, and at 40% you need 28.</div></div><div class="faq-item"><div class="faq-q">What is the pass mark for 200?</div><div class="faq-a">At 33% the pass mark is 66 out of 200, at 35% it's 70, and at 40% it's 80.</div></div><div class="faq-item"><div class="faq-q">How many marks is a distinction out of 300?</div><div class="faq-a">If distinction is 75%, you need 225 out of 300. If your university uses 70%, it's 210. First class at 60% would be 180 out of 300.</div></div><div class="faq-item"><div class="faq-q">What percentage is first class and distinction?</div><div class="faq-a">In many Indian universities, first class is 60% and above and distinction is 75% and above, though some use 70% for distinction. Your marksheet or university rules will state the exact cut-offs.</div></div><div class="faq-item"><div class="faq-q">Why does the calculator say my target is not possible?</div><div class="faq-a">It means the marks you need are more than the final exam's maximum. Lower your target percentage to see what is still achievable, or check whether internal marks, practicals or improvement exams can still be added.</div></div><div class="faq-item"><div class="faq-q">Can I use this for internal assessments and practicals too?</div><div class="faq-a">Yes. Add all the marks you've already received — internals, assignments, practicals — to "Marks Scored So Far" and their total to "Max Marks So Far", then enter the remaining exam's maximum marks.</div></div></div>
   <div class="tip-box"><strong>💡 Pro Tip:</strong> Focus your exam preparation on high-weightage topics first. Most exams follow a pattern where 20% of the syllabus covers 80% of the marks — identify these topics from previous years' papers and master them before moving to lower-weightage areas.</div>
 </section>
 <section class="content-section" style="padding-top:0">
@@ -234,6 +333,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
       <a href="../legal/disclaimer.html">Disclaimer</a>
       <a href="../legal/terms-conditions.html">Terms &amp; Conditions</a>
       <a href="../legal/contact.html">Contact Us</a>
+      <a href="../legal/affiliate-disclosure.html">Affiliate Disclosure</a>
       <a href="../legal/copyright.html">Copyright</a>
     </div>
     <div class="sf-col"><h4>Quick Links</h4>
@@ -267,6 +367,25 @@ function calcNeeded(){
   document.getElementById('isPossible').textContent=needed<0?'✅ Already achieved!':possible?'✅ Yes':'❌ Not possible';
   document.getElementById('result').classList.add('show');
 }
+</script>
+<script>
+var tools=[
+  {name:'Marks Needed Calculator',icon:'🎯',url:'marks-needed.html',tags:'marks needed pass distinction final exam'},
+  {name:'Attendance Calculator',icon:'✅',url:'attendance-calculator.html',tags:'attendance 75 bunk viit vit sppu ecap'},
+  {name:'Percentage & Grade Calculator',icon:'📊',url:'percentage-grade.html',tags:'percentage grade marks cbse'},
+  {name:'CGPA Calculator',icon:'🎓',url:'cgpa-calculator.html',tags:'cgpa sgpa gpa percentage semester'},
+  {name:'NEET Study Planner',icon:'🩺',url:'neet-study-planner.html',tags:'neet study planner timetable biology'},
+  {name:'Study Planner',icon:'📅',url:'study-planner.html',tags:'study planner timetable jee board exam'},
+  {name:'Scholarship Eligibility Checker',icon:'🏆',url:'scholarship-checker.html',tags:'scholarship eligibility nsp'},
+  {name:'Career Aptitude Quiz',icon:'🧭',url:'career-aptitude.html',tags:'career aptitude test quiz'},
+  {name:'Education Loan EMI Calculator',icon:'🏦',url:'student-loan.html',tags:'education loan emi sbi canara credila'},
+  {name:'EMI Calculator',icon:'💰',url:'../finance/emi-calculator.html',tags:'emi loan home car personal'},
+  {name:'Word Counter',icon:'📝',url:'../utility/word-counter.html',tags:'word count characters'},
+  {name:'Pomodoro Timer',icon:'⏱️',url:'../utility/pomodoro-timer.html',tags:'pomodoro focus study timer'},
+];
+function toggleSearch(){var box=document.getElementById('searchBox');box.classList.toggle('open');if(box.classList.contains('open')){document.getElementById('searchInput').focus();runSearch();}}
+document.addEventListener('click',function(e){var wrap=document.querySelector('.search-wrap');if(wrap&&!wrap.contains(e.target))document.getElementById('searchBox').classList.remove('open');});
+function runSearch(){var q=document.getElementById('searchInput').value.toLowerCase();var res=document.getElementById('searchResults');if(!q){res.innerHTML='<div class="search-empty">Type to search tools...</div>';return;}var matches=tools.filter(function(t){return t.name.toLowerCase().includes(q)||t.tags.includes(q);});if(!matches.length){res.innerHTML='<div class="search-empty">No tools found</div>';return;}res.innerHTML=matches.slice(0,8).map(function(t){return '<a href="'+t.url+'" class="search-item"><span class="search-item-icon">'+t.icon+'</span>'+t.name+'</a>';}).join('');}
 </script>
 </body>
 </html>

@@ -7,24 +7,36 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
   <link rel="canonical" href="https://webtoolskit.github.io/students/study-planner.html"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>NEET Study Planner — Personalized Schedule Based on Weak Subjects | WebToolsKit</title>
-  <meta name="description" content="Create a personalized study schedule for NEET, JEE or any exam based on your weak subjects. Free study planner — enter subjects, hours and exam date for instant schedule. No signup.">
+  <title>Study Planner — Exam Timetable for JEE, Boards &amp; Semester Exams | WebToolsKit</title>
+  <meta name="description" content="Build a personalised study timetable for JEE, board exams, semester exams or any test — based on your weak subjects, daily hours and exam date. Free, no signup.">
   <!-- Open Graph -->
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://webtoolskit.github.io/students/study-planner.html"/>
-  <meta property="og:title" content="NEET Study Planner — Personalized Schedule Based on Weak Subjects"/>
-  <meta property="og:description" content="Create a personalized study schedule for NEET, JEE or any exam based on your weak subjects. Free study planner — no signup needed."/>
+  <meta property="og:title" content="Study Planner — Exam Timetable for JEE, Boards &amp; Semester Exams"/>
+  <meta property="og:description" content="Build a personalised study timetable for JEE, board exams, semester exams or any test — based on your weak subjects, daily hours and exam date. Free, no signup."/>
   <meta property="og:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image"/>
   <meta name="twitter:url" content="https://webtoolskit.github.io/students/study-planner.html"/>
-  <meta name="twitter:title" content="NEET Study Planner — Personalized Schedule Based on Weak Subjects"/>
-  <meta name="twitter:description" content="Create a personalized study schedule for NEET, JEE or any exam based on your weak subjects. Free study planner — no signup needed."/>
+  <meta name="twitter:title" content="Study Planner — Exam Timetable for JEE, Boards &amp; Semester Exams"/>
+  <meta name="twitter:description" content="Build a personalised study timetable for JEE, board exams, semester exams or any test — based on your weak subjects, daily hours and exam date. Free, no signup."/>
   <meta name="twitter:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{--bg:#0f1117;--nav:#000000;--footer-bg:#000000;--card:#1a1d27;--border:#2a2d3a;--white:#ffffff;--grey:#8b8fa8;--light:#c8cad8;--yellow:#f5c518;--yellow2:#e6b800;--teal:#1D9E75;--red:#c50337;--purple:#6c63ff}
+    .search-wrap{position:relative;margin-left:8px}
+    .search-btn{background:transparent;border:1px solid var(--border);color:var(--grey);padding:7px 14px;border-radius:8px;cursor:pointer;font-size:.85rem;font-family:'DM Sans',sans-serif;font-weight:600;transition:all .2s;display:flex;align-items:center;gap:6px}
+    .search-btn:hover{color:var(--white);border-color:rgba(255,255,255,.3)}
+    .search-box{display:none;position:absolute;top:calc(100% + 10px);right:0;width:300px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:12px;z-index:200;box-shadow:0 20px 40px rgba(0,0,0,.5)}
+    .search-box.open{display:block}
+    .search-input{width:100%;background:#0f1117;border:1px solid var(--border);border-radius:10px;padding:10px 14px;color:var(--white);font-size:.9rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}
+    .search-input:focus{border-color:var(--yellow)}
+    .search-results{margin-top:8px;max-height:280px;overflow-y:auto}
+    .search-item{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;text-decoration:none;color:var(--light);font-size:.85rem;transition:background .15s}
+    .search-item:hover{background:rgba(255,255,255,.06);color:var(--white)}
+    .search-item-icon{font-size:1rem;width:24px;text-align:center;flex-shrink:0}
+    .search-empty{font-size:.82rem;color:var(--grey);text-align:center;padding:16px 0;font-family:'DM Sans',sans-serif}
     html{scroll-behavior:smooth}
     body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;min-height:100vh}
     nav{display:flex;align-items:center;justify-content:space-between;padding:18px 48px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--nav);backdrop-filter:blur(16px);z-index:100}
@@ -146,34 +158,34 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Is there a tool that creates personalized NEET study schedules based on my weak subjects?",
+      "name": "Is there a free study planner that builds a timetable around my weak subjects?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes — this is exactly what this free NEET study planner does. Select NEET as your exam type, mark your weakest subjects (Physics, Chemistry or Biology) as High Priority, and the tool generates a personalized daily study schedule that gives more hours to your weak subjects automatically. No signup required."
+        "text": "Yes — enter your exam date, daily study hours and each subject with its priority, and this planner gives more time to the subjects you mark as weak. It works for JEE, board exams, semester exams, CUET or any other test. Preparing for NEET? Our NEET Study Planner adds chapter-level planning and a NEET countdown."
       }
     },
     {
       "@type": "Question",
-      "name": "How many hours should a NEET aspirant study per day?",
+      "name": "How many hours should I study per day?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Most NEET toppers study 8–12 hours per day in the final 3–6 months. However, quality matters more than quantity. 6 focused hours with active recall and practice problems beats 12 distracted hours. Enter your realistic daily hours in the planner — it will build your schedule accordingly."
+        "text": "It depends on the exam and how much time is left. Many students manage 3–4 focused hours alongside school or college, and 6–8 hours during full-time preparation. Consistent, focused hours with breaks work better than long, tired sessions — enter what you can realistically keep up."
       }
     },
     {
       "@type": "Question",
-      "name": "How should I divide study hours between Physics, Chemistry and Biology for NEET?",
+      "name": "How should I divide study time between subjects?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A common effective split is: Biology 40%, Chemistry 35%, Physics 25% — since Biology carries 360 out of 720 marks in NEET. However, if Physics is your weakest subject, increase Physics hours significantly. This planner lets you set your own priority for each subject based on your personal weak areas."
+        "text": "Give more time to subjects that are weak or carry more marks, but keep revising your strong subjects too. Set a higher priority for weak subjects in the planner and it shifts more hours to them automatically."
       }
     },
     {
       "@type": "Question",
-      "name": "How many months of preparation does NEET require?",
+      "name": "How many months before the exam should I start preparing?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Most NEET toppers recommend 12–18 months of dedicated preparation for a first attempt. For droppers retaking NEET, 6–8 focused months of revision and test practice is typically sufficient. Use this study planner with your specific exam date to see how many weeks you have and plan accordingly."
+        "text": "For big competitive exams like JEE or NEET, most students prepare for one to two years. For board and semester exams, starting two to three months ahead leaves time to finish the syllabus and revise. Enter your exam date and the planner spreads your hours across the days left."
       }
     },
     {
@@ -191,6 +203,54 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
         "@type": "Answer",
         "text": "The key is to study your weakest subject when your energy is highest — typically in the morning for most students. Schedule your weak subject first, then move to average subjects, leaving your strongest subject for the end of the day. This planner marks weak subjects as High Priority and shows you exactly how many hours to dedicate daily."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I make a study timetable for board exams?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "List every subject, mark your weak ones as high priority, and enter your exam date and the hours you can study each day. Keep the last two to three weeks for revision and sample papers — the planner shows how many hours each subject gets per day."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When is JEE Main 2027?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "According to NTA's 2027 exam calendar, JEE Main 2027 Session 1 is scheduled for 22–24 and 28–30 January 2027. Check the official NTA website for any changes, then enter your exam date above to build your plan."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I prepare for semester exams in two weeks?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Prioritise high-weightage units and subjects you're weakest in, use previous years' question papers to spot repeated topics, and keep the last two days for revision only. Enter a two-week exam date above to see your daily split."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How should I plan revision before an exam?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Plan at least two rounds of revision: a full pass through the syllabus, then a faster second pass focused on mistakes and weak topics. Short daily revision of earlier topics helps more than one long revision at the end."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I take a day off from studying every week?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "One lighter day a week usually helps you stay consistent and avoid burnout. Use the \"Days Off Per Week\" field to set it — the planner spreads your hours across the remaining days."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this planner for CUET, UPSC or other exams?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Choose the closest exam type or enter your own subjects, set their priority and your exam date. The planner works for any exam with multiple subjects."
+      }
     }
   ]
 }
@@ -205,6 +265,13 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
     <a href="../health/index.html" class="nav-link c-g">🌿 Health</a>
     <a href="../freelance/index.html" class="nav-link c-p">💼 Freelance</a>
     <a href="../utility/index.html" class="nav-link c-r">⚡ Utility</a>
+  </div>
+  <div class="search-wrap">
+    <button class="search-btn" onclick="toggleSearch()">🔍 Search</button>
+    <div class="search-box" id="searchBox">
+      <input type="text" class="search-input" id="searchInput" placeholder="Search tools..." oninput="runSearch()"/>
+      <div class="search-results" id="searchResults"></div>
+    </div>
   </div>
 </nav>
 <div class="tool-hero">
@@ -337,22 +404,10 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
 
   <div class="content-card">
     <h2>Frequently Asked Questions</h2>
-    <div class="faq-item">
-      <div class="faq-q">Is there a tool that creates personalized NEET study schedules based on my weak subjects?</div>
-      <div class="faq-a">Yes — this is exactly what this free NEET study planner does. Select NEET as your exam type, mark your weakest subjects (Physics, Chemistry or Biology) as High Priority, and the tool generates a personalized daily study schedule that gives more hours to your weak subjects automatically. No signup required.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">How many hours should a NEET aspirant study per day?</div>
-      <div class="faq-a">Most NEET toppers study 8–12 hours per day in the final 3–6 months. However, quality matters more than quantity. 6 focused hours with active recall and practice problems beats 12 distracted hours. Enter your realistic daily hours in the planner — it will build your schedule accordingly.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">How should I divide study hours between Physics, Chemistry and Biology for NEET?</div>
-      <div class="faq-a">A common effective split is: Biology 40%, Chemistry 35%, Physics 25% — since Biology carries 360 out of 720 marks in NEET. However, if Physics is your weakest subject, increase Physics hours significantly. This planner lets you set your own priority for each subject based on your personal weak areas.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">How many months of preparation does NEET require?</div>
-      <div class="faq-a">Most NEET toppers recommend 12–18 months of dedicated preparation for a first attempt. For droppers retaking NEET, 6–8 focused months of revision and test practice is typically sufficient. Use this study planner with your specific exam date to see how many weeks you have and plan accordingly.</div>
-    </div>
+    <div class="faq-item"><div class="faq-q">Is there a free study planner that builds a timetable around my weak subjects?</div><div class="faq-a">Yes — enter your exam date, daily study hours and each subject with its priority, and this planner gives more time to the subjects you mark as weak. It works for JEE, board exams, semester exams, CUET or any other test. Preparing for NEET? Our <a href="neet-study-planner.html" style="color:var(--yellow);font-weight:600">NEET Study Planner</a> adds chapter-level planning and a NEET countdown.</div></div>
+    <div class="faq-item"><div class="faq-q">How many hours should I study per day?</div><div class="faq-a">It depends on the exam and how much time is left. Many students manage 3–4 focused hours alongside school or college, and 6–8 hours during full-time preparation. Consistent, focused hours with breaks work better than long, tired sessions — enter what you can realistically keep up.</div></div>
+    <div class="faq-item"><div class="faq-q">How should I divide study time between subjects?</div><div class="faq-a">Give more time to subjects that are weak or carry more marks, but keep revising your strong subjects too. Set a higher priority for weak subjects in the planner and it shifts more hours to them automatically.</div></div>
+    <div class="faq-item"><div class="faq-q">How many months before the exam should I start preparing?</div><div class="faq-a">For big competitive exams like JEE or NEET, most students prepare for one to two years. For board and semester exams, starting two to three months ahead leaves time to finish the syllabus and revise. Enter your exam date and the planner spreads your hours across the days left.</div></div>
     <div class="faq-item">
       <div class="faq-q">Does this planner work for JEE preparation too?</div>
       <div class="faq-a">Yes — select JEE from the exam type dropdown and Physics, Chemistry and Mathematics will be pre-loaded. The same weak subject prioritization logic applies. Mark your weakest JEE subject as High Priority and the planner allocates extra hours to it automatically.</div>
@@ -360,7 +415,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
     <div class="faq-item">
       <div class="faq-q">How do I create a study timetable for weak subjects?</div>
       <div class="faq-a">The key is to study your weakest subject when your energy is highest — typically in the morning for most students. Schedule your weak subject first, then move to average subjects, leaving your strongest subject for the end of the day. This planner marks weak subjects as High Priority and shows you exactly how many hours to dedicate daily.</div>
-    </div>
+    </div><div class="faq-item"><div class="faq-q">How do I make a study timetable for board exams?</div><div class="faq-a">List every subject, mark your weak ones as high priority, and enter your exam date and the hours you can study each day. Keep the last two to three weeks for revision and sample papers — the planner shows how many hours each subject gets per day.</div></div><div class="faq-item"><div class="faq-q">When is JEE Main 2027?</div><div class="faq-a">According to NTA's 2027 exam calendar, JEE Main 2027 Session 1 is scheduled for 22–24 and 28–30 January 2027. Check the official NTA website for any changes, then enter your exam date above to build your plan.</div></div><div class="faq-item"><div class="faq-q">How do I prepare for semester exams in two weeks?</div><div class="faq-a">Prioritise high-weightage units and subjects you're weakest in, use previous years' question papers to spot repeated topics, and keep the last two days for revision only. Enter a two-week exam date above to see your daily split.</div></div><div class="faq-item"><div class="faq-q">How should I plan revision before an exam?</div><div class="faq-a">Plan at least two rounds of revision: a full pass through the syllabus, then a faster second pass focused on mistakes and weak topics. Short daily revision of earlier topics helps more than one long revision at the end.</div></div><div class="faq-item"><div class="faq-q">Should I take a day off from studying every week?</div><div class="faq-a">One lighter day a week usually helps you stay consistent and avoid burnout. Use the "Days Off Per Week" field to set it — the planner spreads your hours across the remaining days.</div></div><div class="faq-item"><div class="faq-q">Can I use this planner for CUET, UPSC or other exams?</div><div class="faq-a">Yes. Choose the closest exam type or enter your own subjects, set their priority and your exam date. The planner works for any exam with multiple subjects.</div></div>
   </div>
 
   <div class="tip-box"><strong>💡 Pro Tip for NEET aspirants:</strong> Don't skip Biology revision even if it feels easy — NEET Biology questions come directly from NCERT lines. Read NCERT Biology (Class 11 + 12) at least 5 times. Use this study planner to set a dedicated Biology revision slot every single day, even during the final week before NEET.</div>
@@ -396,6 +451,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
       <a href="../legal/disclaimer.html">Disclaimer</a>
       <a href="../legal/terms-conditions.html">Terms &amp; Conditions</a>
       <a href="../legal/contact.html">Contact Us</a>
+      <a href="../legal/affiliate-disclosure.html">Affiliate Disclosure</a>
       <a href="../legal/copyright.html">Copyright</a>
     </div>
     <div class="sf-col"><h4>Quick Links</h4>
@@ -524,6 +580,25 @@ function generatePlan(){
   document.getElementById('resultSection').classList.add('show');
   document.getElementById('resultSection').scrollIntoView({behavior:'smooth',block:'start'});
 }
+</script>
+<script>
+var tools=[
+  {name:'Study Planner',icon:'📅',url:'study-planner.html',tags:'study planner timetable jee board exam'},
+  {name:'Attendance Calculator',icon:'✅',url:'attendance-calculator.html',tags:'attendance 75 bunk viit vit sppu ecap'},
+  {name:'Percentage & Grade Calculator',icon:'📊',url:'percentage-grade.html',tags:'percentage grade marks cbse'},
+  {name:'CGPA Calculator',icon:'🎓',url:'cgpa-calculator.html',tags:'cgpa sgpa gpa percentage semester'},
+  {name:'Marks Needed Calculator',icon:'🎯',url:'marks-needed.html',tags:'marks needed pass distinction final exam'},
+  {name:'NEET Study Planner',icon:'🩺',url:'neet-study-planner.html',tags:'neet study planner timetable biology'},
+  {name:'Scholarship Eligibility Checker',icon:'🏆',url:'scholarship-checker.html',tags:'scholarship eligibility nsp'},
+  {name:'Career Aptitude Quiz',icon:'🧭',url:'career-aptitude.html',tags:'career aptitude test quiz'},
+  {name:'Education Loan EMI Calculator',icon:'🏦',url:'student-loan.html',tags:'education loan emi sbi canara credila'},
+  {name:'EMI Calculator',icon:'💰',url:'../finance/emi-calculator.html',tags:'emi loan home car personal'},
+  {name:'Word Counter',icon:'📝',url:'../utility/word-counter.html',tags:'word count characters'},
+  {name:'Pomodoro Timer',icon:'⏱️',url:'../utility/pomodoro-timer.html',tags:'pomodoro focus study timer'},
+];
+function toggleSearch(){var box=document.getElementById('searchBox');box.classList.toggle('open');if(box.classList.contains('open')){document.getElementById('searchInput').focus();runSearch();}}
+document.addEventListener('click',function(e){var wrap=document.querySelector('.search-wrap');if(wrap&&!wrap.contains(e.target))document.getElementById('searchBox').classList.remove('open');});
+function runSearch(){var q=document.getElementById('searchInput').value.toLowerCase();var res=document.getElementById('searchResults');if(!q){res.innerHTML='<div class="search-empty">Type to search tools...</div>';return;}var matches=tools.filter(function(t){return t.name.toLowerCase().includes(q)||t.tags.includes(q);});if(!matches.length){res.innerHTML='<div class="search-empty">No tools found</div>';return;}res.innerHTML=matches.slice(0,8).map(function(t){return '<a href="'+t.url+'" class="search-item"><span class="search-item-icon">'+t.icon+'</span>'+t.name+'</a>';}).join('');}
 </script>
 </body>
 </html>

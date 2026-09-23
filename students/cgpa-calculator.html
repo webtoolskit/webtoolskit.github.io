@@ -7,25 +7,37 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
   <link rel="canonical" href="https://webtoolskit.github.io/students/cgpa-calculator.html"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CGPA Calculator — Semester GPA & Credit Hours | WebToolsKit</title>
-<meta name="description" content="Calculate your CGPA from semester grades and credit hours instantly. Free CGPA calculator for Indian universities — supports 10-point grading scale, no signup.">
+  <title>CGPA Calculator &amp; CGPA to Percentage — CBSE, VTU, Anna, MU | WebToolsKit</title>
+<meta name="description" content="Calculate your CGPA from semester SGPA and credits, and convert CGPA to percentage using CBSE, VTU, Anna University and Mumbai University formulas. Free, no signup.">
   <!-- Open Graph -->
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://webtoolskit.github.io/students/cgpa-calculator.html"/>
-<meta property="og:title" content="CGPA Calculator — Semester GPA & Credit Hours"/>
-<meta property="og:description" content="Calculate your CGPA from semester grades and credit hours instantly. Free CGPA calculator for Indian universities — supports 10-point grading scale, no signup."/>
+<meta property="og:title" content="CGPA Calculator &amp; CGPA to Percentage — CBSE, VTU, Anna, MU"/>
+<meta property="og:description" content="Calculate your CGPA from semester SGPA and credits, and convert CGPA to percentage using CBSE, VTU, Anna University and Mumbai University formulas. Free, no signup."/>
 <meta property="og:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
 
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:url" content="https://webtoolskit.github.io/students/cgpa-calculator.html"/>
-<meta name="twitter:title" content="CGPA Calculator — Semester GPA & Credit Hours"/>
-<meta name="twitter:description" content="Calculate your CGPA from semester grades and credit hours instantly. Free CGPA calculator for Indian universities — supports 10-point grading scale, no signup."/>
+<meta name="twitter:title" content="CGPA Calculator &amp; CGPA to Percentage — CBSE, VTU, Anna, MU"/>
+<meta name="twitter:description" content="Calculate your CGPA from semester SGPA and credits, and convert CGPA to percentage using CBSE, VTU, Anna University and Mumbai University formulas. Free, no signup."/>
 <meta name="twitter:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{--bg:#0f1117;--nav:#000000;--footer-bg:#000000;--card:#1a1d27;--border:#2a2d3a;--white:#ffffff;--grey:#8b8fa8;--light:#c8cad8;--yellow:#f5c518;--yellow2:#e6b800}
+    .search-wrap{position:relative;margin-left:8px}
+    .search-btn{background:transparent;border:1px solid var(--border);color:var(--grey);padding:7px 14px;border-radius:8px;cursor:pointer;font-size:.85rem;font-family:'DM Sans',sans-serif;font-weight:600;transition:all .2s;display:flex;align-items:center;gap:6px}
+    .search-btn:hover{color:var(--white);border-color:rgba(255,255,255,.3)}
+    .search-box{display:none;position:absolute;top:calc(100% + 10px);right:0;width:300px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:12px;z-index:200;box-shadow:0 20px 40px rgba(0,0,0,.5)}
+    .search-box.open{display:block}
+    .search-input{width:100%;background:#0f1117;border:1px solid var(--border);border-radius:10px;padding:10px 14px;color:var(--white);font-size:.9rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}
+    .search-input:focus{border-color:var(--yellow)}
+    .search-results{margin-top:8px;max-height:280px;overflow-y:auto}
+    .search-item{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;text-decoration:none;color:var(--light);font-size:.85rem;transition:background .15s}
+    .search-item:hover{background:rgba(255,255,255,.06);color:var(--white)}
+    .search-item-icon{font-size:1rem;width:24px;text-align:center;flex-shrink:0}
+    .search-empty{font-size:.82rem;color:var(--grey);text-align:center;padding:16px 0;font-family:'DM Sans',sans-serif}
     html{scroll-behavior:smooth}
     body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;min-height:100vh}
     nav{display:flex;align-items:center;justify-content:space-between;padding:18px 48px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--nav);backdrop-filter:blur(16px);z-index:100}
@@ -126,34 +138,122 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Q: How is CGPA calculated?",
+      "name": "How is CGPA calculated?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: CGPA = Sum of (SGPA × Credits for each semester) ÷ Total Credits across all semesters. Each semester's SGPA is weighted by its credit load."
+        "text": "CGPA = Sum of (SGPA × Credits for each semester) ÷ Total Credits across all semesters. Each semester's SGPA is weighted by its credit load."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: How do I convert CGPA to percentage?",
+      "name": "How do I convert CGPA to percentage?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: Most Indian universities use: Percentage = CGPA × 9.5. Some universities use CGPA × 10. Check your university's official conversion formula as it varies."
+        "text": "Most Indian universities use: Percentage = CGPA × 9.5. Some universities use CGPA × 10. Check your university's official conversion formula as it varies."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: What CGPA is required for placements?",
+      "name": "What CGPA is required for placements?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: Most top companies require a minimum CGPA of 6.0 or 7.0. Premium companies and PSUs often require 7.5 or above. Government jobs through UPSC/SSC don't use CGPA."
+        "text": "Most top companies require a minimum CGPA of 6.0 or 7.0. Premium companies and PSUs often require 7.5 or above. Government jobs through UPSC/SSC don't use CGPA."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: What is the difference between SGPA and CGPA?",
+      "name": "What is the difference between SGPA and CGPA?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: SGPA (Semester Grade Point Average) is your GPA for a single semester. CGPA (Cumulative GPA) is the weighted average across all completed semesters."
+        "text": "SGPA (Semester Grade Point Average) is your GPA for a single semester. CGPA (Cumulative GPA) is the weighted average across all completed semesters."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I calculate CGPA from SGPA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Multiply each semester's SGPA by that semester's credits, add the results, and divide by the total credits. For example, 8.2 SGPA over 20 credits and 7.6 SGPA over 22 credits gives (164 + 167.2) ÷ 42 = 7.89 CGPA . Add your semesters above and the calculator does this for you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I calculate semester-wise CGPA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Add one row per semester with its SGPA and total credits. The CGPA updates as you add each semester, so you can see how every new semester moves your overall score."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I calculate SGPA for one semester?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SGPA = (credits × grade point for each subject, added together) ÷ total credits in that semester. For example, a 4-credit subject with grade point 9 and a 3-credit subject with grade point 8 give (36 + 24) ÷ 7 = 8.57 SGPA."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert CBSE CGPA to percentage?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Multiply your CGPA by 9.5. A CGPA of 8.4 is 8.4 × 9.5 = 79.8% . This is the CBSE formula, and it's the one this calculator uses for the percentage shown above."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the VTU CGPA to percentage formula?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "VTU's official formula is Percentage = (CGPA − 0.75) × 10, for the 2015, 2017 and 2018 schemes. A CGPA of 8.0 becomes (8.0 − 0.75) × 10 = 72.5% . Check VTU's website for newer schemes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Anna University CGPA to percentage formula?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Anna University is commonly converted as Percentage = CGPA × 10, so 8.0 CGPA is 80%. Confirm the formula for your regulation on your marksheet or with your college before using it on an application."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Mumbai University CGPA to percentage formula?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The commonly used Mumbai University formula is Percentage = 7.1 × CGPA + 11, so 8.0 CGPA is about 67.8%. Formulas can differ between schemes, so check the back of your marksheet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "My university isn't listed — how do I convert CGPA to percentage?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most universities print the official conversion formula on the back of the marksheet or in their ordinance. Use that formula for job and admission forms. The percentage shown by this calculator uses the CBSE ×9.5 formula as an estimate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a good CGPA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On a 10-point scale, 8 and above is generally considered strong, and 7–8 is good. Many companies and higher-study programmes set minimum CGPA cut-offs, so check the requirement for the specific company or course you're targeting."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I improve my CGPA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Focus on high-credit subjects first — they move your CGPA the most. Don't lose easy marks in internals, assignments and practicals, and clear any backlogs quickly. Use the calculator to test what SGPA you need next semester to reach your target."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert CGPA to a 4.0 GPA for studying abroad?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A simple (CGPA ÷ 10) × 4 gives only a rough idea. Universities abroad usually rely on their own evaluation or credential services like WES, which look at your full transcript, so don't treat the rough figure as official."
       }
     }
   ]
@@ -169,6 +269,13 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
     <a href="../health/index.html" class="nav-link c-g">🌿 Health</a>
     <a href="../freelance/index.html" class="nav-link c-p">💼 Freelance</a>
     <a href="../utility/index.html" class="nav-link c-r">⚡ Utility</a>
+  </div>
+  <div class="search-wrap">
+    <button class="search-btn" onclick="toggleSearch()">🔍 Search</button>
+    <div class="search-box" id="searchBox">
+      <input type="text" class="search-input" id="searchInput" placeholder="Search tools..." oninput="runSearch()"/>
+      <div class="search-results" id="searchResults"></div>
+    </div>
   </div>
 </nav>
 <div class="tool-hero">
@@ -192,14 +299,14 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
   <div class="result-grid">
     <div class="result-item"><div class="result-item-label">Total Credits</div><div class="result-item-val" id="totalCredits">0</div></div>
     <div class="result-item"><div class="result-item-label">Grade Points</div><div class="result-item-val" id="totalPoints">0</div></div>
-    <div class="result-item"><div class="result-item-label">Percentage</div><div class="result-item-val" id="cgpaPct">0%</div></div>
+    <div class="result-item"><div class="result-item-label">Percentage (×9.5)</div><div class="result-item-val" id="cgpaPct">0%</div></div>
   </div>
 </div></div>
 <section class="content-section">
   <div class="content-card"><h2>What is this Tool?</h2><p>The CGPA Calculator helps students calculate their Cumulative Grade Point Average from semester-wise grades and credit hours. CGPA is the weighted average of all grade points earned across all semesters, where each course's grade point is weighted by its credit hours. This tool supports the 10-point grading system used by most Indian universities including IITs, NITs, and affiliated colleges.</p></div>
   <div class="content-card"><h2>How to Use This Tool</h2><div class="steps"><div class="step"><div class="step-num">1</div><div class="step-text">Click 'Add Semester' to add each semester.</div></div><div class="step"><div class="step-num">2</div><div class="step-text">Enter the semester name, total credits earned, and SGPA for that semester.</div></div><div class="step"><div class="step-num">3</div><div class="step-text">Add all completed semesters.</div></div><div class="step"><div class="step-num">4</div><div class="step-text">Click Calculate CGPA to see your cumulative result.</div></div><div class="step"><div class="step-num">5</div><div class="step-text">Your CGPA, total credits, and percentage equivalent are shown instantly.</div></div></div></div>
   <div class="content-card"><h2>Why This Matters</h2><ul><li>Track academic progress across all semesters</li><li>Calculate CGPA for placement eligibility checks</li><li>Understand your percentage equivalent for applications</li><li>Set target CGPA goals for future semesters</li><li>Check eligibility for higher studies and scholarships</li></ul></div>
-  <div class="content-card"><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">Q: How is CGPA calculated?</div><div class="faq-a">A: CGPA = Sum of (SGPA × Credits for each semester) ÷ Total Credits across all semesters. Each semester's SGPA is weighted by its credit load.</div></div><div class="faq-item"><div class="faq-q">Q: How do I convert CGPA to percentage?</div><div class="faq-a">A: Most Indian universities use: Percentage = CGPA × 9.5. Some universities use CGPA × 10. Check your university's official conversion formula as it varies.</div></div><div class="faq-item"><div class="faq-q">Q: What CGPA is required for placements?</div><div class="faq-a">A: Most top companies require a minimum CGPA of 6.0 or 7.0. Premium companies and PSUs often require 7.5 or above. Government jobs through UPSC/SSC don't use CGPA.</div></div><div class="faq-item"><div class="faq-q">Q: What is the difference between SGPA and CGPA?</div><div class="faq-a">A: SGPA (Semester Grade Point Average) is your GPA for a single semester. CGPA (Cumulative GPA) is the weighted average across all completed semesters.</div></div></div>
+  <div class="content-card"><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">How is CGPA calculated?</div><div class="faq-a">CGPA = Sum of (SGPA × Credits for each semester) ÷ Total Credits across all semesters. Each semester's SGPA is weighted by its credit load.</div></div><div class="faq-item"><div class="faq-q">How do I convert CGPA to percentage?</div><div class="faq-a">Most Indian universities use: Percentage = CGPA × 9.5. Some universities use CGPA × 10. Check your university's official conversion formula as it varies.</div></div><div class="faq-item"><div class="faq-q">What CGPA is required for placements?</div><div class="faq-a">Most top companies require a minimum CGPA of 6.0 or 7.0. Premium companies and PSUs often require 7.5 or above. Government jobs through UPSC/SSC don't use CGPA.</div></div><div class="faq-item"><div class="faq-q">What is the difference between SGPA and CGPA?</div><div class="faq-a">SGPA (Semester Grade Point Average) is your GPA for a single semester. CGPA (Cumulative GPA) is the weighted average across all completed semesters.</div></div><div class="faq-item"><div class="faq-q">How do I calculate CGPA from SGPA?</div><div class="faq-a">Multiply each semester's SGPA by that semester's credits, add the results, and divide by the total credits. For example, 8.2 SGPA over 20 credits and 7.6 SGPA over 22 credits gives (164 + 167.2) ÷ 42 = <strong>7.89 CGPA</strong>. Add your semesters above and the calculator does this for you.</div></div><div class="faq-item"><div class="faq-q">How do I calculate semester-wise CGPA?</div><div class="faq-a">Add one row per semester with its SGPA and total credits. The CGPA updates as you add each semester, so you can see how every new semester moves your overall score.</div></div><div class="faq-item"><div class="faq-q">How do I calculate SGPA for one semester?</div><div class="faq-a">SGPA = (credits × grade point for each subject, added together) ÷ total credits in that semester. For example, a 4-credit subject with grade point 9 and a 3-credit subject with grade point 8 give (36 + 24) ÷ 7 = 8.57 SGPA.</div></div><div class="faq-item"><div class="faq-q">How do I convert CBSE CGPA to percentage?</div><div class="faq-a">Multiply your CGPA by 9.5. A CGPA of 8.4 is 8.4 × 9.5 = <strong>79.8%</strong>. This is the CBSE formula, and it's the one this calculator uses for the percentage shown above.</div></div><div class="faq-item"><div class="faq-q">What is the VTU CGPA to percentage formula?</div><div class="faq-a">VTU's official formula is Percentage = (CGPA − 0.75) × 10, for the 2015, 2017 and 2018 schemes. A CGPA of 8.0 becomes (8.0 − 0.75) × 10 = <strong>72.5%</strong>. Check VTU's website for newer schemes.</div></div><div class="faq-item"><div class="faq-q">What is the Anna University CGPA to percentage formula?</div><div class="faq-a">Anna University is commonly converted as Percentage = CGPA × 10, so 8.0 CGPA is 80%. Confirm the formula for your regulation on your marksheet or with your college before using it on an application.</div></div><div class="faq-item"><div class="faq-q">What is the Mumbai University CGPA to percentage formula?</div><div class="faq-a">The commonly used Mumbai University formula is Percentage = 7.1 × CGPA + 11, so 8.0 CGPA is about 67.8%. Formulas can differ between schemes, so check the back of your marksheet.</div></div><div class="faq-item"><div class="faq-q">My university isn't listed — how do I convert CGPA to percentage?</div><div class="faq-a">Most universities print the official conversion formula on the back of the marksheet or in their ordinance. Use that formula for job and admission forms. The percentage shown by this calculator uses the CBSE ×9.5 formula as an estimate.</div></div><div class="faq-item"><div class="faq-q">What is a good CGPA?</div><div class="faq-a">On a 10-point scale, 8 and above is generally considered strong, and 7–8 is good. Many companies and higher-study programmes set minimum CGPA cut-offs, so check the requirement for the specific company or course you're targeting.</div></div><div class="faq-item"><div class="faq-q">How can I improve my CGPA?</div><div class="faq-a">Focus on high-credit subjects first — they move your CGPA the most. Don't lose easy marks in internals, assignments and practicals, and clear any backlogs quickly. Use the calculator to test what SGPA you need next semester to reach your target.</div></div><div class="faq-item"><div class="faq-q">Can I convert CGPA to a 4.0 GPA for studying abroad?</div><div class="faq-a">A simple (CGPA ÷ 10) × 4 gives only a rough idea. Universities abroad usually rely on their own evaluation or credential services like WES, which look at your full transcript, so don't treat the rough figure as official.</div></div></div>
   <div class="tip-box"><strong>💡 Pro Tip:</strong> Even if your early semester CGPA is low, it can be significantly improved by consistently scoring high in later semesters — especially if later semesters have higher credit loads. Don't give up after a bad semester.</div>
 </section>
 <section class="content-section" style="padding-top:0">
@@ -232,6 +339,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
       <a href="../legal/disclaimer.html">Disclaimer</a>
       <a href="../legal/terms-conditions.html">Terms &amp; Conditions</a>
       <a href="../legal/contact.html">Contact Us</a>
+      <a href="../legal/affiliate-disclosure.html">Affiliate Disclosure</a>
       <a href="../legal/copyright.html">Copyright</a>
     </div>
     <div class="sf-col"><h4>Quick Links</h4>
@@ -278,6 +386,25 @@ function calcCGPA(){
   document.getElementById('result').classList.add('show');
 }
 addSem();addSem();addSem();addSem();
+</script>
+<script>
+var tools=[
+  {name:'CGPA Calculator',icon:'🎓',url:'cgpa-calculator.html',tags:'cgpa sgpa gpa percentage semester'},
+  {name:'Attendance Calculator',icon:'✅',url:'attendance-calculator.html',tags:'attendance 75 bunk viit vit sppu ecap'},
+  {name:'Percentage & Grade Calculator',icon:'📊',url:'percentage-grade.html',tags:'percentage grade marks cbse'},
+  {name:'Marks Needed Calculator',icon:'🎯',url:'marks-needed.html',tags:'marks needed pass distinction final exam'},
+  {name:'NEET Study Planner',icon:'🩺',url:'neet-study-planner.html',tags:'neet study planner timetable biology'},
+  {name:'Study Planner',icon:'📅',url:'study-planner.html',tags:'study planner timetable jee board exam'},
+  {name:'Scholarship Eligibility Checker',icon:'🏆',url:'scholarship-checker.html',tags:'scholarship eligibility nsp'},
+  {name:'Career Aptitude Quiz',icon:'🧭',url:'career-aptitude.html',tags:'career aptitude test quiz'},
+  {name:'Education Loan EMI Calculator',icon:'🏦',url:'student-loan.html',tags:'education loan emi sbi canara credila'},
+  {name:'EMI Calculator',icon:'💰',url:'../finance/emi-calculator.html',tags:'emi loan home car personal'},
+  {name:'Word Counter',icon:'📝',url:'../utility/word-counter.html',tags:'word count characters'},
+  {name:'Pomodoro Timer',icon:'⏱️',url:'../utility/pomodoro-timer.html',tags:'pomodoro focus study timer'},
+];
+function toggleSearch(){var box=document.getElementById('searchBox');box.classList.toggle('open');if(box.classList.contains('open')){document.getElementById('searchInput').focus();runSearch();}}
+document.addEventListener('click',function(e){var wrap=document.querySelector('.search-wrap');if(wrap&&!wrap.contains(e.target))document.getElementById('searchBox').classList.remove('open');});
+function runSearch(){var q=document.getElementById('searchInput').value.toLowerCase();var res=document.getElementById('searchResults');if(!q){res.innerHTML='<div class="search-empty">Type to search tools...</div>';return;}var matches=tools.filter(function(t){return t.name.toLowerCase().includes(q)||t.tags.includes(q);});if(!matches.length){res.innerHTML='<div class="search-empty">No tools found</div>';return;}res.innerHTML=matches.slice(0,8).map(function(t){return '<a href="'+t.url+'" class="search-item"><span class="search-item-icon">'+t.icon+'</span>'+t.name+'</a>';}).join('');}
 </script>
 </body>
 </html>

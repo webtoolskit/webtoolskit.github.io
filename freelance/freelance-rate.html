@@ -7,25 +7,37 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
   <link rel="canonical" href="https://webtoolskit.github.io/freelance/freelance-rate.html"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Freelance Rate Calculator — Hourly & Project Pricing | WebToolsKit</title>
-<meta name="description" content="Calculate your ideal hourly or per-project freelance rate based on income goals, expenses and working hours. Free rate calculator for Indian freelancers — no signup.">
+  <title>Freelance Rate Calculator India — Hourly &amp; Day Rate in ₹ | WebToolsKit</title>
+<meta name="description" content="How much should you charge as a freelancer in India? Calculate your hourly and day rate from your income goal, expenses, tax and billable hours. Free, no signup.">
   <!-- Open Graph -->
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://webtoolskit.github.io/freelance/freelance-rate.html"/>
-<meta property="og:title" content="Freelance Rate Calculator — Know What to Charge"/>
-<meta property="og:description" content="Calculate your ideal hourly or per-project freelance rate based on income goals, expenses and working hours. Free rate calculator for Indian freelancers."/>
+<meta property="og:title" content="Freelance Rate Calculator India — Hourly &amp; Day Rate in ₹"/>
+<meta property="og:description" content="How much should you charge as a freelancer in India? Calculate your hourly and day rate from your income goal, expenses, tax and billable hours. Free, no signup."/>
 <meta property="og:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
 
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:url" content="https://webtoolskit.github.io/freelance/freelance-rate.html"/>
-<meta name="twitter:title" content="Freelance Rate Calculator — Know What to Charge"/>
-<meta name="twitter:description" content="Calculate your ideal hourly or per-project freelance rate based on income goals, expenses and working hours. Free rate calculator for Indian freelancers."/>
+<meta name="twitter:title" content="Freelance Rate Calculator India — Hourly &amp; Day Rate in ₹"/>
+<meta name="twitter:description" content="How much should you charge as a freelancer in India? Calculate your hourly and day rate from your income goal, expenses, tax and billable hours. Free, no signup."/>
 <meta name="twitter:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{--bg:#0f1117;--nav:#000000;--footer-bg:#000000;--card:#1a1d27;--border:#2a2d3a;--white:#ffffff;--grey:#8b8fa8;--light:#c8cad8;--purple:#6c63ff;--purple2:#4f46e5}
+    .search-wrap{position:relative;margin-left:8px}
+    .search-btn{background:transparent;border:1px solid var(--border);color:var(--grey);padding:7px 14px;border-radius:8px;cursor:pointer;font-size:.85rem;font-family:'DM Sans',sans-serif;font-weight:600;transition:all .2s;display:flex;align-items:center;gap:6px}
+    .search-btn:hover{color:var(--white);border-color:rgba(255,255,255,.3)}
+    .search-box{display:none;position:absolute;top:calc(100% + 10px);right:0;width:300px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:12px;z-index:200;box-shadow:0 20px 40px rgba(0,0,0,.5)}
+    .search-box.open{display:block}
+    .search-input{width:100%;background:#0f1117;border:1px solid var(--border);border-radius:10px;padding:10px 14px;color:var(--white);font-size:.9rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}
+    .search-input:focus{border-color:var(--purple)}
+    .search-results{margin-top:8px;max-height:280px;overflow-y:auto}
+    .search-item{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;text-decoration:none;color:var(--light);font-size:.85rem;transition:background .15s}
+    .search-item:hover{background:rgba(255,255,255,.06);color:var(--white)}
+    .search-item-icon{font-size:1rem;width:24px;text-align:center;flex-shrink:0}
+    .search-empty{font-size:.82rem;color:var(--grey);text-align:center;padding:16px 0;font-family:'DM Sans',sans-serif}
     html{scroll-behavior:smooth}
     body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;min-height:100vh}
     nav{display:flex;align-items:center;justify-content:space-between;padding:18px 48px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--nav);backdrop-filter:blur(16px);z-index:100}
@@ -139,34 +151,114 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Q: Why should my rate be higher than my employee equivalent?",
+      "name": "Why should my rate be higher than my employee equivalent?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: As a freelancer you pay both employee and employer PF/social security contributions, have no paid leave, no employer benefits, and must cover your own business expenses. Your rate should be 30-50% higher than an equivalent employee's hourly rate."
+        "text": "As a freelancer you pay both employee and employer PF/social security contributions, have no paid leave, no employer benefits, and must cover your own business expenses. Your rate should be 30-50% higher than an equivalent employee's hourly rate."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: What counts as billable hours?",
+      "name": "What counts as billable hours?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: Only the time you directly spend working on client projects is billable. Meetings, admin, invoicing, marketing, and learning are non-billable — this is why 6 billable hours per 8-hour day is realistic."
+        "text": "Only the time you directly spend working on client projects is billable. Meetings, admin, invoicing, marketing, and learning are non-billable — this is why 6 billable hours per 8-hour day is realistic."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: Should I charge different rates for different clients?",
+      "name": "Should I charge different rates for different clients?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: Yes. You can charge higher rates for complex projects, urgent timelines, unpleasant work, or clients with large budgets. Use this calculator's result as your floor, not your ceiling."
+        "text": "Yes. You can charge higher rates for complex projects, urgent timelines, unpleasant work, or clients with large budgets. Use this calculator's result as your floor, not your ceiling."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: How do I raise my rates with existing clients?",
+      "name": "How do I raise my rates with existing clients?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: Give at least 30 days notice, justify the increase with value delivered, and consider grandfathering long-term loyal clients at a smaller increase. Most clients expect annual rate increases."
+        "text": "Give at least 30 days notice, justify the increase with value delivered, and consider grandfathering long-term loyal clients at a smaller increase. Most clients expect annual rate increases."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much should I charge as a freelancer in India?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Work backwards from what you need to earn, not from what others charge. Add your target monthly income and business expenses, adjust for tax and a savings buffer, then divide by the hours you can actually bill. For example, ₹50,000 take-home with ₹5,000 expenses, 10% tax, a 20% buffer and 120 billable hours a month works out to about ₹611 per hour."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I calculate my freelance hourly rate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hourly rate = (desired income + expenses) ÷ (1 − tax rate) × (1 + buffer) ÷ billable hours per month. Billable hours are only the hours you can charge a client for — not admin, pitching or invoicing. Most freelancers bill 4–6 hours a day, not 8."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert my salary into a freelance rate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Don't just divide your salary by working hours. As a freelancer you pay for your own laptop, software, internet, leave and gaps between projects, and there is no employer PF or bonus. A common rule of thumb is to charge at least 1.5–2 times your salaried hourly equivalent — use the calculator above to find your exact number."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I charge hourly or per project?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hourly works well when the scope is unclear or keeps changing. Per-project pricing works better once you can estimate the work accurately, because getting faster raises your effective hourly rate instead of lowering your bill. Many freelancers calculate an hourly rate first, then use it to quote fixed project prices."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a day rate and how do I calculate it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A day rate is what you charge for one full working day. Multiply your hourly rate by the billable hours in a day — for example, ₹611 per hour × 6 hours ≈ ₹3,667 per day. Day rates are common for consulting, workshops and on-site work."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How should I price international clients in dollars?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Calculate your rupee rate first, then convert it at the current exchange rate and add a margin for payment platform and currency conversion fees, which can take a noticeable cut. Many freelancers also price slightly higher for overseas clients because the market rate there is higher, not just the currency."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does my freelance rate include GST?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — quote your rate excluding GST. If you are GST-registered, you add GST (18% for most freelance services) on top of your fee in the invoice. If your turnover is below ₹20 lakh (₹10 lakh in special category states) you are usually not required to register, and then you don't charge GST at all."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What tax do freelancers pay in India?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Freelance income is taxed at your normal income tax slab rates. Under the new tax regime for FY 2026-27, income up to ₹12 lakh is effectively tax-free because of the rebate. Some professionals can also opt for a presumptive scheme that taxes 50% of receipts. Rules depend on your profession, so check with a CA."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What percentage should I add for taxes and savings?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Set the tax field to the slab rate you expect on your freelance income and keep a 15–25% buffer for savings, sick days and months with fewer projects. Freelance income is irregular — the buffer is what keeps a slow month from becoming a crisis."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How often should I raise my freelance rates?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Review your rates at least once a year, and whenever you are consistently booked out. Give existing clients 30–60 days' notice and apply the new rate to new projects first. Raising rates slightly each year is usually easier than one big jump."
       }
     }
   ]
@@ -182,6 +274,13 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
     <a href="../health/index.html" class="nav-link c-g">🌿 Health</a>
     <a href="../students/index.html" class="nav-link c-y">🎓 Students</a>
     <a href="../utility/index.html" class="nav-link c-r">⚡ Utility</a>
+  </div>
+  <div class="search-wrap">
+    <button class="search-btn" onclick="toggleSearch()">🔍 Search</button>
+    <div class="search-box" id="searchBox">
+      <input type="text" class="search-input" id="searchInput" placeholder="Search tools..." oninput="runSearch()"/>
+      <div class="search-results" id="searchResults"></div>
+    </div>
   </div>
 </nav>
 <div class="tool-hero">
@@ -216,7 +315,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
   <div class="content-card"><h2>What is this Tool?</h2><p>The Freelance Rate Calculator helps you determine the minimum hourly or daily rate you should charge clients to meet your income goals, cover business expenses, pay taxes, and save for the future. One of the biggest mistakes new freelancers make is undercharging — often because they calculate rates based on what they earned as an employee, without accounting for self-employment taxes, non-billable hours, business expenses, and income gaps between projects.</p></div>
   <div class="content-card"><h2>How to Use This Tool</h2><div class="steps"><div class="step"><div class="step-num">1</div><div class="step-text">Enter your desired monthly take-home income after all deductions.</div></div><div class="step"><div class="step-num">2</div><div class="step-text">Enter your monthly business expenses — internet, software, equipment, co-working space.</div></div><div class="step"><div class="step-num">3</div><div class="step-text">Enter how many days per month you plan to work.</div></div><div class="step"><div class="step-num">4</div><div class="step-text">Enter realistic billable hours per day — not all your working time is billable.</div></div><div class="step"><div class="step-num">5</div><div class="step-text">Enter your estimated tax rate and desired savings buffer.</div></div><div class="step"><div class="step-num">6</div><div class="step-text">Your minimum hourly and daily rates are calculated instantly.</div></div></div></div>
   <div class="content-card"><h2>Why This Matters</h2><ul><li>Prevents the #1 freelance mistake — chronic undercharging</li><li>Accounts for non-billable time like admin, marketing, and client calls</li><li>Builds in tax obligations from day one</li><li>Includes a buffer for lean months and savings</li><li>Gives you a confident, justified number when quoting clients</li></ul></div>
-  <div class="content-card"><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">Q: Why should my rate be higher than my employee equivalent?</div><div class="faq-a">A: As a freelancer you pay both employee and employer PF/social security contributions, have no paid leave, no employer benefits, and must cover your own business expenses. Your rate should be 30-50% higher than an equivalent employee's hourly rate.</div></div><div class="faq-item"><div class="faq-q">Q: What counts as billable hours?</div><div class="faq-a">A: Only the time you directly spend working on client projects is billable. Meetings, admin, invoicing, marketing, and learning are non-billable — this is why 6 billable hours per 8-hour day is realistic.</div></div><div class="faq-item"><div class="faq-q">Q: Should I charge different rates for different clients?</div><div class="faq-a">A: Yes. You can charge higher rates for complex projects, urgent timelines, unpleasant work, or clients with large budgets. Use this calculator's result as your floor, not your ceiling.</div></div><div class="faq-item"><div class="faq-q">Q: How do I raise my rates with existing clients?</div><div class="faq-a">A: Give at least 30 days notice, justify the increase with value delivered, and consider grandfathering long-term loyal clients at a smaller increase. Most clients expect annual rate increases.</div></div></div>
+  <div class="content-card"><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">Why should my rate be higher than my employee equivalent?</div><div class="faq-a">As a freelancer you pay both employee and employer PF/social security contributions, have no paid leave, no employer benefits, and must cover your own business expenses. Your rate should be 30-50% higher than an equivalent employee's hourly rate.</div></div><div class="faq-item"><div class="faq-q">What counts as billable hours?</div><div class="faq-a">Only the time you directly spend working on client projects is billable. Meetings, admin, invoicing, marketing, and learning are non-billable — this is why 6 billable hours per 8-hour day is realistic.</div></div><div class="faq-item"><div class="faq-q">Should I charge different rates for different clients?</div><div class="faq-a">Yes. You can charge higher rates for complex projects, urgent timelines, unpleasant work, or clients with large budgets. Use this calculator's result as your floor, not your ceiling.</div></div><div class="faq-item"><div class="faq-q">How do I raise my rates with existing clients?</div><div class="faq-a">Give at least 30 days notice, justify the increase with value delivered, and consider grandfathering long-term loyal clients at a smaller increase. Most clients expect annual rate increases.</div></div><div class="faq-item"><div class="faq-q">How much should I charge as a freelancer in India?</div><div class="faq-a">Work backwards from what you need to earn, not from what others charge. Add your target monthly income and business expenses, adjust for tax and a savings buffer, then divide by the hours you can actually bill. For example, ₹50,000 take-home with ₹5,000 expenses, 10% tax, a 20% buffer and 120 billable hours a month works out to about ₹611 per hour.</div></div><div class="faq-item"><div class="faq-q">How do I calculate my freelance hourly rate?</div><div class="faq-a">Hourly rate = (desired income + expenses) ÷ (1 − tax rate) × (1 + buffer) ÷ billable hours per month. Billable hours are only the hours you can charge a client for — not admin, pitching or invoicing. Most freelancers bill 4–6 hours a day, not 8.</div></div><div class="faq-item"><div class="faq-q">How do I convert my salary into a freelance rate?</div><div class="faq-a">Don't just divide your salary by working hours. As a freelancer you pay for your own laptop, software, internet, leave and gaps between projects, and there is no employer PF or bonus. A common rule of thumb is to charge at least 1.5–2 times your salaried hourly equivalent — use the calculator above to find your exact number.</div></div><div class="faq-item"><div class="faq-q">Should I charge hourly or per project?</div><div class="faq-a">Hourly works well when the scope is unclear or keeps changing. Per-project pricing works better once you can estimate the work accurately, because getting faster raises your effective hourly rate instead of lowering your bill. Many freelancers calculate an hourly rate first, then use it to quote fixed project prices.</div></div><div class="faq-item"><div class="faq-q">What is a day rate and how do I calculate it?</div><div class="faq-a">A day rate is what you charge for one full working day. Multiply your hourly rate by the billable hours in a day — for example, ₹611 per hour × 6 hours ≈ ₹3,667 per day. Day rates are common for consulting, workshops and on-site work.</div></div><div class="faq-item"><div class="faq-q">How should I price international clients in dollars?</div><div class="faq-a">Calculate your rupee rate first, then convert it at the current exchange rate and add a margin for payment platform and currency conversion fees, which can take a noticeable cut. Many freelancers also price slightly higher for overseas clients because the market rate there is higher, not just the currency.</div></div><div class="faq-item"><div class="faq-q">Does my freelance rate include GST?</div><div class="faq-a">No — quote your rate excluding GST. If you are GST-registered, you add GST (18% for most freelance services) on top of your fee in the invoice. If your turnover is below ₹20 lakh (₹10 lakh in special category states) you are usually not required to register, and then you don't charge GST at all.</div></div><div class="faq-item"><div class="faq-q">What tax do freelancers pay in India?</div><div class="faq-a">Freelance income is taxed at your normal income tax slab rates. Under the new tax regime for FY 2026-27, income up to ₹12 lakh is effectively tax-free because of the rebate. Some professionals can also opt for a presumptive scheme that taxes 50% of receipts. Rules depend on your profession, so check with a CA.</div></div><div class="faq-item"><div class="faq-q">What percentage should I add for taxes and savings?</div><div class="faq-a">Set the tax field to the slab rate you expect on your freelance income and keep a 15–25% buffer for savings, sick days and months with fewer projects. Freelance income is irregular — the buffer is what keeps a slow month from becoming a crisis.</div></div><div class="faq-item"><div class="faq-q">How often should I raise my freelance rates?</div><div class="faq-a">Review your rates at least once a year, and whenever you are consistently booked out. Give existing clients 30–60 days' notice and apply the new rate to new projects first. Raising rates slightly each year is usually easier than one big jump.</div></div></div>
   <div class="tip-box"><strong>💡 Pro Tip:</strong> Add 30% to whatever rate this calculator gives you as your starting quote. Clients almost always negotiate down — you need room. If nobody ever pushes back on your rate, you're charging too little.</div>
 </section>
 <section class="content-section" style="padding-top:0">
@@ -249,6 +348,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
       <a href="../legal/disclaimer.html">Disclaimer</a>
       <a href="../legal/terms-conditions.html">Terms &amp; Conditions</a>
       <a href="../legal/contact.html">Contact Us</a>
+      <a href="../legal/affiliate-disclosure.html">Affiliate Disclosure</a>
       <a href="../legal/copyright.html">Copyright</a>
     </div>
     <div class="sf-col"><h4>Quick Links</h4>
@@ -283,6 +383,25 @@ function calcRate(){
   document.getElementById('annualTarget').textContent=fmt(gross*12);
   document.getElementById('result').classList.add('show');
 }
+</script>
+<script>
+var tools=[
+  {name:'Freelance Rate Calculator',icon:'💰',url:'freelance-rate.html',tags:'freelance rate hourly daily pricing'},
+  {name:'Appraisal Simulator',icon:'🎯',url:'appraisal-simulator.html',tags:'appraisal raise hike simulator negotiation'},
+  {name:'Client Worth Calculator',icon:'🤝',url:'client-worth.html',tags:'client worth value ltv freelance'},
+  {name:'Invoice Generator',icon:'🧾',url:'invoice-generator.html',tags:'invoice generator freelance billing'},
+  {name:'Notice Period Calculator',icon:'📅',url:'notice-period.html',tags:'notice period resignation last day'},
+  {name:'Project Profit Calculator',icon:'📊',url:'project-profit.html',tags:'project profit margin freelance'},
+  {name:'Side Hustle Income Calculator',icon:'💡',url:'side-hustle.html',tags:'side hustle income extra earnings'},
+  {name:'WFH Cost Calculator',icon:'🏠',url:'wfh-cost.html',tags:'work from home cost wfh expenses'},
+  {name:'EMI Calculator',icon:'💰',url:'../finance/emi-calculator.html',tags:'emi loan home car personal'},
+  {name:'Attendance Calculator',icon:'✅',url:'../students/attendance-calculator.html',tags:'attendance viit vit sppu'},
+  {name:'Word Counter',icon:'📝',url:'../utility/word-counter.html',tags:'word count characters'},
+  {name:'QR Generator',icon:'📱',url:'../utility/qr-generator.html',tags:'qr code generator'},
+];
+function toggleSearch(){var box=document.getElementById('searchBox');box.classList.toggle('open');if(box.classList.contains('open')){document.getElementById('searchInput').focus();runSearch();}}
+document.addEventListener('click',function(e){var wrap=document.querySelector('.search-wrap');if(wrap&&!wrap.contains(e.target))document.getElementById('searchBox').classList.remove('open');});
+function runSearch(){var q=document.getElementById('searchInput').value.toLowerCase();var res=document.getElementById('searchResults');if(!q){res.innerHTML='<div class="search-empty">Type to search tools...</div>';return;}var matches=tools.filter(function(t){return t.name.toLowerCase().includes(q)||t.tags.includes(q);});if(!matches.length){res.innerHTML='<div class="search-empty">No tools found</div>';return;}res.innerHTML=matches.slice(0,8).map(function(t){return '<a href="'+t.url+'" class="search-item"><span class="search-item-icon">'+t.icon+'</span>'+t.name+'</a>';}).join('');}
 </script>
 </body>
 </html>

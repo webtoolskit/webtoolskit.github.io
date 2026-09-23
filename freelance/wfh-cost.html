@@ -7,25 +7,37 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
   <link rel="canonical" href="https://webtoolskit.github.io/freelance/wfh-cost.html"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>WFH Cost Calculator — True Work From Home Expenses | WebToolsKit</title>
-<meta name="description" content="Find out how much working from home is really costing you per month — electricity, internet, snacks and more. Free WFH cost calculator for remote workers.">
+  <title>WFH Cost Calculator — Work From Home Expenses Per Month | WebToolsKit</title>
+<meta name="description" content="How much does working from home really cost? Calculate your monthly WFH expenses — electricity, internet, software and more — per month, year and working day.">
   <!-- Open Graph -->
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://webtoolskit.github.io/freelance/wfh-cost.html"/>
-<meta property="og:title" content="WFH Cost Calculator — True Work From Home Expenses"/>
-<meta property="og:description" content="Find out how much working from home is really costing you per month — electricity, internet, snacks and more. Free WFH cost calculator for remote workers."/>
+<meta property="og:title" content="WFH Cost Calculator — Work From Home Expenses Per Month"/>
+<meta property="og:description" content="How much does working from home really cost? Calculate your monthly WFH expenses — electricity, internet, software and more — per month, year and working day."/>
 <meta property="og:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
 
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:url" content="https://webtoolskit.github.io/freelance/wfh-cost.html"/>
-<meta name="twitter:title" content="WFH Cost Calculator — True Work From Home Expenses"/>
-<meta name="twitter:description" content="Find out how much working from home is really costing you per month — electricity, internet, snacks and more. Free WFH cost calculator for remote workers."/>
+<meta name="twitter:title" content="WFH Cost Calculator — Work From Home Expenses Per Month"/>
+<meta name="twitter:description" content="How much does working from home really cost? Calculate your monthly WFH expenses — electricity, internet, software and more — per month, year and working day."/>
 <meta name="twitter:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{--bg:#0f1117;--nav:#000000;--footer-bg:#000000;--card:#1a1d27;--border:#2a2d3a;--white:#ffffff;--grey:#8b8fa8;--light:#c8cad8;--purple:#6c63ff;--purple2:#4f46e5}
+    .search-wrap{position:relative;margin-left:8px}
+    .search-btn{background:transparent;border:1px solid var(--border);color:var(--grey);padding:7px 14px;border-radius:8px;cursor:pointer;font-size:.85rem;font-family:'DM Sans',sans-serif;font-weight:600;transition:all .2s;display:flex;align-items:center;gap:6px}
+    .search-btn:hover{color:var(--white);border-color:rgba(255,255,255,.3)}
+    .search-box{display:none;position:absolute;top:calc(100% + 10px);right:0;width:300px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:12px;z-index:200;box-shadow:0 20px 40px rgba(0,0,0,.5)}
+    .search-box.open{display:block}
+    .search-input{width:100%;background:#0f1117;border:1px solid var(--border);border-radius:10px;padding:10px 14px;color:var(--white);font-size:.9rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}
+    .search-input:focus{border-color:var(--purple)}
+    .search-results{margin-top:8px;max-height:280px;overflow-y:auto}
+    .search-item{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;text-decoration:none;color:var(--light);font-size:.85rem;transition:background .15s}
+    .search-item:hover{background:rgba(255,255,255,.06);color:var(--white)}
+    .search-item-icon{font-size:1rem;width:24px;text-align:center;flex-shrink:0}
+    .search-empty{font-size:.82rem;color:var(--grey);text-align:center;padding:16px 0;font-family:'DM Sans',sans-serif}
     html{scroll-behavior:smooth}
     body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;min-height:100vh}
     nav{display:flex;align-items:center;justify-content:space-between;padding:18px 48px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--nav);backdrop-filter:blur(16px);z-index:100}
@@ -139,34 +151,114 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Q: Can I claim WFH expenses as tax deductions in India?",
+      "name": "Can I claim WFH expenses as tax deductions in India?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: Self-employed individuals and freelancers can claim the work-use proportion of electricity, internet, rent, and equipment as business expenses under the Income Tax Act. Keep all bills and receipts."
+        "text": "Self-employed individuals and freelancers can claim the work-use proportion of electricity, internet, rent, and equipment as business expenses under the Income Tax Act. Keep all bills and receipts."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: What percentage of electricity is typically work-related?",
+      "name": "What percentage of electricity is typically work-related?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: For a home office used exclusively for work during working hours, 30-50% of the electricity bill is typically attributed to work. This includes computer, monitor, AC/fan, and lighting."
+        "text": "For a home office used exclusively for work during working hours, 30-50% of the electricity bill is typically attributed to work. This includes computer, monitor, AC/fan, and lighting."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: Is working from a cafe deductible?",
+      "name": "Is working from a cafe deductible?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: Coffee shop expenses incurred while working are generally deductible as business expenses for self-employed individuals. Keep receipts and note what work was done."
+        "text": "Coffee shop expenses incurred while working are generally deductible as business expenses for self-employed individuals. Keep receipts and note what work was done."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: Should WFH costs be included in my freelance rate?",
+      "name": "Should WFH costs be included in my freelance rate?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: Yes. Every legitimate business cost should be factored into your pricing. Your rate should cover all expenses plus profit — WFH costs are real business overheads, not personal expenses."
+        "text": "Yes. Every legitimate business cost should be factored into your pricing. Your rate should cover all expenses plus profit — WFH costs are real business overheads, not personal expenses."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does working from home cost per month?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It varies, but a typical setup adds up quickly. For example, 40% of a ₹2,000 electricity bill, 70% of ₹1,000 internet, ₹1,500 software, ₹300 supplies and ₹500 other costs come to ₹3,800 a month — about ₹45,600 a year, or roughly ₹173 per working day."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I calculate my work-from-home expenses?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Add the work share of shared bills (electricity and internet) to costs used only for work, like software, supplies and co-working. The calculator splits shared bills by the percentage you use for work, then shows monthly, yearly and per-day totals."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much electricity does working from home use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A laptop typically draws around 30–70 watts, while a desktop with a monitor uses more. Fans, lights and especially air-conditioning often cost more than the computer itself. Estimate your work share of the bill and enter it as a percentage above."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is working from home cheaper than going to office?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Often yes, once you include commuting, fuel or cab fares and meals out. Compare your WFH cost with your commuting cost using our Fuel Cost Calculator to see the real difference."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I claim work-from-home expenses in income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Salaried employees generally cannot claim WFH expenses separately. Freelancers who compute actual business income can deduct genuine business expenses like the work share of internet and electricity. If you use a presumptive tax scheme, separate expense claims usually don't apply — check with a CA."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How should freelancers include WFH costs in their rates?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Treat WFH costs as business expenses. Add the monthly total to the expenses field in our Freelance Rate Calculator, or use the per-hour figure shown here to see how much each billable hour needs to cover."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I ask my employer for a WFH allowance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If you work from home regularly, it's reasonable to ask. Use the calculator's monthly total as evidence of your real costs when you raise it with HR."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does a co-working space cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Prices vary widely by city and facilities, from day passes to monthly dedicated desks. Enter what you pay (or plan to pay) in the co-working field to see how it changes your total monthly cost."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I reduce my WFH expenses?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use natural light, switch off devices fully after work, choose an internet plan that matches your actual usage and cancel software subscriptions you rarely use. Our Subscription Trap Calculator can help you spot the ones quietly draining money."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does WFH cost include my laptop and furniture?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "One-time purchases like a laptop, chair or desk are better spread over their useful life. For example, a ₹12,000 chair used for two years costs ₹500 a month — add that to \"Other WFH Expenses\" for a more complete picture."
       }
     }
   ]
@@ -182,6 +274,13 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
     <a href="../health/index.html" class="nav-link c-g">🌿 Health</a>
     <a href="../students/index.html" class="nav-link c-y">🎓 Students</a>
     <a href="../utility/index.html" class="nav-link c-r">⚡ Utility</a>
+  </div>
+  <div class="search-wrap">
+    <button class="search-btn" onclick="toggleSearch()">🔍 Search</button>
+    <div class="search-box" id="searchBox">
+      <input type="text" class="search-input" id="searchInput" placeholder="Search tools..." oninput="runSearch()"/>
+      <div class="search-results" id="searchResults"></div>
+    </div>
   </div>
 </nav>
 <div class="tool-hero">
@@ -218,7 +317,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
   <div class="content-card"><h2>What is this Tool?</h2><p>The WFH Cost Calculator helps freelancers and remote workers understand the true monthly cost of working from home. When you work from home, your household bills — electricity, internet, furniture wear and tear, heating and cooling — increase significantly. These are legitimate business expenses that should be factored into your freelance rates. Many freelancers forget to account for these costs, effectively subsidising their clients' overhead.</p></div>
   <div class="content-card"><h2>How to Use This Tool</h2><div class="steps"><div class="step"><div class="step-num">1</div><div class="step-text">Enter your total monthly electricity bill and the percentage attributable to work.</div></div><div class="step"><div class="step-num">2</div><div class="step-text">Enter your internet bill and the work-use percentage.</div></div><div class="step"><div class="step-num">3</div><div class="step-text">Enter monthly software, tool, and subscription costs for work.</div></div><div class="step"><div class="step-num">4</div><div class="step-text">Add any office supplies, co-working, or other WFH expenses.</div></div><div class="step"><div class="step-num">5</div><div class="step-text">The total monthly WFH cost, annual cost, and suggested rate addition are shown instantly.</div></div></div></div>
   <div class="content-card"><h2>Why This Matters</h2><ul><li>Understand the true cost of freelancing from home</li><li>Justify higher rates by accounting for real business costs</li><li>Claim WFH expenses as tax deductions (where applicable)</li><li>Decide whether a co-working space is more cost-effective</li><li>Compare WFH costs against commuting costs if evaluating job offers</li></ul></div>
-  <div class="content-card"><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">Q: Can I claim WFH expenses as tax deductions in India?</div><div class="faq-a">A: Self-employed individuals and freelancers can claim the work-use proportion of electricity, internet, rent, and equipment as business expenses under the Income Tax Act. Keep all bills and receipts.</div></div><div class="faq-item"><div class="faq-q">Q: What percentage of electricity is typically work-related?</div><div class="faq-a">A: For a home office used exclusively for work during working hours, 30-50% of the electricity bill is typically attributed to work. This includes computer, monitor, AC/fan, and lighting.</div></div><div class="faq-item"><div class="faq-q">Q: Is working from a cafe deductible?</div><div class="faq-a">A: Coffee shop expenses incurred while working are generally deductible as business expenses for self-employed individuals. Keep receipts and note what work was done.</div></div><div class="faq-item"><div class="faq-q">Q: Should WFH costs be included in my freelance rate?</div><div class="faq-a">A: Yes. Every legitimate business cost should be factored into your pricing. Your rate should cover all expenses plus profit — WFH costs are real business overheads, not personal expenses.</div></div></div>
+  <div class="content-card"><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">Can I claim WFH expenses as tax deductions in India?</div><div class="faq-a">Self-employed individuals and freelancers can claim the work-use proportion of electricity, internet, rent, and equipment as business expenses under the Income Tax Act. Keep all bills and receipts.</div></div><div class="faq-item"><div class="faq-q">What percentage of electricity is typically work-related?</div><div class="faq-a">For a home office used exclusively for work during working hours, 30-50% of the electricity bill is typically attributed to work. This includes computer, monitor, AC/fan, and lighting.</div></div><div class="faq-item"><div class="faq-q">Is working from a cafe deductible?</div><div class="faq-a">Coffee shop expenses incurred while working are generally deductible as business expenses for self-employed individuals. Keep receipts and note what work was done.</div></div><div class="faq-item"><div class="faq-q">Should WFH costs be included in my freelance rate?</div><div class="faq-a">Yes. Every legitimate business cost should be factored into your pricing. Your rate should cover all expenses plus profit — WFH costs are real business overheads, not personal expenses.</div></div><div class="faq-item"><div class="faq-q">How much does working from home cost per month?</div><div class="faq-a">It varies, but a typical setup adds up quickly. For example, 40% of a ₹2,000 electricity bill, 70% of ₹1,000 internet, ₹1,500 software, ₹300 supplies and ₹500 other costs come to ₹3,800 a month — about ₹45,600 a year, or roughly ₹173 per working day.</div></div><div class="faq-item"><div class="faq-q">How do I calculate my work-from-home expenses?</div><div class="faq-a">Add the work share of shared bills (electricity and internet) to costs used only for work, like software, supplies and co-working. The calculator splits shared bills by the percentage you use for work, then shows monthly, yearly and per-day totals.</div></div><div class="faq-item"><div class="faq-q">How much electricity does working from home use?</div><div class="faq-a">A laptop typically draws around 30–70 watts, while a desktop with a monitor uses more. Fans, lights and especially air-conditioning often cost more than the computer itself. Estimate your work share of the bill and enter it as a percentage above.</div></div><div class="faq-item"><div class="faq-q">Is working from home cheaper than going to office?</div><div class="faq-a">Often yes, once you include commuting, fuel or cab fares and meals out. Compare your WFH cost with your commuting cost using our Fuel Cost Calculator to see the real difference.</div></div><div class="faq-item"><div class="faq-q">Can I claim work-from-home expenses in income tax?</div><div class="faq-a">Salaried employees generally cannot claim WFH expenses separately. Freelancers who compute actual business income can deduct genuine business expenses like the work share of internet and electricity. If you use a presumptive tax scheme, separate expense claims usually don't apply — check with a CA.</div></div><div class="faq-item"><div class="faq-q">How should freelancers include WFH costs in their rates?</div><div class="faq-a">Treat WFH costs as business expenses. Add the monthly total to the expenses field in our Freelance Rate Calculator, or use the per-hour figure shown here to see how much each billable hour needs to cover.</div></div><div class="faq-item"><div class="faq-q">Should I ask my employer for a WFH allowance?</div><div class="faq-a">If you work from home regularly, it's reasonable to ask. Use the calculator's monthly total as evidence of your real costs when you raise it with HR.</div></div><div class="faq-item"><div class="faq-q">How much does a co-working space cost?</div><div class="faq-a">Prices vary widely by city and facilities, from day passes to monthly dedicated desks. Enter what you pay (or plan to pay) in the co-working field to see how it changes your total monthly cost.</div></div><div class="faq-item"><div class="faq-q">How can I reduce my WFH expenses?</div><div class="faq-a">Use natural light, switch off devices fully after work, choose an internet plan that matches your actual usage and cancel software subscriptions you rarely use. Our Subscription Trap Calculator can help you spot the ones quietly draining money.</div></div><div class="faq-item"><div class="faq-q">Does WFH cost include my laptop and furniture?</div><div class="faq-a">One-time purchases like a laptop, chair or desk are better spread over their useful life. For example, a ₹12,000 chair used for two years costs ₹500 a month — add that to "Other WFH Expenses" for a more complete picture.</div></div></div>
   <div class="tip-box"><strong>💡 Pro Tip:</strong> In India, freelancers can claim the work-use portion of rent as a business expense (typically 10-20% of rent for a home office). This can significantly reduce your taxable income — consult a CA to set this up correctly.</div>
 </section>
 <section class="content-section" style="padding-top:0">
@@ -251,6 +350,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
       <a href="../legal/disclaimer.html">Disclaimer</a>
       <a href="../legal/terms-conditions.html">Terms &amp; Conditions</a>
       <a href="../legal/contact.html">Contact Us</a>
+      <a href="../legal/affiliate-disclosure.html">Affiliate Disclosure</a>
       <a href="../legal/copyright.html">Copyright</a>
     </div>
     <div class="sf-col"><h4>Quick Links</h4>
@@ -283,6 +383,25 @@ function calcWFH(){
   document.getElementById('wfhAdd').textContent=fmt(total/22/6)+'/hr';
   document.getElementById('result').classList.add('show');
 }
+</script>
+<script>
+var tools=[
+  {name:'WFH Cost Calculator',icon:'🏠',url:'wfh-cost.html',tags:'work from home cost wfh expenses'},
+  {name:'Appraisal Simulator',icon:'🎯',url:'appraisal-simulator.html',tags:'appraisal raise hike simulator negotiation'},
+  {name:'Client Worth Calculator',icon:'🤝',url:'client-worth.html',tags:'client worth value ltv freelance'},
+  {name:'Freelance Rate Calculator',icon:'💰',url:'freelance-rate.html',tags:'freelance rate hourly daily pricing'},
+  {name:'Invoice Generator',icon:'🧾',url:'invoice-generator.html',tags:'invoice generator freelance billing'},
+  {name:'Notice Period Calculator',icon:'📅',url:'notice-period.html',tags:'notice period resignation last day'},
+  {name:'Project Profit Calculator',icon:'📊',url:'project-profit.html',tags:'project profit margin freelance'},
+  {name:'Side Hustle Income Calculator',icon:'💡',url:'side-hustle.html',tags:'side hustle income extra earnings'},
+  {name:'EMI Calculator',icon:'💰',url:'../finance/emi-calculator.html',tags:'emi loan home car personal'},
+  {name:'Attendance Calculator',icon:'✅',url:'../students/attendance-calculator.html',tags:'attendance viit vit sppu'},
+  {name:'Word Counter',icon:'📝',url:'../utility/word-counter.html',tags:'word count characters'},
+  {name:'QR Generator',icon:'📱',url:'../utility/qr-generator.html',tags:'qr code generator'},
+];
+function toggleSearch(){var box=document.getElementById('searchBox');box.classList.toggle('open');if(box.classList.contains('open')){document.getElementById('searchInput').focus();runSearch();}}
+document.addEventListener('click',function(e){var wrap=document.querySelector('.search-wrap');if(wrap&&!wrap.contains(e.target))document.getElementById('searchBox').classList.remove('open');});
+function runSearch(){var q=document.getElementById('searchInput').value.toLowerCase();var res=document.getElementById('searchResults');if(!q){res.innerHTML='<div class="search-empty">Type to search tools...</div>';return;}var matches=tools.filter(function(t){return t.name.toLowerCase().includes(q)||t.tags.includes(q);});if(!matches.length){res.innerHTML='<div class="search-empty">No tools found</div>';return;}res.innerHTML=matches.slice(0,8).map(function(t){return '<a href="'+t.url+'" class="search-item"><span class="search-item-icon">'+t.icon+'</span>'+t.name+'</a>';}).join('');}
 </script>
 </body>
 </html>

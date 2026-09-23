@@ -7,25 +7,37 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
   <link rel="canonical" href="https://webtoolskit.github.io/freelance/appraisal-simulator.html"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Salary Hike & Appraisal Calculator — New Salary After Increment | WebToolsKit</title>
-<meta name="description" content="Simulate your salary appraisal and calculate your new take-home pay after tax and deductions. Free appraisal simulator for Indian salaried employees — no signup.">
+  <title>Appraisal Hike Simulator — Expected Hike % by Rating | WebToolsKit</title>
+<meta name="description" content="What hike should you expect for your appraisal rating? Simulate your new CTC and monthly increase from your performance rating, hike % and bonus. Free, no signup.">
   <!-- Open Graph -->
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://webtoolskit.github.io/freelance/appraisal-simulator.html"/>
-<meta property="og:title" content="Appraisal Simulator — New Take-Home After Hike"/>
-<meta property="og:description" content="Simulate your salary appraisal and calculate your new take-home pay after tax and deductions. Free appraisal simulator for Indian salaried employees."/>
+<meta property="og:title" content="Appraisal Hike Simulator — Expected Hike % by Rating"/>
+<meta property="og:description" content="What hike should you expect for your appraisal rating? Simulate your new CTC and monthly increase from your performance rating, hike % and bonus. Free, no signup."/>
 <meta property="og:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
 
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:url" content="https://webtoolskit.github.io/freelance/appraisal-simulator.html"/>
-<meta name="twitter:title" content="Appraisal Simulator — New Take-Home After Hike"/>
-<meta name="twitter:description" content="Simulate your salary appraisal and calculate your new take-home pay after tax and deductions. Free appraisal simulator for Indian salaried employees."/>
+<meta name="twitter:title" content="Appraisal Hike Simulator — Expected Hike % by Rating"/>
+<meta name="twitter:description" content="What hike should you expect for your appraisal rating? Simulate your new CTC and monthly increase from your performance rating, hike % and bonus. Free, no signup."/>
 <meta name="twitter:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{--bg:#0f1117;--nav:#000000;--footer-bg:#000000;--card:#1a1d27;--border:#2a2d3a;--white:#ffffff;--grey:#8b8fa8;--light:#c8cad8;--purple:#6c63ff;--purple2:#4f46e5}
+    .search-wrap{position:relative;margin-left:8px}
+    .search-btn{background:transparent;border:1px solid var(--border);color:var(--grey);padding:7px 14px;border-radius:8px;cursor:pointer;font-size:.85rem;font-family:'DM Sans',sans-serif;font-weight:600;transition:all .2s;display:flex;align-items:center;gap:6px}
+    .search-btn:hover{color:var(--white);border-color:rgba(255,255,255,.3)}
+    .search-box{display:none;position:absolute;top:calc(100% + 10px);right:0;width:300px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:12px;z-index:200;box-shadow:0 20px 40px rgba(0,0,0,.5)}
+    .search-box.open{display:block}
+    .search-input{width:100%;background:#0f1117;border:1px solid var(--border);border-radius:10px;padding:10px 14px;color:var(--white);font-size:.9rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}
+    .search-input:focus{border-color:var(--purple)}
+    .search-results{margin-top:8px;max-height:280px;overflow-y:auto}
+    .search-item{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;text-decoration:none;color:var(--light);font-size:.85rem;transition:background .15s}
+    .search-item:hover{background:rgba(255,255,255,.06);color:var(--white)}
+    .search-item-icon{font-size:1rem;width:24px;text-align:center;flex-shrink:0}
+    .search-empty{font-size:.82rem;color:var(--grey);text-align:center;padding:16px 0;font-family:'DM Sans',sans-serif}
     html{scroll-behavior:smooth}
     body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;min-height:100vh}
     nav{display:flex;align-items:center;justify-content:space-between;padding:18px 48px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--nav);backdrop-filter:blur(16px);z-index:100}
@@ -139,34 +151,114 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Q: What hike should I expect for each rating?",
+      "name": "What hike should I expect for each rating?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: Typically: Outstanding (18-25%), Exceeds Expectations (12-18%), Meets Expectations (7-12%), Below Expectations (0-5%). These vary significantly by company and industry."
+        "text": "Typically: Outstanding (18-25%), Exceeds Expectations (12-18%), Meets Expectations (7-12%), Below Expectations (0-5%). These vary significantly by company and industry."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: Should I counter-offer my appraisal?",
+      "name": "Should I counter-offer my appraisal?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: Yes, if you have data to support it — market salary data, specific achievements, competing offers. Ask for time to review rather than accepting or rejecting immediately."
+        "text": "Yes, if you have data to support it — market salary data, specific achievements, competing offers. Ask for time to review rather than accepting or rejecting immediately."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: What if my hike is below inflation?",
+      "name": "What if my hike is below inflation?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: A hike below 6-7% (India's approximate inflation) means your real salary is declining. This is a key reason to explore external opportunities — market salaries often jump 20-30% when switching."
+        "text": "A hike below 6-7% (India's approximate inflation) means your real salary is declining. This is a key reason to explore external opportunities — market salaries often jump 20-30% when switching."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: What is the difference between CTC and take-home?",
+      "name": "What is the difference between CTC and take-home?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: CTC includes all components: basic salary, HRA, PF (employer contribution), insurance, and allowances. Take-home is typically 70-80% of CTC after PF (employee share), income tax, and professional tax deductions."
+        "text": "CTC includes all components: basic salary, HRA, PF (employer contribution), insurance, and allowances. Take-home is typically 70-80% of CTC after PF (employee share), income tax, and professional tax deductions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What hike should I expect for my appraisal rating?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hikes vary a lot by company and industry, but ratings commonly map to ranges like: Outstanding 18–25%, Exceeds Expectations 12–18%, Meets Expectations 7–12%, and Below Expectations 0–5%. Pick your rating above to see the typical range and simulate your new CTC."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I calculate my salary hike percentage?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hike % = (new salary − old salary) ÷ old salary × 100. For example, going from ₹8,00,000 to ₹8,80,000 CTC is a 10% hike — an increase of ₹80,000 a year, or about ₹6,667 a month."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much will my monthly salary increase after a hike?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Divide the annual increase by 12. A 10% hike on ₹8 lakh CTC adds ₹80,000 a year, which is about ₹6,667 a month on CTC. Your in-hand increase will be a little lower because PF and any income tax come out of it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the hike calculated on CTC or fixed pay?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on the company. Many apply the hike to fixed pay only and revise variable pay separately, while others quote it on total CTC. Ask HR which base is used — a 10% hike on fixed pay is worth less than 10% on full CTC."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will I pay more tax after my increment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only if your income crosses into a higher slab. Under the new tax regime for FY 2026-27, salaried income up to about ₹12.75 lakh (including the ₹75,000 standard deduction) is effectively tax-free. Above that, slab rates run from 15% (₹12–16 lakh) up to 30% (above ₹24 lakh)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between a salary hike and an appraisal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The appraisal is the review process where your performance is rated. The hike is the salary increase that follows from that rating. This simulator starts from your rating, while our Salary Hike Calculator works directly from a hike percentage."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I negotiate a better appraisal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bring evidence: results you delivered, numbers you improved and current market salaries for your role. Ask for time to review the offer rather than accepting on the spot, and make one clear, specific counter-request."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is variable pay in CTC?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Variable pay is the part of your CTC that depends on company and individual performance, usually paid quarterly or yearly. It is not guaranteed, so compare offers on fixed pay first and treat variable pay as a bonus."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my hike good if it is below inflation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If your hike is lower than inflation, your salary buys less than it did last year. That's a signal to negotiate or look at the market — switching jobs often brings a larger jump than an internal appraisal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When do appraisals happen in Indian companies?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most companies run appraisals once a year, commonly effective from April to align with the financial year, while some use January or the employee's joining month. Revised salaries usually reflect in the first payslip after the effective date."
       }
     }
   ]
@@ -182,6 +274,13 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
     <a href="../health/index.html" class="nav-link c-g">🌿 Health</a>
     <a href="../students/index.html" class="nav-link c-y">🎓 Students</a>
     <a href="../utility/index.html" class="nav-link c-r">⚡ Utility</a>
+  </div>
+  <div class="search-wrap">
+    <button class="search-btn" onclick="toggleSearch()">🔍 Search</button>
+    <div class="search-box" id="searchBox">
+      <input type="text" class="search-input" id="searchInput" placeholder="Search tools..." oninput="runSearch()"/>
+      <div class="search-results" id="searchResults"></div>
+    </div>
   </div>
 </nav>
 <div class="tool-hero">
@@ -204,13 +303,14 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
   </select></div>
   <div class="input-group"><label>Expected Hike (%)</label><div class="input-wrap"><span class="input-prefix">%</span><input type="number" id="apHike" placeholder="15" step="0.5" oninput="calcAppraisal()"/></div></div>
   <div class="input-group"><label>Variable / Bonus (₹)</label><div class="input-wrap"><span class="input-prefix">₹</span><input type="number" id="apBonus" placeholder="50000" oninput="calcAppraisal()"/></div></div>
-  <div class="input-group"><label>Current Tax Slab (%)</label><select id="apTax" class="no-prefix" onchange="calcAppraisal()">
-    <option value="0">0% (below ₹3L)</option>
-    <option value="5">5% (₹3L–₹6L)</option>
-    <option value="10">10% (₹6L–₹9L)</option>
-    <option value="15" selected>15% (₹9L–₹12L)</option>
-    <option value="20">20% (₹12L–₹15L)</option>
-    <option value="30">30% (above ₹15L)</option>
+  <div class="input-group"><label>Tax Slab — New Regime FY 2026-27 (%)</label><select id="apTax" class="no-prefix" onchange="calcAppraisal()">
+    <option value="0">0% (up to ₹4L)</option>
+    <option value="5">5% (₹4L–₹8L)</option>
+    <option value="10">10% (₹8L–₹12L)</option>
+    <option value="15" selected>15% (₹12L–₹16L)</option>
+    <option value="20">20% (₹16L–₹20L)</option>
+    <option value="25">25% (₹20L–₹24L)</option>
+    <option value="30">30% (above ₹24L)</option>
   </select></div>
 </div></div>
 <div class="result-card" id="result">
@@ -227,7 +327,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
   <div class="content-card"><h2>What is this Tool?</h2><p>The Appraisal Simulator helps you calculate your new CTC, monthly take-home increase, and total earnings including bonus after your annual performance review. Appraisal season is often stressful and confusing — knowing the numbers in advance helps you walk into the meeting prepared, set realistic expectations, and negotiate from a position of knowledge. This tool also suggests typical hike ranges based on your performance rating.</p></div>
   <div class="content-card"><h2>How to Use This Tool</h2><div class="steps"><div class="step"><div class="step-num">1</div><div class="step-text">Enter your current annual CTC (Cost to Company).</div></div><div class="step"><div class="step-num">2</div><div class="step-text">Select your performance rating — the tool suggests a typical hike range based on this.</div></div><div class="step"><div class="step-num">3</div><div class="step-text">Enter the hike percentage you expect or have been offered.</div></div><div class="step"><div class="step-num">4</div><div class="step-text">Enter any variable pay or annual bonus amount.</div></div><div class="step"><div class="step-num">5</div><div class="step-text">Select your income tax slab.</div></div><div class="step"><div class="step-num">6</div><div class="step-text">Your new CTC, monthly increase, and total package are calculated instantly.</div></div></div></div>
   <div class="content-card"><h2>Why This Matters</h2><ul><li>Walk into appraisal meetings knowing your numbers</li><li>Set realistic expectations based on industry norms</li><li>Compare multiple hike scenarios before negotiating</li><li>Calculate the exact monthly increase in take-home pay</li><li>Decide whether to accept or negotiate the offered increment</li></ul></div>
-  <div class="content-card"><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">Q: What hike should I expect for each rating?</div><div class="faq-a">A: Typically: Outstanding (18-25%), Exceeds Expectations (12-18%), Meets Expectations (7-12%), Below Expectations (0-5%). These vary significantly by company and industry.</div></div><div class="faq-item"><div class="faq-q">Q: Should I counter-offer my appraisal?</div><div class="faq-a">A: Yes, if you have data to support it — market salary data, specific achievements, competing offers. Ask for time to review rather than accepting or rejecting immediately.</div></div><div class="faq-item"><div class="faq-q">Q: What if my hike is below inflation?</div><div class="faq-a">A: A hike below 6-7% (India's approximate inflation) means your real salary is declining. This is a key reason to explore external opportunities — market salaries often jump 20-30% when switching.</div></div><div class="faq-item"><div class="faq-q">Q: What is the difference between CTC and take-home?</div><div class="faq-a">A: CTC includes all components: basic salary, HRA, PF (employer contribution), insurance, and allowances. Take-home is typically 70-80% of CTC after PF (employee share), income tax, and professional tax deductions.</div></div></div>
+  <div class="content-card"><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">What hike should I expect for each rating?</div><div class="faq-a">Typically: Outstanding (18-25%), Exceeds Expectations (12-18%), Meets Expectations (7-12%), Below Expectations (0-5%). These vary significantly by company and industry.</div></div><div class="faq-item"><div class="faq-q">Should I counter-offer my appraisal?</div><div class="faq-a">Yes, if you have data to support it — market salary data, specific achievements, competing offers. Ask for time to review rather than accepting or rejecting immediately.</div></div><div class="faq-item"><div class="faq-q">What if my hike is below inflation?</div><div class="faq-a">A hike below 6-7% (India's approximate inflation) means your real salary is declining. This is a key reason to explore external opportunities — market salaries often jump 20-30% when switching.</div></div><div class="faq-item"><div class="faq-q">What is the difference between CTC and take-home?</div><div class="faq-a">CTC includes all components: basic salary, HRA, PF (employer contribution), insurance, and allowances. Take-home is typically 70-80% of CTC after PF (employee share), income tax, and professional tax deductions.</div></div><div class="faq-item"><div class="faq-q">What hike should I expect for my appraisal rating?</div><div class="faq-a">Hikes vary a lot by company and industry, but ratings commonly map to ranges like: Outstanding 18–25%, Exceeds Expectations 12–18%, Meets Expectations 7–12%, and Below Expectations 0–5%. Pick your rating above to see the typical range and simulate your new CTC.</div></div><div class="faq-item"><div class="faq-q">How do I calculate my salary hike percentage?</div><div class="faq-a">Hike % = (new salary − old salary) ÷ old salary × 100. For example, going from ₹8,00,000 to ₹8,80,000 CTC is a 10% hike — an increase of ₹80,000 a year, or about ₹6,667 a month.</div></div><div class="faq-item"><div class="faq-q">How much will my monthly salary increase after a hike?</div><div class="faq-a">Divide the annual increase by 12. A 10% hike on ₹8 lakh CTC adds ₹80,000 a year, which is about ₹6,667 a month on CTC. Your in-hand increase will be a little lower because PF and any income tax come out of it.</div></div><div class="faq-item"><div class="faq-q">Is the hike calculated on CTC or fixed pay?</div><div class="faq-a">It depends on the company. Many apply the hike to fixed pay only and revise variable pay separately, while others quote it on total CTC. Ask HR which base is used — a 10% hike on fixed pay is worth less than 10% on full CTC.</div></div><div class="faq-item"><div class="faq-q">Will I pay more tax after my increment?</div><div class="faq-a">Only if your income crosses into a higher slab. Under the new tax regime for FY 2026-27, salaried income up to about ₹12.75 lakh (including the ₹75,000 standard deduction) is effectively tax-free. Above that, slab rates run from 15% (₹12–16 lakh) up to 30% (above ₹24 lakh).</div></div><div class="faq-item"><div class="faq-q">What is the difference between a salary hike and an appraisal?</div><div class="faq-a">The appraisal is the review process where your performance is rated. The hike is the salary increase that follows from that rating. This simulator starts from your rating, while our Salary Hike Calculator works directly from a hike percentage.</div></div><div class="faq-item"><div class="faq-q">How do I negotiate a better appraisal?</div><div class="faq-a">Bring evidence: results you delivered, numbers you improved and current market salaries for your role. Ask for time to review the offer rather than accepting on the spot, and make one clear, specific counter-request.</div></div><div class="faq-item"><div class="faq-q">What is variable pay in CTC?</div><div class="faq-a">Variable pay is the part of your CTC that depends on company and individual performance, usually paid quarterly or yearly. It is not guaranteed, so compare offers on fixed pay first and treat variable pay as a bonus.</div></div><div class="faq-item"><div class="faq-q">Is my hike good if it is below inflation?</div><div class="faq-a">If your hike is lower than inflation, your salary buys less than it did last year. That's a signal to negotiate or look at the market — switching jobs often brings a larger jump than an internal appraisal.</div></div><div class="faq-item"><div class="faq-q">When do appraisals happen in Indian companies?</div><div class="faq-a">Most companies run appraisals once a year, commonly effective from April to align with the financial year, while some use January or the employee's joining month. Revised salaries usually reflect in the first payslip after the effective date.</div></div></div>
   <div class="tip-box"><strong>💡 Pro Tip:</strong> Before your appraisal meeting, research market salaries for your role on LinkedIn Salary, Glassdoor, or AmbitionBox. Knowing that market rate is 20-30% above your current salary is your strongest negotiation tool.</div>
 </section>
 <section class="content-section" style="padding-top:0">
@@ -260,6 +360,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
       <a href="../legal/disclaimer.html">Disclaimer</a>
       <a href="../legal/terms-conditions.html">Terms &amp; Conditions</a>
       <a href="../legal/contact.html">Contact Us</a>
+      <a href="../legal/affiliate-disclosure.html">Affiliate Disclosure</a>
       <a href="../legal/copyright.html">Copyright</a>
     </div>
     <div class="sf-col"><h4>Quick Links</h4>
@@ -296,6 +397,25 @@ function calcAppraisal(){
   document.getElementById('result').classList.add('show');
 }
 suggestHike();
+</script>
+<script>
+var tools=[
+  {name:'Appraisal Simulator',icon:'🎯',url:'appraisal-simulator.html',tags:'appraisal raise hike simulator negotiation'},
+  {name:'Client Worth Calculator',icon:'🤝',url:'client-worth.html',tags:'client worth value ltv freelance'},
+  {name:'Freelance Rate Calculator',icon:'💰',url:'freelance-rate.html',tags:'freelance rate hourly daily pricing'},
+  {name:'Invoice Generator',icon:'🧾',url:'invoice-generator.html',tags:'invoice generator freelance billing'},
+  {name:'Notice Period Calculator',icon:'📅',url:'notice-period.html',tags:'notice period resignation last day'},
+  {name:'Project Profit Calculator',icon:'📊',url:'project-profit.html',tags:'project profit margin freelance'},
+  {name:'Side Hustle Income Calculator',icon:'💡',url:'side-hustle.html',tags:'side hustle income extra earnings'},
+  {name:'WFH Cost Calculator',icon:'🏠',url:'wfh-cost.html',tags:'work from home cost wfh expenses'},
+  {name:'EMI Calculator',icon:'💰',url:'../finance/emi-calculator.html',tags:'emi loan home car personal'},
+  {name:'Attendance Calculator',icon:'✅',url:'../students/attendance-calculator.html',tags:'attendance viit vit sppu'},
+  {name:'Word Counter',icon:'📝',url:'../utility/word-counter.html',tags:'word count characters'},
+  {name:'QR Generator',icon:'📱',url:'../utility/qr-generator.html',tags:'qr code generator'},
+];
+function toggleSearch(){var box=document.getElementById('searchBox');box.classList.toggle('open');if(box.classList.contains('open')){document.getElementById('searchInput').focus();runSearch();}}
+document.addEventListener('click',function(e){var wrap=document.querySelector('.search-wrap');if(wrap&&!wrap.contains(e.target))document.getElementById('searchBox').classList.remove('open');});
+function runSearch(){var q=document.getElementById('searchInput').value.toLowerCase();var res=document.getElementById('searchResults');if(!q){res.innerHTML='<div class="search-empty">Type to search tools...</div>';return;}var matches=tools.filter(function(t){return t.name.toLowerCase().includes(q)||t.tags.includes(q);});if(!matches.length){res.innerHTML='<div class="search-empty">No tools found</div>';return;}res.innerHTML=matches.slice(0,8).map(function(t){return '<a href="'+t.url+'" class="search-item"><span class="search-item-icon">'+t.icon+'</span>'+t.name+'</a>';}).join('');}
 </script>
 </body>
 </html>

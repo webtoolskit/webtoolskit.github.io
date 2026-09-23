@@ -7,25 +7,37 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
   <link rel="canonical" href="https://webtoolskit.github.io/freelance/invoice-generator.html"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Free Invoice Generator — Create Professional Invoices | WebToolsKit</title>
-<meta name="description" content="Create a professional freelance invoice in seconds. Add client details, services and amounts — free invoice generator, no account needed, download instantly.">
+  <title>Free Invoice Generator for Freelancers — GST Invoice Format India | WebToolsKit</title>
+<meta name="description" content="Create a professional freelance invoice with or without GST in seconds. Correct invoice format for Indian freelancers — print or save as PDF, no signup, no watermark.">
   <!-- Open Graph -->
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://webtoolskit.github.io/freelance/invoice-generator.html"/>
-<meta property="og:title" content="Free Invoice Generator — Professional Invoices Fast"/>
-<meta property="og:description" content="Create a professional freelance invoice in seconds. Add client details, services and amounts — free invoice generator, no account needed, download instantly."/>
+<meta property="og:title" content="Free Invoice Generator for Freelancers — GST Invoice Format India"/>
+<meta property="og:description" content="Create a professional freelance invoice with or without GST in seconds. Correct invoice format for Indian freelancers — print or save as PDF, no signup, no watermark."/>
 <meta property="og:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
 
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:url" content="https://webtoolskit.github.io/freelance/invoice-generator.html"/>
-<meta name="twitter:title" content="Free Invoice Generator — Professional Invoices Fast"/>
-<meta name="twitter:description" content="Create a professional freelance invoice in seconds. Add client details, services and amounts — free invoice generator, no account needed, download instantly."/>
+<meta name="twitter:title" content="Free Invoice Generator for Freelancers — GST Invoice Format India"/>
+<meta name="twitter:description" content="Create a professional freelance invoice with or without GST in seconds. Correct invoice format for Indian freelancers — print or save as PDF, no signup, no watermark."/>
 <meta name="twitter:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{--bg:#0f1117;--nav:#000000;--footer-bg:#000000;--card:#1a1d27;--border:#2a2d3a;--white:#ffffff;--grey:#8b8fa8;--light:#c8cad8;--purple:#6c63ff;--purple2:#4f46e5}
+    .search-wrap{position:relative;margin-left:8px}
+    .search-btn{background:transparent;border:1px solid var(--border);color:var(--grey);padding:7px 14px;border-radius:8px;cursor:pointer;font-size:.85rem;font-family:'DM Sans',sans-serif;font-weight:600;transition:all .2s;display:flex;align-items:center;gap:6px}
+    .search-btn:hover{color:var(--white);border-color:rgba(255,255,255,.3)}
+    .search-box{display:none;position:absolute;top:calc(100% + 10px);right:0;width:300px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:12px;z-index:200;box-shadow:0 20px 40px rgba(0,0,0,.5)}
+    .search-box.open{display:block}
+    .search-input{width:100%;background:#0f1117;border:1px solid var(--border);border-radius:10px;padding:10px 14px;color:var(--white);font-size:.9rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}
+    .search-input:focus{border-color:var(--purple)}
+    .search-results{margin-top:8px;max-height:280px;overflow-y:auto}
+    .search-item{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;text-decoration:none;color:var(--light);font-size:.85rem;transition:background .15s}
+    .search-item:hover{background:rgba(255,255,255,.06);color:var(--white)}
+    .search-item-icon{font-size:1rem;width:24px;text-align:center;flex-shrink:0}
+    .search-empty{font-size:.82rem;color:var(--grey);text-align:center;padding:16px 0;font-family:'DM Sans',sans-serif}
     html{scroll-behavior:smooth}
     body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;min-height:100vh}
     nav{display:flex;align-items:center;justify-content:space-between;padding:18px 48px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--nav);backdrop-filter:blur(16px);z-index:100}
@@ -139,34 +151,114 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Q: Do I need to register for GST?",
+      "name": "Do I need to register for GST?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: In India, GST registration is mandatory if your annual freelance turnover exceeds ₹20 lakh (₹10 lakh for some states). Below this threshold, you can invoice without GST but mention 'GST not applicable' on your invoice."
+        "text": "In India, GST registration is mandatory if your annual freelance turnover exceeds ₹20 lakh (₹10 lakh for some states). Below this threshold, you can invoice without GST but mention 'GST not applicable' on your invoice."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: What information must a GST invoice contain?",
+      "name": "What information must a GST invoice contain?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: A GST-compliant invoice must include: your GSTIN, client's GSTIN (for B2B), invoice number, date, description of services, HSN/SAC code, GST rate, and total amount with GST breakup."
+        "text": "A GST-compliant invoice must include: your GSTIN, client's GSTIN (for B2B), invoice number, date, description of services, HSN/SAC code, GST rate, and total amount with GST breakup."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: How do I number my invoices?",
+      "name": "How do I number my invoices?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: Use a sequential system: INV-001, INV-002, etc. You can also include the year: INV-2026-001. Never repeat invoice numbers — this creates accounting and legal issues."
+        "text": "Use a sequential system: INV-001, INV-002, etc. You can also include the year: INV-2026-001. Never repeat invoice numbers — this creates accounting and legal issues."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: When should I follow up on unpaid invoices?",
+      "name": "When should I follow up on unpaid invoices?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: Send a polite reminder 3 days before the due date, another on the due date, and a firm reminder 7 days after. After 30 days, consider adding a late payment clause to future contracts."
+        "text": "Send a polite reminder 3 days before the due date, another on the due date, and a firm reminder 7 days after. After 30 days, consider adding a late payment clause to future contracts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the correct invoice format for freelancers in India?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A freelance invoice should include your name and contact details, the client's name, a unique invoice number, invoice date, due date, a description of the work, the amount, any GST charged, and payment details. If you are GST-registered, also include your GSTIN and the client's GSTIN (for business clients)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I make an invoice without a GST number?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. If you are not GST-registered — most freelancers earning under ₹20 lakh a year aren't required to register — you can issue a normal invoice without GST. Just set the GST field to 0%. You cannot charge GST unless you are registered."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I invoice a foreign client?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Services to foreign clients are treated as exports and are zero-rated under GST. If you are registered and have filed a Letter of Undertaking (LUT), set GST to 0% and add a note such as \"Supply meant for export under LUT without payment of IGST\". This tool shows amounts in ₹, so mention the agreed foreign-currency amount in the description if needed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I save the invoice as a PDF?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Click Generate Invoice, then Print / Save as PDF. In the print window choose \"Save as PDF\" as the printer. Nothing is uploaded — the invoice is created in your browser and stays on your device."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much GST should a freelancer charge?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most freelance services — writing, design, development, consulting, marketing — attract 18% GST when billed to Indian clients. On a ₹50,000 invoice that's ₹9,000 GST, for a total of ₹59,000. Only charge GST if you are registered."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will my client deduct TDS from my invoice?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Often, yes. Businesses paying professional fees above ₹50,000 in a year generally deduct TDS at 10% before paying you. You still invoice the full amount; the deducted TDS shows up in your Form 26AS and is credited against your income tax."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How should I number my invoices?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use a simple sequence that never repeats, such as INV-2026-001, INV-2026-002. Many freelancers restart numbering each financial year (April to March). Consistent numbering makes it easier to track payments and file taxes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What payment terms should I put on an invoice?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Common terms are \"Due on receipt\", \"Net 15\" or \"Net 30\" (payment within 15 or 30 days). Shorter terms get you paid faster. For large projects, ask for an advance of 30–50% before starting and invoice the rest on delivery."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What should I do if a client doesn't pay my invoice?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Send a polite reminder a day or two after the due date, then a firmer follow-up a week later. If there's still no payment, pause further work until the invoice is cleared. Asking for an advance on future projects is the best way to avoid this."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this invoice generator really free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — no signup, no watermark and no limit on invoices. Everything runs in your browser, so your client and payment details are never sent to a server."
       }
     }
   ]
@@ -182,6 +274,13 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
     <a href="../health/index.html" class="nav-link c-g">🌿 Health</a>
     <a href="../students/index.html" class="nav-link c-y">🎓 Students</a>
     <a href="../utility/index.html" class="nav-link c-r">⚡ Utility</a>
+  </div>
+  <div class="search-wrap">
+    <button class="search-btn" onclick="toggleSearch()">🔍 Search</button>
+    <div class="search-box" id="searchBox">
+      <input type="text" class="search-input" id="searchInput" placeholder="Search tools..." oninput="runSearch()"/>
+      <div class="search-results" id="searchResults"></div>
+    </div>
   </div>
 </nav>
 <div class="tool-hero">
@@ -231,7 +330,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
   <div class="content-card"><h2>What is this Tool?</h2><p>The Invoice Generator helps freelancers and small business owners create professional, GST-compliant invoices instantly without any accounting software. A well-designed invoice establishes your professionalism, clearly communicates payment terms, and reduces the likelihood of payment delays. This tool generates a clean, printable invoice you can save as PDF directly from your browser.</p></div>
   <div class="content-card"><h2>How to Use This Tool</h2><div class="steps"><div class="step"><div class="step-num">1</div><div class="step-text">Enter your name or business name and email address.</div></div><div class="step"><div class="step-num">2</div><div class="step-text">Enter your client's name or company name.</div></div><div class="step"><div class="step-num">3</div><div class="step-text">Set the invoice number (use a sequential system like INV-001, INV-002).</div></div><div class="step"><div class="step-num">4</div><div class="step-text">Set the invoice date and payment due date.</div></div><div class="step"><div class="step-num">5</div><div class="step-text">Enter the service description and amount.</div></div><div class="step"><div class="step-num">6</div><div class="step-text">Enter the applicable GST rate (18% is common for most services).</div></div><div class="step"><div class="step-num">7</div><div class="step-text">Click Generate Invoice to preview it, then Print or Save as PDF.</div></div></div></div>
   <div class="content-card"><h2>Why This Matters</h2><ul><li>Create professional invoices in under 2 minutes</li><li>Automatically calculates GST and total amount</li><li>Establishes clear payment terms to reduce late payments</li><li>Print directly as PDF — no software needed</li><li>Maintain consistent, numbered invoice records for tax purposes</li></ul></div>
-  <div class="content-card"><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">Q: Do I need to register for GST?</div><div class="faq-a">A: In India, GST registration is mandatory if your annual freelance turnover exceeds ₹20 lakh (₹10 lakh for some states). Below this threshold, you can invoice without GST but mention 'GST not applicable' on your invoice.</div></div><div class="faq-item"><div class="faq-q">Q: What information must a GST invoice contain?</div><div class="faq-a">A: A GST-compliant invoice must include: your GSTIN, client's GSTIN (for B2B), invoice number, date, description of services, HSN/SAC code, GST rate, and total amount with GST breakup.</div></div><div class="faq-item"><div class="faq-q">Q: How do I number my invoices?</div><div class="faq-a">A: Use a sequential system: INV-001, INV-002, etc. You can also include the year: INV-2026-001. Never repeat invoice numbers — this creates accounting and legal issues.</div></div><div class="faq-item"><div class="faq-q">Q: When should I follow up on unpaid invoices?</div><div class="faq-a">A: Send a polite reminder 3 days before the due date, another on the due date, and a firm reminder 7 days after. After 30 days, consider adding a late payment clause to future contracts.</div></div></div>
+  <div class="content-card"><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">Do I need to register for GST?</div><div class="faq-a">In India, GST registration is mandatory if your annual freelance turnover exceeds ₹20 lakh (₹10 lakh for some states). Below this threshold, you can invoice without GST but mention 'GST not applicable' on your invoice.</div></div><div class="faq-item"><div class="faq-q">What information must a GST invoice contain?</div><div class="faq-a">A GST-compliant invoice must include: your GSTIN, client's GSTIN (for B2B), invoice number, date, description of services, HSN/SAC code, GST rate, and total amount with GST breakup.</div></div><div class="faq-item"><div class="faq-q">How do I number my invoices?</div><div class="faq-a">Use a sequential system: INV-001, INV-002, etc. You can also include the year: INV-2026-001. Never repeat invoice numbers — this creates accounting and legal issues.</div></div><div class="faq-item"><div class="faq-q">When should I follow up on unpaid invoices?</div><div class="faq-a">Send a polite reminder 3 days before the due date, another on the due date, and a firm reminder 7 days after. After 30 days, consider adding a late payment clause to future contracts.</div></div><div class="faq-item"><div class="faq-q">What is the correct invoice format for freelancers in India?</div><div class="faq-a">A freelance invoice should include your name and contact details, the client's name, a unique invoice number, invoice date, due date, a description of the work, the amount, any GST charged, and payment details. If you are GST-registered, also include your GSTIN and the client's GSTIN (for business clients).</div></div><div class="faq-item"><div class="faq-q">Can I make an invoice without a GST number?</div><div class="faq-a">Yes. If you are not GST-registered — most freelancers earning under ₹20 lakh a year aren't required to register — you can issue a normal invoice without GST. Just set the GST field to 0%. You cannot charge GST unless you are registered.</div></div><div class="faq-item"><div class="faq-q">How do I invoice a foreign client?</div><div class="faq-a">Services to foreign clients are treated as exports and are zero-rated under GST. If you are registered and have filed a Letter of Undertaking (LUT), set GST to 0% and add a note such as "Supply meant for export under LUT without payment of IGST". This tool shows amounts in ₹, so mention the agreed foreign-currency amount in the description if needed.</div></div><div class="faq-item"><div class="faq-q">How do I save the invoice as a PDF?</div><div class="faq-a">Click Generate Invoice, then Print / Save as PDF. In the print window choose "Save as PDF" as the printer. Nothing is uploaded — the invoice is created in your browser and stays on your device.</div></div><div class="faq-item"><div class="faq-q">How much GST should a freelancer charge?</div><div class="faq-a">Most freelance services — writing, design, development, consulting, marketing — attract 18% GST when billed to Indian clients. On a ₹50,000 invoice that's ₹9,000 GST, for a total of ₹59,000. Only charge GST if you are registered.</div></div><div class="faq-item"><div class="faq-q">Will my client deduct TDS from my invoice?</div><div class="faq-a">Often, yes. Businesses paying professional fees above ₹50,000 in a year generally deduct TDS at 10% before paying you. You still invoice the full amount; the deducted TDS shows up in your Form 26AS and is credited against your income tax.</div></div><div class="faq-item"><div class="faq-q">How should I number my invoices?</div><div class="faq-a">Use a simple sequence that never repeats, such as INV-2026-001, INV-2026-002. Many freelancers restart numbering each financial year (April to March). Consistent numbering makes it easier to track payments and file taxes.</div></div><div class="faq-item"><div class="faq-q">What payment terms should I put on an invoice?</div><div class="faq-a">Common terms are "Due on receipt", "Net 15" or "Net 30" (payment within 15 or 30 days). Shorter terms get you paid faster. For large projects, ask for an advance of 30–50% before starting and invoice the rest on delivery.</div></div><div class="faq-item"><div class="faq-q">What should I do if a client doesn't pay my invoice?</div><div class="faq-a">Send a polite reminder a day or two after the due date, then a firmer follow-up a week later. If there's still no payment, pause further work until the invoice is cleared. Asking for an advance on future projects is the best way to avoid this.</div></div><div class="faq-item"><div class="faq-q">Is this invoice generator really free?</div><div class="faq-a">Yes — no signup, no watermark and no limit on invoices. Everything runs in your browser, so your client and payment details are never sent to a server.</div></div></div>
   <div class="tip-box"><strong>💡 Pro Tip:</strong> Always get a purchase order or written confirmation before starting work. If a client refuses to sign anything, that's a red flag. Add a late payment clause to your invoices — 1.5-2% per month on overdue amounts encourages timely payment.</div>
 </section>
 <section class="content-section" style="padding-top:0">
@@ -264,6 +363,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
       <a href="../legal/disclaimer.html">Disclaimer</a>
       <a href="../legal/terms-conditions.html">Terms &amp; Conditions</a>
       <a href="../legal/contact.html">Contact Us</a>
+      <a href="../legal/affiliate-disclosure.html">Affiliate Disclosure</a>
       <a href="../legal/copyright.html">Copyright</a>
     </div>
     <div class="sf-col"><h4>Quick Links</h4>
@@ -306,6 +406,25 @@ const t=new Date();
 document.getElementById('invDate').value=t.toISOString().split('T')[0];
 const due=new Date(t);due.setDate(due.getDate()+15);
 document.getElementById('dueDate').value=due.toISOString().split('T')[0];
+</script>
+<script>
+var tools=[
+  {name:'Invoice Generator',icon:'🧾',url:'invoice-generator.html',tags:'invoice generator freelance billing'},
+  {name:'Appraisal Simulator',icon:'🎯',url:'appraisal-simulator.html',tags:'appraisal raise hike simulator negotiation'},
+  {name:'Client Worth Calculator',icon:'🤝',url:'client-worth.html',tags:'client worth value ltv freelance'},
+  {name:'Freelance Rate Calculator',icon:'💰',url:'freelance-rate.html',tags:'freelance rate hourly daily pricing'},
+  {name:'Notice Period Calculator',icon:'📅',url:'notice-period.html',tags:'notice period resignation last day'},
+  {name:'Project Profit Calculator',icon:'📊',url:'project-profit.html',tags:'project profit margin freelance'},
+  {name:'Side Hustle Income Calculator',icon:'💡',url:'side-hustle.html',tags:'side hustle income extra earnings'},
+  {name:'WFH Cost Calculator',icon:'🏠',url:'wfh-cost.html',tags:'work from home cost wfh expenses'},
+  {name:'EMI Calculator',icon:'💰',url:'../finance/emi-calculator.html',tags:'emi loan home car personal'},
+  {name:'Attendance Calculator',icon:'✅',url:'../students/attendance-calculator.html',tags:'attendance viit vit sppu'},
+  {name:'Word Counter',icon:'📝',url:'../utility/word-counter.html',tags:'word count characters'},
+  {name:'QR Generator',icon:'📱',url:'../utility/qr-generator.html',tags:'qr code generator'},
+];
+function toggleSearch(){var box=document.getElementById('searchBox');box.classList.toggle('open');if(box.classList.contains('open')){document.getElementById('searchInput').focus();runSearch();}}
+document.addEventListener('click',function(e){var wrap=document.querySelector('.search-wrap');if(wrap&&!wrap.contains(e.target))document.getElementById('searchBox').classList.remove('open');});
+function runSearch(){var q=document.getElementById('searchInput').value.toLowerCase();var res=document.getElementById('searchResults');if(!q){res.innerHTML='<div class="search-empty">Type to search tools...</div>';return;}var matches=tools.filter(function(t){return t.name.toLowerCase().includes(q)||t.tags.includes(q);});if(!matches.length){res.innerHTML='<div class="search-empty">No tools found</div>';return;}res.innerHTML=matches.slice(0,8).map(function(t){return '<a href="'+t.url+'" class="search-item"><span class="search-item-icon">'+t.icon+'</span>'+t.name+'</a>';}).join('');}
 </script>
 </body>
 </html>

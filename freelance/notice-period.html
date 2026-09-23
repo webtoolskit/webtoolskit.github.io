@@ -7,25 +7,37 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
   <link rel="canonical" href="https://webtoolskit.github.io/freelance/notice-period.html"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Notice Period Calculator — Last Working Day | WebToolsKit</title>
-<meta name="description" content="Calculate your exact last working day based on your resignation date and notice period. Free notice period calculator for Indian employees — instant, no signup.">
+  <title>Notice Period Calculator — Last Working Day (30/60/90 Days) | WebToolsKit</title>
+<meta name="description" content="Find your exact last working day from your resignation date. Free notice period calculator for 15, 30, 60 and 90 days — calendar or working days, instant result.">
   <!-- Open Graph -->
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://webtoolskit.github.io/freelance/notice-period.html"/>
-<meta property="og:title" content="Notice Period Calculator — Your Last Working Day"/>
-<meta property="og:description" content="Calculate your exact last working day based on your resignation date and notice period. Free notice period calculator for Indian employees — instant result."/>
+<meta property="og:title" content="Notice Period Calculator — Last Working Day (30/60/90 Days)"/>
+<meta property="og:description" content="Find your exact last working day from your resignation date. Free notice period calculator for 15, 30, 60 and 90 days — calendar or working days, instant result."/>
 <meta property="og:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
 
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:url" content="https://webtoolskit.github.io/freelance/notice-period.html"/>
-<meta name="twitter:title" content="Notice Period Calculator — Your Last Working Day"/>
-<meta name="twitter:description" content="Calculate your exact last working day based on your resignation date and notice period. Free notice period calculator for Indian employees — instant result."/>
+<meta name="twitter:title" content="Notice Period Calculator — Last Working Day (30/60/90 Days)"/>
+<meta name="twitter:description" content="Find your exact last working day from your resignation date. Free notice period calculator for 15, 30, 60 and 90 days — calendar or working days, instant result."/>
 <meta name="twitter:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{--bg:#0f1117;--nav:#000000;--footer-bg:#000000;--card:#1a1d27;--border:#2a2d3a;--white:#ffffff;--grey:#8b8fa8;--light:#c8cad8;--purple:#6c63ff;--purple2:#4f46e5}
+    .search-wrap{position:relative;margin-left:8px}
+    .search-btn{background:transparent;border:1px solid var(--border);color:var(--grey);padding:7px 14px;border-radius:8px;cursor:pointer;font-size:.85rem;font-family:'DM Sans',sans-serif;font-weight:600;transition:all .2s;display:flex;align-items:center;gap:6px}
+    .search-btn:hover{color:var(--white);border-color:rgba(255,255,255,.3)}
+    .search-box{display:none;position:absolute;top:calc(100% + 10px);right:0;width:300px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:12px;z-index:200;box-shadow:0 20px 40px rgba(0,0,0,.5)}
+    .search-box.open{display:block}
+    .search-input{width:100%;background:#0f1117;border:1px solid var(--border);border-radius:10px;padding:10px 14px;color:var(--white);font-size:.9rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}
+    .search-input:focus{border-color:var(--purple)}
+    .search-results{margin-top:8px;max-height:280px;overflow-y:auto}
+    .search-item{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;text-decoration:none;color:var(--light);font-size:.85rem;transition:background .15s}
+    .search-item:hover{background:rgba(255,255,255,.06);color:var(--white)}
+    .search-item-icon{font-size:1rem;width:24px;text-align:center;flex-shrink:0}
+    .search-empty{font-size:.82rem;color:var(--grey);text-align:center;padding:16px 0;font-family:'DM Sans',sans-serif}
     html{scroll-behavior:smooth}
     body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;min-height:100vh}
     nav{display:flex;align-items:center;justify-content:space-between;padding:18px 48px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--nav);backdrop-filter:blur(16px);z-index:100}
@@ -139,34 +151,114 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Q: Can my employer extend my notice period?",
+      "name": "Can my employer extend my notice period?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: Your employment contract defines the notice period. Your employer cannot unilaterally extend it unless you agree. However, they can ask you to serve a longer period by mutual agreement."
+        "text": "Your employment contract defines the notice period. Your employer cannot unilaterally extend it unless you agree. However, they can ask you to serve a longer period by mutual agreement."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: What is notice period buyout?",
+      "name": "What is notice period buyout?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: Instead of serving the full notice period, you can pay your employer the equivalent salary for the remaining days. This is called notice period buyout. The amount is typically your basic salary for the remaining days."
+        "text": "Instead of serving the full notice period, you can pay your employer the equivalent salary for the remaining days. This is called notice period buyout. The amount is typically your basic salary for the remaining days."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: Can I negotiate a shorter notice period?",
+      "name": "Can I negotiate a shorter notice period?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: Yes. If you have a replacement ready, all handovers are complete, or you have a compelling reason, many employers agree to early release. Always get early release in writing."
+        "text": "Yes. If you have a replacement ready, all handovers are complete, or you have a compelling reason, many employers agree to early release. Always get early release in writing."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: Should I resign on a Monday or Friday?",
+      "name": "Should I resign on a Monday or Friday?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: Resigning on a Friday gives both parties the weekend to process the news. However, resigning on a Monday means you leave on a Monday — giving you the full weekend before starting your new role. Choose based on what suits your new employer's joining date."
+        "text": "Resigning on a Friday gives both parties the weekend to process the news. However, resigning on a Monday means you leave on a Monday — giving you the full weekend before starting your new role. Choose based on what suits your new employer's joining date."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I calculate my last working day?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Add your notice period to your resignation date. If you resign on 1 October 2026 with a 90-day notice period counted in calendar days, your last working day is 30 December 2026. Enter your date above and the calculator does it instantly, including weekends-only or working-days-only counting."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is my last working day with a 90 days notice period?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Count 90 calendar days from the day after you resign. For example, resigning on 1 October 2026 gives a last working day of 30 December 2026. If your contract counts only working days, the date moves later — switch \"Count Weekends?\" to No to see it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is my last working day with a 60 days or 30 days notice period?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Resigning on 1 October 2026: a 60-day notice period ends on 30 November 2026, and a 30-day notice period ends on 31 October 2026 (calendar days). Use the calculator with your own resignation date for an exact answer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the notice period include weekends and holidays?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually yes — most Indian companies count notice in calendar days, which includes weekends and public holidays. Some contracts specify working days instead. Check your appointment letter or HR policy, then choose the matching option in the calculator."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the resignation date counted in the notice period?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Practices differ between companies. This calculator starts counting from the day after your resignation date, which is the most common method. If your HR counts the resignation day itself as day one, your last day will be one day earlier."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is notice period buyout calculated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A buyout means paying your employer (or your new employer paying) for the notice days you don't serve. It's commonly calculated on basic salary or gross salary per day × unserved days, depending on company policy. For example, leaving 30 days early on ₹30,000 monthly basic costs roughly ₹30,000."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use my leave to shorten my notice period?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Some companies let you adjust earned leave against the notice period, others encash it in your full and final settlement instead. It is entirely company policy, so ask HR in writing before planning around it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is serving the notice period mandatory in India?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Notice period terms come from your employment contract, so you are expected to follow them. If you leave without serving or buying out the notice, the company may recover the amount from your final settlement or delay relieving documents. Negotiating an early release is usually the better route."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the notice period during probation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Notice during probation is usually much shorter — often 15 days to one month — but it depends entirely on your contract. Select \"15 Days\" or use a custom period in the calculator."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can my notice period be reduced?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, if your manager agrees. Offer a clear handover plan, finish critical work early and ask formally for an earlier release date. Many companies agree when the handover is well organised."
       }
     }
   ]
@@ -182,6 +274,13 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
     <a href="../health/index.html" class="nav-link c-g">🌿 Health</a>
     <a href="../students/index.html" class="nav-link c-y">🎓 Students</a>
     <a href="../utility/index.html" class="nav-link c-r">⚡ Utility</a>
+  </div>
+  <div class="search-wrap">
+    <button class="search-btn" onclick="toggleSearch()">🔍 Search</button>
+    <div class="search-box" id="searchBox">
+      <input type="text" class="search-input" id="searchInput" placeholder="Search tools..." oninput="runSearch()"/>
+      <div class="search-results" id="searchResults"></div>
+    </div>
   </div>
 </nav>
 <div class="tool-hero">
@@ -220,7 +319,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
   <div class="content-card"><h2>What is this Tool?</h2><p>The Notice Period Calculator helps you calculate your exact last working day after submitting your resignation. Whether you're switching jobs, starting freelancing, or taking a career break, knowing your exact last working day helps you plan your transition, negotiate with your new employer, and handle the handover process professionally. The calculator handles both calendar days and working days.</p></div>
   <div class="content-card"><h2>How to Use This Tool</h2><div class="steps"><div class="step"><div class="step-num">1</div><div class="step-text">Enter the date you plan to submit your resignation letter.</div></div><div class="step"><div class="step-num">2</div><div class="step-text">Select your notice period from the dropdown or enter a custom number of days.</div></div><div class="step"><div class="step-num">3</div><div class="step-text">Choose whether your notice period counts weekends (calendar days) or excludes them (working days only).</div></div><div class="step"><div class="step-num">4</div><div class="step-text">Your last working day and the number of working days remaining are shown instantly.</div></div></div></div>
   <div class="content-card"><h2>Why This Matters</h2><ul><li>Plan your joining date at a new company with confidence</li><li>Calculate notice period buyout amount if leaving early</li><li>Avoid disputes with your current employer about the last working day</li><li>Plan handover of responsibilities within the notice period</li><li>Time your resignation to coincide with bonus payments or vesting dates</li></ul></div>
-  <div class="content-card"><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">Q: Can my employer extend my notice period?</div><div class="faq-a">A: Your employment contract defines the notice period. Your employer cannot unilaterally extend it unless you agree. However, they can ask you to serve a longer period by mutual agreement.</div></div><div class="faq-item"><div class="faq-q">Q: What is notice period buyout?</div><div class="faq-a">A: Instead of serving the full notice period, you can pay your employer the equivalent salary for the remaining days. This is called notice period buyout. The amount is typically your basic salary for the remaining days.</div></div><div class="faq-item"><div class="faq-q">Q: Can I negotiate a shorter notice period?</div><div class="faq-a">A: Yes. If you have a replacement ready, all handovers are complete, or you have a compelling reason, many employers agree to early release. Always get early release in writing.</div></div><div class="faq-item"><div class="faq-q">Q: Should I resign on a Monday or Friday?</div><div class="faq-a">A: Resigning on a Friday gives both parties the weekend to process the news. However, resigning on a Monday means you leave on a Monday — giving you the full weekend before starting your new role. Choose based on what suits your new employer's joining date.</div></div></div>
+  <div class="content-card"><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">Can my employer extend my notice period?</div><div class="faq-a">Your employment contract defines the notice period. Your employer cannot unilaterally extend it unless you agree. However, they can ask you to serve a longer period by mutual agreement.</div></div><div class="faq-item"><div class="faq-q">What is notice period buyout?</div><div class="faq-a">Instead of serving the full notice period, you can pay your employer the equivalent salary for the remaining days. This is called notice period buyout. The amount is typically your basic salary for the remaining days.</div></div><div class="faq-item"><div class="faq-q">Can I negotiate a shorter notice period?</div><div class="faq-a">Yes. If you have a replacement ready, all handovers are complete, or you have a compelling reason, many employers agree to early release. Always get early release in writing.</div></div><div class="faq-item"><div class="faq-q">Should I resign on a Monday or Friday?</div><div class="faq-a">Resigning on a Friday gives both parties the weekend to process the news. However, resigning on a Monday means you leave on a Monday — giving you the full weekend before starting your new role. Choose based on what suits your new employer's joining date.</div></div><div class="faq-item"><div class="faq-q">How do I calculate my last working day?</div><div class="faq-a">Add your notice period to your resignation date. If you resign on 1 October 2026 with a 90-day notice period counted in calendar days, your last working day is 30 December 2026. Enter your date above and the calculator does it instantly, including weekends-only or working-days-only counting.</div></div><div class="faq-item"><div class="faq-q">What is my last working day with a 90 days notice period?</div><div class="faq-a">Count 90 calendar days from the day after you resign. For example, resigning on 1 October 2026 gives a last working day of 30 December 2026. If your contract counts only working days, the date moves later — switch "Count Weekends?" to No to see it.</div></div><div class="faq-item"><div class="faq-q">What is my last working day with a 60 days or 30 days notice period?</div><div class="faq-a">Resigning on 1 October 2026: a 60-day notice period ends on 30 November 2026, and a 30-day notice period ends on 31 October 2026 (calendar days). Use the calculator with your own resignation date for an exact answer.</div></div><div class="faq-item"><div class="faq-q">Does the notice period include weekends and holidays?</div><div class="faq-a">Usually yes — most Indian companies count notice in calendar days, which includes weekends and public holidays. Some contracts specify working days instead. Check your appointment letter or HR policy, then choose the matching option in the calculator.</div></div><div class="faq-item"><div class="faq-q">Is the resignation date counted in the notice period?</div><div class="faq-a">Practices differ between companies. This calculator starts counting from the day after your resignation date, which is the most common method. If your HR counts the resignation day itself as day one, your last day will be one day earlier.</div></div><div class="faq-item"><div class="faq-q">How is notice period buyout calculated?</div><div class="faq-a">A buyout means paying your employer (or your new employer paying) for the notice days you don't serve. It's commonly calculated on basic salary or gross salary per day × unserved days, depending on company policy. For example, leaving 30 days early on ₹30,000 monthly basic costs roughly ₹30,000.</div></div><div class="faq-item"><div class="faq-q">Can I use my leave to shorten my notice period?</div><div class="faq-a">Some companies let you adjust earned leave against the notice period, others encash it in your full and final settlement instead. It is entirely company policy, so ask HR in writing before planning around it.</div></div><div class="faq-item"><div class="faq-q">Is serving the notice period mandatory in India?</div><div class="faq-a">Notice period terms come from your employment contract, so you are expected to follow them. If you leave without serving or buying out the notice, the company may recover the amount from your final settlement or delay relieving documents. Negotiating an early release is usually the better route.</div></div><div class="faq-item"><div class="faq-q">What is the notice period during probation?</div><div class="faq-a">Notice during probation is usually much shorter — often 15 days to one month — but it depends entirely on your contract. Select "15 Days" or use a custom period in the calculator.</div></div><div class="faq-item"><div class="faq-q">Can my notice period be reduced?</div><div class="faq-a">Yes, if your manager agrees. Offer a clear handover plan, finish critical work early and ask formally for an earlier release date. Many companies agree when the handover is well organised.</div></div></div>
   <div class="tip-box"><strong>💡 Pro Tip:</strong> If your new employer wants you to join before your notice period ends, negotiate a joining date that works and request early release from your current employer in writing. Many employers are flexible if the handover is smooth.</div>
 </section>
 <section class="content-section" style="padding-top:0">
@@ -253,6 +352,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
       <a href="../legal/disclaimer.html">Disclaimer</a>
       <a href="../legal/terms-conditions.html">Terms &amp; Conditions</a>
       <a href="../legal/contact.html">Contact Us</a>
+      <a href="../legal/affiliate-disclosure.html">Affiliate Disclosure</a>
       <a href="../legal/copyright.html">Copyright</a>
     </div>
     <div class="sf-col"><h4>Quick Links</h4>
@@ -290,6 +390,25 @@ function calcNotice(){
   document.getElementById('result').classList.add('show');
 }
 const t=new Date();document.getElementById('resignDate').value=t.toISOString().split('T')[0];calcNotice();
+</script>
+<script>
+var tools=[
+  {name:'Notice Period Calculator',icon:'📅',url:'notice-period.html',tags:'notice period resignation last day'},
+  {name:'Appraisal Simulator',icon:'🎯',url:'appraisal-simulator.html',tags:'appraisal raise hike simulator negotiation'},
+  {name:'Client Worth Calculator',icon:'🤝',url:'client-worth.html',tags:'client worth value ltv freelance'},
+  {name:'Freelance Rate Calculator',icon:'💰',url:'freelance-rate.html',tags:'freelance rate hourly daily pricing'},
+  {name:'Invoice Generator',icon:'🧾',url:'invoice-generator.html',tags:'invoice generator freelance billing'},
+  {name:'Project Profit Calculator',icon:'📊',url:'project-profit.html',tags:'project profit margin freelance'},
+  {name:'Side Hustle Income Calculator',icon:'💡',url:'side-hustle.html',tags:'side hustle income extra earnings'},
+  {name:'WFH Cost Calculator',icon:'🏠',url:'wfh-cost.html',tags:'work from home cost wfh expenses'},
+  {name:'EMI Calculator',icon:'💰',url:'../finance/emi-calculator.html',tags:'emi loan home car personal'},
+  {name:'Attendance Calculator',icon:'✅',url:'../students/attendance-calculator.html',tags:'attendance viit vit sppu'},
+  {name:'Word Counter',icon:'📝',url:'../utility/word-counter.html',tags:'word count characters'},
+  {name:'QR Generator',icon:'📱',url:'../utility/qr-generator.html',tags:'qr code generator'},
+];
+function toggleSearch(){var box=document.getElementById('searchBox');box.classList.toggle('open');if(box.classList.contains('open')){document.getElementById('searchInput').focus();runSearch();}}
+document.addEventListener('click',function(e){var wrap=document.querySelector('.search-wrap');if(wrap&&!wrap.contains(e.target))document.getElementById('searchBox').classList.remove('open');});
+function runSearch(){var q=document.getElementById('searchInput').value.toLowerCase();var res=document.getElementById('searchResults');if(!q){res.innerHTML='<div class="search-empty">Type to search tools...</div>';return;}var matches=tools.filter(function(t){return t.name.toLowerCase().includes(q)||t.tags.includes(q);});if(!matches.length){res.innerHTML='<div class="search-empty">No tools found</div>';return;}res.innerHTML=matches.slice(0,8).map(function(t){return '<a href="'+t.url+'" class="search-item"><span class="search-item-icon">'+t.icon+'</span>'+t.name+'</a>';}).join('');}
 </script>
 </body>
 </html>

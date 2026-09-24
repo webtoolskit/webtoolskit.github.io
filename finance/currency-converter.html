@@ -7,20 +7,20 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
   <link rel="canonical" href="https://webtoolskit.github.io/finance/currency-converter.html"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Currency Converter — Live Exchange Rates | WebToolsKit</title>
-<meta name="description" content="Convert between major world currencies using live reference rates. Free online currency converter — instant, accurate, no signup required.">
+  <title>Currency Converter — INR, USD, AED, EUR &amp; 20+ Currencies (Daily Rates)</title>
+<meta name="description" content="Convert rupees, dollars, dirhams, euros, pounds and 20+ currencies using daily reference exchange rates. Free currency converter with a swap button — no signup.">
   <!-- Open Graph -->
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://webtoolskit.github.io/finance/currency-converter.html"/>
-<meta property="og:title" content="Currency Converter — Live Exchange Rates, Free"/>
-<meta property="og:description" content="Convert between major world currencies using live reference rates. Free online currency converter — instant, accurate, no signup required."/>
+<meta property="og:title" content="Currency Converter — INR, USD, AED, EUR &amp; 20+ Currencies (Daily Rates)"/>
+<meta property="og:description" content="Convert rupees, dollars, dirhams, euros, pounds and 20+ currencies using daily reference exchange rates. Free currency converter with a swap button — no signup."/>
 <meta property="og:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
 
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:url" content="https://webtoolskit.github.io/finance/currency-converter.html"/>
-<meta name="twitter:title" content="Currency Converter — Live Exchange Rates, Free"/>
-<meta name="twitter:description" content="Convert between major world currencies using live reference rates. Free online currency converter — instant, accurate, no signup required."/>
+<meta name="twitter:title" content="Currency Converter — INR, USD, AED, EUR &amp; 20+ Currencies (Daily Rates)"/>
+<meta name="twitter:description" content="Convert rupees, dollars, dirhams, euros, pounds and 20+ currencies using daily reference exchange rates. Free currency converter with a swap button — no signup."/>
 <meta name="twitter:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
@@ -137,34 +137,98 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Q: Are these exchange rates live?",
+      "name": "Are these exchange rates live?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: These rates are indicative reference rates for estimation purposes. Always check with your bank or forex provider for the exact rates applicable to your transaction."
+        "text": "They are daily reference rates, not live trading rates. The converter loads mid-market rates from ExchangeRate-API once a day and shows the update date under the result. If the rates can't load, it uses the dated backup rates shown instead. Your bank, card or money-transfer service will use its own rate, so treat the result as a close estimate."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: Why is the bank rate different?",
+      "name": "Why is my bank's rate different?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: Banks add a margin (typically 1-3%) over the interbank rate. Money transfer services like Wise offer rates closer to the real exchange rate."
+        "text": "Banks and exchange counters add a margin to the mid-market rate — often 1–3%, sometimes more — and may charge a separate fee. Some money-transfer services charge a smaller margin plus a visible fee. Compare the total amount the other person receives, not just the headline rate."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: What is the best way to convert currency?",
+      "name": "What is the best way to convert currency?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: For travel, use a zero-markup forex card. For transfers, use Wise or Remitly. Avoid airport currency counters as they offer the worst rates."
+        "text": "For travel, compare a forex card, a card with a low foreign-currency markup and your bank's rate. For sending money, compare banks and licensed money-transfer services on both rate and fees. Airport counters are usually the most expensive option."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: What is INR?",
+      "name": "What is INR?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: INR stands for Indian Rupee, the official currency of India, denoted by the symbol ₹."
+        "text": "INR is the ISO code for the Indian Rupee, India's official currency, written with the symbol ₹. One rupee is divided into 100 paise."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert US dollars to Indian rupees?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Choose USD in the From box and INR in the To box, then enter the amount. The converter multiplies by the day's reference rate — for example, if 1 USD = ₹95.8, then $100 = ₹9,580. Tap ⇄ Swap to convert rupees to dollars instead."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is 1 UAE dirham in Indian rupees?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Select AED → INR above to see today's reference rate; the line under the result shows it as \"1 AED = … INR\". On 24 September 2026 the reference rate was about ₹26.1 per dirham. The dirham is pegged to the US dollar, so AED–INR moves almost exactly with USD–INR."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which currencies can I convert here?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "22 currencies: Indian Rupee, US Dollar, Euro, British Pound, UAE Dirham, Saudi Riyal, Qatari Riyal, Kuwaiti Dinar, Omani Rial, Singapore Dollar, Australian Dollar, Canadian Dollar, New Zealand Dollar, Japanese Yen, Chinese Yuan, Hong Kong Dollar, Swiss Franc, Thai Baht, Malaysian Ringgit, Nepalese Rupee, Bangladeshi Taka and Sri Lankan Rupee. You can convert between any two of them, not just to and from INR."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the mid-market exchange rate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The mid-market rate is the midpoint between the buying and selling prices of a currency on global markets. It's the fairest reference rate, but it isn't what you'll usually get from a bank or exchange counter, which add a margin. This converter shows reference mid-market rates."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does the rupee's exchange rate change every day?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Exchange rates move with supply and demand for each currency — driven by trade, foreign investment flows, interest rates, oil prices and global events. The Reserve Bank of India can step in to smooth sharp moves, but it doesn't fix the rupee's value."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much do cards charge for foreign currency payments?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Many Indian debit and credit cards add a foreign currency markup — commonly around 2–3.5% of the amount — plus GST on that fee. Some travel and premium cards have lower or zero markup. Check your card's schedule of charges before you travel or shop on foreign websites."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it better to exchange money in India or abroad?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on the currency. For widely traded currencies such as USD, EUR, GBP or AED, you'll often get a fair rate in India from a forex card or authorised dealer. For less common currencies, exchanging a small amount in India and the rest on arrival can work better. Avoid airport counters where possible."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the best time to convert currency?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No one can reliably predict exchange rates. If you have a large or regular payment, converting in parts over a few weeks spreads the risk of a bad day. Use this converter to track the rate and compare offers from your bank and transfer services."
       }
     }
   ]
@@ -201,17 +265,19 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
 <div class="calc-card"><h2>// Currency Conversion</h2>
 <div class="input-grid">
   <div class="input-group"><label>Amount</label><input type="number" id="amount" class="no-prefix" placeholder="1000" oninput="convert()" style="padding-left:14px"/></div>
-  <div class="input-group"><label>From Currency</label><select id="from" onchange="convert()" style="padding-left:14px"><option value="1">🇮🇳 INR</option><option value="83.5">🇺🇸 USD</option><option value="91">🇪🇺 EUR</option><option value="106">🇬🇧 GBP</option><option value="0.56">🇦🇪 AED</option><option value="61">🇸🇬 SGD</option><option value="55">🇦🇺 AUD</option></select></div>
-  <div class="input-group"><label>To Currency</label><select id="to" onchange="convert()" style="padding-left:14px"><option value="83.5">🇺🇸 USD</option><option value="1">🇮🇳 INR</option><option value="91">🇪🇺 EUR</option><option value="106">🇬🇧 GBP</option><option value="0.56">🇦🇪 AED</option><option value="61">🇸🇬 SGD</option><option value="55">🇦🇺 AUD</option></select></div>
+  <div class="input-group"><label>From Currency</label><select id="from" onchange="convert()" style="padding-left:14px"><option value="INR">🇮🇳 INR — Indian Rupee</option><option value="USD" selected>🇺🇸 USD — US Dollar</option><option value="EUR">🇪🇺 EUR — Euro</option><option value="GBP">🇬🇧 GBP — British Pound</option><option value="AED">🇦🇪 AED — UAE Dirham</option><option value="SAR">🇸🇦 SAR — Saudi Riyal</option><option value="QAR">🇶🇦 QAR — Qatari Riyal</option><option value="KWD">🇰🇼 KWD — Kuwaiti Dinar</option><option value="OMR">🇴🇲 OMR — Omani Rial</option><option value="SGD">🇸🇬 SGD — Singapore Dollar</option><option value="AUD">🇦🇺 AUD — Australian Dollar</option><option value="CAD">🇨🇦 CAD — Canadian Dollar</option><option value="NZD">🇳🇿 NZD — New Zealand Dollar</option><option value="JPY">🇯🇵 JPY — Japanese Yen</option><option value="CNY">🇨🇳 CNY — Chinese Yuan</option><option value="HKD">🇭🇰 HKD — Hong Kong Dollar</option><option value="CHF">🇨🇭 CHF — Swiss Franc</option><option value="THB">🇹🇭 THB — Thai Baht</option><option value="MYR">🇲🇾 MYR — Malaysian Ringgit</option><option value="NPR">🇳🇵 NPR — Nepalese Rupee</option><option value="BDT">🇧🇩 BDT — Bangladeshi Taka</option><option value="LKR">🇱🇰 LKR — Sri Lankan Rupee</option></select></div>
+  <div class="input-group"><label>To Currency</label><select id="to" onchange="convert()" style="padding-left:14px"><option value="INR" selected>🇮🇳 INR — Indian Rupee</option><option value="USD">🇺🇸 USD — US Dollar</option><option value="EUR">🇪🇺 EUR — Euro</option><option value="GBP">🇬🇧 GBP — British Pound</option><option value="AED">🇦🇪 AED — UAE Dirham</option><option value="SAR">🇸🇦 SAR — Saudi Riyal</option><option value="QAR">🇶🇦 QAR — Qatari Riyal</option><option value="KWD">🇰🇼 KWD — Kuwaiti Dinar</option><option value="OMR">🇴🇲 OMR — Omani Rial</option><option value="SGD">🇸🇬 SGD — Singapore Dollar</option><option value="AUD">🇦🇺 AUD — Australian Dollar</option><option value="CAD">🇨🇦 CAD — Canadian Dollar</option><option value="NZD">🇳🇿 NZD — New Zealand Dollar</option><option value="JPY">🇯🇵 JPY — Japanese Yen</option><option value="CNY">🇨🇳 CNY — Chinese Yuan</option><option value="HKD">🇭🇰 HKD — Hong Kong Dollar</option><option value="CHF">🇨🇭 CHF — Swiss Franc</option><option value="THB">🇹🇭 THB — Thai Baht</option><option value="MYR">🇲🇾 MYR — Malaysian Ringgit</option><option value="NPR">🇳🇵 NPR — Nepalese Rupee</option><option value="BDT">🇧🇩 BDT — Bangladeshi Taka</option><option value="LKR">🇱🇰 LKR — Sri Lankan Rupee</option></select></div>
 </div></div>
 <div class="result-card" id="result">
   <div class="result-label">Converted Amount</div>
   <div class="result-main" id="converted">0</div>
-  <div class="result-sub">Indicative rate — check with your bank for actual rates</div>
+  <div class="result-sub" id="rateLine">—</div>
+  <div class="result-sub" id="rateInfo" style="font-size:.78rem"></div>
+  <button onclick="swapCur()" style="margin-top:10px;padding:8px 18px;background:transparent;border:1px solid var(--border);color:var(--grey);border-radius:10px;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:600">⇄ Swap currencies</button>
 </div></div>
 <section class="content-section">
-  <div class="content-card"><h2>What is this Tool?</h2><p>The Currency Converter allows you to quickly convert amounts between major world currencies. Whether you're planning international travel, making foreign purchases online, sending money abroad, or just curious about exchange rates, this tool gives you instant conversions for reference purposes.</p></div>
-  <div class="content-card"><h2>How to Use This Calculator</h2><div class="steps"><div class="step"><div class="step-num">1</div><div class="step-text">Select the currency you want to convert from.</div></div><div class="step"><div class="step-num">2</div><div class="step-text">Select the currency you want to convert to.</div></div><div class="step"><div class="step-num">3</div><div class="step-text">Enter the amount you want to convert.</div></div><div class="step"><div class="step-num">4</div><div class="step-text">The converted amount is displayed instantly for your reference.</div></div></div></div>
+  <div class="content-card"><h2>What is this Tool?</h2><p>The Currency Converter allows you to quickly convert amounts between major world currencies. Whether you're planning international travel, making foreign purchases online, sending money abroad, or just curious about exchange rates, this tool gives you instant conversions using daily reference (mid-market) exchange rates for 22 currencies, including the Gulf currencies many Indian families send money from.</p></div>
+  <div class="content-card"><h2>How to Use This Calculator</h2><div class="steps"><div class="step"><div class="step-num">1</div><div class="step-text">Select the currency you want to convert from.</div></div><div class="step"><div class="step-num">2</div><div class="step-text">Select the currency you want to convert to.</div></div><div class="step"><div class="step-num">3</div><div class="step-text">Enter the amount you want to convert.</div></div><div class="step"><div class="step-num">4</div><div class="step-text">The converted amount and the exchange rate used appear instantly. Tap ⇄ Swap to reverse the conversion.</div></div></div></div>
   <div class="content-card"><h2>Why This Matters</h2><ul><li>Plan your international travel budget effectively</li><li>Compare prices across different countries</li><li>Calculate foreign transaction costs before making purchases</li><li>Understand how much international transfers will cost</li><li>Track currency trends for business planning</li></ul></div>
   <div class="content-card" style="background:linear-gradient(135deg,var(--orange),var(--orange2));border:1px solid var(--orange)">
     <h2 style="color:#fff">Recommended — Currency & Coin Accessories</h2>
@@ -229,8 +295,8 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
       </div>
     </div>
   </div>
-  <div class="content-card"><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">Q: Are these exchange rates live?</div><div class="faq-a">A: These rates are indicative reference rates for estimation purposes. Always check with your bank or forex provider for the exact rates applicable to your transaction.</div></div><div class="faq-item"><div class="faq-q">Q: Why is the bank rate different?</div><div class="faq-a">A: Banks add a margin (typically 1-3%) over the interbank rate. Money transfer services like Wise offer rates closer to the real exchange rate.</div></div><div class="faq-item"><div class="faq-q">Q: What is the best way to convert currency?</div><div class="faq-a">A: For travel, use a zero-markup forex card. For transfers, use Wise or Remitly. Avoid airport currency counters as they offer the worst rates.</div></div><div class="faq-item"><div class="faq-q">Q: What is INR?</div><div class="faq-a">A: INR stands for Indian Rupee, the official currency of India, denoted by the symbol ₹.</div></div></div>
-  <div class="tip-box"><strong>💡 Pro Tip:</strong> Avoid converting currency at airports — they typically charge 5-8% above the market rate. Instead, use a multi-currency forex card loaded in India before you travel.</div>
+  <div class="content-card"><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">Are these exchange rates live?</div><div class="faq-a">They are daily reference rates, not live trading rates. The converter loads mid-market rates from ExchangeRate-API once a day and shows the update date under the result. If the rates can't load, it uses the dated backup rates shown instead. Your bank, card or money-transfer service will use its own rate, so treat the result as a close estimate.</div></div><div class="faq-item"><div class="faq-q">Why is my bank's rate different?</div><div class="faq-a">Banks and exchange counters add a margin to the mid-market rate — often 1–3%, sometimes more — and may charge a separate fee. Some money-transfer services charge a smaller margin plus a visible fee. Compare the total amount the other person receives, not just the headline rate.</div></div><div class="faq-item"><div class="faq-q">What is the best way to convert currency?</div><div class="faq-a">For travel, compare a forex card, a card with a low foreign-currency markup and your bank's rate. For sending money, compare banks and licensed money-transfer services on both rate and fees. Airport counters are usually the most expensive option.</div></div><div class="faq-item"><div class="faq-q">What is INR?</div><div class="faq-a">INR is the ISO code for the Indian Rupee, India's official currency, written with the symbol ₹. One rupee is divided into 100 paise.</div></div><div class="faq-item"><div class="faq-q">How do I convert US dollars to Indian rupees?</div><div class="faq-a">Choose USD in the From box and INR in the To box, then enter the amount. The converter multiplies by the day's reference rate — for example, if 1 USD = ₹95.8, then $100 = ₹9,580. Tap ⇄ Swap to convert rupees to dollars instead.</div></div><div class="faq-item"><div class="faq-q">How much is 1 UAE dirham in Indian rupees?</div><div class="faq-a">Select AED → INR above to see today's reference rate; the line under the result shows it as "1 AED = … INR". On 24 September 2026 the reference rate was about ₹26.1 per dirham. The dirham is pegged to the US dollar, so AED–INR moves almost exactly with USD–INR.</div></div><div class="faq-item"><div class="faq-q">Which currencies can I convert here?</div><div class="faq-a">22 currencies: Indian Rupee, US Dollar, Euro, British Pound, UAE Dirham, Saudi Riyal, Qatari Riyal, Kuwaiti Dinar, Omani Rial, Singapore Dollar, Australian Dollar, Canadian Dollar, New Zealand Dollar, Japanese Yen, Chinese Yuan, Hong Kong Dollar, Swiss Franc, Thai Baht, Malaysian Ringgit, Nepalese Rupee, Bangladeshi Taka and Sri Lankan Rupee. You can convert between any two of them, not just to and from INR.</div></div><div class="faq-item"><div class="faq-q">What is the mid-market exchange rate?</div><div class="faq-a">The mid-market rate is the midpoint between the buying and selling prices of a currency on global markets. It's the fairest reference rate, but it isn't what you'll usually get from a bank or exchange counter, which add a margin. This converter shows reference mid-market rates.</div></div><div class="faq-item"><div class="faq-q">Why does the rupee's exchange rate change every day?</div><div class="faq-a">Exchange rates move with supply and demand for each currency — driven by trade, foreign investment flows, interest rates, oil prices and global events. The Reserve Bank of India can step in to smooth sharp moves, but it doesn't fix the rupee's value.</div></div><div class="faq-item"><div class="faq-q">How much do cards charge for foreign currency payments?</div><div class="faq-a">Many Indian debit and credit cards add a foreign currency markup — commonly around 2–3.5% of the amount — plus GST on that fee. Some travel and premium cards have lower or zero markup. Check your card's schedule of charges before you travel or shop on foreign websites.</div></div><div class="faq-item"><div class="faq-q">Is it better to exchange money in India or abroad?</div><div class="faq-a">It depends on the currency. For widely traded currencies such as USD, EUR, GBP or AED, you'll often get a fair rate in India from a forex card or authorised dealer. For less common currencies, exchanging a small amount in India and the rest on arrival can work better. Avoid airport counters where possible.</div></div><div class="faq-item"><div class="faq-q">What is the best time to convert currency?</div><div class="faq-a">No one can reliably predict exchange rates. If you have a large or regular payment, converting in parts over a few weeks spreads the risk of a bad day. Use this converter to track the rate and compare offers from your bank and transfer services.</div></div></div>
+  <div class="tip-box"><strong>💡 Pro Tip:</strong> Airport exchange counters usually offer some of the poorest rates. Compare a forex card, a card with a low foreign-currency markup and your bank's rate before you travel — and check the total cost including fees, not just the rate.</div>
   <div class="content-card" style="background:linear-gradient(135deg,var(--orange),var(--orange2));border:1px solid var(--orange)">
     <h2 style="color:#fff">Recommended — Note Counting Machines</h2>
     <p style="font-size:.8rem;color:rgba(255,255,255,.8);margin-bottom:16px">⚠️ Affiliate disclosure: We may earn a small commission if you purchase through these links at no extra cost to you. <a href="../legal/affiliate-disclosure.html" style="color:#fff;font-weight:700">Learn more</a></p>
@@ -294,15 +360,26 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
   </div>
 </footer>
 <script>
+const FX_FALLBACK={date:'24 Sep 2026',inrPer:{INR:1,USD:95.813,EUR:109.111,GBP:126.904,AED:26.0885,SAR:25.5493,QAR:26.3213,KWD:310.174,OMR:249.19,SGD:74.8223,AUD:67.5174,CAD:67.9117,NZD:54.4722,JPY:0.605459,CNY:14.2649,HKD:12.2017,CHF:116.171,THB:2.86961,MYR:23.4577,NPR:0.625,BDT:0.778454,LKR:0.290577}};
+let FX=FX_FALLBACK.inrPer, FX_DATE=FX_FALLBACK.date, FX_LIVE=false;
+function fxInfo(){document.getElementById('rateInfo').innerHTML=(FX_LIVE?'Daily reference rates, updated ':'Reference rates as of ')+FX_DATE+' · <a href="https://www.exchangerate-api.com" target="_blank" rel="noopener" style="color:var(--orange)">Rates By Exchange Rate API</a> · Your bank or card rate will differ.';}
+async function loadRates(){try{let c=null;try{c=JSON.parse(localStorage.getItem('wtkFx')||'null');}catch(e){}
+  if(c&&Date.now()-c.ts<12*3600*1000){FX=c.inrPer;FX_DATE=c.date;FX_LIVE=true;}
+  else{const r=await fetch('https://open.er-api.com/v6/latest/INR');const j=await r.json();if(j.result!=='success')throw 0;
+    const m={INR:1};Object.keys(FX_FALLBACK.inrPer).forEach(k=>{if(k!=='INR'&&j.rates[k])m[k]=1/j.rates[k];else if(k!=='INR')m[k]=FX_FALLBACK.inrPer[k];});
+    FX=m;FX_DATE=new Date(j.time_last_update_unix*1000).toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'});FX_LIVE=true;
+    try{localStorage.setItem('wtkFx',JSON.stringify({ts:Date.now(),date:FX_DATE,inrPer:FX}));}catch(e){}}
+}catch(e){FX=FX_FALLBACK.inrPer;FX_DATE=FX_FALLBACK.date;FX_LIVE=false;}fxInfo();convert();}
+function swapCur(){const a=document.getElementById('from'),b=document.getElementById('to');const t=a.value;a.value=b.value;b.value=t;convert();}
 function convert(){
-  const amt=parseFloat(document.getElementById('amount').value)||0;
-  const from=parseFloat(document.getElementById('from').value)||1;
-  const to=parseFloat(document.getElementById('to').value)||1;
-  if(!amt){document.getElementById('result').classList.remove('show');return;}
-  const inr=amt*from;const result=inr/to;
-  document.getElementById('converted').textContent=result.toLocaleString('en-IN',{maximumFractionDigits:2});
+  const amt=parseFloat(document.getElementById('amount').value);const from=document.getElementById('from').value;const to=document.getElementById('to').value;
+  const rate=FX[from]/FX[to];
+  document.getElementById('rateLine').textContent='1 '+from+' = '+rate.toLocaleString('en-IN',{maximumSignificantDigits:6})+' '+to;
+  if(!(amt>0)){document.getElementById('converted').textContent='—';document.getElementById('result').classList.add('show');return;}
+  document.getElementById('converted').textContent=(amt*rate).toLocaleString('en-IN',{maximumFractionDigits:2})+' '+to;
   document.getElementById('result').classList.add('show');
 }
+fxInfo();loadRates();
 </script>
 <script>
 var tools=[

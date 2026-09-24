@@ -26,6 +26,18 @@
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{--bg:#0f1117;--nav:#000000;--footer-bg:#000000;--card:#1a1d27;--border:#2a2d3a;--white:#ffffff;--grey:#8b8fa8;--light:#c8cad8;--red:#c50337;--red2:#8b0227}
+    .search-wrap{position:relative;margin-left:8px}
+    .search-btn{background:transparent;border:1px solid var(--border);color:var(--grey);padding:7px 14px;border-radius:8px;cursor:pointer;font-size:.85rem;font-family:'DM Sans',sans-serif;font-weight:600;transition:all .2s;display:flex;align-items:center;gap:6px}
+    .search-btn:hover{color:var(--white);border-color:rgba(255,255,255,.3)}
+    .search-box{display:none;position:absolute;top:calc(100% + 10px);right:0;width:300px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:12px;z-index:200;box-shadow:0 20px 40px rgba(0,0,0,.5)}
+    .search-box.open{display:block}
+    .search-input{width:100%;background:#0f1117;border:1px solid var(--border);border-radius:10px;padding:10px 14px;color:var(--white);font-size:.9rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}
+    .search-input:focus{border-color:var(--red)}
+    .search-results{margin-top:8px;max-height:280px;overflow-y:auto}
+    .search-item{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;text-decoration:none;color:var(--light);font-size:.85rem;transition:background .15s}
+    .search-item:hover{background:rgba(255,255,255,.06);color:var(--white)}
+    .search-item-icon{font-size:1rem;width:24px;text-align:center;flex-shrink:0}
+    .search-empty{font-size:.82rem;color:var(--grey);text-align:center;padding:16px 0;font-family:'DM Sans',sans-serif}
     html{scroll-behavior:smooth}
     body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;min-height:100vh}
     nav{display:flex;align-items:center;justify-content:space-between;padding:18px 48px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--nav);backdrop-filter:blur(16px);z-index:100}
@@ -136,47 +148,71 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
       "name": "How do I calculate the cost of a meeting?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Meeting cost = (Total attendees × Average hourly salary) × Meeting duration in hours. For example, a 1-hour meeting with 8 people each earning ₹50,000/month costs approximately ₹2,308 in salary alone — not counting lost productivity. This calculator shows the cost ticking up in real time during the meeting."
+        "text": "Meeting cost = number of attendees × average hourly salary × meeting length in hours. This calculator works out the hourly rate from annual salary (÷ 52 weeks ÷ 40 hours). For example, 8 people earning ₹6,00,000 a year in a 1-hour meeting costs about ₹2,308 in salary time."
       }
     },
     {
       "@type": "Question",
-      "name": "What is a productivity timer online?",
+      "name": "How many meetings are unproductive?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A productivity timer tracks time during work sessions to improve focus and efficiency. This meeting cost calculator acts as a real-time productivity timer — it shows exactly how much money is being spent as the meeting runs. For focused work sessions, try our free Pomodoro Timer on WebToolsKit."
+        "text": "In a survey of 182 senior managers published in Harvard Business Review in 2017, 71% said meetings are unproductive and inefficient, and 65% said meetings keep them from completing their own work. Your own team's experience may differ, so use the calculator to see the cost of your meetings."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: What percentage of meetings are unnecessary?",
+      "name": "What is a better alternative to meetings?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: Studies by Harvard Business Review suggest 71% of senior managers consider most meetings unproductive. 65% say meetings prevent them from completing their own work."
+        "text": "Async tools like Slack, Notion, Loom video messages, and email can handle most meeting topics. Reserve live meetings for decisions requiring real-time discussion and relationship building."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: What is a better alternative to meetings?",
+      "name": "How long should a meeting be?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: Async tools like Slack, Notion, Loom video messages, and email can handle most meeting topics. Reserve live meetings for decisions requiring real-time discussion and relationship building."
+        "text": "As short as the goal allows. Setting a clear agenda and ending once the decision is made keeps most meetings under 30 minutes. For longer sessions, build in breaks."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: How long should a meeting ideally be?",
+      "name": "What makes a meeting worth its cost?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: Research shows attention and productivity decline sharply after 30-45 minutes. Most meetings should be 25 minutes (not 30) to allow transition time. Never schedule a meeting longer than 90 minutes without breaks."
+        "text": "A meeting is worth its cost when: a clear decision is made, a problem is solved collaboratively, or relationships are meaningfully built — outcomes that genuinely require real-time human interaction."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: What makes a meeting worth its cost?",
+      "name": "Does the meeting cost include overheads?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: A meeting is worth its cost when: a clear decision is made, a problem is solved collaboratively, or relationships are meaningfully built — outcomes that genuinely require real-time human interaction."
+        "text": "No — it counts salary time only. The real cost is higher once you add benefits, office costs and the work people couldn't do during the meeting."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I reduce meeting costs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Invite only the people needed for the decision, share an agenda in advance, keep meetings short, and move status updates to email or chat."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I calculate the annual cost of a recurring meeting?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Enter how many times it happens per week. The calculator multiplies the cost of one meeting by the weekly frequency and by 52 weeks."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use a monthly salary in this calculator?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The calculator expects annual salary. Multiply a monthly salary by 12 first — for example, ₹50,000 a month is ₹6,00,000 a year."
       }
     }
   ]
@@ -192,6 +228,13 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
     <a href="../health/index.html" class="nav-link c-g">🌿 Health</a>
     <a href="../freelance/index.html" class="nav-link c-p">💼 Freelance</a>
     <a href="../students/index.html" class="nav-link c-y">🎓 Students</a>
+  </div>
+  <div class="search-wrap">
+    <button class="search-btn" onclick="toggleSearch()">🔍 Search</button>
+    <div class="search-box" id="searchBox">
+      <input type="text" class="search-input" id="searchInput" placeholder="Search tools..." oninput="runSearch()"/>
+      <div class="search-results" id="searchResults"></div>
+    </div>
   </div>
 </nav>
 <div class="tool-hero">
@@ -224,7 +267,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
   <div class="content-card"><h2>What is this Tool?</h2><p>The Meeting Cost Calculator reveals the true financial cost of workplace meetings. Most organisations dramatically underestimate how much meetings cost in terms of collective employee time. When you multiply the hourly cost of each attendee by the meeting duration, the numbers are often shocking — a one-hour meeting with 10 senior employees can easily cost ₹10,000-₹20,000 or more.</p></div>
   <div class="content-card"><h2>How to Use This Tool</h2><div class="steps"><div class="step"><div class="step-num">1</div><div class="step-text">Enter the number of people attending the meeting.</div></div><div class="step"><div class="step-num">2</div><div class="step-text">Enter the average annual salary of attendees.</div></div><div class="step"><div class="step-num">3</div><div class="step-text">Enter the meeting duration in minutes.</div></div><div class="step"><div class="step-num">4</div><div class="step-text">Enter how many similar meetings happen per week.</div></div><div class="step"><div class="step-num">5</div><div class="step-text">The real-time cost, weekly, and annual meeting costs are calculated instantly.</div></div></div></div>
   <div class="content-card"><h2>Why This Matters</h2><ul><li>Make data-driven decisions about whether a meeting is necessary</li><li>Encourage shorter, more focused meetings with visible cost data</li><li>Justify asynchronous communication over unnecessary meetings</li><li>Calculate the ROI of any meeting against its outcomes</li><li>Reduce organisational meeting culture waste</li></ul></div>
-  <div class="content-card"><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">What is the Harvard Business Review meeting cost calculator?</div><div class="faq-a">Harvard Business Review popularised the concept of calculating the true cost of meetings by multiplying attendee salaries by meeting duration. This free meeting cost calculator does exactly that — enter the number of attendees, their average salary and the meeting duration to see the real cost in rupees or any currency. It's a powerful tool for reducing unnecessary meetings.</div></div><div class="faq-item"><div class="faq-q">How do I calculate the cost of a meeting?</div><div class="faq-a">Meeting cost = (Total attendees × Average hourly salary) × Meeting duration in hours. For example, a 1-hour meeting with 8 people each earning ₹50,000/month costs approximately ₹2,308 in salary alone — not counting lost productivity. This calculator shows the cost ticking up in real time during the meeting.</div></div><div class="faq-item"><div class="faq-q">What is a productivity timer online?</div><div class="faq-a">A productivity timer tracks time during work sessions to improve focus and efficiency. This meeting cost calculator acts as a real-time productivity timer — it shows exactly how much money is being spent as the meeting runs. For focused work sessions, try our free Pomodoro Timer on WebToolsKit.</div></div><div class="faq-item"><div class="faq-q">Q: What percentage of meetings are unnecessary?</div><div class="faq-a">A: Studies by Harvard Business Review suggest 71% of senior managers consider most meetings unproductive. 65% say meetings prevent them from completing their own work.</div></div><div class="faq-item"><div class="faq-q">Q: What is a better alternative to meetings?</div><div class="faq-a">A: Async tools like Slack, Notion, Loom video messages, and email can handle most meeting topics. Reserve live meetings for decisions requiring real-time discussion and relationship building.</div></div><div class="faq-item"><div class="faq-q">Q: How long should a meeting ideally be?</div><div class="faq-a">A: Research shows attention and productivity decline sharply after 30-45 minutes. Most meetings should be 25 minutes (not 30) to allow transition time. Never schedule a meeting longer than 90 minutes without breaks.</div></div><div class="faq-item"><div class="faq-q">Q: What makes a meeting worth its cost?</div><div class="faq-a">A: A meeting is worth its cost when: a clear decision is made, a problem is solved collaboratively, or relationships are meaningfully built — outcomes that genuinely require real-time human interaction.</div></div></div>
+  <div class="content-card"><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">What is the Harvard Business Review meeting cost calculator?</div><div class="faq-a">Harvard Business Review popularised the concept of calculating the true cost of meetings by multiplying attendee salaries by meeting duration. This free meeting cost calculator does exactly that — enter the number of attendees, their average salary and the meeting duration to see the real cost in rupees or any currency. It's a powerful tool for reducing unnecessary meetings.</div></div><div class="faq-item"><div class="faq-q">How do I calculate the cost of a meeting?</div><div class="faq-a">Meeting cost = number of attendees × average hourly salary × meeting length in hours. This calculator works out the hourly rate from annual salary (÷ 52 weeks ÷ 40 hours). For example, 8 people earning ₹6,00,000 a year in a 1-hour meeting costs about ₹2,308 in salary time.</div></div><div class="faq-item"><div class="faq-q">How many meetings are unproductive?</div><div class="faq-a">In a survey of 182 senior managers published in Harvard Business Review in 2017, 71% said meetings are unproductive and inefficient, and 65% said meetings keep them from completing their own work. Your own team's experience may differ, so use the calculator to see the cost of your meetings.</div></div><div class="faq-item"><div class="faq-q">What is a better alternative to meetings?</div><div class="faq-a">Async tools like Slack, Notion, Loom video messages, and email can handle most meeting topics. Reserve live meetings for decisions requiring real-time discussion and relationship building.</div></div><div class="faq-item"><div class="faq-q">How long should a meeting be?</div><div class="faq-a">As short as the goal allows. Setting a clear agenda and ending once the decision is made keeps most meetings under 30 minutes. For longer sessions, build in breaks.</div></div><div class="faq-item"><div class="faq-q">What makes a meeting worth its cost?</div><div class="faq-a">A meeting is worth its cost when: a clear decision is made, a problem is solved collaboratively, or relationships are meaningfully built — outcomes that genuinely require real-time human interaction.</div></div><div class="faq-item"><div class="faq-q">Does the meeting cost include overheads?</div><div class="faq-a">No — it counts salary time only. The real cost is higher once you add benefits, office costs and the work people couldn't do during the meeting.</div></div><div class="faq-item"><div class="faq-q">How can I reduce meeting costs?</div><div class="faq-a">Invite only the people needed for the decision, share an agenda in advance, keep meetings short, and move status updates to email or chat.</div></div><div class="faq-item"><div class="faq-q">How do I calculate the annual cost of a recurring meeting?</div><div class="faq-a">Enter how many times it happens per week. The calculator multiplies the cost of one meeting by the weekly frequency and by 52 weeks.</div></div><div class="faq-item"><div class="faq-q">Can I use a monthly salary in this calculator?</div><div class="faq-a">The calculator expects annual salary. Multiply a monthly salary by 12 first — for example, ₹50,000 a month is ₹6,00,000 a year.</div></div></div>
   <div class="tip-box"><strong>💡 Pro Tip:</strong> Before scheduling any meeting, ask: can this be a 5-line email? If yes, send the email. Reserve meetings for situations where real-time discussion genuinely leads to better outcomes than async communication.</div>
 </section>
 <section class="content-section" style="padding-top:0">
@@ -257,6 +300,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
       <a href="../legal/disclaimer.html">Disclaimer</a>
       <a href="../legal/terms-conditions.html">Terms &amp; Conditions</a>
       <a href="../legal/contact.html">Contact Us</a>
+      <a href="../legal/affiliate-disclosure.html">Affiliate Disclosure</a>
       <a href="../legal/copyright.html">Copyright</a>
     </div>
     <div class="sf-col"><h4>Quick Links</h4>
@@ -288,6 +332,29 @@ function calculate(){
   document.getElementById('annual').textContent=fmt(annual);
   document.getElementById('result').classList.add('show');
 }
+</script>
+<script>
+var tools=[
+  {name:'Meeting Cost Calculator',icon:'💼',url:'meeting-cost.html',tags:'meeting cost salary'},
+  {name:'Word & Character Counter',icon:'📝',url:'word-counter.html',tags:'word count characters'},
+  {name:'Readability Score',icon:'📖',url:'readability-score.html',tags:'readability flesch kincaid grade'},
+  {name:'Reading Time Calculator',icon:'⏱️',url:'reading-time.html',tags:'reading time words minutes speech'},
+  {name:'Plagiarism Checker',icon:'🔍',url:'plagiarism-checker.html',tags:'plagiarism similarity compare documents'},
+  {name:'Meta Title & Description Checker',icon:'🏷️',url:'meta-checker.html',tags:'meta title description seo length'},
+  {name:'Hashtag Generator',icon:'#️⃣',url:'hashtag-generator.html',tags:'hashtag instagram linkedin'},
+  {name:'QR Code Generator',icon:'📱',url:'qr-generator.html',tags:'qr code wifi url'},
+  {name:'Password Strength Checker',icon:'🔐',url:'password-checker.html',tags:'password strength secure'},
+  {name:'Age Calculator',icon:'🎂',url:'age-calculator.html',tags:'age date of birth'},
+  {name:'Unit Converter',icon:'📏',url:'unit-converter.html',tags:'unit convert km miles kg'},
+  {name:'Time Zone Converter',icon:'🌍',url:'timezone-converter.html',tags:'time zone ist est pst gmt'},
+  {name:'Roman Numeral Converter',icon:'🏛️',url:'roman-numeral.html',tags:'roman numerals'},
+  {name:'Pomodoro Timer',icon:'🍅',url:'pomodoro-timer.html',tags:'pomodoro focus timer study'},
+  {name:'EMI Calculator',icon:'💰',url:'../finance/emi-calculator.html',tags:'emi loan'},
+  {name:'Attendance Calculator',icon:'✅',url:'../students/attendance-calculator.html',tags:'attendance 75 bunk'},
+];
+function toggleSearch(){var box=document.getElementById('searchBox');box.classList.toggle('open');if(box.classList.contains('open')){document.getElementById('searchInput').focus();runSearch();}}
+document.addEventListener('click',function(e){var wrap=document.querySelector('.search-wrap');if(wrap&&!wrap.contains(e.target))document.getElementById('searchBox').classList.remove('open');});
+function runSearch(){var q=document.getElementById('searchInput').value.toLowerCase();var res=document.getElementById('searchResults');if(!q){res.innerHTML='<div class="search-empty">Type to search tools...</div>';return;}var matches=tools.filter(function(t){return t.name.toLowerCase().includes(q)||t.tags.includes(q);});if(!matches.length){res.innerHTML='<div class="search-empty">No tools found</div>';return;}res.innerHTML=matches.slice(0,8).map(function(t){return '<a href="'+t.url+'" class="search-item"><span class="search-item-icon">'+t.icon+'</span>'+t.name+'</a>';}).join('');}
 </script>
 </body>
 </html>

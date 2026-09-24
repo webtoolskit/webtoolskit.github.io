@@ -7,25 +7,37 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
   <link rel="canonical" href="https://webtoolskit.github.io/utility/age-calculator.html"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Age Calculator — Exact Age in Years, Months & Days | WebToolsKit</title>
-<meta name="description" content="Calculate your exact age in years, months, days, hours and minutes from your date of birth. Free age calculator — also shows days until your next birthday.">
+  <title>Age Calculator — Exact Age in Years, Months &amp; Days | WebToolsKit</title>
+<meta name="description" content="Calculate your exact age in years, months and days from your date of birth, or your age as on any date for exam and job forms. Free, no signup.">
   <!-- Open Graph -->
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://webtoolskit.github.io/utility/age-calculator.html"/>
-<meta property="og:title" content="Age Calculator — Exact Age in Years, Months & Days"/>
-<meta property="og:description" content="Calculate your exact age in years, months, days, hours and minutes from your date of birth. Free age calculator — also shows days until your next birthday."/>
+<meta property="og:title" content="Age Calculator — Exact Age in Years, Months &amp; Days"/>
+<meta property="og:description" content="Calculate your exact age in years, months and days from your date of birth, or your age as on any date for exam and job forms. Free, no signup."/>
 <meta property="og:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
 
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:url" content="https://webtoolskit.github.io/utility/age-calculator.html"/>
-<meta name="twitter:title" content="Age Calculator — Exact Age in Years, Months & Days"/>
-<meta name="twitter:description" content="Calculate your exact age in years, months, days, hours and minutes from your date of birth. Free age calculator — also shows days until your next birthday."/>
+<meta name="twitter:title" content="Age Calculator — Exact Age in Years, Months &amp; Days"/>
+<meta name="twitter:description" content="Calculate your exact age in years, months and days from your date of birth, or your age as on any date for exam and job forms. Free, no signup."/>
 <meta name="twitter:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{--bg:#0f1117;--nav:#000000;--footer-bg:#000000;--card:#1a1d27;--border:#2a2d3a;--white:#ffffff;--grey:#8b8fa8;--light:#c8cad8;--red:#c50337;--red2:#8b0227}
+    .search-wrap{position:relative;margin-left:8px}
+    .search-btn{background:transparent;border:1px solid var(--border);color:var(--grey);padding:7px 14px;border-radius:8px;cursor:pointer;font-size:.85rem;font-family:'DM Sans',sans-serif;font-weight:600;transition:all .2s;display:flex;align-items:center;gap:6px}
+    .search-btn:hover{color:var(--white);border-color:rgba(255,255,255,.3)}
+    .search-box{display:none;position:absolute;top:calc(100% + 10px);right:0;width:300px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:12px;z-index:200;box-shadow:0 20px 40px rgba(0,0,0,.5)}
+    .search-box.open{display:block}
+    .search-input{width:100%;background:#0f1117;border:1px solid var(--border);border-radius:10px;padding:10px 14px;color:var(--white);font-size:.9rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}
+    .search-input:focus{border-color:var(--red)}
+    .search-results{margin-top:8px;max-height:280px;overflow-y:auto}
+    .search-item{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;text-decoration:none;color:var(--light);font-size:.85rem;transition:background .15s}
+    .search-item:hover{background:rgba(255,255,255,.06);color:var(--white)}
+    .search-item-icon{font-size:1rem;width:24px;text-align:center;flex-shrink:0}
+    .search-empty{font-size:.82rem;color:var(--grey);text-align:center;padding:16px 0;font-family:'DM Sans',sans-serif}
     html{scroll-behavior:smooth}
     body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;min-height:100vh}
     nav{display:flex;align-items:center;justify-content:space-between;padding:18px 48px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--nav);backdrop-filter:blur(16px);z-index:100}
@@ -125,34 +137,98 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Q: Why does my age in days seem so large?",
+      "name": "Why does my age in days seem so large?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: An average 30-year-old has lived approximately 10,950 days. Each year adds 365 days (366 in leap years). It seems large because we don't think of our lives in days — but it's a vivid reminder of how many days we have."
+        "text": "Because a year has 365 days (366 in a leap year), the total adds up fast — someone who is 30 has lived about 10,957 days. The calculator counts leap days exactly."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: How does the calculator handle leap years?",
+      "name": "How does the calculator handle leap years?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: The calculator accounts for leap years when computing total days. Leap years occur every 4 years (except century years not divisible by 400), adding an extra day in February."
+        "text": "The calculator accounts for leap years when computing total days. Leap years occur every 4 years (except century years not divisible by 400), adding an extra day in February."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: Can I calculate someone's age at a past date?",
+      "name": "Can I calculate someone's age at a past date?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: Yes! Change the 'Calculate As Of' date to any past or future date to calculate age at that specific point in time. This is useful for historical research or planning future events."
+        "text": "Yes! Change the 'Calculate As Of' date to any past or future date to calculate age at that specific point in time. This is useful for historical research or planning future events."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: Is the age calculation different in different countries?",
+      "name": "Is age calculated differently in some countries?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: In most Western countries, age increases on your birthday. In some East Asian cultures (particularly Korean age), you are 1 year old at birth and gain a year on New Year's Day rather than your birthday."
+        "text": "Most countries count age from your date of birth, adding a year on each birthday. South Korea traditionally used \"Korean age\" (1 at birth, plus a year every New Year), but officially switched to international age for legal and administrative purposes in June 2023."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I calculate my exact age?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Enter your date of birth and the date you want to calculate to (today by default). The calculator shows your age in years, months and days, plus total months, days and hours, the day you were born and days until your next birthday."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I calculate age as on a specific date for an exam or job form?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Many forms ask for your age \"as on\" a cut-off date, such as 1 January or 1 August. Set the \"Calculate As Of\" date to that cut-off and the calculator shows your exact age on that day."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What day of the week was I born?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Enter your date of birth — the result shows the weekday you were born on."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many days until my next birthday?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The calculator shows the exact number of days left until your next birthday, counting from the \"Calculate As Of\" date."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is age calculated for someone born on 29 February?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The calculator uses your real date of birth and counts leap days exactly. In non-leap years, most people celebrate on 28 February or 1 March; for legal purposes, check the rule in your country."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I calculate my age in months?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The result shows your total age in months as well as years, months and days — useful for baby milestones and forms that ask for age in months."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How accurate is this age calculator?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It counts the actual calendar days between the two dates, including leap years, so the years, months and days are exact. Hours are based on whole days."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I calculate the age difference between two people?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — enter the older person's date of birth as the birth date and the younger person's date of birth as the \"Calculate As Of\" date. The result is the exact gap between them."
       }
     }
   ]
@@ -168,6 +244,13 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
     <a href="../health/index.html" class="nav-link c-g">🌿 Health</a>
     <a href="../freelance/index.html" class="nav-link c-p">💼 Freelance</a>
     <a href="../students/index.html" class="nav-link c-y">🎓 Students</a>
+  </div>
+  <div class="search-wrap">
+    <button class="search-btn" onclick="toggleSearch()">🔍 Search</button>
+    <div class="search-box" id="searchBox">
+      <input type="text" class="search-input" id="searchInput" placeholder="Search tools..." oninput="runSearch()"/>
+      <div class="search-results" id="searchResults"></div>
+    </div>
   </div>
 </nav>
 <div class="tool-hero">
@@ -203,8 +286,8 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
   <div class="content-card"><h2>What is this Tool?</h2><p>The Age Calculator computes your exact age down to years, months, days, hours, and even minutes. Beyond just your age, it tells you the day of the week you were born on, how many days until your next birthday, and expresses your age in alternative units like total days and hours lived. It's fun, informative, and useful for everything from filling forms correctly to planning birthday celebrations.</p></div>
   <div class="content-card"><h2>How to Use This Tool</h2><div class="steps"><div class="step"><div class="step-num">1</div><div class="step-text">Enter your date of birth.</div></div><div class="step"><div class="step-num">2</div><div class="step-text">The 'Calculate As Of' date is automatically set to today — change it to calculate age at any specific date.</div></div><div class="step"><div class="step-num">3</div><div class="step-text">Your exact age, total days lived, hours, and birthday countdown are shown instantly.</div></div><div class="step"><div class="step-num">4</div><div class="step-text">Use it to find your exact age for official documents or visa applications.</div></div></div></div>
   <div class="content-card"><h2>Why This Matters</h2><ul><li>Get the exact age for official documents and forms</li><li>Find out the precise day of the week you were born</li><li>Calculate someone's age for legal or medical purposes</li><li>Plan birthday celebrations with an accurate countdown</li><li>Calculate age between any two historical dates</li></ul></div>
-  <div class="content-card"><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">Q: Why does my age in days seem so large?</div><div class="faq-a">A: An average 30-year-old has lived approximately 10,950 days. Each year adds 365 days (366 in leap years). It seems large because we don't think of our lives in days — but it's a vivid reminder of how many days we have.</div></div><div class="faq-item"><div class="faq-q">Q: How does the calculator handle leap years?</div><div class="faq-a">A: The calculator accounts for leap years when computing total days. Leap years occur every 4 years (except century years not divisible by 400), adding an extra day in February.</div></div><div class="faq-item"><div class="faq-q">Q: Can I calculate someone's age at a past date?</div><div class="faq-a">A: Yes! Change the 'Calculate As Of' date to any past or future date to calculate age at that specific point in time. This is useful for historical research or planning future events.</div></div><div class="faq-item"><div class="faq-q">Q: Is the age calculation different in different countries?</div><div class="faq-a">A: In most Western countries, age increases on your birthday. In some East Asian cultures (particularly Korean age), you are 1 year old at birth and gain a year on New Year's Day rather than your birthday.</div></div></div>
-  <div class="tip-box"><strong>💡 Pro Tip:</strong> Next time someone asks your age, you can say: 'I'm 10,950 days old' — technically accurate and infinitely more interesting than just saying 30!</div>
+  <div class="content-card"><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">Why does my age in days seem so large?</div><div class="faq-a">Because a year has 365 days (366 in a leap year), the total adds up fast — someone who is 30 has lived about 10,957 days. The calculator counts leap days exactly.</div></div><div class="faq-item"><div class="faq-q">How does the calculator handle leap years?</div><div class="faq-a">The calculator accounts for leap years when computing total days. Leap years occur every 4 years (except century years not divisible by 400), adding an extra day in February.</div></div><div class="faq-item"><div class="faq-q">Can I calculate someone's age at a past date?</div><div class="faq-a">Yes! Change the 'Calculate As Of' date to any past or future date to calculate age at that specific point in time. This is useful for historical research or planning future events.</div></div><div class="faq-item"><div class="faq-q">Is age calculated differently in some countries?</div><div class="faq-a">Most countries count age from your date of birth, adding a year on each birthday. South Korea traditionally used "Korean age" (1 at birth, plus a year every New Year), but officially switched to international age for legal and administrative purposes in June 2023.</div></div><div class="faq-item"><div class="faq-q">How do I calculate my exact age?</div><div class="faq-a">Enter your date of birth and the date you want to calculate to (today by default). The calculator shows your age in years, months and days, plus total months, days and hours, the day you were born and days until your next birthday.</div></div><div class="faq-item"><div class="faq-q">How do I calculate age as on a specific date for an exam or job form?</div><div class="faq-a">Many forms ask for your age "as on" a cut-off date, such as 1 January or 1 August. Set the "Calculate As Of" date to that cut-off and the calculator shows your exact age on that day.</div></div><div class="faq-item"><div class="faq-q">What day of the week was I born?</div><div class="faq-a">Enter your date of birth — the result shows the weekday you were born on.</div></div><div class="faq-item"><div class="faq-q">How many days until my next birthday?</div><div class="faq-a">The calculator shows the exact number of days left until your next birthday, counting from the "Calculate As Of" date.</div></div><div class="faq-item"><div class="faq-q">How is age calculated for someone born on 29 February?</div><div class="faq-a">The calculator uses your real date of birth and counts leap days exactly. In non-leap years, most people celebrate on 28 February or 1 March; for legal purposes, check the rule in your country.</div></div><div class="faq-item"><div class="faq-q">How do I calculate my age in months?</div><div class="faq-a">The result shows your total age in months as well as years, months and days — useful for baby milestones and forms that ask for age in months.</div></div><div class="faq-item"><div class="faq-q">How accurate is this age calculator?</div><div class="faq-a">It counts the actual calendar days between the two dates, including leap years, so the years, months and days are exact. Hours are based on whole days.</div></div><div class="faq-item"><div class="faq-q">Can I calculate the age difference between two people?</div><div class="faq-a">Yes — enter the older person's date of birth as the birth date and the younger person's date of birth as the "Calculate As Of" date. The result is the exact gap between them.</div></div></div>
+  <div class="tip-box"><strong>💡 Pro Tip:</strong> Next time someone asks your age, you can say: 'I'm about 10,957 days old' — far more interesting than just saying 30!</div>
 </section>
 <section class="content-section" style="padding-top:0">
   <div style="border-top:1px solid var(--border);padding-top:36px">
@@ -236,6 +319,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
       <a href="../legal/disclaimer.html">Disclaimer</a>
       <a href="../legal/terms-conditions.html">Terms &amp; Conditions</a>
       <a href="../legal/contact.html">Contact Us</a>
+      <a href="../legal/affiliate-disclosure.html">Affiliate Disclosure</a>
       <a href="../legal/copyright.html">Copyright</a>
     </div>
     <div class="sf-col"><h4>Quick Links</h4>
@@ -276,6 +360,29 @@ function calcAge(){
 }
 const t=new Date();document.getElementById('asOf').valueAsDate=t;
 const d=new Date(t);d.setFullYear(d.getFullYear()-25);document.getElementById('dob').value=d.toISOString().split('T')[0];calcAge();
+</script>
+<script>
+var tools=[
+  {name:'Age Calculator',icon:'🎂',url:'age-calculator.html',tags:'age date of birth'},
+  {name:'Word & Character Counter',icon:'📝',url:'word-counter.html',tags:'word count characters'},
+  {name:'Readability Score',icon:'📖',url:'readability-score.html',tags:'readability flesch kincaid grade'},
+  {name:'Reading Time Calculator',icon:'⏱️',url:'reading-time.html',tags:'reading time words minutes speech'},
+  {name:'Plagiarism Checker',icon:'🔍',url:'plagiarism-checker.html',tags:'plagiarism similarity compare documents'},
+  {name:'Meta Title & Description Checker',icon:'🏷️',url:'meta-checker.html',tags:'meta title description seo length'},
+  {name:'Hashtag Generator',icon:'#️⃣',url:'hashtag-generator.html',tags:'hashtag instagram linkedin'},
+  {name:'QR Code Generator',icon:'📱',url:'qr-generator.html',tags:'qr code wifi url'},
+  {name:'Password Strength Checker',icon:'🔐',url:'password-checker.html',tags:'password strength secure'},
+  {name:'Unit Converter',icon:'📏',url:'unit-converter.html',tags:'unit convert km miles kg'},
+  {name:'Time Zone Converter',icon:'🌍',url:'timezone-converter.html',tags:'time zone ist est pst gmt'},
+  {name:'Roman Numeral Converter',icon:'🏛️',url:'roman-numeral.html',tags:'roman numerals'},
+  {name:'Pomodoro Timer',icon:'🍅',url:'pomodoro-timer.html',tags:'pomodoro focus timer study'},
+  {name:'Meeting Cost Calculator',icon:'💼',url:'meeting-cost.html',tags:'meeting cost salary'},
+  {name:'EMI Calculator',icon:'💰',url:'../finance/emi-calculator.html',tags:'emi loan'},
+  {name:'Attendance Calculator',icon:'✅',url:'../students/attendance-calculator.html',tags:'attendance 75 bunk'},
+];
+function toggleSearch(){var box=document.getElementById('searchBox');box.classList.toggle('open');if(box.classList.contains('open')){document.getElementById('searchInput').focus();runSearch();}}
+document.addEventListener('click',function(e){var wrap=document.querySelector('.search-wrap');if(wrap&&!wrap.contains(e.target))document.getElementById('searchBox').classList.remove('open');});
+function runSearch(){var q=document.getElementById('searchInput').value.toLowerCase();var res=document.getElementById('searchResults');if(!q){res.innerHTML='<div class="search-empty">Type to search tools...</div>';return;}var matches=tools.filter(function(t){return t.name.toLowerCase().includes(q)||t.tags.includes(q);});if(!matches.length){res.innerHTML='<div class="search-empty">No tools found</div>';return;}res.innerHTML=matches.slice(0,8).map(function(t){return '<a href="'+t.url+'" class="search-item"><span class="search-item-icon">'+t.icon+'</span>'+t.name+'</a>';}).join('');}
 </script>
 </body>
 </html>

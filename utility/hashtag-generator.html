@@ -7,25 +7,37 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
   <link rel="canonical" href="https://webtoolskit.github.io/utility/hashtag-generator.html"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hashtag Generator — Instagram, LinkedIn & Twitter | WebToolsKit</title>
-<meta name="description" content="Generate relevant hashtags for Instagram, LinkedIn and Twitter instantly from any keyword or topic. Free hashtag generator — boost your social media reach, no signup.">
+  <title>Hashtag Generator for Instagram, LinkedIn &amp; X — 5-Tag Ready | WebToolsKit</title>
+<meta name="description" content="Generate relevant hashtags from your keywords for Instagram, LinkedIn and X. Top picks follow Instagram&#x27;s 5-hashtag limit. Free hashtag generator, no signup.">
   <!-- Open Graph -->
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://webtoolskit.github.io/utility/hashtag-generator.html"/>
-<meta property="og:title" content="Hashtag Generator — Instagram, LinkedIn & Twitter"/>
-<meta property="og:description" content="Generate relevant hashtags for Instagram, LinkedIn and Twitter instantly from any keyword. Free hashtag generator — boost your social media reach, no signup."/>
+<meta property="og:title" content="Hashtag Generator for Instagram, LinkedIn &amp; X — 5-Tag Ready"/>
+<meta property="og:description" content="Generate relevant hashtags from your keywords for Instagram, LinkedIn and X. Top picks follow Instagram&#x27;s 5-hashtag limit. Free hashtag generator, no signup."/>
 <meta property="og:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
 
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:url" content="https://webtoolskit.github.io/utility/hashtag-generator.html"/>
-<meta name="twitter:title" content="Hashtag Generator — Instagram, LinkedIn & Twitter"/>
-<meta name="twitter:description" content="Generate relevant hashtags for Instagram, LinkedIn and Twitter instantly from any keyword. Free hashtag generator — boost your social media reach, no signup."/>
+<meta name="twitter:title" content="Hashtag Generator for Instagram, LinkedIn &amp; X — 5-Tag Ready"/>
+<meta name="twitter:description" content="Generate relevant hashtags from your keywords for Instagram, LinkedIn and X. Top picks follow Instagram&#x27;s 5-hashtag limit. Free hashtag generator, no signup."/>
 <meta name="twitter:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{--bg:#0f1117;--nav:#000000;--footer-bg:#000000;--card:#1a1d27;--border:#2a2d3a;--white:#ffffff;--grey:#8b8fa8;--light:#c8cad8;--red:#c50337;--red2:#8b0227}
+    .search-wrap{position:relative;margin-left:8px}
+    .search-btn{background:transparent;border:1px solid var(--border);color:var(--grey);padding:7px 14px;border-radius:8px;cursor:pointer;font-size:.85rem;font-family:'DM Sans',sans-serif;font-weight:600;transition:all .2s;display:flex;align-items:center;gap:6px}
+    .search-btn:hover{color:var(--white);border-color:rgba(255,255,255,.3)}
+    .search-box{display:none;position:absolute;top:calc(100% + 10px);right:0;width:300px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:12px;z-index:200;box-shadow:0 20px 40px rgba(0,0,0,.5)}
+    .search-box.open{display:block}
+    .search-input{width:100%;background:#0f1117;border:1px solid var(--border);border-radius:10px;padding:10px 14px;color:var(--white);font-size:.9rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}
+    .search-input:focus{border-color:var(--red)}
+    .search-results{margin-top:8px;max-height:280px;overflow-y:auto}
+    .search-item{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;text-decoration:none;color:var(--light);font-size:.85rem;transition:background .15s}
+    .search-item:hover{background:rgba(255,255,255,.06);color:var(--white)}
+    .search-item-icon{font-size:1rem;width:24px;text-align:center;flex-shrink:0}
+    .search-empty{font-size:.82rem;color:var(--grey);text-align:center;padding:16px 0;font-family:'DM Sans',sans-serif}
     html{scroll-behavior:smooth}
     body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;min-height:100vh}
     nav{display:flex;align-items:center;justify-content:space-between;padding:18px 48px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--nav);backdrop-filter:blur(16px);z-index:100}
@@ -125,34 +137,98 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Q: How many hashtags should I use on Instagram?",
+      "name": "How many hashtags can I use on Instagram?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: Instagram allows up to 30 hashtags. Research suggests 9-15 hashtags per post is the optimal range for reach and engagement. Using all 30 can look spammy and may reduce reach."
+        "text": "Instagram now allows a maximum of 5 hashtags per post or reel, and says a few specific hashtags work better than many generic ones. This generator highlights your top 5 picks for Instagram."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: Should I put hashtags in the caption or comments?",
+      "name": "Should hashtags go in the caption or the comments?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: Both work equally for reach. Many creators prefer putting hashtags in the first comment to keep captions clean and readable. Instagram has confirmed both approaches are treated the same by the algorithm."
+        "text": "The caption is the simplest place, and it keeps your hashtags attached to the post itself. With the 5-hashtag limit, focus on choosing the most relevant ones rather than where they go."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: Do hashtags work on LinkedIn?",
+      "name": "How many hashtags should I use on LinkedIn?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: Yes, but use fewer — 3-5 highly relevant hashtags. LinkedIn's algorithm treats hashtag-heavy posts as lower quality. Choose hashtags with active communities (100K-5M followers) for best reach."
+        "text": "Use a small number — about 3 to 5 — that clearly describe your topic or industry. More than that tends to look cluttered and adds little."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: Are banned hashtags a thing?",
+      "name": "Are some Instagram hashtags restricted?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: Yes. Instagram occasionally restricts certain hashtags due to abuse. If a hashtag shows no recent posts when you search it, it may be shadow-banned. Avoid using the same exact hashtag set on every post, as this can trigger spam filters."
+        "text": "Yes. Instagram can limit hashtags that are linked to spam or content that breaks its rules. If a hashtag page shows few or no recent posts, avoid it. Rotating different relevant hashtags also looks more natural than repeating the same set on every post."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does this hashtag generator work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It turns your keywords into hashtags, recognises common topics like fitness, food, travel, tech, education, business and motivation, and suggests related hashtags from that topic. Your strongest matches are highlighted as top picks for the platform you choose."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many hashtags should I use on X (Twitter)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "One or two relevant hashtags is usually enough on X. More than that uses up your character limit and can make posts harder to read."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do hashtags still help reach on Instagram?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "They help Instagram understand what your post is about, but Instagram has said hashtags matter less for reach than they used to — the content itself, captions and engagement matter more. Use a few precise hashtags that genuinely describe the post."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I use broad or niche hashtags?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mix both, leaning towards specific ones. A very broad tag like #love is flooded with posts, while a specific one like #homecooking or #travelindia reaches people looking for exactly your topic."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use the same hashtags on every post?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It's better to rotate. Keep a few sets of relevant hashtags for each content theme and choose the set that best fits each post."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I create my own branded hashtag?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A short, unique branded hashtag can help your followers find and share your content, especially for a business, event or campaign. Check it isn't already used for something else first."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are hashtags case-sensitive?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — #TravelIndia and #travelindia lead to the same place. Capitalising each word (#TravelIndia) makes multi-word hashtags easier to read, including for screen-reader users."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why didn't I get many hashtag ideas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The generator suggests related hashtags when it recognises a topic. If your keywords are very specific, add a broader word such as fitness, food, travel, tech, business or study to get more ideas."
       }
     }
   ]
@@ -168,6 +244,13 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
     <a href="../health/index.html" class="nav-link c-g">🌿 Health</a>
     <a href="../freelance/index.html" class="nav-link c-p">💼 Freelance</a>
     <a href="../students/index.html" class="nav-link c-y">🎓 Students</a>
+  </div>
+  <div class="search-wrap">
+    <button class="search-btn" onclick="toggleSearch()">🔍 Search</button>
+    <div class="search-box" id="searchBox">
+      <input type="text" class="search-input" id="searchInput" placeholder="Search tools..." oninput="runSearch()"/>
+      <div class="search-results" id="searchResults"></div>
+    </div>
   </div>
 </nav>
 <div class="tool-hero">
@@ -190,16 +273,16 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
 <div class="result-card" id="result">
   <div class="result-label" id="hashLabel">Generated Hashtags</div>
   <div class="result-main" id="hashCount" style="font-size:3rem">0</div>
-  <div class="result-sub">Click any hashtag to copy it</div>
+  <div class="result-sub">Top picks are highlighted — click any hashtag to copy it</div>
   <div id="hashWrap" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;justify-content:center"></div>
-  <button onclick="copyAll()" style="margin-top:16px;padding:10px 24px;background:transparent;border:1px solid rgba(197,3,55,.4);color:var(--red);border-radius:10px;font-size:.88rem;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif">📋 Copy All</button>
+  <button onclick="copyAll()" style="margin-top:16px;padding:10px 24px;background:transparent;border:1px solid rgba(197,3,55,.4);color:var(--red);border-radius:10px;font-size:.88rem;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif">📋 Copy Top Picks</button>
 </div></div>
 <section class="content-section">
-  <div class="content-card"><h2>What is this Tool?</h2><p>The Hashtag Generator creates a relevant set of hashtags for your social media posts based on your topic, keywords, and target platform. Using the right hashtags dramatically increases the organic reach of your social media content — they act as a discovery mechanism that connects your posts with people who don't yet follow you but are interested in your topic.</p></div>
+  <div class="content-card"><h2>What is this Tool?</h2><p>The Hashtag Generator creates a relevant set of hashtags for your social media posts based on your topic, keywords, and target platform. The right hashtags help platforms understand what your post is about and help people interested in that topic find it. Instagram now allows up to 5 hashtags per post, so choosing a few precise ones matters more than ever.</p></div>
   <div class="content-card"><h2>How to Use This Tool</h2><div class="steps"><div class="step"><div class="step-num">1</div><div class="step-text">Enter your content topic or keywords in the input field.</div></div><div class="step"><div class="step-num">2</div><div class="step-text">Select the platform — Instagram, LinkedIn, or Twitter/X.</div></div><div class="step"><div class="step-num">3</div><div class="step-text">Click Generate Hashtags.</div></div><div class="step"><div class="step-num">4</div><div class="step-text">A curated set of relevant hashtags is generated instantly.</div></div><div class="step"><div class="step-num">5</div><div class="step-text">Click any hashtag to copy it individually, or use 'Copy All' to copy the complete set.</div></div></div></div>
-  <div class="content-card"><h2>Why This Matters</h2><ul><li>Increase organic reach and discoverability on social media</li><li>Save time researching relevant hashtags manually</li><li>Get platform-appropriate hashtag counts (more for Instagram, fewer for LinkedIn)</li><li>Discover niche hashtags you might not have thought of</li><li>Build consistent hashtag sets for recurring content categories</li></ul></div>
-  <div class="content-card"><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">Q: How many hashtags should I use on Instagram?</div><div class="faq-a">A: Instagram allows up to 30 hashtags. Research suggests 9-15 hashtags per post is the optimal range for reach and engagement. Using all 30 can look spammy and may reduce reach.</div></div><div class="faq-item"><div class="faq-q">Q: Should I put hashtags in the caption or comments?</div><div class="faq-a">A: Both work equally for reach. Many creators prefer putting hashtags in the first comment to keep captions clean and readable. Instagram has confirmed both approaches are treated the same by the algorithm.</div></div><div class="faq-item"><div class="faq-q">Q: Do hashtags work on LinkedIn?</div><div class="faq-a">A: Yes, but use fewer — 3-5 highly relevant hashtags. LinkedIn's algorithm treats hashtag-heavy posts as lower quality. Choose hashtags with active communities (100K-5M followers) for best reach.</div></div><div class="faq-item"><div class="faq-q">Q: Are banned hashtags a thing?</div><div class="faq-a">A: Yes. Instagram occasionally restricts certain hashtags due to abuse. If a hashtag shows no recent posts when you search it, it may be shadow-banned. Avoid using the same exact hashtag set on every post, as this can trigger spam filters.</div></div></div>
-  <div class="tip-box"><strong>💡 Pro Tip:</strong> Build a hashtag library for your top 5-10 content themes and rotate between sets. Never use the exact same 15 hashtags on every post — Instagram's algorithm may classify this as repetitive spammy behaviour and reduce your reach.</div>
+  <div class="content-card"><h2>Why This Matters</h2><ul><li>Increase organic reach and discoverability on social media</li><li>Save time researching relevant hashtags manually</li><li>Get the right number for each platform — up to 5 on Instagram, 3–5 on LinkedIn, 1–2 on X</li><li>Discover niche hashtags you might not have thought of</li><li>Build consistent hashtag sets for recurring content categories</li></ul></div>
+  <div class="content-card"><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">How many hashtags can I use on Instagram?</div><div class="faq-a">Instagram now allows a maximum of 5 hashtags per post or reel, and says a few specific hashtags work better than many generic ones. This generator highlights your top 5 picks for Instagram.</div></div><div class="faq-item"><div class="faq-q">Should hashtags go in the caption or the comments?</div><div class="faq-a">The caption is the simplest place, and it keeps your hashtags attached to the post itself. With the 5-hashtag limit, focus on choosing the most relevant ones rather than where they go.</div></div><div class="faq-item"><div class="faq-q">How many hashtags should I use on LinkedIn?</div><div class="faq-a">Use a small number — about 3 to 5 — that clearly describe your topic or industry. More than that tends to look cluttered and adds little.</div></div><div class="faq-item"><div class="faq-q">Are some Instagram hashtags restricted?</div><div class="faq-a">Yes. Instagram can limit hashtags that are linked to spam or content that breaks its rules. If a hashtag page shows few or no recent posts, avoid it. Rotating different relevant hashtags also looks more natural than repeating the same set on every post.</div></div><div class="faq-item"><div class="faq-q">How does this hashtag generator work?</div><div class="faq-a">It turns your keywords into hashtags, recognises common topics like fitness, food, travel, tech, education, business and motivation, and suggests related hashtags from that topic. Your strongest matches are highlighted as top picks for the platform you choose.</div></div><div class="faq-item"><div class="faq-q">How many hashtags should I use on X (Twitter)?</div><div class="faq-a">One or two relevant hashtags is usually enough on X. More than that uses up your character limit and can make posts harder to read.</div></div><div class="faq-item"><div class="faq-q">Do hashtags still help reach on Instagram?</div><div class="faq-a">They help Instagram understand what your post is about, but Instagram has said hashtags matter less for reach than they used to — the content itself, captions and engagement matter more. Use a few precise hashtags that genuinely describe the post.</div></div><div class="faq-item"><div class="faq-q">Should I use broad or niche hashtags?</div><div class="faq-a">Mix both, leaning towards specific ones. A very broad tag like #love is flooded with posts, while a specific one like #homecooking or #travelindia reaches people looking for exactly your topic.</div></div><div class="faq-item"><div class="faq-q">Can I use the same hashtags on every post?</div><div class="faq-a">It's better to rotate. Keep a few sets of relevant hashtags for each content theme and choose the set that best fits each post.</div></div><div class="faq-item"><div class="faq-q">Should I create my own branded hashtag?</div><div class="faq-a">A short, unique branded hashtag can help your followers find and share your content, especially for a business, event or campaign. Check it isn't already used for something else first.</div></div><div class="faq-item"><div class="faq-q">Are hashtags case-sensitive?</div><div class="faq-a">No — #TravelIndia and #travelindia lead to the same place. Capitalising each word (#TravelIndia) makes multi-word hashtags easier to read, including for screen-reader users.</div></div><div class="faq-item"><div class="faq-q">Why didn't I get many hashtag ideas?</div><div class="faq-a">The generator suggests related hashtags when it recognises a topic. If your keywords are very specific, add a broader word such as fitness, food, travel, tech, business or study to get more ideas.</div></div></div>
+  <div class="tip-box"><strong>💡 Pro Tip:</strong> Build a hashtag library for your top 5-10 content themes and rotate between sets. With Instagram's 5-hashtag limit, pick the most specific tags for each post instead of repeating the same set every time.</div>
 </section>
 <section class="content-section" style="padding-top:0">
   <div style="border-top:1px solid var(--border);padding-top:36px">
@@ -231,6 +314,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
       <a href="../legal/disclaimer.html">Disclaimer</a>
       <a href="../legal/terms-conditions.html">Terms &amp; Conditions</a>
       <a href="../legal/contact.html">Contact Us</a>
+      <a href="../legal/affiliate-disclosure.html">Affiliate Disclosure</a>
       <a href="../legal/copyright.html">Copyright</a>
     </div>
     <div class="sf-col"><h4>Quick Links</h4>
@@ -247,19 +331,59 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
 </footer>
 <script>
 const hashDB={general:['trending','viral','instagood','photooftheday','love','life','follow','share','content','creator','explore','community','india'],business:['digitalmarketing','marketing','entrepreneur','business','smallbusiness','startup','branding','socialmedia','growthhacking','contentmarketing','b2b','leadgeneration','marketingstrategy','onlinebusiness','growthmarketing'],fitness:['fitness','workout','gym','healthylifestyle','fitnessmotivation','training','nutrition','health','wellness','bodybuilding','cardio','weightloss','fitfam','exercise','personaltrainer'],travel:['travel','wanderlust','travelphotography','travelgram','explore','adventure','vacation','travelindia','incredibleindia','backpacking','travelblogger','tourism','instatravel','travellife','roadtrip'],tech:['technology','tech','ai','artificialintelligence','coding','programming','developer','software','machinelearning','startup','innovation','cybersecurity','cloudcomputing','devops','webdevelopment'],food:['food','foodie','instafood','foodphotography','homecooking','recipe','foodblogger','delicious','cooking','yummy','indianfood','foodlover','healthyfood','chef','mealprep'],education:['education','learning','students','study','knowledge','teaching','university','college','elearning','onlinelearning','edtech','studymotivation','academics'],motivation:['motivation','inspiration','mindset','success','goals','positivity','selfimprovement','personaldevelopment','hustle','hardwork','believe','motivationalquotes','growth']};
-const limits={instagram:20,linkedin:5,twitter:5};
+
+const CAT_KEYS={fitness:['fitness','gym','workout','yoga','health','diet','weight','running','run','exercise','wellness','muscle','cardio'],
+travel:['travel','trip','tour','tourism','holiday','vacation','beach','mountain','trek','trekking','backpacking','roadtrip','india'],
+tech:['tech','technology','ai','coding','code','software','app','developer','programming','data','cloud','cyber','web'],
+food:['food','recipe','recipes','cooking','cook','kitchen','baking','cake','restaurant','cafe','meal','foodie','chef','biryani'],
+education:['study','student','students','exam','learn','learning','education','school','college','neet','jee','upsc','teacher','teaching'],
+business:['business','marketing','startup','brand','branding','sales','entrepreneur','freelance','freelancer','seo','ecommerce','finance','money'],
+motivation:['motivation','success','mindset','quote','quotes','inspiration','goals','selfimprovement','productivity']};
+const PLATFORM_MAX={instagram:5,linkedin:5,twitter:2};
+const PLATFORM_NAME={instagram:'Instagram',linkedin:'LinkedIn',twitter:'X (Twitter)'};
 function generateHashtags(){
-  const topic=document.getElementById('hashTopic').value.toLowerCase().replace(/[^a-z0-9\s]/g,'').split(/\s+/).filter(w=>w.length>2);
+  const raw=document.getElementById('hashTopic').value.toLowerCase().replace(/[^a-z0-9\s]/g,' ');
+  const words=raw.split(/\s+/).filter(w=>w.length>2);
   const platform=document.getElementById('hashPlatform').value;
-  const limit=limits[platform];
-  const allTags=[...new Set([...topic,...hashDB.general,...hashDB.business,...hashDB.motivation])].slice(0,limit);
-  document.getElementById('hashLabel').textContent=`${allTags.length} Hashtags for ${platform.charAt(0).toUpperCase()+platform.slice(1)}`;
-  document.getElementById('hashCount').textContent=allTags.length;
-  document.getElementById('hashWrap').innerHTML=allTags.map(h=>`<span onclick="copyTag(this,'#${h}')" style="background:rgba(197,3,55,.1);border:1px solid rgba(197,3,55,.25);color:#e85580;font-family:'DM Mono',monospace;font-size:.78rem;font-weight:600;padding:5px 12px;border-radius:100px;cursor:pointer;transition:all .2s">#${h}</span>`).join('');
+  const max=PLATFORM_MAX[platform];
+  if(!words.length){alert('Enter a topic or a few keywords first.');return;}
+  const tags=[];
+  const add=t=>{t=t.replace(/[^a-z0-9]/g,'');if(t.length>2&&!tags.includes(t))tags.push(t);};
+  if(words.length>1&&words.length<=4)add(words.join(''));
+  words.forEach(add);
+  const matched=Object.keys(CAT_KEYS).filter(c=>words.some(w=>CAT_KEYS[c].some(k=>w===k||w.startsWith(k))));
+  const pools=matched.map(c=>hashDB[c].slice());for(let i=0;pools.some(p=>i<p.length);i++)pools.forEach(p=>{if(i<p.length)add(p[i]);});
+  const list=tags.slice(0,15);
+  document.getElementById('hashLabel').textContent=matched.length?`${list.length} hashtag ideas — use up to ${max} per post on ${PLATFORM_NAME[platform]}`:`${list.length} hashtag ideas — add a broader keyword (e.g. fitness, travel, food) for more`;
+  document.getElementById('hashCount').textContent=Math.min(max,list.length);
+  document.getElementById('hashWrap').innerHTML=list.map((h,i)=>`<span data-top="${i<max?1:0}" onclick="copyTag(this,'#${h}')" style="background:${i<max?'rgba(197,3,55,.22)':'rgba(197,3,55,.1)'};border:1px solid rgba(197,3,55,${i<max?'.6':'.25'});color:#e85580;font-family:'DM Mono',monospace;font-size:.78rem;font-weight:${i<max?700:600};padding:5px 12px;border-radius:100px;cursor:pointer;transition:all .2s">#${h}</span>`).join('');
   document.getElementById('result').classList.add('show');
 }
 function copyTag(el,tag){navigator.clipboard.writeText(tag);el.style.background='rgba(197,3,55,.3)';setTimeout(()=>el.style.background='rgba(197,3,55,.1)',600);}
-function copyAll(){const tags=[...document.querySelectorAll('#hashWrap span')].map(t=>t.textContent).join(' ');navigator.clipboard.writeText(tags);alert('All hashtags copied to clipboard!');}
+function copyAll(){const tags=[...document.querySelectorAll('#hashWrap span[data-top="1"]')].map(t=>t.textContent).join(' ');navigator.clipboard.writeText(tags);alert('Top hashtags copied to clipboard!');}
+</script>
+<script>
+var tools=[
+  {name:'Hashtag Generator',icon:'#️⃣',url:'hashtag-generator.html',tags:'hashtag instagram linkedin'},
+  {name:'Word & Character Counter',icon:'📝',url:'word-counter.html',tags:'word count characters'},
+  {name:'Readability Score',icon:'📖',url:'readability-score.html',tags:'readability flesch kincaid grade'},
+  {name:'Reading Time Calculator',icon:'⏱️',url:'reading-time.html',tags:'reading time words minutes speech'},
+  {name:'Plagiarism Checker',icon:'🔍',url:'plagiarism-checker.html',tags:'plagiarism similarity compare documents'},
+  {name:'Meta Title & Description Checker',icon:'🏷️',url:'meta-checker.html',tags:'meta title description seo length'},
+  {name:'QR Code Generator',icon:'📱',url:'qr-generator.html',tags:'qr code wifi url'},
+  {name:'Password Strength Checker',icon:'🔐',url:'password-checker.html',tags:'password strength secure'},
+  {name:'Age Calculator',icon:'🎂',url:'age-calculator.html',tags:'age date of birth'},
+  {name:'Unit Converter',icon:'📏',url:'unit-converter.html',tags:'unit convert km miles kg'},
+  {name:'Time Zone Converter',icon:'🌍',url:'timezone-converter.html',tags:'time zone ist est pst gmt'},
+  {name:'Roman Numeral Converter',icon:'🏛️',url:'roman-numeral.html',tags:'roman numerals'},
+  {name:'Pomodoro Timer',icon:'🍅',url:'pomodoro-timer.html',tags:'pomodoro focus timer study'},
+  {name:'Meeting Cost Calculator',icon:'💼',url:'meeting-cost.html',tags:'meeting cost salary'},
+  {name:'EMI Calculator',icon:'💰',url:'../finance/emi-calculator.html',tags:'emi loan'},
+  {name:'Attendance Calculator',icon:'✅',url:'../students/attendance-calculator.html',tags:'attendance 75 bunk'},
+];
+function toggleSearch(){var box=document.getElementById('searchBox');box.classList.toggle('open');if(box.classList.contains('open')){document.getElementById('searchInput').focus();runSearch();}}
+document.addEventListener('click',function(e){var wrap=document.querySelector('.search-wrap');if(wrap&&!wrap.contains(e.target))document.getElementById('searchBox').classList.remove('open');});
+function runSearch(){var q=document.getElementById('searchInput').value.toLowerCase();var res=document.getElementById('searchResults');if(!q){res.innerHTML='<div class="search-empty">Type to search tools...</div>';return;}var matches=tools.filter(function(t){return t.name.toLowerCase().includes(q)||t.tags.includes(q);});if(!matches.length){res.innerHTML='<div class="search-empty">No tools found</div>';return;}res.innerHTML=matches.slice(0,8).map(function(t){return '<a href="'+t.url+'" class="search-item"><span class="search-item-icon">'+t.icon+'</span>'+t.name+'</a>';}).join('');}
 </script>
 </body>
 </html>

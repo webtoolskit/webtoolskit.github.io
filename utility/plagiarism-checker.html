@@ -26,6 +26,18 @@
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{--bg:#0f1117;--nav:#000000;--footer-bg:#000000;--card:#1a1d27;--border:#2a2d3a;--white:#ffffff;--grey:#8b8fa8;--light:#c8cad8;--red:#c50337;--red2:#8b0227}
+    .search-wrap{position:relative;margin-left:8px}
+    .search-btn{background:transparent;border:1px solid var(--border);color:var(--grey);padding:7px 14px;border-radius:8px;cursor:pointer;font-size:.85rem;font-family:'DM Sans',sans-serif;font-weight:600;transition:all .2s;display:flex;align-items:center;gap:6px}
+    .search-btn:hover{color:var(--white);border-color:rgba(255,255,255,.3)}
+    .search-box{display:none;position:absolute;top:calc(100% + 10px);right:0;width:300px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:12px;z-index:200;box-shadow:0 20px 40px rgba(0,0,0,.5)}
+    .search-box.open{display:block}
+    .search-input{width:100%;background:#0f1117;border:1px solid var(--border);border-radius:10px;padding:10px 14px;color:var(--white);font-size:.9rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}
+    .search-input:focus{border-color:var(--red)}
+    .search-results{margin-top:8px;max-height:280px;overflow-y:auto}
+    .search-item{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;text-decoration:none;color:var(--light);font-size:.85rem;transition:background .15s}
+    .search-item:hover{background:rgba(255,255,255,.06);color:var(--white)}
+    .search-item-icon{font-size:1rem;width:24px;text-align:center;flex-shrink:0}
+    .search-empty{font-size:.82rem;color:var(--grey);text-align:center;padding:16px 0;font-family:'DM Sans',sans-serif}
     html{scroll-behavior:smooth}
     body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;min-height:100vh}
     nav{display:flex;align-items:center;justify-content:space-between;padding:18px 48px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--nav);z-index:100}
@@ -161,34 +173,66 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
     },
     {
       "@type": "Question",
-      "name": "Q: What similarity percentage is considered plagiarism?",
+      "name": "What similarity percentage counts as plagiarism?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: Generally, a similarity score below 15% is acceptable for academic work. 15-30% is borderline and warrants review. Above 30% is typically considered high plagiarism. However, standards vary by institution — always check your university or publisher's specific policy."
+        "text": "There is no universal number. Universities and publishers set their own thresholds, and a high score isn't automatically plagiarism — quotations, references and common phrases also match. Always review what matched and follow your institution's policy."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: Does this tool search the internet for plagiarism?",
+      "name": "Does this tool search the internet for plagiarism?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: No. This tool compares the two texts you paste directly — it does not search the web or any database. For internet-wide plagiarism checks, tools like Turnitin, Grammarly, or Copyscape are used. This tool is best for document-to-document comparison."
+        "text": "No. This tool compares the two texts you paste directly — it does not search the web or any database. For internet-wide plagiarism checks, tools like Turnitin, Grammarly, or Copyscape are used. This tool is best for document-to-document comparison."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: Is my text stored or sent to a server?",
+      "name": "Is my text stored or sent to a server?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: No. All comparison happens entirely in your browser using JavaScript. Your text is never sent to any server, stored anywhere, or seen by anyone. This makes the tool completely private and safe for sensitive content."
+        "text": "No. All comparison happens entirely in your browser using JavaScript. Your text is never sent to any server, stored anywhere, or seen by anyone. This makes the tool completely private and safe for sensitive content."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: How is the similarity score calculated?",
+      "name": "How is the similarity score calculated?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: The tool splits both texts into sentences and checks how many sentences in the checked text have a strong match in the original text. The score is the percentage of checked sentences that closely match the source. It also performs phrase-level matching to catch partial similarities."
+        "text": "The tool splits both texts into sentences and checks how many sentences in the checked text have a strong match in the original text. The score is the percentage of checked sentences that closely match the source. It also performs phrase-level matching to catch partial similarities."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I compare two Word or PDF documents?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Open each file, copy the text and paste it into the two boxes above. The tool compares the plain text, so formatting, images and tables are ignored."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I reduce the similarity score?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Rewrite matched sentences in your own structure and words, add your own analysis, and quote and cite anything you use directly. Simply swapping a few words for synonyms isn't real paraphrasing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does quoting and citing count as plagiarism?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Properly quoted and cited text isn't plagiarism, but it will still show up as matching text in any similarity checker. Review matches in context rather than relying on the percentage alone."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I compare code with this tool?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can paste code, but the tool is designed for written text — it compares sentences and phrases — so results for code are only a rough guide."
       }
     }
   ]
@@ -204,6 +248,13 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
     <a href="../health/index.html" class="nav-link c-g">🌿 Health</a>
     <a href="../freelance/index.html" class="nav-link c-p">💼 Freelance</a>
     <a href="../students/index.html" class="nav-link c-y">🎓 Students</a>
+  </div>
+  <div class="search-wrap">
+    <button class="search-btn" onclick="toggleSearch()">🔍 Search</button>
+    <div class="search-box" id="searchBox">
+      <input type="text" class="search-input" id="searchInput" placeholder="Search tools..." oninput="runSearch()"/>
+      <div class="search-results" id="searchResults"></div>
+    </div>
   </div>
 </nav>
 
@@ -281,10 +332,10 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
     <div class="faq-item"><div class="faq-q">Can I compare two documents for plagiarism for free?</div><div class="faq-a">Yes — this free plagiarism checker lets you compare two documents or texts side by side with no signup, no upload and no cost. Paste both texts and get an instant similarity score and matched sentences. It works entirely in your browser so your content stays private.</div></div>
     <div class="faq-item"><div class="faq-q">What is a text similarity checker?</div><div class="faq-a">A text similarity checker compares two pieces of text and calculates how similar they are as a percentage. It finds matching sentences, shared phrases and common words. This tool is useful for checking plagiarism between two files, comparing rewritten articles to originals, and verifying that paraphrased content is sufficiently different from the source.</div></div>
     <div class="faq-item"><div class="faq-q">How do I check similarity between two files?</div><div class="faq-a">Open both files, copy the text from each, and paste them into the two text boxes above. Click Check Similarity to get an instant comparison. This tool supports any plain text content — essays, articles, reports, code comments and more. For PDF or Word documents, copy the text out first before pasting.</div></div>
-        <div class="faq-item"><div class="faq-q">Q: What similarity percentage is considered plagiarism?</div><div class="faq-a">A: Generally, a similarity score below 15% is acceptable for academic work. 15-30% is borderline and warrants review. Above 30% is typically considered high plagiarism. However, standards vary by institution — always check your university or publisher's specific policy.</div></div>
-    <div class="faq-item"><div class="faq-q">Q: Does this tool search the internet for plagiarism?</div><div class="faq-a">A: No. This tool compares the two texts you paste directly — it does not search the web or any database. For internet-wide plagiarism checks, tools like Turnitin, Grammarly, or Copyscape are used. This tool is best for document-to-document comparison.</div></div>
-    <div class="faq-item"><div class="faq-q">Q: Is my text stored or sent to a server?</div><div class="faq-a">A: No. All comparison happens entirely in your browser using JavaScript. Your text is never sent to any server, stored anywhere, or seen by anyone. This makes the tool completely private and safe for sensitive content.</div></div>
-    <div class="faq-item"><div class="faq-q">Q: How is the similarity score calculated?</div><div class="faq-a">A: The tool splits both texts into sentences and checks how many sentences in the checked text have a strong match in the original text. The score is the percentage of checked sentences that closely match the source. It also performs phrase-level matching to catch partial similarities.</div></div>
+        <div class="faq-item"><div class="faq-q">What similarity percentage counts as plagiarism?</div><div class="faq-a">There is no universal number. Universities and publishers set their own thresholds, and a high score isn't automatically plagiarism — quotations, references and common phrases also match. Always review what matched and follow your institution's policy.</div></div>
+    <div class="faq-item"><div class="faq-q">Does this tool search the internet for plagiarism?</div><div class="faq-a">No. This tool compares the two texts you paste directly — it does not search the web or any database. For internet-wide plagiarism checks, tools like Turnitin, Grammarly, or Copyscape are used. This tool is best for document-to-document comparison.</div></div>
+    <div class="faq-item"><div class="faq-q">Is my text stored or sent to a server?</div><div class="faq-a">No. All comparison happens entirely in your browser using JavaScript. Your text is never sent to any server, stored anywhere, or seen by anyone. This makes the tool completely private and safe for sensitive content.</div></div>
+    <div class="faq-item"><div class="faq-q">How is the similarity score calculated?</div><div class="faq-a">The tool splits both texts into sentences and checks how many sentences in the checked text have a strong match in the original text. The score is the percentage of checked sentences that closely match the source. It also performs phrase-level matching to catch partial similarities.</div></div><div class="faq-item"><div class="faq-q">How do I compare two Word or PDF documents?</div><div class="faq-a">Open each file, copy the text and paste it into the two boxes above. The tool compares the plain text, so formatting, images and tables are ignored.</div></div><div class="faq-item"><div class="faq-q">How can I reduce the similarity score?</div><div class="faq-a">Rewrite matched sentences in your own structure and words, add your own analysis, and quote and cite anything you use directly. Simply swapping a few words for synonyms isn't real paraphrasing.</div></div><div class="faq-item"><div class="faq-q">Does quoting and citing count as plagiarism?</div><div class="faq-a">Properly quoted and cited text isn't plagiarism, but it will still show up as matching text in any similarity checker. Review matches in context rather than relying on the percentage alone.</div></div><div class="faq-item"><div class="faq-q">Can I compare code with this tool?</div><div class="faq-a">You can paste code, but the tool is designed for written text — it compares sentences and phrases — so results for code are only a rough guide.</div></div>
   </div>
   <div class="tip-box"><strong>💡 Pro Tip:</strong> If a sentence is flagged as matching, don't just change a few words — restructure the entire sentence. True paraphrasing means conveying the same idea in a completely different sentence structure, not just swapping synonyms. Changing word order and adding your own analysis makes rewritten content genuinely original.</div>
 </section>
@@ -319,6 +370,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
       <a href="../legal/disclaimer.html">Disclaimer</a>
       <a href="../legal/terms-conditions.html">Terms &amp; Conditions</a>
       <a href="../legal/contact.html">Contact Us</a>
+      <a href="../legal/affiliate-disclosure.html">Affiliate Disclosure</a>
       <a href="../legal/copyright.html">Copyright</a>
     </div>
     <div class="sf-col"><h4>Quick Links</h4>
@@ -396,6 +448,29 @@ function checkPlagiarism() {
   document.getElementById('result').classList.add('show');
   document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
+</script>
+<script>
+var tools=[
+  {name:'Plagiarism Checker',icon:'🔍',url:'plagiarism-checker.html',tags:'plagiarism similarity compare documents'},
+  {name:'Word & Character Counter',icon:'📝',url:'word-counter.html',tags:'word count characters'},
+  {name:'Readability Score',icon:'📖',url:'readability-score.html',tags:'readability flesch kincaid grade'},
+  {name:'Reading Time Calculator',icon:'⏱️',url:'reading-time.html',tags:'reading time words minutes speech'},
+  {name:'Meta Title & Description Checker',icon:'🏷️',url:'meta-checker.html',tags:'meta title description seo length'},
+  {name:'Hashtag Generator',icon:'#️⃣',url:'hashtag-generator.html',tags:'hashtag instagram linkedin'},
+  {name:'QR Code Generator',icon:'📱',url:'qr-generator.html',tags:'qr code wifi url'},
+  {name:'Password Strength Checker',icon:'🔐',url:'password-checker.html',tags:'password strength secure'},
+  {name:'Age Calculator',icon:'🎂',url:'age-calculator.html',tags:'age date of birth'},
+  {name:'Unit Converter',icon:'📏',url:'unit-converter.html',tags:'unit convert km miles kg'},
+  {name:'Time Zone Converter',icon:'🌍',url:'timezone-converter.html',tags:'time zone ist est pst gmt'},
+  {name:'Roman Numeral Converter',icon:'🏛️',url:'roman-numeral.html',tags:'roman numerals'},
+  {name:'Pomodoro Timer',icon:'🍅',url:'pomodoro-timer.html',tags:'pomodoro focus timer study'},
+  {name:'Meeting Cost Calculator',icon:'💼',url:'meeting-cost.html',tags:'meeting cost salary'},
+  {name:'EMI Calculator',icon:'💰',url:'../finance/emi-calculator.html',tags:'emi loan'},
+  {name:'Attendance Calculator',icon:'✅',url:'../students/attendance-calculator.html',tags:'attendance 75 bunk'},
+];
+function toggleSearch(){var box=document.getElementById('searchBox');box.classList.toggle('open');if(box.classList.contains('open')){document.getElementById('searchInput').focus();runSearch();}}
+document.addEventListener('click',function(e){var wrap=document.querySelector('.search-wrap');if(wrap&&!wrap.contains(e.target))document.getElementById('searchBox').classList.remove('open');});
+function runSearch(){var q=document.getElementById('searchInput').value.toLowerCase();var res=document.getElementById('searchResults');if(!q){res.innerHTML='<div class="search-empty">Type to search tools...</div>';return;}var matches=tools.filter(function(t){return t.name.toLowerCase().includes(q)||t.tags.includes(q);});if(!matches.length){res.innerHTML='<div class="search-empty">No tools found</div>';return;}res.innerHTML=matches.slice(0,8).map(function(t){return '<a href="'+t.url+'" class="search-item"><span class="search-item-icon">'+t.icon+'</span>'+t.name+'</a>';}).join('');}
 </script>
 </body>
 </html>

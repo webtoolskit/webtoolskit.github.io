@@ -7,25 +7,37 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
   <link rel="canonical" href="https://webtoolskit.github.io/utility/timezone-converter.html"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Time Zone Converter — 20+ World Time Zones | WebToolsKit</title>
-<meta name="description" content="Convert time between 20+ world time zones instantly. Free time zone converter — perfect for remote teams, freelancers scheduling international calls, no signup.">
+  <title>Time Zone Converter — IST to EST, PST, GMT &amp; 20+ Cities | WebToolsKit</title>
+<meta name="description" content="Convert time between India (IST) and 23 world cities — New York, London, Dubai, Singapore and more. Daylight saving handled automatically. Free, no signup.">
   <!-- Open Graph -->
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://webtoolskit.github.io/utility/timezone-converter.html"/>
-<meta property="og:title" content="Time Zone Converter — 20+ World Time Zones"/>
-<meta property="og:description" content="Convert time between 20+ world time zones instantly. Free time zone converter — perfect for remote teams and freelancers scheduling international calls."/>
+<meta property="og:title" content="Time Zone Converter — IST to EST, PST, GMT &amp; 20+ Cities"/>
+<meta property="og:description" content="Convert time between India (IST) and 23 world cities — New York, London, Dubai, Singapore and more. Daylight saving handled automatically. Free, no signup."/>
 <meta property="og:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
 
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:url" content="https://webtoolskit.github.io/utility/timezone-converter.html"/>
-<meta name="twitter:title" content="Time Zone Converter — 20+ World Time Zones"/>
-<meta name="twitter:description" content="Convert time between 20+ world time zones instantly. Free time zone converter — perfect for remote teams and freelancers scheduling international calls."/>
+<meta name="twitter:title" content="Time Zone Converter — IST to EST, PST, GMT &amp; 20+ Cities"/>
+<meta name="twitter:description" content="Convert time between India (IST) and 23 world cities — New York, London, Dubai, Singapore and more. Daylight saving handled automatically. Free, no signup."/>
 <meta name="twitter:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{--bg:#0f1117;--nav:#000000;--footer-bg:#000000;--card:#1a1d27;--border:#2a2d3a;--white:#ffffff;--grey:#8b8fa8;--light:#c8cad8;--red:#c50337;--red2:#8b0227}
+    .search-wrap{position:relative;margin-left:8px}
+    .search-btn{background:transparent;border:1px solid var(--border);color:var(--grey);padding:7px 14px;border-radius:8px;cursor:pointer;font-size:.85rem;font-family:'DM Sans',sans-serif;font-weight:600;transition:all .2s;display:flex;align-items:center;gap:6px}
+    .search-btn:hover{color:var(--white);border-color:rgba(255,255,255,.3)}
+    .search-box{display:none;position:absolute;top:calc(100% + 10px);right:0;width:300px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:12px;z-index:200;box-shadow:0 20px 40px rgba(0,0,0,.5)}
+    .search-box.open{display:block}
+    .search-input{width:100%;background:#0f1117;border:1px solid var(--border);border-radius:10px;padding:10px 14px;color:var(--white);font-size:.9rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}
+    .search-input:focus{border-color:var(--red)}
+    .search-results{margin-top:8px;max-height:280px;overflow-y:auto}
+    .search-item{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;text-decoration:none;color:var(--light);font-size:.85rem;transition:background .15s}
+    .search-item:hover{background:rgba(255,255,255,.06);color:var(--white)}
+    .search-item-icon{font-size:1rem;width:24px;text-align:center;flex-shrink:0}
+    .search-empty{font-size:.82rem;color:var(--grey);text-align:center;padding:16px 0;font-family:'DM Sans',sans-serif}
     html{scroll-behavior:smooth}
     body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;min-height:100vh}
     nav{display:flex;align-items:center;justify-content:space-between;padding:18px 48px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--nav);backdrop-filter:blur(16px);z-index:100}
@@ -125,34 +137,98 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Q: What is UTC?",
+      "name": "What is UTC?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: UTC (Coordinated Universal Time) is the global time standard. All time zones are defined as offsets from UTC. IST (India Standard Time) is UTC+5:30, meaning India is 5 hours and 30 minutes ahead of UTC."
+        "text": "UTC (Coordinated Universal Time) is the global time standard. All time zones are defined as offsets from UTC. IST (India Standard Time) is UTC+5:30, meaning India is 5 hours and 30 minutes ahead of UTC."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: Why does India have a 30-minute offset?",
+      "name": "Why is India UTC+5:30?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: India chose UTC+5:30 in 1905 to create a single time zone for the entire country, placing it at the midpoint of its geographic spread. This is why India has an unusual 30-minute offset rather than a whole-hour one."
+        "text": "Indian Standard Time is set on the 82.5° E meridian near Mirzapur, which sits roughly in the middle of the country — 5 hours 30 minutes ahead of UTC. IST was introduced on 1 January 1906 and became the official time for the whole country after independence in 1947."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: What is Daylight Saving Time?",
+      "name": "What is Daylight Saving Time?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: Many Western countries adjust their clocks forward by 1 hour in summer (Daylight Saving Time) to make better use of evening daylight. India, China, Japan, and many Asian countries do not observe DST."
+        "text": "Many countries in North America and Europe move their clocks forward one hour in summer. India, China, Japan and most of Asia don't. That's why the gap between India and the US or UK changes by an hour during the year — this converter handles it automatically for the date you pick."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: What is the best time for India-US meetings?",
+      "name": "What is the best time for India–US meetings?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: For India (IST) and US East Coast (EST): the overlap window is 6:30 PM–8:30 PM IST = 8:00–10:00 AM EST. Earlier than this and it's the middle of the night in India; later and the US workday is over."
+        "text": "Early evening in India overlaps with the US East Coast morning. From November to March, 6:30–8:30 PM IST is 8:00–10:00 AM in New York; from March to November (US daylight saving), the same IST window is 9:00–11:00 AM in New York. Use the converter above to check any exact date."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert IST to EST or ET?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "India is 10 hours 30 minutes ahead of New York from November to March, and 9 hours 30 minutes ahead during US daylight saving (March to November). Choose India as the From zone, enter your time, and see New York's time instantly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert IST to PST or PT?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "India is 13 hours 30 minutes ahead of Los Angeles in winter and 12 hours 30 minutes ahead during US daylight saving. Pick India as the From zone to see the exact Los Angeles time for your date."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the time difference between India and the UK?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "India is 5 hours 30 minutes ahead of the UK in winter (GMT) and 4 hours 30 minutes ahead during British Summer Time (late March to late October)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does India have Daylight Saving Time?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. India uses Indian Standard Time (UTC+5:30) all year round, so the time difference with countries that use daylight saving changes during the year."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between GMT and UTC?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For everyday use they show the same time. UTC is the precise international time standard; GMT is the time zone used in the UK in winter. In summer the UK switches to BST (UTC+1)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I schedule a meeting across time zones?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pick a time in one zone, check it here against every attendee's city, and look for an overlap within working hours. Share the time in each attendee's zone, or send a calendar invite, which converts automatically."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which time zones does this converter support?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "23 cities across India, the US, Canada, Brazil, the UK, Europe, Africa, the Middle East, South and East Asia, Australia and New Zealand. Daylight saving is applied automatically for the date you enter."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What time is it in the US when it's 9 AM in India?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "At 9 AM IST it's the previous evening in the US — 10:30 PM in New York in winter (11:30 PM during US daylight saving). Enter your exact date above to check."
       }
     }
   ]
@@ -169,6 +245,13 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
     <a href="../freelance/index.html" class="nav-link c-p">💼 Freelance</a>
     <a href="../students/index.html" class="nav-link c-y">🎓 Students</a>
   </div>
+  <div class="search-wrap">
+    <button class="search-btn" onclick="toggleSearch()">🔍 Search</button>
+    <div class="search-box" id="searchBox">
+      <input type="text" class="search-input" id="searchInput" placeholder="Search tools..." oninput="runSearch()"/>
+      <div class="search-results" id="searchResults"></div>
+    </div>
+  </div>
 </nav>
 <div class="tool-hero">
   <div class="tool-breadcrumb"><a href="index.html">⚡ Utility</a> → Time Zone Converter</div>
@@ -184,16 +267,29 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
   <div class="input-grid">
     <div class="input-group"><label>Date & Time</label><input type="datetime-local" id="tzDateTime" class="no-prefix" oninput="convertTZ()"/></div>
     <div class="input-group"><label>From Time Zone</label><select id="tzFrom" class="no-prefix" onchange="convertTZ()">
-      <option value="Asia/Kolkata">🇮🇳 India (IST) UTC+5:30</option>
-      <option value="America/New_York">🇺🇸 New York (EST)</option>
-      <option value="America/Los_Angeles">🇺🇸 Los Angeles (PST)</option>
-      <option value="Europe/London">🇬🇧 London (GMT)</option>
-      <option value="Europe/Paris">🇪🇺 Paris (CET)</option>
+      <option value="Asia/Kolkata">🇮🇳 India (IST, UTC+5:30)</option>
+      <option value="Europe/London">🇬🇧 London (UK time)</option>
+      <option value="America/New_York">🇺🇸 New York (Eastern Time)</option>
+      <option value="America/Chicago">🇺🇸 Chicago (Central Time)</option>
+      <option value="America/Los_Angeles">🇺🇸 Los Angeles (Pacific Time)</option>
+      <option value="America/Toronto">🇨🇦 Toronto (Eastern Time)</option>
+      <option value="America/Sao_Paulo">🇧🇷 São Paulo (Brasília Time)</option>
+      <option value="Europe/Paris">🇫🇷 Paris (Central European Time)</option>
+      <option value="Europe/Berlin">🇩🇪 Berlin (Central European Time)</option>
+      <option value="Africa/Johannesburg">🇿🇦 Johannesburg (SAST)</option>
+      <option value="Africa/Nairobi">🇰🇪 Nairobi (EAT)</option>
+      <option value="Asia/Riyadh">🇸🇦 Riyadh (AST)</option>
       <option value="Asia/Dubai">🇦🇪 Dubai (GST)</option>
+      <option value="Asia/Kathmandu">🇳🇵 Kathmandu (NPT, UTC+5:45)</option>
+      <option value="Asia/Dhaka">🇧🇩 Dhaka (BST, UTC+6)</option>
+      <option value="Asia/Jakarta">🇮🇩 Jakarta (WIB)</option>
       <option value="Asia/Singapore">🇸🇬 Singapore (SGT)</option>
+      <option value="Asia/Shanghai">🇨🇳 Shanghai (China Time)</option>
+      <option value="Asia/Hong_Kong">🇭🇰 Hong Kong (HKT)</option>
+      <option value="Asia/Seoul">🇰🇷 Seoul (KST)</option>
       <option value="Asia/Tokyo">🇯🇵 Tokyo (JST)</option>
-      <option value="Australia/Sydney">🇦🇺 Sydney (AEST)</option>
-      <option value="America/Chicago">🇺🇸 Chicago (CST)</option>
+      <option value="Australia/Sydney">🇦🇺 Sydney (Australian Eastern Time)</option>
+      <option value="Pacific/Auckland">🇳🇿 Auckland (New Zealand Time)</option>
     </select></div>
   </div>
   <button class="calc-btn" onclick="convertTZ()">Convert to All Time Zones →</button>
@@ -206,7 +302,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
   <div class="content-card"><h2>What is this Tool?</h2><p>The Time Zone Converter helps you instantly convert any date and time between 20+ major world time zones. In our increasingly connected world, coordinating across time zones is a daily challenge for remote teams, international businesses, travellers, and anyone working with global clients. This tool eliminates the mental arithmetic of time zone conversion and prevents the embarrassment of scheduling meetings at 3 AM for a colleague.</p></div>
   <div class="content-card"><h2>How to Use This Tool</h2><div class="steps"><div class="step"><div class="step-num">1</div><div class="step-text">Enter the date and time you want to convert.</div></div><div class="step"><div class="step-num">2</div><div class="step-text">Select the time zone you're converting from.</div></div><div class="step"><div class="step-num">3</div><div class="step-text">Click Convert to see the equivalent time in 16 major world time zones simultaneously.</div></div><div class="step"><div class="step-num">4</div><div class="step-text">Highlighted cards show the source time zone.</div></div></div></div>
   <div class="content-card"><h2>Why This Matters</h2><ul><li>Schedule international meetings without time zone confusion</li><li>Find the best overlap window for global team calls</li><li>Calculate arrival times when planning international travel</li><li>Check if colleagues or clients are within business hours</li><li>Convert broadcast or event times for your local time zone</li></ul></div>
-  <div class="content-card"><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">Q: What is UTC?</div><div class="faq-a">A: UTC (Coordinated Universal Time) is the global time standard. All time zones are defined as offsets from UTC. IST (India Standard Time) is UTC+5:30, meaning India is 5 hours and 30 minutes ahead of UTC.</div></div><div class="faq-item"><div class="faq-q">Q: Why does India have a 30-minute offset?</div><div class="faq-a">A: India chose UTC+5:30 in 1905 to create a single time zone for the entire country, placing it at the midpoint of its geographic spread. This is why India has an unusual 30-minute offset rather than a whole-hour one.</div></div><div class="faq-item"><div class="faq-q">Q: What is Daylight Saving Time?</div><div class="faq-a">A: Many Western countries adjust their clocks forward by 1 hour in summer (Daylight Saving Time) to make better use of evening daylight. India, China, Japan, and many Asian countries do not observe DST.</div></div><div class="faq-item"><div class="faq-q">Q: What is the best time for India-US meetings?</div><div class="faq-a">A: For India (IST) and US East Coast (EST): the overlap window is 6:30 PM–8:30 PM IST = 8:00–10:00 AM EST. Earlier than this and it's the middle of the night in India; later and the US workday is over.</div></div></div>
+  <div class="content-card"><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">What is UTC?</div><div class="faq-a">UTC (Coordinated Universal Time) is the global time standard. All time zones are defined as offsets from UTC. IST (India Standard Time) is UTC+5:30, meaning India is 5 hours and 30 minutes ahead of UTC.</div></div><div class="faq-item"><div class="faq-q">Why is India UTC+5:30?</div><div class="faq-a">Indian Standard Time is set on the 82.5° E meridian near Mirzapur, which sits roughly in the middle of the country — 5 hours 30 minutes ahead of UTC. IST was introduced on 1 January 1906 and became the official time for the whole country after independence in 1947.</div></div><div class="faq-item"><div class="faq-q">What is Daylight Saving Time?</div><div class="faq-a">Many countries in North America and Europe move their clocks forward one hour in summer. India, China, Japan and most of Asia don't. That's why the gap between India and the US or UK changes by an hour during the year — this converter handles it automatically for the date you pick.</div></div><div class="faq-item"><div class="faq-q">What is the best time for India–US meetings?</div><div class="faq-a">Early evening in India overlaps with the US East Coast morning. From November to March, 6:30–8:30 PM IST is 8:00–10:00 AM in New York; from March to November (US daylight saving), the same IST window is 9:00–11:00 AM in New York. Use the converter above to check any exact date.</div></div><div class="faq-item"><div class="faq-q">How do I convert IST to EST or ET?</div><div class="faq-a">India is 10 hours 30 minutes ahead of New York from November to March, and 9 hours 30 minutes ahead during US daylight saving (March to November). Choose India as the From zone, enter your time, and see New York's time instantly.</div></div><div class="faq-item"><div class="faq-q">How do I convert IST to PST or PT?</div><div class="faq-a">India is 13 hours 30 minutes ahead of Los Angeles in winter and 12 hours 30 minutes ahead during US daylight saving. Pick India as the From zone to see the exact Los Angeles time for your date.</div></div><div class="faq-item"><div class="faq-q">What is the time difference between India and the UK?</div><div class="faq-a">India is 5 hours 30 minutes ahead of the UK in winter (GMT) and 4 hours 30 minutes ahead during British Summer Time (late March to late October).</div></div><div class="faq-item"><div class="faq-q">Does India have Daylight Saving Time?</div><div class="faq-a">No. India uses Indian Standard Time (UTC+5:30) all year round, so the time difference with countries that use daylight saving changes during the year.</div></div><div class="faq-item"><div class="faq-q">What is the difference between GMT and UTC?</div><div class="faq-a">For everyday use they show the same time. UTC is the precise international time standard; GMT is the time zone used in the UK in winter. In summer the UK switches to BST (UTC+1).</div></div><div class="faq-item"><div class="faq-q">How do I schedule a meeting across time zones?</div><div class="faq-a">Pick a time in one zone, check it here against every attendee's city, and look for an overlap within working hours. Share the time in each attendee's zone, or send a calendar invite, which converts automatically.</div></div><div class="faq-item"><div class="faq-q">Which time zones does this converter support?</div><div class="faq-a">23 cities across India, the US, Canada, Brazil, the UK, Europe, Africa, the Middle East, South and East Asia, Australia and New Zealand. Daylight saving is applied automatically for the date you enter.</div></div><div class="faq-item"><div class="faq-q">What time is it in the US when it's 9 AM in India?</div><div class="faq-a">At 9 AM IST it's the previous evening in the US — 10:30 PM in New York in winter (11:30 PM during US daylight saving). Enter your exact date above to check.</div></div></div>
   <div class="tip-box"><strong>💡 Pro Tip:</strong> When scheduling international meetings, always share the meeting time in both time zones explicitly (e.g., '3 PM IST / 9:30 AM UTC') to prevent confusion. Calendar apps like Google Calendar automatically convert to each attendee's local time zone.</div>
 </section>
 <section class="content-section" style="padding-top:0">
@@ -239,6 +335,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
       <a href="../legal/disclaimer.html">Disclaimer</a>
       <a href="../legal/terms-conditions.html">Terms &amp; Conditions</a>
       <a href="../legal/contact.html">Contact Us</a>
+      <a href="../legal/affiliate-disclosure.html">Affiliate Disclosure</a>
       <a href="../legal/copyright.html">Copyright</a>
     </div>
     <div class="sf-col"><h4>Quick Links</h4>
@@ -254,11 +351,13 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
   </div>
 </footer>
 <script>
-const zones=[{name:'🇮🇳 Mumbai/Delhi',tz:'Asia/Kolkata'},{name:'🇬🇧 London',tz:'Europe/London'},{name:'🇺🇸 New York',tz:'America/New_York'},{name:'🇺🇸 Los Angeles',tz:'America/Los_Angeles'},{name:'🇩🇪 Berlin',tz:'Europe/Berlin'},{name:'🇦🇪 Dubai',tz:'Asia/Dubai'},{name:'🇸🇬 Singapore',tz:'Asia/Singapore'},{name:'🇯🇵 Tokyo',tz:'Asia/Tokyo'},{name:'🇦🇺 Sydney',tz:'Australia/Sydney'},{name:'🇨🇳 Shanghai',tz:'Asia/Shanghai'},{name:'🇧🇷 São Paulo',tz:'America/Sao_Paulo'},{name:'🇺🇸 Chicago',tz:'America/Chicago'},{name:'🇨🇦 Toronto',tz:'America/Toronto'},{name:'🇫🇷 Paris',tz:'Europe/Paris'},{name:'🇮🇩 Jakarta',tz:'Asia/Jakarta'},{name:'🇰🇷 Seoul',tz:'Asia/Seoul'}];
+const zones=[{name:'🇮🇳 Mumbai/Delhi',tz:'Asia/Kolkata'},{name:'🇬🇧 London',tz:'Europe/London'},{name:'🇺🇸 New York',tz:'America/New_York'},{name:'🇺🇸 Chicago',tz:'America/Chicago'},{name:'🇺🇸 Los Angeles',tz:'America/Los_Angeles'},{name:'🇨🇦 Toronto',tz:'America/Toronto'},{name:'🇧🇷 São Paulo',tz:'America/Sao_Paulo'},{name:'🇫🇷 Paris',tz:'Europe/Paris'},{name:'🇩🇪 Berlin',tz:'Europe/Berlin'},{name:'🇿🇦 Johannesburg',tz:'Africa/Johannesburg'},{name:'🇰🇪 Nairobi',tz:'Africa/Nairobi'},{name:'🇸🇦 Riyadh',tz:'Asia/Riyadh'},{name:'🇦🇪 Dubai',tz:'Asia/Dubai'},{name:'🇳🇵 Kathmandu',tz:'Asia/Kathmandu'},{name:'🇧🇩 Dhaka',tz:'Asia/Dhaka'},{name:'🇮🇩 Jakarta',tz:'Asia/Jakarta'},{name:'🇸🇬 Singapore',tz:'Asia/Singapore'},{name:'🇨🇳 Shanghai',tz:'Asia/Shanghai'},{name:'🇭🇰 Hong Kong',tz:'Asia/Hong_Kong'},{name:'🇰🇷 Seoul',tz:'Asia/Seoul'},{name:'🇯🇵 Tokyo',tz:'Asia/Tokyo'},{name:'🇦🇺 Sydney',tz:'Australia/Sydney'},{name:'🇳🇿 Auckland',tz:'Pacific/Auckland'}];
+function tzOffsetMs(ts,tz){const p=new Intl.DateTimeFormat('en-US',{timeZone:tz,hourCycle:'h23',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit'}).formatToParts(new Date(ts));const g=t=>+p.find(x=>x.type===t).value;return Date.UTC(g('year'),g('month')-1,g('day'),g('hour'),g('minute'),g('second'))-ts;}
+function zonedTimeToDate(str,tz){const [d,t]=str.split('T');const [y,m,day]=d.split('-').map(Number);const [hh,mm]=t.split(':').map(Number);const wall=Date.UTC(y,m-1,day,hh,mm);let ts=wall;for(let i=0;i<3;i++){ts=wall-tzOffsetMs(ts,tz);}return new Date(ts);}
 function convertTZ(){
   const dt=document.getElementById('tzDateTime').value;const fromTZ=document.getElementById('tzFrom').value;
   if(!dt)return;
-  const inputDate=new Date(dt);
+  const inputDate=zonedTimeToDate(dt,fromTZ);
   const grid=document.getElementById('tzGrid');
   grid.innerHTML=zones.map(z=>{
     const timeStr=inputDate.toLocaleTimeString('en-IN',{timeZone:z.tz,hour:'2-digit',minute:'2-digit',hour12:true});
@@ -269,6 +368,29 @@ function convertTZ(){
   document.getElementById('tzResults').style.display='block';
 }
 const now=new Date();now.setSeconds(0);document.getElementById('tzDateTime').value=now.toISOString().slice(0,16);
+</script>
+<script>
+var tools=[
+  {name:'Time Zone Converter',icon:'🌍',url:'timezone-converter.html',tags:'time zone ist est pst gmt'},
+  {name:'Word & Character Counter',icon:'📝',url:'word-counter.html',tags:'word count characters'},
+  {name:'Readability Score',icon:'📖',url:'readability-score.html',tags:'readability flesch kincaid grade'},
+  {name:'Reading Time Calculator',icon:'⏱️',url:'reading-time.html',tags:'reading time words minutes speech'},
+  {name:'Plagiarism Checker',icon:'🔍',url:'plagiarism-checker.html',tags:'plagiarism similarity compare documents'},
+  {name:'Meta Title & Description Checker',icon:'🏷️',url:'meta-checker.html',tags:'meta title description seo length'},
+  {name:'Hashtag Generator',icon:'#️⃣',url:'hashtag-generator.html',tags:'hashtag instagram linkedin'},
+  {name:'QR Code Generator',icon:'📱',url:'qr-generator.html',tags:'qr code wifi url'},
+  {name:'Password Strength Checker',icon:'🔐',url:'password-checker.html',tags:'password strength secure'},
+  {name:'Age Calculator',icon:'🎂',url:'age-calculator.html',tags:'age date of birth'},
+  {name:'Unit Converter',icon:'📏',url:'unit-converter.html',tags:'unit convert km miles kg'},
+  {name:'Roman Numeral Converter',icon:'🏛️',url:'roman-numeral.html',tags:'roman numerals'},
+  {name:'Pomodoro Timer',icon:'🍅',url:'pomodoro-timer.html',tags:'pomodoro focus timer study'},
+  {name:'Meeting Cost Calculator',icon:'💼',url:'meeting-cost.html',tags:'meeting cost salary'},
+  {name:'EMI Calculator',icon:'💰',url:'../finance/emi-calculator.html',tags:'emi loan'},
+  {name:'Attendance Calculator',icon:'✅',url:'../students/attendance-calculator.html',tags:'attendance 75 bunk'},
+];
+function toggleSearch(){var box=document.getElementById('searchBox');box.classList.toggle('open');if(box.classList.contains('open')){document.getElementById('searchInput').focus();runSearch();}}
+document.addEventListener('click',function(e){var wrap=document.querySelector('.search-wrap');if(wrap&&!wrap.contains(e.target))document.getElementById('searchBox').classList.remove('open');});
+function runSearch(){var q=document.getElementById('searchInput').value.toLowerCase();var res=document.getElementById('searchResults');if(!q){res.innerHTML='<div class="search-empty">Type to search tools...</div>';return;}var matches=tools.filter(function(t){return t.name.toLowerCase().includes(q)||t.tags.includes(q);});if(!matches.length){res.innerHTML='<div class="search-empty">No tools found</div>';return;}res.innerHTML=matches.slice(0,8).map(function(t){return '<a href="'+t.url+'" class="search-item"><span class="search-item-icon">'+t.icon+'</span>'+t.name+'</a>';}).join('');}
 </script>
 </body>
 </html>

@@ -7,25 +7,37 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
   <link rel="canonical" href="https://webtoolskit.github.io/utility/unit-converter.html"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Unit Converter — Length, Weight, Temperature & More | WebToolsKit</title>
-<meta name="description" content="Convert length, weight, temperature, volume, speed and area units instantly. Free unit converter — supports metric and imperial systems, works in any browser.">
+  <title>Unit Converter — Length, Weight, Area, Temperature &amp; More | WebToolsKit</title>
+<meta name="description" content="Convert km to miles, kg to pounds, feet to cm, acres to square feet, °F to °C and more with exact conversion factors. Free unit converter, no signup.">
   <!-- Open Graph -->
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://webtoolskit.github.io/utility/unit-converter.html"/>
-<meta property="og:title" content="Unit Converter — Length, Weight, Temperature & More"/>
-<meta property="og:description" content="Convert length, weight, temperature, volume, speed and area units instantly. Free unit converter — supports metric and imperial systems, works in any browser."/>
+<meta property="og:title" content="Unit Converter — Length, Weight, Area, Temperature &amp; More"/>
+<meta property="og:description" content="Convert km to miles, kg to pounds, feet to cm, acres to square feet, °F to °C and more with exact conversion factors. Free unit converter, no signup."/>
 <meta property="og:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
 
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:url" content="https://webtoolskit.github.io/utility/unit-converter.html"/>
-<meta name="twitter:title" content="Unit Converter — Length, Weight, Temperature & More"/>
-<meta name="twitter:description" content="Convert length, weight, temperature, volume, speed and area units instantly. Free unit converter — supports metric and imperial systems, works in any browser."/>
+<meta name="twitter:title" content="Unit Converter — Length, Weight, Area, Temperature &amp; More"/>
+<meta name="twitter:description" content="Convert km to miles, kg to pounds, feet to cm, acres to square feet, °F to °C and more with exact conversion factors. Free unit converter, no signup."/>
 <meta name="twitter:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{--bg:#0f1117;--nav:#000000;--footer-bg:#000000;--card:#1a1d27;--border:#2a2d3a;--white:#ffffff;--grey:#8b8fa8;--light:#c8cad8;--red:#c50337;--red2:#8b0227}
+    .search-wrap{position:relative;margin-left:8px}
+    .search-btn{background:transparent;border:1px solid var(--border);color:var(--grey);padding:7px 14px;border-radius:8px;cursor:pointer;font-size:.85rem;font-family:'DM Sans',sans-serif;font-weight:600;transition:all .2s;display:flex;align-items:center;gap:6px}
+    .search-btn:hover{color:var(--white);border-color:rgba(255,255,255,.3)}
+    .search-box{display:none;position:absolute;top:calc(100% + 10px);right:0;width:300px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:12px;z-index:200;box-shadow:0 20px 40px rgba(0,0,0,.5)}
+    .search-box.open{display:block}
+    .search-input{width:100%;background:#0f1117;border:1px solid var(--border);border-radius:10px;padding:10px 14px;color:var(--white);font-size:.9rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}
+    .search-input:focus{border-color:var(--red)}
+    .search-results{margin-top:8px;max-height:280px;overflow-y:auto}
+    .search-item{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;text-decoration:none;color:var(--light);font-size:.85rem;transition:background .15s}
+    .search-item:hover{background:rgba(255,255,255,.06);color:var(--white)}
+    .search-item-icon{font-size:1rem;width:24px;text-align:center;flex-shrink:0}
+    .search-empty{font-size:.82rem;color:var(--grey);text-align:center;padding:16px 0;font-family:'DM Sans',sans-serif}
     html{scroll-behavior:smooth}
     body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;min-height:100vh}
     nav{display:flex;align-items:center;justify-content:space-between;padding:18px 48px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--nav);backdrop-filter:blur(16px);z-index:100}
@@ -125,34 +137,114 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Q: What is the metric vs imperial system?",
+      "name": "What is the metric vs imperial system?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: The metric system (metres, kilograms, litres) is used by most of the world including India. The imperial system (feet, pounds, gallons) is primarily used in the USA, Liberia, and Myanmar. The UK uses a mix of both."
+        "text": "The metric system (metres, kilograms, litres) is used by most of the world including India. The imperial system (feet, pounds, gallons) is primarily used in the USA, Liberia, and Myanmar. The UK uses a mix of both."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: How do I convert Celsius to Fahrenheit?",
+      "name": "How do I convert Celsius to Fahrenheit?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: °F = (°C × 9/5) + 32. So 100°C = 212°F. Key reference points: 0°C = 32°F (water freezes), 37°C = 98.6°F (body temperature), 100°C = 212°F (water boils)."
+        "text": "°F = (°C × 9/5) + 32. So 100°C = 212°F. Key reference points: 0°C = 32°F (water freezes), 37°C = 98.6°F (body temperature), 100°C = 212°F (water boils)."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: What is a hectare?",
+      "name": "What is a hectare?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: A hectare is 10,000 square metres — commonly used for measuring land area. 1 hectare = 2.47 acres. Agricultural land in India is commonly measured in hectares or bighas (which varies by state)."
+        "text": "A hectare is 10,000 square metres — commonly used for measuring land area. 1 hectare = 2.47 acres. Agricultural land in India is commonly measured in hectares or bighas (which varies by state)."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: How many litres are in a gallon?",
+      "name": "How many litres are in a gallon?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: 1 US gallon = 3.785 litres. 1 UK (Imperial) gallon = 4.546 litres. The difference matters — if an American recipe calls for a gallon of something, it's less than a UK gallon."
+        "text": "1 US gallon = 3.785 litres. 1 UK (Imperial) gallon = 4.546 litres. The difference matters — if an American recipe calls for a gallon of something, it's less than a UK gallon."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many miles is 1 kilometre?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1 kilometre is about 0.621 miles, and 1 mile is exactly 1.609344 kilometres."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert kg to pounds?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Multiply by about 2.2046 — 1 kilogram is 2.20462 pounds, and 1 pound is exactly 0.45359237 kg."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert feet and inches to cm?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1 foot is 30.48 cm and 1 inch is 2.54 cm. For example, 5 feet 6 inches is 5 × 30.48 + 6 × 2.54 = 167.64 cm."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert cm to inches?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Divide by 2.54. For example, 170 cm ÷ 2.54 ≈ 66.9 inches, or about 5 feet 7 inches."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many square feet are in an acre?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "One acre is 43,560 square feet, or about 4,046.86 square metres."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert square feet to square metres?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Multiply by 0.092903. For example, a 1,000 sq ft flat is about 92.9 square metres."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert Fahrenheit to Celsius?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "°C = (°F − 32) × 5/9. For example, 98.6°F is 37°C and 104°F is 40°C."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert km/h to mph?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Divide by 1.609344 — 100 km/h is about 62.1 mph."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is a bigha?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A bigha is a traditional land unit whose size varies from state to state (and sometimes district to district), so there's no single conversion. Check your state's land records for the local value."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How accurate is this unit converter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It uses exact international definitions — for example, 1 inch = 2.54 cm and 1 pound = 0.45359237 kg — and shows results to 8 significant figures. Cooking units are US measures."
       }
     }
   ]
@@ -168,6 +260,13 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
     <a href="../health/index.html" class="nav-link c-g">🌿 Health</a>
     <a href="../freelance/index.html" class="nav-link c-p">💼 Freelance</a>
     <a href="../students/index.html" class="nav-link c-y">🎓 Students</a>
+  </div>
+  <div class="search-wrap">
+    <button class="search-btn" onclick="toggleSearch()">🔍 Search</button>
+    <div class="search-box" id="searchBox">
+      <input type="text" class="search-input" id="searchInput" placeholder="Search tools..." oninput="runSearch()"/>
+      <div class="search-results" id="searchResults"></div>
+    </div>
   </div>
 </nav>
 <div class="tool-hero">
@@ -207,7 +306,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
   <div class="content-card"><h2>What is this Tool?</h2><p>The Unit Converter handles all common unit conversions across 6 categories — length, weight, temperature, volume, speed, and area. Whether you're cooking with a foreign recipe that uses cups and ounces, checking your speed in mph vs km/h while driving abroad, converting kilometres to miles for a running app, or working with a blueprint that uses feet and inches, this tool has you covered.</p></div>
   <div class="content-card"><h2>How to Use This Tool</h2><div class="steps"><div class="step"><div class="step-num">1</div><div class="step-text">Select the category of unit you want to convert.</div></div><div class="step"><div class="step-num">2</div><div class="step-text">Enter the value you want to convert.</div></div><div class="step"><div class="step-num">3</div><div class="step-text">Select the unit you're converting from.</div></div><div class="step"><div class="step-num">4</div><div class="step-text">Select the unit you want to convert to.</div></div><div class="step"><div class="step-num">5</div><div class="step-text">The result updates instantly. Use the swap button to reverse the conversion.</div></div></div></div>
   <div class="content-card"><h2>Why This Matters</h2><ul><li>Convert cooking measurements between metric and imperial</li><li>Convert distances for travel, running, and cycling apps</li><li>Handle unit conversions in engineering and academic work</li><li>Convert temperature between Celsius, Fahrenheit, and Kelvin</li><li>Convert area units for real estate and construction</li></ul></div>
-  <div class="content-card"><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">Q: What is the metric vs imperial system?</div><div class="faq-a">A: The metric system (metres, kilograms, litres) is used by most of the world including India. The imperial system (feet, pounds, gallons) is primarily used in the USA, Liberia, and Myanmar. The UK uses a mix of both.</div></div><div class="faq-item"><div class="faq-q">Q: How do I convert Celsius to Fahrenheit?</div><div class="faq-a">A: °F = (°C × 9/5) + 32. So 100°C = 212°F. Key reference points: 0°C = 32°F (water freezes), 37°C = 98.6°F (body temperature), 100°C = 212°F (water boils).</div></div><div class="faq-item"><div class="faq-q">Q: What is a hectare?</div><div class="faq-a">A: A hectare is 10,000 square metres — commonly used for measuring land area. 1 hectare = 2.47 acres. Agricultural land in India is commonly measured in hectares or bighas (which varies by state).</div></div><div class="faq-item"><div class="faq-q">Q: How many litres are in a gallon?</div><div class="faq-a">A: 1 US gallon = 3.785 litres. 1 UK (Imperial) gallon = 4.546 litres. The difference matters — if an American recipe calls for a gallon of something, it's less than a UK gallon.</div></div></div>
+  <div class="content-card"><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">What is the metric vs imperial system?</div><div class="faq-a">The metric system (metres, kilograms, litres) is used by most of the world including India. The imperial system (feet, pounds, gallons) is primarily used in the USA, Liberia, and Myanmar. The UK uses a mix of both.</div></div><div class="faq-item"><div class="faq-q">How do I convert Celsius to Fahrenheit?</div><div class="faq-a">°F = (°C × 9/5) + 32. So 100°C = 212°F. Key reference points: 0°C = 32°F (water freezes), 37°C = 98.6°F (body temperature), 100°C = 212°F (water boils).</div></div><div class="faq-item"><div class="faq-q">What is a hectare?</div><div class="faq-a">A hectare is 10,000 square metres — commonly used for measuring land area. 1 hectare = 2.47 acres. Agricultural land in India is commonly measured in hectares or bighas (which varies by state).</div></div><div class="faq-item"><div class="faq-q">How many litres are in a gallon?</div><div class="faq-a">1 US gallon = 3.785 litres. 1 UK (Imperial) gallon = 4.546 litres. The difference matters — if an American recipe calls for a gallon of something, it's less than a UK gallon.</div></div><div class="faq-item"><div class="faq-q">How many miles is 1 kilometre?</div><div class="faq-a">1 kilometre is about 0.621 miles, and 1 mile is exactly 1.609344 kilometres.</div></div><div class="faq-item"><div class="faq-q">How do I convert kg to pounds?</div><div class="faq-a">Multiply by about 2.2046 — 1 kilogram is 2.20462 pounds, and 1 pound is exactly 0.45359237 kg.</div></div><div class="faq-item"><div class="faq-q">How do I convert feet and inches to cm?</div><div class="faq-a">1 foot is 30.48 cm and 1 inch is 2.54 cm. For example, 5 feet 6 inches is 5 × 30.48 + 6 × 2.54 = 167.64 cm.</div></div><div class="faq-item"><div class="faq-q">How do I convert cm to inches?</div><div class="faq-a">Divide by 2.54. For example, 170 cm ÷ 2.54 ≈ 66.9 inches, or about 5 feet 7 inches.</div></div><div class="faq-item"><div class="faq-q">How many square feet are in an acre?</div><div class="faq-a">One acre is 43,560 square feet, or about 4,046.86 square metres.</div></div><div class="faq-item"><div class="faq-q">How do I convert square feet to square metres?</div><div class="faq-a">Multiply by 0.092903. For example, a 1,000 sq ft flat is about 92.9 square metres.</div></div><div class="faq-item"><div class="faq-q">How do I convert Fahrenheit to Celsius?</div><div class="faq-a">°C = (°F − 32) × 5/9. For example, 98.6°F is 37°C and 104°F is 40°C.</div></div><div class="faq-item"><div class="faq-q">How do I convert km/h to mph?</div><div class="faq-a">Divide by 1.609344 — 100 km/h is about 62.1 mph.</div></div><div class="faq-item"><div class="faq-q">How much is a bigha?</div><div class="faq-a">A bigha is a traditional land unit whose size varies from state to state (and sometimes district to district), so there's no single conversion. Check your state's land records for the local value.</div></div><div class="faq-item"><div class="faq-q">How accurate is this unit converter?</div><div class="faq-a">It uses exact international definitions — for example, 1 inch = 2.54 cm and 1 pound = 0.45359237 kg — and shows results to 8 significant figures. Cooking units are US measures.</div></div></div>
   <div class="tip-box"><strong>💡 Pro Tip:</strong> Save this tool as a bookmark on your phone — unit conversions are needed most when you're in the middle of something (cooking, travelling, shopping) and don't have time to search for a converter.</div>
 </section>
 <section class="content-section" style="padding-top:0">
@@ -240,6 +339,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
       <a href="../legal/disclaimer.html">Disclaimer</a>
       <a href="../legal/terms-conditions.html">Terms &amp; Conditions</a>
       <a href="../legal/contact.html">Contact Us</a>
+      <a href="../legal/affiliate-disclosure.html">Affiliate Disclosure</a>
       <a href="../legal/copyright.html">Copyright</a>
     </div>
     <div class="sf-col"><h4>Quick Links</h4>
@@ -255,7 +355,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
   </div>
 </footer>
 <script>
-const cats={length:{units:['Metre (m)','Kilometre (km)','Centimetre (cm)','Millimetre (mm)','Mile (mi)','Yard (yd)','Foot (ft)','Inch (in)'],toBase:[1,1000,0.01,0.001,1609.34,0.9144,0.3048,0.0254]},weight:{units:['Kilogram (kg)','Gram (g)','Milligram (mg)','Pound (lb)','Ounce (oz)','Tonne (t)'],toBase:[1,0.001,0.000001,0.453592,0.0283495,1000]},temp:{units:['Celsius (°C)','Fahrenheit (°F)','Kelvin (K)'],special:true},volume:{units:['Litre (L)','Millilitre (mL)','Cubic Metre (m³)','Gallon (US)','Cup','Fluid Ounce','Tablespoon','Teaspoon'],toBase:[1,0.001,1000,3.78541,0.236588,0.0295735,0.0147868,0.00492892]},speed:{units:['m/s','km/h','mph','knot','ft/s'],toBase:[1,0.277778,0.44704,0.514444,0.3048]},area:{units:['m²','km²','cm²','Hectare','Acre','ft²','in²'],toBase:[1,1000000,0.0001,10000,4046.86,0.092903,0.00064516]}};
+const cats={length:{units:['Metre (m)','Kilometre (km)','Centimetre (cm)','Millimetre (mm)','Mile (mi)','Yard (yd)','Foot (ft)','Inch (in)'],toBase:[1,1000,0.01,0.001,1609.344,0.9144,0.3048,0.0254]},weight:{units:['Kilogram (kg)','Gram (g)','Milligram (mg)','Pound (lb)','Ounce (oz)','Tonne (t)'],toBase:[1,0.001,0.000001,0.45359237,0.028349523125,1000]},temp:{units:['Celsius (°C)','Fahrenheit (°F)','Kelvin (K)'],special:true},volume:{units:['Litre (L)','Millilitre (mL)','Cubic Metre (m³)','Gallon (US)','Cup (US)','Fluid Ounce (US)','Tablespoon (US)','Teaspoon (US)'],toBase:[1,0.001,1000,3.785411784,0.2365882365,0.0295735295625,0.01478676478125,0.00492892159375]},speed:{units:['m/s','km/h','mph','knot','ft/s'],toBase:[1,1/3.6,0.44704,1852/3600,0.3048]},area:{units:['m²','km²','cm²','Hectare','Acre','ft²','in²'],toBase:[1,1000000,0.0001,10000,4046.8564224,0.09290304,0.00064516]}};
 let currentCat='length';
 function setCat(cat,el){currentCat=cat;document.querySelectorAll('.ctab').forEach(t=>t.classList.remove('active'));el.classList.add('active');const units=cats[cat].units;['ucFrom','ucTo'].forEach((id,i)=>{const s=document.getElementById(id);s.innerHTML=units.map((u,j)=>`<option value="${j}">${u}</option>`).join('');if(i===1)s.selectedIndex=1;});convert();}
 function swapUnits(){const f=document.getElementById('ucFrom').value,t=document.getElementById('ucTo').value;document.getElementById('ucFrom').value=t;document.getElementById('ucTo').value=f;convert();}
@@ -265,10 +365,33 @@ function convert(){
   const cat=cats[currentCat];let result;
   if(cat.special){if(fi===0&&ti===1)result=val*9/5+32;else if(fi===0&&ti===2)result=val+273.15;else if(fi===1&&ti===0)result=(val-32)*5/9;else if(fi===1&&ti===2)result=(val-32)*5/9+273.15;else if(fi===2&&ti===0)result=val-273.15;else if(fi===2&&ti===1)result=(val-273.15)*9/5+32;else result=val;}
   else{const base=val*cat.toBase[fi];result=base/cat.toBase[ti];}
-  document.getElementById('rdVal').textContent=parseFloat(result.toPrecision(8)).toLocaleString('en-IN');
+  document.getElementById('rdVal').textContent=(Math.abs(result)>0&&Math.abs(result)<0.0001)?result.toExponential(4):result.toLocaleString('en-IN',{maximumSignificantDigits:8});
   document.getElementById('rdLabel').textContent=cat.units[fi]+' → '+cat.units[ti];
 }
 setCat('length',document.querySelector('.ctab'));
+</script>
+<script>
+var tools=[
+  {name:'Unit Converter',icon:'📏',url:'unit-converter.html',tags:'unit convert km miles kg'},
+  {name:'Word & Character Counter',icon:'📝',url:'word-counter.html',tags:'word count characters'},
+  {name:'Readability Score',icon:'📖',url:'readability-score.html',tags:'readability flesch kincaid grade'},
+  {name:'Reading Time Calculator',icon:'⏱️',url:'reading-time.html',tags:'reading time words minutes speech'},
+  {name:'Plagiarism Checker',icon:'🔍',url:'plagiarism-checker.html',tags:'plagiarism similarity compare documents'},
+  {name:'Meta Title & Description Checker',icon:'🏷️',url:'meta-checker.html',tags:'meta title description seo length'},
+  {name:'Hashtag Generator',icon:'#️⃣',url:'hashtag-generator.html',tags:'hashtag instagram linkedin'},
+  {name:'QR Code Generator',icon:'📱',url:'qr-generator.html',tags:'qr code wifi url'},
+  {name:'Password Strength Checker',icon:'🔐',url:'password-checker.html',tags:'password strength secure'},
+  {name:'Age Calculator',icon:'🎂',url:'age-calculator.html',tags:'age date of birth'},
+  {name:'Time Zone Converter',icon:'🌍',url:'timezone-converter.html',tags:'time zone ist est pst gmt'},
+  {name:'Roman Numeral Converter',icon:'🏛️',url:'roman-numeral.html',tags:'roman numerals'},
+  {name:'Pomodoro Timer',icon:'🍅',url:'pomodoro-timer.html',tags:'pomodoro focus timer study'},
+  {name:'Meeting Cost Calculator',icon:'💼',url:'meeting-cost.html',tags:'meeting cost salary'},
+  {name:'EMI Calculator',icon:'💰',url:'../finance/emi-calculator.html',tags:'emi loan'},
+  {name:'Attendance Calculator',icon:'✅',url:'../students/attendance-calculator.html',tags:'attendance 75 bunk'},
+];
+function toggleSearch(){var box=document.getElementById('searchBox');box.classList.toggle('open');if(box.classList.contains('open')){document.getElementById('searchInput').focus();runSearch();}}
+document.addEventListener('click',function(e){var wrap=document.querySelector('.search-wrap');if(wrap&&!wrap.contains(e.target))document.getElementById('searchBox').classList.remove('open');});
+function runSearch(){var q=document.getElementById('searchInput').value.toLowerCase();var res=document.getElementById('searchResults');if(!q){res.innerHTML='<div class="search-empty">Type to search tools...</div>';return;}var matches=tools.filter(function(t){return t.name.toLowerCase().includes(q)||t.tags.includes(q);});if(!matches.length){res.innerHTML='<div class="search-empty">No tools found</div>';return;}res.innerHTML=matches.slice(0,8).map(function(t){return '<a href="'+t.url+'" class="search-item"><span class="search-item-icon">'+t.icon+'</span>'+t.name+'</a>';}).join('');}
 </script>
 </body>
 </html>

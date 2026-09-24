@@ -7,25 +7,37 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
   <link rel="canonical" href="https://webtoolskit.github.io/utility/pomodoro-timer.html"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pomodoro Timer — Free Focus Timer Online | WebToolsKit</title>
-<meta name="description" content="Boost focus with 25-minute Pomodoro work sprints and built-in break reminders. Free online Pomodoro timer — customisable sessions, works in any browser, no signup.">
+  <title>Pomodoro Timer — Free 25-Minute Focus Timer Online | WebToolsKit</title>
+<meta name="description" content="Free online Pomodoro timer with 25-minute focus sessions, short and long breaks and a session counter. Great for studying and deep work — no signup.">
   <!-- Open Graph -->
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://webtoolskit.github.io/utility/pomodoro-timer.html"/>
-<meta property="og:title" content="Pomodoro Timer — Free Focus Timer Online"/>
-<meta property="og:description" content="Boost focus with 25-minute Pomodoro work sprints and built-in break reminders. Free online Pomodoro timer — customisable sessions, works in any browser."/>
+<meta property="og:title" content="Pomodoro Timer — Free 25-Minute Focus Timer Online"/>
+<meta property="og:description" content="Free online Pomodoro timer with 25-minute focus sessions, short and long breaks and a session counter. Great for studying and deep work — no signup."/>
 <meta property="og:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
 
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:url" content="https://webtoolskit.github.io/utility/pomodoro-timer.html"/>
-<meta name="twitter:title" content="Pomodoro Timer — Free Focus Timer Online"/>
-<meta name="twitter:description" content="Boost focus with 25-minute Pomodoro work sprints and built-in break reminders. Free online Pomodoro timer — customisable sessions, works in any browser."/>
+<meta name="twitter:title" content="Pomodoro Timer — Free 25-Minute Focus Timer Online"/>
+<meta name="twitter:description" content="Free online Pomodoro timer with 25-minute focus sessions, short and long breaks and a session counter. Great for studying and deep work — no signup."/>
 <meta name="twitter:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{--bg:#0f1117;--nav:#000000;--footer-bg:#000000;--card:#1a1d27;--border:#2a2d3a;--white:#ffffff;--grey:#8b8fa8;--light:#c8cad8;--red:#c50337;--red2:#8b0227}
+    .search-wrap{position:relative;margin-left:8px}
+    .search-btn{background:transparent;border:1px solid var(--border);color:var(--grey);padding:7px 14px;border-radius:8px;cursor:pointer;font-size:.85rem;font-family:'DM Sans',sans-serif;font-weight:600;transition:all .2s;display:flex;align-items:center;gap:6px}
+    .search-btn:hover{color:var(--white);border-color:rgba(255,255,255,.3)}
+    .search-box{display:none;position:absolute;top:calc(100% + 10px);right:0;width:300px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:12px;z-index:200;box-shadow:0 20px 40px rgba(0,0,0,.5)}
+    .search-box.open{display:block}
+    .search-input{width:100%;background:#0f1117;border:1px solid var(--border);border-radius:10px;padding:10px 14px;color:var(--white);font-size:.9rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}
+    .search-input:focus{border-color:var(--red)}
+    .search-results{margin-top:8px;max-height:280px;overflow-y:auto}
+    .search-item{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;text-decoration:none;color:var(--light);font-size:.85rem;transition:background .15s}
+    .search-item:hover{background:rgba(255,255,255,.06);color:var(--white)}
+    .search-item-icon{font-size:1rem;width:24px;text-align:center;flex-shrink:0}
+    .search-empty{font-size:.82rem;color:var(--grey);text-align:center;padding:16px 0;font-family:'DM Sans',sans-serif}
     html{scroll-behavior:smooth}
     body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;min-height:100vh}
     nav{display:flex;align-items:center;justify-content:space-between;padding:18px 48px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--nav);backdrop-filter:blur(16px);z-index:100}
@@ -125,34 +137,98 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Q: Who invented the Pomodoro Technique?",
+      "name": "Who invented the Pomodoro Technique?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: Francesco Cirillo developed the technique in the late 1980s as a university student, using a tomato-shaped kitchen timer (pomodoro is Italian for tomato). He later wrote a book on the method."
+        "text": "Francesco Cirillo developed the technique in the late 1980s as a university student, using a tomato-shaped kitchen timer (pomodoro is Italian for tomato). He later wrote a book on the method."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: What should I do during breaks?",
+      "name": "What should I do during breaks?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: Short breaks (5 min): stand up, stretch, get water, look away from your screen. Long breaks (15 min): take a walk, eat a snack, do light exercise. Avoid social media during short breaks — it's harder to return to focus."
+        "text": "Short breaks (5 min): stand up, stretch, get water, look away from your screen. Long breaks (15 min): take a walk, eat a snack, do light exercise. Avoid social media during short breaks — it's harder to return to focus."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: What if I get interrupted during a Pomodoro?",
+      "name": "What if I get interrupted during a Pomodoro?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: If interrupted by something urgent, handle it quickly and restart the timer. If the interruption is less urgent, note it down and return after the session. Protecting your Pomodoro sessions is key to the technique's effectiveness."
+        "text": "If interrupted by something urgent, handle it quickly and restart the timer. If the interruption is less urgent, note it down and return after the session. Protecting your Pomodoro sessions is key to the technique's effectiveness."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: Can I adjust the timer lengths?",
+      "name": "Can I adjust the timer lengths?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: Yes, you can modify the technique to suit your workflow. Some people use 50-minute focus sessions with 10-minute breaks. The key principle remains: focused work followed by deliberate rest."
+        "text": "Yes, you can modify the technique to suit your workflow. Some people use 50-minute focus sessions with 10-minute breaks. The key principle remains: focused work followed by deliberate rest."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is a Pomodoro 25 minutes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "25 minutes is long enough to make real progress but short enough to stay focused without a break. It's the length Francesco Cirillo used in the original technique, but you can adjust it to suit your work."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many Pomodoros should I do in a day?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on your work and energy. Many people aim for 8–12 focused sessions a day, but even 4 good Pomodoros can get a lot done. Track how many you complete and adjust."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the Pomodoro Technique good for studying?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — it's widely used by students because it turns long study sessions into manageable blocks with regular breaks. Pair it with a study plan, like our Study Planner , so each session has a clear goal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long is a long break in the Pomodoro Technique?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "After four Pomodoros, take a longer break of about 15–30 minutes. This timer includes a 15-minute long break."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if my task takes less than 25 minutes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Group small tasks — emails, calls, quick edits — into one Pomodoro, or use the leftover time to review and plan your next task."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this Pomodoro timer on my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. It works in any modern browser on phone, tablet or computer — just keep the tab open while the timer runs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the 52/17 rule?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It's a popular alternative: about 52 minutes of focused work followed by a 17-minute break. Try both and keep whichever rhythm suits you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the Pomodoro timer work offline?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Once the page has loaded, the timer runs in your browser, so it keeps working even if your connection drops."
       }
     }
   ]
@@ -168,6 +244,13 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
     <a href="../health/index.html" class="nav-link c-g">🌿 Health</a>
     <a href="../freelance/index.html" class="nav-link c-p">💼 Freelance</a>
     <a href="../students/index.html" class="nav-link c-y">🎓 Students</a>
+  </div>
+  <div class="search-wrap">
+    <button class="search-btn" onclick="toggleSearch()">🔍 Search</button>
+    <div class="search-box" id="searchBox">
+      <input type="text" class="search-input" id="searchInput" placeholder="Search tools..." oninput="runSearch()"/>
+      <div class="search-results" id="searchResults"></div>
+    </div>
   </div>
 </nav>
 <div class="tool-hero">
@@ -205,7 +288,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
   <div class="content-card"><h2>What is this Tool?</h2><p>The Pomodoro Timer is a focus tool based on the Pomodoro Technique — a time management method developed by Francesco Cirillo in the late 1980s. The technique uses a timer to break work into focused 25-minute intervals (called Pomodoros) separated by short 5-minute breaks. After four Pomodoros, you take a longer 15-30 minute break. This structured approach leverages how the human brain works best — in short, intense bursts of focus rather than long, unstructured work sessions.</p></div>
   <div class="content-card"><h2>How to Use This Tool</h2><div class="steps"><div class="step"><div class="step-num">1</div><div class="step-text">Click 'Focus 25m' to start a 25-minute focused work session.</div></div><div class="step"><div class="step-num">2</div><div class="step-text">Work on a single task without any interruptions until the timer ends.</div></div><div class="step"><div class="step-num">3</div><div class="step-text">When the timer alerts, take a 5-minute short break.</div></div><div class="step"><div class="step-num">4</div><div class="step-text">After 4 completed sessions, take a 15-minute long break.</div></div><div class="step"><div class="step-num">5</div><div class="step-text">Track your sessions, total focus time, and streak throughout the day.</div></div></div></div>
   <div class="content-card"><h2>Why This Matters</h2><ul><li>Dramatically improves focus and reduces procrastination</li><li>Creates a sustainable rhythm of work and rest</li><li>Makes large tasks less intimidating by breaking them into 25-minute chunks</li><li>Reduces mental fatigue through structured breaks</li><li>Builds awareness of how long tasks actually take</li></ul></div>
-  <div class="content-card"><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">Q: Who invented the Pomodoro Technique?</div><div class="faq-a">A: Francesco Cirillo developed the technique in the late 1980s as a university student, using a tomato-shaped kitchen timer (pomodoro is Italian for tomato). He later wrote a book on the method.</div></div><div class="faq-item"><div class="faq-q">Q: What should I do during breaks?</div><div class="faq-a">A: Short breaks (5 min): stand up, stretch, get water, look away from your screen. Long breaks (15 min): take a walk, eat a snack, do light exercise. Avoid social media during short breaks — it's harder to return to focus.</div></div><div class="faq-item"><div class="faq-q">Q: What if I get interrupted during a Pomodoro?</div><div class="faq-a">A: If interrupted by something urgent, handle it quickly and restart the timer. If the interruption is less urgent, note it down and return after the session. Protecting your Pomodoro sessions is key to the technique's effectiveness.</div></div><div class="faq-item"><div class="faq-q">Q: Can I adjust the timer lengths?</div><div class="faq-a">A: Yes, you can modify the technique to suit your workflow. Some people use 50-minute focus sessions with 10-minute breaks. The key principle remains: focused work followed by deliberate rest.</div></div></div>
+  <div class="content-card"><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">Who invented the Pomodoro Technique?</div><div class="faq-a">Francesco Cirillo developed the technique in the late 1980s as a university student, using a tomato-shaped kitchen timer (pomodoro is Italian for tomato). He later wrote a book on the method.</div></div><div class="faq-item"><div class="faq-q">What should I do during breaks?</div><div class="faq-a">Short breaks (5 min): stand up, stretch, get water, look away from your screen. Long breaks (15 min): take a walk, eat a snack, do light exercise. Avoid social media during short breaks — it's harder to return to focus.</div></div><div class="faq-item"><div class="faq-q">What if I get interrupted during a Pomodoro?</div><div class="faq-a">If interrupted by something urgent, handle it quickly and restart the timer. If the interruption is less urgent, note it down and return after the session. Protecting your Pomodoro sessions is key to the technique's effectiveness.</div></div><div class="faq-item"><div class="faq-q">Can I adjust the timer lengths?</div><div class="faq-a">Yes, you can modify the technique to suit your workflow. Some people use 50-minute focus sessions with 10-minute breaks. The key principle remains: focused work followed by deliberate rest.</div></div><div class="faq-item"><div class="faq-q">Why is a Pomodoro 25 minutes?</div><div class="faq-a">25 minutes is long enough to make real progress but short enough to stay focused without a break. It's the length Francesco Cirillo used in the original technique, but you can adjust it to suit your work.</div></div><div class="faq-item"><div class="faq-q">How many Pomodoros should I do in a day?</div><div class="faq-a">It depends on your work and energy. Many people aim for 8–12 focused sessions a day, but even 4 good Pomodoros can get a lot done. Track how many you complete and adjust.</div></div><div class="faq-item"><div class="faq-q">Is the Pomodoro Technique good for studying?</div><div class="faq-a">Yes — it's widely used by students because it turns long study sessions into manageable blocks with regular breaks. Pair it with a study plan, like our <a href="../students/study-planner.html" style="color:var(--red);font-weight:600">Study Planner</a>, so each session has a clear goal.</div></div><div class="faq-item"><div class="faq-q">How long is a long break in the Pomodoro Technique?</div><div class="faq-a">After four Pomodoros, take a longer break of about 15–30 minutes. This timer includes a 15-minute long break.</div></div><div class="faq-item"><div class="faq-q">What if my task takes less than 25 minutes?</div><div class="faq-a">Group small tasks — emails, calls, quick edits — into one Pomodoro, or use the leftover time to review and plan your next task.</div></div><div class="faq-item"><div class="faq-q">Can I use this Pomodoro timer on my phone?</div><div class="faq-a">Yes. It works in any modern browser on phone, tablet or computer — just keep the tab open while the timer runs.</div></div><div class="faq-item"><div class="faq-q">What is the 52/17 rule?</div><div class="faq-a">It's a popular alternative: about 52 minutes of focused work followed by a 17-minute break. Try both and keep whichever rhythm suits you.</div></div><div class="faq-item"><div class="faq-q">Does the Pomodoro timer work offline?</div><div class="faq-a">Once the page has loaded, the timer runs in your browser, so it keeps working even if your connection drops.</div></div></div>
   <div class="tip-box"><strong>💡 Pro Tip:</strong> Use the Pomodoro technique for tasks you tend to procrastinate on. Set the timer, commit to working on just that task for 25 minutes, and give yourself permission to stop after. The hardest part is starting — the timer makes starting easy.</div>
 </section>
 <section class="content-section" style="padding-top:0">
@@ -238,6 +321,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
       <a href="../legal/disclaimer.html">Disclaimer</a>
       <a href="../legal/terms-conditions.html">Terms &amp; Conditions</a>
       <a href="../legal/contact.html">Contact Us</a>
+      <a href="../legal/affiliate-disclosure.html">Affiliate Disclosure</a>
       <a href="../legal/copyright.html">Copyright</a>
     </div>
     <div class="sf-col"><h4>Quick Links</h4>
@@ -260,6 +344,29 @@ function toggleTimer(){if(running){clearInterval(timer);running=false;document.g
 function resetTimer(){clearInterval(timer);running=false;remaining=totalSeconds;document.getElementById('startBtn').textContent='▶ Start';document.getElementById('timerCircle').classList.remove('running');updateDisplay();}
 function skipSession(){resetTimer();if(currentMode==='Focus'){sessions++;streak++;document.getElementById('sessions').textContent=sessions;document.getElementById('streak').textContent=streak;}}
 if('Notification' in window)Notification.requestPermission();
+</script>
+<script>
+var tools=[
+  {name:'Pomodoro Timer',icon:'🍅',url:'pomodoro-timer.html',tags:'pomodoro focus timer study'},
+  {name:'Word & Character Counter',icon:'📝',url:'word-counter.html',tags:'word count characters'},
+  {name:'Readability Score',icon:'📖',url:'readability-score.html',tags:'readability flesch kincaid grade'},
+  {name:'Reading Time Calculator',icon:'⏱️',url:'reading-time.html',tags:'reading time words minutes speech'},
+  {name:'Plagiarism Checker',icon:'🔍',url:'plagiarism-checker.html',tags:'plagiarism similarity compare documents'},
+  {name:'Meta Title & Description Checker',icon:'🏷️',url:'meta-checker.html',tags:'meta title description seo length'},
+  {name:'Hashtag Generator',icon:'#️⃣',url:'hashtag-generator.html',tags:'hashtag instagram linkedin'},
+  {name:'QR Code Generator',icon:'📱',url:'qr-generator.html',tags:'qr code wifi url'},
+  {name:'Password Strength Checker',icon:'🔐',url:'password-checker.html',tags:'password strength secure'},
+  {name:'Age Calculator',icon:'🎂',url:'age-calculator.html',tags:'age date of birth'},
+  {name:'Unit Converter',icon:'📏',url:'unit-converter.html',tags:'unit convert km miles kg'},
+  {name:'Time Zone Converter',icon:'🌍',url:'timezone-converter.html',tags:'time zone ist est pst gmt'},
+  {name:'Roman Numeral Converter',icon:'🏛️',url:'roman-numeral.html',tags:'roman numerals'},
+  {name:'Meeting Cost Calculator',icon:'💼',url:'meeting-cost.html',tags:'meeting cost salary'},
+  {name:'EMI Calculator',icon:'💰',url:'../finance/emi-calculator.html',tags:'emi loan'},
+  {name:'Attendance Calculator',icon:'✅',url:'../students/attendance-calculator.html',tags:'attendance 75 bunk'},
+];
+function toggleSearch(){var box=document.getElementById('searchBox');box.classList.toggle('open');if(box.classList.contains('open')){document.getElementById('searchInput').focus();runSearch();}}
+document.addEventListener('click',function(e){var wrap=document.querySelector('.search-wrap');if(wrap&&!wrap.contains(e.target))document.getElementById('searchBox').classList.remove('open');});
+function runSearch(){var q=document.getElementById('searchInput').value.toLowerCase();var res=document.getElementById('searchResults');if(!q){res.innerHTML='<div class="search-empty">Type to search tools...</div>';return;}var matches=tools.filter(function(t){return t.name.toLowerCase().includes(q)||t.tags.includes(q);});if(!matches.length){res.innerHTML='<div class="search-empty">No tools found</div>';return;}res.innerHTML=matches.slice(0,8).map(function(t){return '<a href="'+t.url+'" class="search-item"><span class="search-item-icon">'+t.icon+'</span>'+t.name+'</a>';}).join('');}
 </script>
 </body>
 </html>

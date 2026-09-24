@@ -7,25 +7,37 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
   <link rel="canonical" href="https://webtoolskit.github.io/utility/roman-numeral.html"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Roman Numeral Converter — Number to Roman & Back | WebToolsKit</title>
-<meta name="description" content="Convert any number to Roman numerals or convert Roman numerals back to numbers instantly. Free Roman numeral converter — supports all standard values, no signup.">
+  <title>Roman Numeral Converter — Numbers to Roman Numerals &amp; Back | WebToolsKit</title>
+<meta name="description" content="Convert numbers to Roman numerals and Roman numerals back to numbers (1–3999), with checks for non-standard numerals. Free Roman numeral converter.">
   <!-- Open Graph -->
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://webtoolskit.github.io/utility/roman-numeral.html"/>
-<meta property="og:title" content="Roman Numeral Converter — Number to Roman & Back"/>
-<meta property="og:description" content="Convert any number to Roman numerals or convert Roman numerals back to numbers instantly. Free Roman numeral converter — supports all standard values."/>
+<meta property="og:title" content="Roman Numeral Converter — Numbers to Roman Numerals &amp; Back"/>
+<meta property="og:description" content="Convert numbers to Roman numerals and Roman numerals back to numbers (1–3999), with checks for non-standard numerals. Free Roman numeral converter."/>
 <meta property="og:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
 
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:url" content="https://webtoolskit.github.io/utility/roman-numeral.html"/>
-<meta name="twitter:title" content="Roman Numeral Converter — Number to Roman & Back"/>
-<meta name="twitter:description" content="Convert any number to Roman numerals or convert Roman numerals back to numbers instantly. Free Roman numeral converter — supports all standard values."/>
+<meta name="twitter:title" content="Roman Numeral Converter — Numbers to Roman Numerals &amp; Back"/>
+<meta name="twitter:description" content="Convert numbers to Roman numerals and Roman numerals back to numbers (1–3999), with checks for non-standard numerals. Free Roman numeral converter."/>
 <meta name="twitter:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{--bg:#0f1117;--nav:#000000;--footer-bg:#000000;--card:#1a1d27;--border:#2a2d3a;--white:#ffffff;--grey:#8b8fa8;--light:#c8cad8;--red:#c50337;--red2:#8b0227}
+    .search-wrap{position:relative;margin-left:8px}
+    .search-btn{background:transparent;border:1px solid var(--border);color:var(--grey);padding:7px 14px;border-radius:8px;cursor:pointer;font-size:.85rem;font-family:'DM Sans',sans-serif;font-weight:600;transition:all .2s;display:flex;align-items:center;gap:6px}
+    .search-btn:hover{color:var(--white);border-color:rgba(255,255,255,.3)}
+    .search-box{display:none;position:absolute;top:calc(100% + 10px);right:0;width:300px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:12px;z-index:200;box-shadow:0 20px 40px rgba(0,0,0,.5)}
+    .search-box.open{display:block}
+    .search-input{width:100%;background:#0f1117;border:1px solid var(--border);border-radius:10px;padding:10px 14px;color:var(--white);font-size:.9rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}
+    .search-input:focus{border-color:var(--red)}
+    .search-results{margin-top:8px;max-height:280px;overflow-y:auto}
+    .search-item{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;text-decoration:none;color:var(--light);font-size:.85rem;transition:background .15s}
+    .search-item:hover{background:rgba(255,255,255,.06);color:var(--white)}
+    .search-item-icon{font-size:1rem;width:24px;text-align:center;flex-shrink:0}
+    .search-empty{font-size:.82rem;color:var(--grey);text-align:center;padding:16px 0;font-family:'DM Sans',sans-serif}
     html{scroll-behavior:smooth}
     body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;min-height:100vh}
     nav{display:flex;align-items:center;justify-content:space-between;padding:18px 48px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--nav);backdrop-filter:blur(16px);z-index:100}
@@ -125,34 +137,98 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Q: Why do Roman numerals stop at 3,999?",
+      "name": "Why do Roman numerals stop at 3,999?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: Standard Roman numerals use M for 1,000, and the highest standard number is MMMCMXCIX (3,999). Numbers 4,000 and above would require additional symbols (like a bar over a letter to indicate ×1,000) which aren't standardised."
+        "text": "Standard Roman numerals use M for 1,000, and the highest standard number is MMMCMXCIX (3,999). Numbers 4,000 and above would require additional symbols (like a bar over a letter to indicate ×1,000) which aren't standardised."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: Why is 4 written as IV and not IIII?",
+      "name": "Why is 4 written as IV and not IIII?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: IV uses the subtractive principle — placing a smaller numeral before a larger one means subtraction. So IV = 5-1 = 4. Similarly, IX = 9, XL = 40, XC = 90, CD = 400, CM = 900."
+        "text": "IV uses the subtractive principle — placing a smaller numeral before a larger one means subtraction. So IV = 5-1 = 4. Similarly, IX = 9, XL = 40, XC = 90, CD = 400, CM = 900."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: Why are Roman numerals still used today?",
+      "name": "Why are Roman numerals still used today?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: They add gravitas and timelessness to formal contexts. Movie copyright years in Roman numerals make it harder to immediately date the film. Clock faces use them for aesthetic reasons. The tradition of Super Bowl numbering in Roman numerals began with Super Bowl V."
+        "text": "They add gravitas and timelessness to formal contexts. Movie copyright years in Roman numerals make it harder to immediately date the film. Clock faces use them for aesthetic reasons. The tradition of Super Bowl numbering in Roman numerals began with Super Bowl V."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: What year is MMXXVI?",
+      "name": "What year is MMXXVI?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: MMXXVI = 2026. MM = 2000, XX = 20, VI = 6. Total: 2026."
+        "text": "MMXXVI = 2026. MM = 2000, XX = 20, VI = 6. Total: 2026."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is 2027 in Roman numerals?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "2027 is MMXXVII — MM (2000) + XX (20) + VII (7)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is 1999 in Roman numerals?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1999 is MCMXCIX — M (1000) + CM (900) + XC (90) + IX (9)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is 2000 in Roman numerals?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "2000 is MM."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the basic Roman numeral symbols?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "I = 1, V = 5, X = 10, L = 50, C = 100, D = 500 and M = 1000. All other numbers are built by adding these, with subtraction for 4s and 9s (IV, IX, XL, XC, CD, CM)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a Roman numeral for zero?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The Roman system had no symbol for zero, which is why this converter starts at 1."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do some clocks show IIII instead of IV?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Many clock faces use IIII for 4 as a long-standing design tradition, often said to balance visually with VIII on the other side. Standard Roman numerals use IV."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does the converter say my numeral is not standard?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It checks that your input follows standard rules. For example, IIII is shown as not standard because the standard form of 4 is IV, and IC isn't used for 99 (the standard form is XCIX)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I read Roman numerals?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Read from left to right, adding each value. When a smaller numeral comes before a larger one, subtract it — so XIV is 10 + (5 − 1) = 14."
       }
     }
   ]
@@ -168,6 +244,13 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
     <a href="../health/index.html" class="nav-link c-g">🌿 Health</a>
     <a href="../freelance/index.html" class="nav-link c-p">💼 Freelance</a>
     <a href="../students/index.html" class="nav-link c-y">🎓 Students</a>
+  </div>
+  <div class="search-wrap">
+    <button class="search-btn" onclick="toggleSearch()">🔍 Search</button>
+    <div class="search-box" id="searchBox">
+      <input type="text" class="search-input" id="searchInput" placeholder="Search tools..." oninput="runSearch()"/>
+      <div class="search-results" id="searchResults"></div>
+    </div>
   </div>
 </nav>
 <div class="tool-hero">
@@ -206,7 +289,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
   <div class="content-card"><h2>What is this Tool?</h2><p>The Roman Numeral Converter translates between standard Arabic numbers and Roman numerals instantly. Roman numerals are still widely used today — in movie titles and credits, clock faces, book chapters, Super Bowl numbers, Olympic Games, monarchy names (King Charles III), and formal document numbering. Understanding Roman numerals is both practically useful and a connection to the ancient world.</p></div>
   <div class="content-card"><h2>How to Use This Tool</h2><div class="steps"><div class="step"><div class="step-num">1</div><div class="step-text">Select the conversion direction — number to Roman, or Roman to number.</div></div><div class="step"><div class="step-num">2</div><div class="step-text">Enter your number (1-3999) or Roman numeral.</div></div><div class="step"><div class="step-num">3</div><div class="step-text">The conversion result appears instantly below.</div></div><div class="step"><div class="step-num">4</div><div class="step-text">Use the reference chart at the bottom to understand individual numeral values.</div></div></div></div>
   <div class="content-card"><h2>Why This Matters</h2><ul><li>Decode Roman numerals in movie titles and credits</li><li>Convert years to Roman numerals for design projects</li><li>Understand clock faces and formal document numbering</li><li>Learn and teach the Roman numeral system</li><li>Convert Super Bowl, Olympic Games, or World Cup numbers</li></ul></div>
-  <div class="content-card"><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">Q: Why do Roman numerals stop at 3,999?</div><div class="faq-a">A: Standard Roman numerals use M for 1,000, and the highest standard number is MMMCMXCIX (3,999). Numbers 4,000 and above would require additional symbols (like a bar over a letter to indicate ×1,000) which aren't standardised.</div></div><div class="faq-item"><div class="faq-q">Q: Why is 4 written as IV and not IIII?</div><div class="faq-a">A: IV uses the subtractive principle — placing a smaller numeral before a larger one means subtraction. So IV = 5-1 = 4. Similarly, IX = 9, XL = 40, XC = 90, CD = 400, CM = 900.</div></div><div class="faq-item"><div class="faq-q">Q: Why are Roman numerals still used today?</div><div class="faq-a">A: They add gravitas and timelessness to formal contexts. Movie copyright years in Roman numerals make it harder to immediately date the film. Clock faces use them for aesthetic reasons. The tradition of Super Bowl numbering in Roman numerals began with Super Bowl V.</div></div><div class="faq-item"><div class="faq-q">Q: What year is MMXXVI?</div><div class="faq-a">A: MMXXVI = 2026. MM = 2000, XX = 20, VI = 6. Total: 2026.</div></div></div>
+  <div class="content-card"><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">Why do Roman numerals stop at 3,999?</div><div class="faq-a">Standard Roman numerals use M for 1,000, and the highest standard number is MMMCMXCIX (3,999). Numbers 4,000 and above would require additional symbols (like a bar over a letter to indicate ×1,000) which aren't standardised.</div></div><div class="faq-item"><div class="faq-q">Why is 4 written as IV and not IIII?</div><div class="faq-a">IV uses the subtractive principle — placing a smaller numeral before a larger one means subtraction. So IV = 5-1 = 4. Similarly, IX = 9, XL = 40, XC = 90, CD = 400, CM = 900.</div></div><div class="faq-item"><div class="faq-q">Why are Roman numerals still used today?</div><div class="faq-a">They add gravitas and timelessness to formal contexts. Movie copyright years in Roman numerals make it harder to immediately date the film. Clock faces use them for aesthetic reasons. The tradition of Super Bowl numbering in Roman numerals began with Super Bowl V.</div></div><div class="faq-item"><div class="faq-q">What year is MMXXVI?</div><div class="faq-a">MMXXVI = 2026. MM = 2000, XX = 20, VI = 6. Total: 2026.</div></div><div class="faq-item"><div class="faq-q">What is 2027 in Roman numerals?</div><div class="faq-a">2027 is MMXXVII — MM (2000) + XX (20) + VII (7).</div></div><div class="faq-item"><div class="faq-q">What is 1999 in Roman numerals?</div><div class="faq-a">1999 is MCMXCIX — M (1000) + CM (900) + XC (90) + IX (9).</div></div><div class="faq-item"><div class="faq-q">What is 2000 in Roman numerals?</div><div class="faq-a">2000 is MM.</div></div><div class="faq-item"><div class="faq-q">What are the basic Roman numeral symbols?</div><div class="faq-a">I = 1, V = 5, X = 10, L = 50, C = 100, D = 500 and M = 1000. All other numbers are built by adding these, with subtraction for 4s and 9s (IV, IX, XL, XC, CD, CM).</div></div><div class="faq-item"><div class="faq-q">Is there a Roman numeral for zero?</div><div class="faq-a">No. The Roman system had no symbol for zero, which is why this converter starts at 1.</div></div><div class="faq-item"><div class="faq-q">Why do some clocks show IIII instead of IV?</div><div class="faq-a">Many clock faces use IIII for 4 as a long-standing design tradition, often said to balance visually with VIII on the other side. Standard Roman numerals use IV.</div></div><div class="faq-item"><div class="faq-q">Why does the converter say my numeral is not standard?</div><div class="faq-a">It checks that your input follows standard rules. For example, IIII is shown as not standard because the standard form of 4 is IV, and IC isn't used for 99 (the standard form is XCIX).</div></div><div class="faq-item"><div class="faq-q">How do I read Roman numerals?</div><div class="faq-a">Read from left to right, adding each value. When a smaller numeral comes before a larger one, subtract it — so XIV is 10 + (5 − 1) = 14.</div></div></div>
   <div class="tip-box"><strong>💡 Pro Tip:</strong> Roman numerals are a great addition to design projects, tattoos, and personalised gifts when representing meaningful years (birth year, wedding year). Just double-check the conversion — a permanent tattoo with the wrong year would be unfortunate!</div>
 </section>
 <section class="content-section" style="padding-top:0">
@@ -239,6 +322,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
       <a href="../legal/disclaimer.html">Disclaimer</a>
       <a href="../legal/terms-conditions.html">Terms &amp; Conditions</a>
       <a href="../legal/contact.html">Contact Us</a>
+      <a href="../legal/affiliate-disclosure.html">Affiliate Disclosure</a>
       <a href="../legal/copyright.html">Copyright</a>
     </div>
     <div class="sf-col"><h4>Quick Links</h4>
@@ -260,7 +344,30 @@ const syms=['M','CM','D','CD','C','XC','L','XL','X','IX','V','IV','I'];
 function setMode(m){mode=m;document.getElementById('modeN2R').classList.toggle('active',m==='n2r');document.getElementById('modeR2N').classList.toggle('active',m==='r2n');document.getElementById('inputLabel').textContent=m==='n2r'?'Enter Number (1–3999)':'Enter Roman Numeral';document.getElementById('rmInput').placeholder=m==='n2r'?'2026':'MMXXVI';document.getElementById('rmInput').value='';document.getElementById('result').classList.remove('show');}
 function toRoman(n){let r='';for(let i=0;i<vals.length;i++){while(n>=vals[i]){r+=syms[i];n-=vals[i];}}return r;}
 function fromRoman(s){const map={I:1,V:5,X:10,L:50,C:100,D:500,M:1000};let r=0;s=s.toUpperCase();for(let i=0;i<s.length;i++){const cur=map[s[i]],next=map[s[i+1]];if(next&&cur<next){r+=next-cur;i++;}else r+=cur;}return r;}
-function convert(){const val=document.getElementById('rmInput').value.trim();if(!val){document.getElementById('result').classList.remove('show');return;}let res;if(mode==='n2r'){const n=parseInt(val);if(isNaN(n)||n<1||n>3999){document.getElementById('rmResult').textContent='Invalid (1–3999)';document.getElementById('result').classList.add('show');return;}res=toRoman(n);document.getElementById('rmLabel').textContent='Roman Numeral';}else{res=fromRoman(val);if(!res){document.getElementById('rmResult').textContent='Invalid';document.getElementById('result').classList.add('show');return;}document.getElementById('rmLabel').textContent='Arabic Number';}document.getElementById('rmResult').textContent=res;document.getElementById('result').classList.add('show');}
+function convert(){const val=document.getElementById('rmInput').value.trim();if(!val){document.getElementById('result').classList.remove('show');return;}let res;if(mode==='n2r'){const n=parseInt(val);if(isNaN(n)||n<1||n>3999){document.getElementById('rmResult').textContent='Invalid (1–3999)';document.getElementById('result').classList.add('show');return;}res=toRoman(n);document.getElementById('rmLabel').textContent='Roman Numeral';}else{const up=val.toUpperCase();res=/^[IVXLCDM]+$/.test(up)?fromRoman(up):0;if(res&&toRoman(res)!==up){document.getElementById('rmResult').textContent='Not standard — did you mean '+toRoman(res)+'?';document.getElementById('rmLabel').textContent='Check your numeral';document.getElementById('result').classList.add('show');return;}if(!res||res>3999){document.getElementById('rmResult').textContent='Invalid';document.getElementById('result').classList.add('show');return;}document.getElementById('rmLabel').textContent='Arabic Number';}document.getElementById('rmResult').textContent=res;document.getElementById('result').classList.add('show');}
+</script>
+<script>
+var tools=[
+  {name:'Roman Numeral Converter',icon:'🏛️',url:'roman-numeral.html',tags:'roman numerals'},
+  {name:'Word & Character Counter',icon:'📝',url:'word-counter.html',tags:'word count characters'},
+  {name:'Readability Score',icon:'📖',url:'readability-score.html',tags:'readability flesch kincaid grade'},
+  {name:'Reading Time Calculator',icon:'⏱️',url:'reading-time.html',tags:'reading time words minutes speech'},
+  {name:'Plagiarism Checker',icon:'🔍',url:'plagiarism-checker.html',tags:'plagiarism similarity compare documents'},
+  {name:'Meta Title & Description Checker',icon:'🏷️',url:'meta-checker.html',tags:'meta title description seo length'},
+  {name:'Hashtag Generator',icon:'#️⃣',url:'hashtag-generator.html',tags:'hashtag instagram linkedin'},
+  {name:'QR Code Generator',icon:'📱',url:'qr-generator.html',tags:'qr code wifi url'},
+  {name:'Password Strength Checker',icon:'🔐',url:'password-checker.html',tags:'password strength secure'},
+  {name:'Age Calculator',icon:'🎂',url:'age-calculator.html',tags:'age date of birth'},
+  {name:'Unit Converter',icon:'📏',url:'unit-converter.html',tags:'unit convert km miles kg'},
+  {name:'Time Zone Converter',icon:'🌍',url:'timezone-converter.html',tags:'time zone ist est pst gmt'},
+  {name:'Pomodoro Timer',icon:'🍅',url:'pomodoro-timer.html',tags:'pomodoro focus timer study'},
+  {name:'Meeting Cost Calculator',icon:'💼',url:'meeting-cost.html',tags:'meeting cost salary'},
+  {name:'EMI Calculator',icon:'💰',url:'../finance/emi-calculator.html',tags:'emi loan'},
+  {name:'Attendance Calculator',icon:'✅',url:'../students/attendance-calculator.html',tags:'attendance 75 bunk'},
+];
+function toggleSearch(){var box=document.getElementById('searchBox');box.classList.toggle('open');if(box.classList.contains('open')){document.getElementById('searchInput').focus();runSearch();}}
+document.addEventListener('click',function(e){var wrap=document.querySelector('.search-wrap');if(wrap&&!wrap.contains(e.target))document.getElementById('searchBox').classList.remove('open');});
+function runSearch(){var q=document.getElementById('searchInput').value.toLowerCase();var res=document.getElementById('searchResults');if(!q){res.innerHTML='<div class="search-empty">Type to search tools...</div>';return;}var matches=tools.filter(function(t){return t.name.toLowerCase().includes(q)||t.tags.includes(q);});if(!matches.length){res.innerHTML='<div class="search-empty">No tools found</div>';return;}res.innerHTML=matches.slice(0,8).map(function(t){return '<a href="'+t.url+'" class="search-item"><span class="search-item-icon">'+t.icon+'</span>'+t.name+'</a>';}).join('');}
 </script>
 </body>
 </html>

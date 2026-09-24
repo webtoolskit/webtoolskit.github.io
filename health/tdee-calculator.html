@@ -7,20 +7,20 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
   <link rel="canonical" href="https://webtoolskit.github.io/health/tdee-calculator.html"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>TDEE Calculator — Total Daily Energy Expenditure | WebToolsKit</title>
-<meta name="description" content="Calculate your Total Daily Energy Expenditure based on age, weight, height and activity level. Free TDEE calculator to plan your diet and reach your fitness goals.">
+  <title>TDEE Calculator — Maintenance Calories &amp; Daily Calorie Needs</title>
+<meta name="description" content="Calculate your TDEE and BMR with the Mifflin-St Jeor equation. Get maintenance calories and a daily target for fat loss or muscle gain — free, no signup.">
   <!-- Open Graph -->
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://webtoolskit.github.io/health/tdee-calculator.html"/>
-<meta property="og:title" content="TDEE Calculator — Plan Your Diet with Precision"/>
-<meta property="og:description" content="Calculate your Total Daily Energy Expenditure based on age, weight, height and activity level. Free TDEE calculator to plan your diet and fitness goals."/>
+<meta property="og:title" content="TDEE Calculator — Maintenance Calories &amp; Daily Calorie Needs"/>
+<meta property="og:description" content="Calculate your TDEE and BMR with the Mifflin-St Jeor equation. Get maintenance calories and a daily target for fat loss or muscle gain — free, no signup."/>
 <meta property="og:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
 
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:url" content="https://webtoolskit.github.io/health/tdee-calculator.html"/>
-<meta name="twitter:title" content="TDEE Calculator — Plan Your Diet with Precision"/>
-<meta name="twitter:description" content="Calculate your Total Daily Energy Expenditure based on age, weight, height and activity level. Free TDEE calculator to plan your diet and fitness goals."/>
+<meta name="twitter:title" content="TDEE Calculator — Maintenance Calories &amp; Daily Calorie Needs"/>
+<meta name="twitter:description" content="Calculate your TDEE and BMR with the Mifflin-St Jeor equation. Get maintenance calories and a daily target for fat loss or muscle gain — free, no signup."/>
 <meta name="twitter:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
@@ -137,34 +137,98 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Q: What is BMR?",
+      "name": "What is BMR?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: BMR (Basal Metabolic Rate) is the number of calories your body needs to maintain basic functions at rest — breathing, circulation, organ function. It accounts for 60-70% of your TDEE."
+        "text": "BMR (Basal Metabolic Rate) is the energy your body uses at complete rest for breathing, circulation and organ function. For most people it makes up roughly 60–70% of total daily energy use."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: What formula does this use?",
+      "name": "What formula does this TDEE calculator use?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: This calculator uses the Mifflin-St Jeor equation, which is considered the most accurate formula for estimating BMR in most adults."
+        "text": "It uses the Mifflin-St Jeor equation — BMR = 10 × weight (kg) + 6.25 × height (cm) − 5 × age + 5 for men, or − 161 for women — then multiplies by your activity level. Mifflin-St Jeor is one of the most accurate and widely recommended equations for adults."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: How do I use TDEE to lose weight?",
+      "name": "How do I use TDEE to lose weight?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: Eat 300-500 calories below your TDEE for steady, sustainable fat loss of 0.3-0.5kg per week. Eating too far below TDEE causes muscle loss and metabolic adaptation."
+        "text": "Eat a little less than your TDEE. A deficit of about 300–500 kcal a day is a common, sustainable starting point for most adults. Very large deficits are harder to stick to and can cost muscle. Recheck your numbers as your weight changes."
       }
     },
     {
       "@type": "Question",
-      "name": "Q: Why is my TDEE different from other calculators?",
+      "name": "Why is my TDEE different from other calculators?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A: Small differences are normal between calculators using different formulas. The Mifflin-St Jeor formula used here is the most widely validated in research."
+        "text": "Calculators use different formulas (Mifflin-St Jeor, Harris-Benedict, Katch-McArdle) and different activity multipliers, so results can differ by 100–200 kcal. All of them are estimates — track your weight for 2–3 weeks and adjust your intake if it's not moving the way you expect."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is TDEE?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "TDEE (Total Daily Energy Expenditure) is the total number of calories you burn in a day: your BMR plus the energy used for digestion, daily movement and exercise. Eating about your TDEE keeps your weight roughly stable."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between BMR and TDEE?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "BMR is what your body burns at complete rest. TDEE is BMR multiplied by an activity factor — so it's always higher. You should eat based on TDEE, not BMR."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What activity multipliers does this calculator use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sedentary 1.2, lightly active 1.375, moderately active 1.55, very active 1.725 and extremely active 1.9. If you're unsure, pick the lower level — most people overestimate how active they are."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is my maintenance calorie level?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your maintenance calories are your TDEE. For example, a 30-year-old man who weighs 70 kg, is 175 cm tall and exercises moderately has a BMR of about 1,649 kcal and a TDEE of about 2,556 kcal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many calories should a woman eat a day?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on size, age and activity. For example, a 30-year-old woman weighing 60 kg at 160 cm has a BMR of about 1,289 kcal; if lightly active, her TDEE is about 1,772 kcal. Enter your own details above for your figure."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many calories do I need to lose 1 kg?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A common estimate is that 1 kg of body fat stores roughly 7,700 kcal, so a 500 kcal daily deficit works out to about 0.5 kg a week. Real-world loss is less predictable, because water weight and metabolism change as you diet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many calories should I eat to build muscle?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A small surplus of about 250–500 kcal above your TDEE, combined with regular strength training and enough protein, supports muscle gain while limiting fat gain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How often should I recalculate my TDEE?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Recalculate after every 3–5 kg of weight change, or if your activity level changes, because your calorie needs change with your body weight."
       }
     }
   ]
@@ -195,7 +259,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
     <div class="tool-icon-big">⚡</div>
     <h1 class="tool-title">TDEE Calculator</h1>
   </div>
-  <div class="tool-desc">Calculate your Total Daily Energy Expenditure to know exactly how many calories you need each day.</div>
+  <div class="tool-desc">Estimate your Total Daily Energy Expenditure — roughly how many calories you burn each day — and get a calorie target for your goal.</div>
 </div>
 <div class="tool-wrap">
 <div class="calc-card"><h2>// Your Details</h2>
@@ -231,7 +295,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
 </div></div>
 <section class="content-section">
   <div class="tip-box" style="margin-bottom:20px"><strong>⚠️ Disclaimer:</strong> This tool is for informational purposes only and does not constitute medical advice. Always consult a qualified healthcare professional before making health decisions.</div>
-  <div class="content-card"><h2>What is this Tool?</h2><p>The TDEE (Total Daily Energy Expenditure) Calculator tells you exactly how many calories your body burns in a day — including your basal metabolic rate (calories burned at rest) plus the energy used for all physical activity. Knowing your TDEE is the foundation of any successful diet or nutrition plan, whether your goal is fat loss, muscle gain, or maintenance.</p></div>
+  <div class="content-card"><h2>What is this Tool?</h2><p>The TDEE (Total Daily Energy Expenditure) Calculator estimates how many calories your body burns in a day — including your basal metabolic rate (calories burned at rest) plus the energy used for all physical activity. Knowing your TDEE is the foundation of any successful diet or nutrition plan, whether your goal is fat loss, muscle gain, or maintenance.</p></div>
   <div class="content-card"><h2>How to Use This Calculator</h2><div class="steps"><div class="step"><div class="step-num">1</div><div class="step-text">Enter your weight, height, age, and gender.</div></div><div class="step"><div class="step-num">2</div><div class="step-text">Select your activity level honestly — most people overestimate their activity level.</div></div><div class="step"><div class="step-num">3</div><div class="step-text">Select your goal — maintain, lose, or gain weight.</div></div><div class="step"><div class="step-num">4</div><div class="step-text">Your BMR, TDEE, and daily calorie target are calculated using the Mifflin-St Jeor formula.</div></div></div></div>
   <div class="content-card"><h2>Why This Matters</h2><ul><li>The most important number for any diet or fitness plan</li><li>Eliminates guesswork from calorie counting</li><li>Tailored to your specific body and lifestyle</li><li>Helps you understand why you're gaining or losing weight</li><li>Foundation for building a sustainable meal plan</li></ul></div>
   <div class="content-card" style="background:linear-gradient(135deg,#00e64d,#00c43f);border:1px solid #00e64d">
@@ -250,7 +314,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
       </div>
     </div>
   </div>
-  <div class="content-card"><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">Q: What is BMR?</div><div class="faq-a">A: BMR (Basal Metabolic Rate) is the number of calories your body needs to maintain basic functions at rest — breathing, circulation, organ function. It accounts for 60-70% of your TDEE.</div></div><div class="faq-item"><div class="faq-q">Q: What formula does this use?</div><div class="faq-a">A: This calculator uses the Mifflin-St Jeor equation, which is considered the most accurate formula for estimating BMR in most adults.</div></div><div class="faq-item"><div class="faq-q">Q: How do I use TDEE to lose weight?</div><div class="faq-a">A: Eat 300-500 calories below your TDEE for steady, sustainable fat loss of 0.3-0.5kg per week. Eating too far below TDEE causes muscle loss and metabolic adaptation.</div></div><div class="faq-item"><div class="faq-q">Q: Why is my TDEE different from other calculators?</div><div class="faq-a">A: Small differences are normal between calculators using different formulas. The Mifflin-St Jeor formula used here is the most widely validated in research.</div></div></div>
+  <div class="content-card"><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">What is BMR?</div><div class="faq-a">BMR (Basal Metabolic Rate) is the energy your body uses at complete rest for breathing, circulation and organ function. For most people it makes up roughly 60–70% of total daily energy use.</div></div><div class="faq-item"><div class="faq-q">What formula does this TDEE calculator use?</div><div class="faq-a">It uses the Mifflin-St Jeor equation — BMR = 10 × weight (kg) + 6.25 × height (cm) − 5 × age + 5 for men, or − 161 for women — then multiplies by your activity level. Mifflin-St Jeor is one of the most accurate and widely recommended equations for adults.</div></div><div class="faq-item"><div class="faq-q">How do I use TDEE to lose weight?</div><div class="faq-a">Eat a little less than your TDEE. A deficit of about 300–500 kcal a day is a common, sustainable starting point for most adults. Very large deficits are harder to stick to and can cost muscle. Recheck your numbers as your weight changes.</div></div><div class="faq-item"><div class="faq-q">Why is my TDEE different from other calculators?</div><div class="faq-a">Calculators use different formulas (Mifflin-St Jeor, Harris-Benedict, Katch-McArdle) and different activity multipliers, so results can differ by 100–200 kcal. All of them are estimates — track your weight for 2–3 weeks and adjust your intake if it's not moving the way you expect.</div></div><div class="faq-item"><div class="faq-q">What is TDEE?</div><div class="faq-a">TDEE (Total Daily Energy Expenditure) is the total number of calories you burn in a day: your BMR plus the energy used for digestion, daily movement and exercise. Eating about your TDEE keeps your weight roughly stable.</div></div><div class="faq-item"><div class="faq-q">What is the difference between BMR and TDEE?</div><div class="faq-a">BMR is what your body burns at complete rest. TDEE is BMR multiplied by an activity factor — so it's always higher. You should eat based on TDEE, not BMR.</div></div><div class="faq-item"><div class="faq-q">What activity multipliers does this calculator use?</div><div class="faq-a">Sedentary 1.2, lightly active 1.375, moderately active 1.55, very active 1.725 and extremely active 1.9. If you're unsure, pick the lower level — most people overestimate how active they are.</div></div><div class="faq-item"><div class="faq-q">What is my maintenance calorie level?</div><div class="faq-a">Your maintenance calories are your TDEE. For example, a 30-year-old man who weighs 70 kg, is 175 cm tall and exercises moderately has a BMR of about 1,649 kcal and a TDEE of about 2,556 kcal.</div></div><div class="faq-item"><div class="faq-q">How many calories should a woman eat a day?</div><div class="faq-a">It depends on size, age and activity. For example, a 30-year-old woman weighing 60 kg at 160 cm has a BMR of about 1,289 kcal; if lightly active, her TDEE is about 1,772 kcal. Enter your own details above for your figure.</div></div><div class="faq-item"><div class="faq-q">How many calories do I need to lose 1 kg?</div><div class="faq-a">A common estimate is that 1 kg of body fat stores roughly 7,700 kcal, so a 500 kcal daily deficit works out to about 0.5 kg a week. Real-world loss is less predictable, because water weight and metabolism change as you diet.</div></div><div class="faq-item"><div class="faq-q">How many calories should I eat to build muscle?</div><div class="faq-a">A small surplus of about 250–500 kcal above your TDEE, combined with regular strength training and enough protein, supports muscle gain while limiting fat gain.</div></div><div class="faq-item"><div class="faq-q">How often should I recalculate my TDEE?</div><div class="faq-a">Recalculate after every 3–5 kg of weight change, or if your activity level changes, because your calorie needs change with your body weight.</div></div></div>
   <div class="tip-box"><strong>💡 Pro Tip:</strong> Your TDEE changes as your weight changes. Recalculate every 4-6 weeks or after losing/gaining 3-5kg to keep your calorie targets accurate and avoid plateaus.</div>
   <div class="content-card" style="background:linear-gradient(135deg,#00e64d,#00c43f);border:1px solid #00e64d;margin-top:0">
     <h2 style="color:#000">Recommended — Strength & Stamina</h2>

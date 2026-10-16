@@ -18,20 +18,20 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
   <link rel="canonical" href="https://webtoolskit.github.io/students/percentage-grade.html"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Percentage & Grade Calculator — Marks to % | WebToolsKit</title>
-<meta name="description" content="Convert your marks to percentage and find your grade instantly. Free percentage and grade calculator for Indian students — enter marks obtained and max marks.">
+  <title>Percentage &amp; Grade Calculator — B+ Grade %, First &amp; Second Class</title>
+<meta name="description" content="Convert marks to percentage and grade. See grade-to-percentage tables (O, A+, A, B+, B), plus first class, second class and distinction cut-offs. Free.">
   <!-- Open Graph -->
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://webtoolskit.github.io/students/percentage-grade.html"/>
-<meta property="og:title" content="Percentage & Grade Calculator — Marks to %"/>
-<meta property="og:description" content="Convert your marks to percentage and find your grade instantly. Free percentage and grade calculator for Indian students — enter marks obtained and max marks."/>
+<meta property="og:title" content="Percentage &amp; Grade Calculator — B+ Grade %, First &amp; Second Class"/>
+<meta property="og:description" content="Convert marks to percentage and grade. See grade-to-percentage tables (O, A+, A, B+, B), plus first class, second class and distinction cut-offs. Free."/>
 <meta property="og:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
 
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:url" content="https://webtoolskit.github.io/students/percentage-grade.html"/>
-<meta name="twitter:title" content="Percentage & Grade Calculator — Marks to %"/>
-<meta name="twitter:description" content="Convert your marks to percentage and find your grade instantly. Free percentage and grade calculator for Indian students — enter marks obtained and max marks."/>
+<meta name="twitter:title" content="Percentage &amp; Grade Calculator — B+ Grade %, First &amp; Second Class"/>
+<meta name="twitter:description" content="Convert marks to percentage and grade. See grade-to-percentage tables (O, A+, A, B+, B), plus first class, second class and distinction cut-offs. Free."/>
 <meta name="twitter:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
@@ -123,7 +123,14 @@
     .sf-bottom a:hover{color:var(--white)}
     @media(max-width:900px){.site-footer-grid{grid-template-columns:1fr 1fr;gap:28px}.site-footer{padding:40px 20px 24px}.sf-bottom{flex-direction:column;gap:10px;text-align:center}.input-grid{grid-template-columns:1fr}.result-grid{grid-template-columns:1fr 1fr}}
     @media(max-width:768px){nav{padding:14px 20px}.nav-links{gap:0}.nav-link{padding:6px 8px;font-size:.78rem}.nav-home{padding:6px 10px;font-size:.78rem}.tool-hero{padding:40px 20px 24px}.tool-wrap{padding:0 20px 24px}.content-section{padding:0 20px 60px}.tool-title-row{flex-direction:column;align-items:flex-start;gap:12px}.result-main{font-size:2.5rem}.subject-row{grid-template-columns:1fr 1fr}}
-  </style>
+      .qa-table{width:100%;border-collapse:collapse;margin-top:12px}
+    .qa-table th{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--grey);text-transform:uppercase;letter-spacing:.8px;padding:8px 10px;border-bottom:1px solid var(--border);text-align:left}
+    .qa-table td{font-size:.88rem;color:var(--light);padding:9px 10px;border-bottom:1px solid rgba(42,45,58,.5);font-family:'DM Sans',sans-serif}
+    .qa-table tr:last-child td{border-bottom:none}
+    .qa-table td:first-child{color:var(--white);font-weight:600}
+    .qa-wrap{overflow-x:auto}
+    .qa-note{font-size:.82rem;color:var(--grey);margin-top:10px;line-height:1.6}
+</style>
   <!-- Meta Pixel -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -160,7 +167,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
       "name": "How does CBSE grading work?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "CBSE uses a 9-point scale: A1 (91-100%) = 10, A2 (81-90%) = 9, B1 (71-80%) = 8, B2 (61-70%) = 7, C1 (51-60%) = 6, C2 (41-50%) = 5, D (33-40%) = 4, E1/E2 (below 33%) = Fail."
+        "text": "CBSE uses a 9-point scale — A1, A2, B1, B2, C1, C2, D1, D2 and E — but in Class 10 and 12 board exams the grades are relative: A1 goes to roughly the top one-eighth of students who passed a subject, A2 to the next eighth, and so on, while E means not passed. So there's no fixed percentage for each grade. The CBSE option in this calculator uses approximate bands (A1 = 91–100%, A2 = 81–90% and so on) as a rough guide only."
       }
     },
     {
@@ -176,15 +183,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
       "name": "What is B- as a percentage?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A B- grade corresponds to approximately 80–82% in most grading systems. In a 4.0 GPA scale, B- = 2.7 GPA. In percentage terms: A+ = 97–100%, A = 93–96%, A- = 90–92%, B+ = 87–89%, B = 83–86%, B- = 80–82%, C+ = 77–79%, C = 73–76%. Use the grade converter above for your specific institution's grading scale."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is the pass mark for 200?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "For a paper with maximum marks of 200, the pass mark at 35% is 70, at 40% is 80, and at 50% is 100. Most Indian universities require 35–40% to pass. Enter your total marks and passing percentage in the calculator above to find the exact pass mark for any maximum marks."
+        "text": "B– isn't part of the Indian 10-point (UGC) scale. It comes from the US letter-grade system, where B– is usually 80–82% (2.7 on a 4.0 GPA scale). If your marksheet shows B–, check the grading table printed on it or your institution's rules."
       }
     },
     {
@@ -192,7 +191,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
       "name": "How do I calculate grade from percentage?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Grade from percentage: 90–100% = A+/O (Outstanding), 80–89% = A (Excellent), 70–79% = B+ (Very Good), 60–69% = B (Good), 50–59% = C (Average), 40–49% = D (Pass), below 40% = F (Fail). Different universities use slightly different cutoffs — check your institution's grading policy."
+        "text": "First work out your percentage (marks ÷ maximum marks × 100), then look it up in your university's grade table. On the 10-point scale used here: 90%+ = O, 80–89% = A+, 70–79% = A, 60–69% = B+, 55–59% = B, 50–54% = C, 45–49% = P, below 45% = F. Choose your grading system in the calculator above to see your grade instantly."
       }
     },
     {
@@ -208,7 +207,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
       "name": "What is 71/80 as a percentage?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "71 out of 80 as a percentage = (71 ÷ 80) × 100 = 88.75%. This is a B+ or A- grade in most grading systems. Use the marks calculator above — enter 71 as marks obtained and 80 as maximum marks for instant percentage and grade."
+        "text": "71 out of 80 = (71 ÷ 80) × 100 = 88.75%. That's an A+ on the 10-point scale used here, and a first class / distinction-level score in most universities."
       }
     },
     {
@@ -224,7 +223,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
       "name": "What is B grade in percentage?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A B grade typically corresponds to 60–69% in most Indian universities using percentage-based grading. In a 10-point GPA system, B grade = 6.0–6.9 GPA. In CBSE: B1 = 71–80%, B2 = 61–70%. The exact percentage range for a B grade varies by institution — check your university's grading policy."
+        "text": "On the 10-point scale used in this calculator, B (grade point 6) is 55–59%. Many universities use 50–59% for B instead — the ranges vary, so check your university's grading table."
       }
     },
     {
@@ -232,7 +231,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
       "name": "What is B+ grade in percentage?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A B+ grade typically corresponds to 65–74% in most Indian university systems. In a 10-point scale, B+ = 7.0 grade point (60–69%). In CBSE, there is no B+ — grades go from B1 (71–80%) to B2 (61–70%). Use the calculator above to find your exact percentage and see which grade you fall into."
+        "text": "On the 10-point scale used by many Indian universities, B+ (grade point 7) usually means 60–69%. Some universities set slightly different ranges, so check your marksheet or university rules. CBSE doesn't use B+; its nearest grades are B1 and B2."
       }
     },
     {
@@ -240,7 +239,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
       "name": "What is 40/45 as a percentage?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "40 out of 45 as a percentage = (40 ÷ 45) × 100 = 88.89%. This is an A or A+ grade. Enter your marks and maximum marks above for any combination — the calculator works for all marks and total marks values."
+        "text": "40 out of 45 = (40 ÷ 45) × 100 = 88.89%, which is an A+ on the 10-point scale used here."
       }
     },
     {
@@ -280,7 +279,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
       "name": "What is grading according to percentage in India?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Standard grading by percentage in India: O/A+ (90–100%) = Outstanding, A (75–89%) = Excellent/Distinction, B+/First Class (60–74%), B/Second Class (50–59%), C/Pass (35–49%), F (below 35%) = Fail. CBSE and university 10-point systems use slightly different cutoffs — select your system in the calculator above."
+        "text": "There's no single national scale. Universities following the UGC 10-point system use the grades O, A+, A, B+, B, C, P and F with grade points 10 to 0, but each sets its own percentage cut-offs — see the grade table above for a common version. Results are also often classified as Distinction (75%+), First Class (60–74%), Second Class (50–59%) and Pass."
       }
     },
     {
@@ -377,7 +376,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
   <div class="input-group"><label>Total Maximum Marks</label><div class="input-wrap"><span class="input-prefix">📋</span><input type="number" id="total" placeholder="500" oninput="calcPct()"/></div></div>
   <div class="input-group"><label>Grading System</label><select id="gradeSys" class="no-prefix" onchange="calcPct()">
     <option value="10">10-Point (University)</option>
-    <option value="cbse">CBSE Grading</option>
+    <option value="cbse">CBSE (approx. bands)</option>
     <option value="percentage">Percentage Based</option>
   </select></div>
 </div></div>
@@ -392,7 +391,10 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
   </div>
 </div></div>
 <section class="content-section">
-  <div class="content-card"><h2>What is this Tool?</h2><p>The Percentage and Grade Calculator instantly converts your raw marks into percentage, letter grade, and grade point. Whether you use the 10-point university grading system, CBSE grading, or simple percentage-based grading, this tool handles all three and shows your result status instantly. It's useful for students at all levels — from school boards to university exams.</p></div>
+    <div class="content-card"><h2>Grade to Percentage Table (10-Point Scale)</h2><p>The UGC's choice-based credit system uses the letter grades O, A+, A, B+, B, C and P with grade points 10 to 4, but each university sets its own percentage range for each grade. The table below is the scale this calculator uses — one common version. Check your university's rules for its exact cut-offs.</p><div class="qa-wrap"><table class="qa-table"><thead><tr><th>Grade</th><th>Percentage</th><th>Points</th></tr></thead><tbody><tr><td>O (Outstanding)</td><td>90–100%</td><td>10</td></tr><tr><td>A+ (Excellent)</td><td>80–89%</td><td>9</td></tr><tr><td>A (Very good)</td><td>70–79%</td><td>8</td></tr><tr><td>B+ (Good)</td><td>60–69%</td><td>7</td></tr><tr><td>B (Above average)</td><td>55–59%</td><td>6</td></tr><tr><td>C (Average)</td><td>50–54%</td><td>5</td></tr><tr><td>P (Pass)</td><td>45–49%</td><td>4</td></tr><tr><td>F (Fail)</td><td>Below 45%</td><td>0</td></tr></tbody></table></div><p class="qa-note">B– is not part of the Indian 10-point scale. On the US letter scale, B– is usually 80–82%.</p></div>
+  <div class="content-card"><h2>First Class, Second Class & Distinction Percentage</h2><p>Many Indian universities classify results by aggregate percentage like this (some use 40% to pass, or 45–59% for second class):</p><div class="qa-wrap"><table class="qa-table"><thead><tr><th>Class / Division</th><th>Percentage</th></tr></thead><tbody><tr><td>Distinction</td><td>75% and above</td></tr><tr><td>First Class</td><td>60–74%</td></tr><tr><td>Second Class</td><td>50–59%</td></tr><tr><td>Pass Class</td><td>35–49%</td></tr><tr><td>Fail</td><td>Below 35%</td></tr></tbody></table></div><p class="qa-note">Need pass or distinction marks out of 50, 70, 80, 100, 200 or 300? See the table on our <a href="marks-needed.html" style="color:var(--yellow)">Marks Needed Calculator</a>.</p></div>
+  <div class="content-card"><h2>Marks to Percentage — Examples</h2><p>Percentage = (marks obtained ÷ maximum marks) × 100. Grades below use the 10-point scale above.</p><div class="qa-wrap"><table class="qa-table"><thead><tr><th>Marks</th><th>Percentage</th><th>Grade</th></tr></thead><tbody><tr><td>71 out of 80</td><td>88.75%</td><td>A+</td></tr><tr><td>61 out of 70</td><td>87.14%</td><td>A+</td></tr><tr><td>40 out of 45</td><td>88.89%</td><td>A+</td></tr><tr><td>45 out of 50</td><td>90%</td><td>O</td></tr><tr><td>35 out of 50</td><td>70%</td><td>A</td></tr><tr><td>120 out of 200</td><td>60%</td><td>B+</td></tr></tbody></table></div></div>
+<div class="content-card"><h2>What is this Tool?</h2><p>The Percentage and Grade Calculator instantly converts your raw marks into percentage, letter grade, and grade point. Whether you use the 10-point university grading system, CBSE grading, or simple percentage-based grading, this tool handles all three and shows your result status instantly. It's useful for students at all levels — from school boards to university exams.</p></div>
   <div class="content-card"><h2>How to Use This Tool</h2><div class="steps"><div class="step"><div class="step-num">1</div><div class="step-text">Enter your total marks obtained in the exam.</div></div><div class="step"><div class="step-num">2</div><div class="step-text">Enter the maximum possible marks for that exam.</div></div><div class="step"><div class="step-num">3</div><div class="step-text">Select your grading system — university 10-point, CBSE, or percentage-based.</div></div><div class="step"><div class="step-num">4</div><div class="step-text">Your percentage, letter grade, grade point, and pass/fail status are shown instantly.</div></div></div></div>
   <div class="content-card"><h2>Why This Matters</h2><ul><li>Instantly know your grade without manual calculation</li><li>Check pass/fail status across different grading systems</li><li>Calculate CGPA-equivalent grade points for university submissions</li><li>Track academic performance across multiple subjects</li><li>Understand how your percentage maps to letter grades</li></ul></div>
   <div class="content-card" style="background:var(--yellow);border:1px solid var(--yellow)">
@@ -411,22 +413,21 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
       </div>
     </div>
   </div>
-  <div class="content-card"><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">What is the passing percentage in India?</div><div class="faq-a">Most Indian universities and boards require a minimum of 35% to pass in each subject and 40-45% aggregate. Professional courses like engineering and medicine often require 45-50% to pass.</div></div><div class="faq-item"><div class="faq-q">How does CBSE grading work?</div><div class="faq-a">CBSE uses a 9-point scale: A1 (91-100%) = 10, A2 (81-90%) = 9, B1 (71-80%) = 8, B2 (61-70%) = 7, C1 (51-60%) = 6, C2 (41-50%) = 5, D (33-40%) = 4, E1/E2 (below 33%) = Fail.</div></div><div class="faq-item"><div class="faq-q">What is a distinction in Indian universities?</div><div class="faq-a">A distinction is typically awarded for scoring 75% or above in aggregate. First Class is 60-74%, Second Class is 50-59%, and Pass is 35-49%. This varies by university.</div></div><div class="faq-item"><div class="faq-q">What is B- as a percentage?</div><div class="faq-a">A B- grade corresponds to approximately 80–82% in most grading systems. In a 4.0 GPA scale, B- = 2.7 GPA. In percentage terms: A+ = 97–100%, A = 93–96%, A- = 90–92%, B+ = 87–89%, B = 83–86%, B- = 80–82%, C+ = 77–79%, C = 73–76%. Use the grade converter above for your specific institution's grading scale.</div></div>
-<div class="faq-item"><div class="faq-q">What is the pass mark for 200?</div><div class="faq-a">For a paper with maximum marks of 200, the pass mark at 35% is 70, at 40% is 80, and at 50% is 100. Most Indian universities require 35–40% to pass. Enter your total marks and passing percentage in the calculator above to find the exact pass mark for any maximum marks.</div></div>
-<div class="faq-item"><div class="faq-q">How do I calculate grade from percentage?</div><div class="faq-a">Grade from percentage: 90–100% = A+/O (Outstanding), 80–89% = A (Excellent), 70–79% = B+ (Very Good), 60–69% = B (Good), 50–59% = C (Average), 40–49% = D (Pass), below 40% = F (Fail). Different universities use slightly different cutoffs — check your institution's grading policy.</div></div>
+  <div class="content-card"><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">What is the passing percentage in India?</div><div class="faq-a">Most Indian universities and boards require a minimum of 35% to pass in each subject and 40-45% aggregate. Professional courses like engineering and medicine often require 45-50% to pass.</div></div><div class="faq-item"><div class="faq-q">How does CBSE grading work?</div><div class="faq-a">CBSE uses a 9-point scale — A1, A2, B1, B2, C1, C2, D1, D2 and E — but in Class 10 and 12 board exams the grades are relative: A1 goes to roughly the top one-eighth of students who passed a subject, A2 to the next eighth, and so on, while E means not passed. So there's no fixed percentage for each grade. The CBSE option in this calculator uses approximate bands (A1 = 91–100%, A2 = 81–90% and so on) as a rough guide only.</div></div><div class="faq-item"><div class="faq-q">What is a distinction in Indian universities?</div><div class="faq-a">A distinction is typically awarded for scoring 75% or above in aggregate. First Class is 60-74%, Second Class is 50-59%, and Pass is 35-49%. This varies by university.</div></div><div class="faq-item"><div class="faq-q">What is B- as a percentage?</div><div class="faq-a">B– isn't part of the Indian 10-point (UGC) scale. It comes from the US letter-grade system, where B– is usually 80–82% (2.7 on a 4.0 GPA scale). If your marksheet shows B–, check the grading table printed on it or your institution's rules.</div></div>
+<div class="faq-item"><div class="faq-q">How do I calculate grade from percentage?</div><div class="faq-a">First work out your percentage (marks ÷ maximum marks × 100), then look it up in your university's grade table. On the 10-point scale used here: 90%+ = O, 80–89% = A+, 70–79% = A, 60–69% = B+, 55–59% = B, 50–54% = C, 45–49% = P, below 45% = F. Choose your grading system in the calculator above to see your grade instantly.</div></div>
 <div class="faq-item"><div class="faq-q">How do I calculate passing marks percentage?</div><div class="faq-a">Passing marks = (Pass percentage ÷ 100) × Maximum marks. For example, if max marks is 100 and pass percentage is 35%, passing marks = 35. If max marks is 75 and pass percentage is 40%, passing marks = 30. Use the calculator above — enter your maximum marks and the pass percentage to get the exact passing marks required.</div></div>
-<div class="faq-item"><div class="faq-q">What is 71/80 as a percentage?</div><div class="faq-a">71 out of 80 as a percentage = (71 ÷ 80) × 100 = 88.75%. This is a B+ or A- grade in most grading systems. Use the marks calculator above — enter 71 as marks obtained and 80 as maximum marks for instant percentage and grade.</div></div><div class="faq-item"><div class="faq-q">Can I improve my percentage after getting results?</div><div class="faq-a">Yes, through revaluation (re-checking of answer sheets) or re-examination (supplementary exams). Many universities allow students to improve scores through back paper exams.</div></div></div>
+<div class="faq-item"><div class="faq-q">What is 71/80 as a percentage?</div><div class="faq-a">71 out of 80 = (71 ÷ 80) × 100 = 88.75%. That's an A+ on the 10-point scale used here, and a first class / distinction-level score in most universities.</div></div><div class="faq-item"><div class="faq-q">Can I improve my percentage after getting results?</div><div class="faq-a">Yes, through revaluation (re-checking of answer sheets) or re-examination (supplementary exams). Many universities allow students to improve scores through back paper exams.</div></div></div>
   <div class="content-card"><h2>Grades, Percentages & Marks — Common Questions</h2>
-    <div class="faq-item"><div class="faq-q">What is B grade in percentage?</div><div class="faq-a">A B grade typically corresponds to 60–69% in most Indian universities using percentage-based grading. In a 10-point GPA system, B grade = 6.0–6.9 GPA. In CBSE: B1 = 71–80%, B2 = 61–70%. The exact percentage range for a B grade varies by institution — check your university's grading policy.</div></div>
-    <div class="faq-item"><div class="faq-q">What is B+ grade in percentage?</div><div class="faq-a">A B+ grade typically corresponds to 65–74% in most Indian university systems. In a 10-point scale, B+ = 7.0 grade point (60–69%). In CBSE, there is no B+ — grades go from B1 (71–80%) to B2 (61–70%). Use the calculator above to find your exact percentage and see which grade you fall into.</div></div>
+    <div class="faq-item"><div class="faq-q">What is B grade in percentage?</div><div class="faq-a">On the 10-point scale used in this calculator, B (grade point 6) is 55–59%. Many universities use 50–59% for B instead — the ranges vary, so check your university's grading table.</div></div>
+    <div class="faq-item"><div class="faq-q">What is B+ grade in percentage?</div><div class="faq-a">On the 10-point scale used by many Indian universities, B+ (grade point 7) usually means 60–69%. Some universities set slightly different ranges, so check your marksheet or university rules. CBSE doesn't use B+; its nearest grades are B1 and B2.</div></div>
     
-    <div class="faq-item"><div class="faq-q">What is 40/45 as a percentage?</div><div class="faq-a">40 out of 45 as a percentage = (40 ÷ 45) × 100 = 88.89%. This is an A or A+ grade. Enter your marks and maximum marks above for any combination — the calculator works for all marks and total marks values.</div></div>
+    <div class="faq-item"><div class="faq-q">What is 40/45 as a percentage?</div><div class="faq-a">40 out of 45 = (40 ÷ 45) × 100 = 88.89%, which is an A+ on the 10-point scale used here.</div></div>
     <div class="faq-item"><div class="faq-q">What is a second class percentage in India?</div><div class="faq-a">Second Class in Indian universities is typically 50–59% aggregate. First Class is 60–74%, Distinction is 75% and above, and Pass is 35–49%. Some universities use 45–59% as Second Class. Always check your specific university's classification cutoffs.</div></div>
     <div class="faq-item"><div class="faq-q">What percentage is first class?</div><div class="faq-a">First Class in most Indian universities is 60% and above (up to 74%). Some universities set the First Class cutoff at 55%. Distinction is typically awarded for 75% and above. Enter your marks above to see which classification you have achieved based on percentage-based grading.</div></div>
     <div class="faq-item"><div class="faq-q">What is a pass class percentage?</div><div class="faq-a">Pass Class in Indian universities is typically 35–49%. Some professional courses like engineering and medicine require 40–45% minimum to pass. The calculator shows ✅ Pass or ❌ Fail automatically based on the selected grading system.</div></div>
     <div class="faq-item"><div class="faq-q">How do I convert score to percentage?</div><div class="faq-a">Score to percentage formula: Percentage = (Marks Obtained ÷ Maximum Marks) × 100. For example, 450 out of 500 = (450 ÷ 500) × 100 = 90%. Enter your marks in the calculator above — it converts marks to percentage, grade and grade point instantly.</div></div>
     
-    <div class="faq-item"><div class="faq-q">What is grading according to percentage in India?</div><div class="faq-a">Standard grading by percentage in India: O/A+ (90–100%) = Outstanding, A (75–89%) = Excellent/Distinction, B+/First Class (60–74%), B/Second Class (50–59%), C/Pass (35–49%), F (below 35%) = Fail. CBSE and university 10-point systems use slightly different cutoffs — select your system in the calculator above.</div></div>
+    <div class="faq-item"><div class="faq-q">What is grading according to percentage in India?</div><div class="faq-a">There's no single national scale. Universities following the UGC 10-point system use the grades O, A+, A, B+, B, C, P and F with grade points 10 to 0, but each sets its own percentage cut-offs — see the grade table above for a common version. Results are also often classified as Distinction (75%+), First Class (60–74%), Second Class (50–59%) and Pass.</div></div>
     <div class="faq-item"><div class="faq-q">How do I calculate net marks?</div><div class="faq-a">Net marks in competitive exams with negative marking = (Correct answers × marks per question) − (Wrong answers × negative marks). For example, in NEET: 4 marks for correct, −1 for wrong. If you attempt 120 questions, get 100 right and 20 wrong: Net = (100 × 4) − (20 × 1) = 400 − 20 = 380.</div></div>
     <div class="faq-item"><div class="faq-q">How do I calculate passing marks for any exam?</div><div class="faq-a">Passing marks = (Pass percentage ÷ 100) × Maximum marks. At 35% for 200 marks = 70. At 40% for 100 marks = 40. At 50% for 75 marks = 37.5, round up to 38. Enter any combination of marks and pass percentage in the calculator above for the exact result.</div></div><div class="faq-item"><div class="faq-q">What is 61/70 as a percentage?</div><div class="faq-a">61 ÷ 70 × 100 = <strong>87.14%</strong>. Enter any marks and maximum marks above to convert them instantly.</div></div><div class="faq-item"><div class="faq-q">What is 45 out of 50 as a percentage?</div><div class="faq-a">45 ÷ 50 × 100 = <strong>90%</strong>.</div></div><div class="faq-item"><div class="faq-q">What is 35 out of 50 as a percentage?</div><div class="faq-a">35 ÷ 50 × 100 = <strong>70%</strong>.</div></div><div class="faq-item"><div class="faq-q">How do I calculate the percentage for all subjects together?</div><div class="faq-a">Add the marks you scored in every subject, add the maximum marks for every subject, then divide and multiply by 100. For example, 412 out of 500 is 412 ÷ 500 × 100 = <strong>82.4%</strong>.</div></div><div class="faq-item"><div class="faq-q">Should internal marks be included in my percentage?</div><div class="faq-a">Use whatever your board or university includes on your marksheet. Most Indian universities add internal and external marks together for each subject, so include both unless your marksheet shows them separately.</div></div>
   </div>

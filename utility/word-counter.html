@@ -114,6 +114,7 @@
     .qa-table td:first-child{color:var(--white);font-weight:600}
     .qa-wrap{overflow-x:auto}
     .qa-note{font-size:.82rem;color:var(--grey);margin-top:10px;line-height:1.6}
+    @media(max-width:768px){nav{flex-wrap:wrap;gap:10px;position:relative}.nav-links{flex-wrap:wrap;row-gap:4px}}
 </style>
   <!-- Meta Pixel -->
 <script>
@@ -160,158 +161,6 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "In English, an average word is about 4.7 letters, so with the space after it a word takes roughly 5.5–6.5 characters. That's the rule used for the estimates on this page — your exact count depends on your writing, so paste it above to check."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How many words is 140 characters?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "About 20–25 words. 140 characters was the original Twitter limit — enough for one or two short sentences."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How many words is 255 characters?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "About 40–45 words, or two to three sentences. 255 characters is a common limit for database text fields and some form inputs."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How many words is 280 characters?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "About 45–50 words. 280 characters is the standard post limit on X (Twitter) for non-premium accounts."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How many words is 300 characters?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "About 45–55 words, or two to four sentences — a typical length for a short product description or push notification."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How many words is 500 characters?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "About 75–90 words. 500 characters is the post limit on Threads."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How many words is 750 characters?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "About 115–135 words — roughly one solid paragraph, or six to eight sentences."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How many words is 1,000 characters?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "About 155–180 words. Many application forms and review sites use a 1,000-character limit."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How many words is 2,000 characters?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "About 300–360 words, or two to three paragraphs."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How many words is 2,300 characters?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "About 355–420 words, or three to four paragraphs."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How many words is 2,500 characters?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "About 385–455 words — roughly a one-page letter or a short article section."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How many words is 8,000 characters?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "About 1,230–1,450 words, which takes around 5–7 minutes to read at 200–250 words per minute."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How many words is 9,000 characters?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "About 1,380–1,640 words, or roughly a 6–8 minute read."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How many characters is 100 words?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "About 550–650 characters including spaces."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How many characters is 250 words?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "About 1,400–1,600 characters including spaces — a common length for short essays and application answers."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How many characters is 300 words?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "About 1,650–1,950 characters including spaces."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How many sentences is 140 characters?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Usually one or two short sentences, since an average sentence of 15–20 words runs about 90–130 characters."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How many sentences is 280 characters?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Usually two or three sentences."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How many sentences is 750 characters?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "About six to eight sentences at an average length of 15–20 words each."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How many sentences is 1,500 characters?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "About 12–16 sentences — roughly two paragraphs."
       }
     },
     {
@@ -388,7 +237,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
 <div class="tool-wrap">
 <div class="calc-card">
   <h2>// Live Word Counter</h2>
-  <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:16px">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px;margin-bottom:16px">
     <div class="result-item"><div class="result-item-label">Words</div><div class="result-item-val" id="words">0</div></div>
     <div class="result-item"><div class="result-item-label">Characters</div><div class="result-item-val" id="chars">0</div></div>
     <div class="result-item"><div class="result-item-label">Sentences</div><div class="result-item-val" id="sentences">0</div></div>
@@ -428,24 +277,9 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
     <div class="step"><div class="step-num">5</div><div class="step-text">When you exceed the limit, the bar turns red as a warning.</div></div>
   </div>
   <div class="content-card"><h2>Why This Matters</h2><ul><li>Write within platform character limits with confidence</li><li>Track blog post length for optimal SEO performance</li><li>Ensure SMS messages don't exceed the 160-character limit</li><li>Check email length before sending</li><li>Monitor reading time for presentation scripts and podcasts</li></ul></div>
-  <div class="content-card" style="background:linear-gradient(135deg,#c50337,#8b0227);border:1px solid #c50337">
-    <h2 style="color:#fff">Recommended — Word Games & Puzzles</h2>
-    <p style="font-size:.8rem;color:rgba(255,255,255,.7);margin-bottom:16px">⚠️ Affiliate disclosure: We may earn a small commission if you purchase through these links at no extra cost to you. <a href="../legal/affiliate-disclosure.html" style="color:#fff;font-weight:700">Learn more</a></p>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-      <div style="background:#0f1117;border:1px solid var(--border);border-radius:12px;padding:14px;min-height:160px;display:flex;flex-direction:column;justify-content:space-between">
-        <div><div style="font-size:.9rem;font-weight:700;color:var(--white);margin-bottom:6px">📰 Guardian Quick Crosswords</div>
-        <p style="font-size:.8rem;color:var(--light);margin-bottom:10px">A classic collection of quick crosswords from The Guardian — perfect for building vocabulary and sharpening word skills daily.</p></div>
-        <a href="https://link.amazon/B058DTsKt" target="_blank" rel="nofollow sponsored" style="display:inline-block;background:var(--card);color:var(--red);font-weight:700;padding:6px 14px;border-radius:8px;text-decoration:none;font-size:.8rem;border:1px solid var(--red)">View on Amazon →</a>
-      </div>
-      <div style="background:#0f1117;border:1px solid var(--border);border-radius:12px;padding:14px;min-height:160px;display:flex;flex-direction:column;justify-content:space-between">
-        <div><div style="font-size:.9rem;font-weight:700;color:var(--white);margin-bottom:6px">🔤 Scrabble Board Game</div>
-        <p style="font-size:.8rem;color:var(--light);margin-bottom:10px">The classic word-building board game for 2–4 players. Build words, score points, and expand your vocabulary — for all ages.</p></div>
-        <a href="https://link.amazon/B0biOnXw5" target="_blank" rel="nofollow sponsored" style="display:inline-block;background:var(--card);color:var(--red);font-weight:700;padding:6px 14px;border-radius:8px;text-decoration:none;font-size:.8rem;border:1px solid var(--red)">View on Amazon →</a>
-      </div>
-    </div>
-  </div>
+  
   <div class="content-card"><h2>Frequently Asked Questions</h2>
-    <div class="faq-item"><div class="faq-q">What is a live word count tool?</div><div class="faq-a">A live word counter counts your words, characters, sentences and paragraphs as you type, without clicking a button. Paste or type your text above and every count updates instantly, along with the estimated reading time.</div></div><div class="faq-item"><div class="faq-q">How do I check the length of my text?</div><div class="faq-a">Paste or type it into the box above to see character count, word count, sentences, paragraphs and reading time at once. Use the platform buttons (X, Threads, Instagram, LinkedIn, SMS) to check your text against their character limits.</div></div><div class="faq-item"><div class="faq-q">How many characters is one word on average?</div><div class="faq-a">In English, an average word is about 4.7 letters, so with the space after it a word takes roughly 5.5–6.5 characters. That's the rule used for the estimates on this page — your exact count depends on your writing, so paste it above to check.</div></div><div class="faq-item"><div class="faq-q">How many words is 140 characters?</div><div class="faq-a">About 20–25 words. 140 characters was the original Twitter limit — enough for one or two short sentences.</div></div><div class="faq-item"><div class="faq-q">How many words is 255 characters?</div><div class="faq-a">About 40–45 words, or two to three sentences. 255 characters is a common limit for database text fields and some form inputs.</div></div><div class="faq-item"><div class="faq-q">How many words is 280 characters?</div><div class="faq-a">About 45–50 words. 280 characters is the standard post limit on X (Twitter) for non-premium accounts.</div></div><div class="faq-item"><div class="faq-q">How many words is 300 characters?</div><div class="faq-a">About 45–55 words, or two to four sentences — a typical length for a short product description or push notification.</div></div><div class="faq-item"><div class="faq-q">How many words is 500 characters?</div><div class="faq-a">About 75–90 words. 500 characters is the post limit on Threads.</div></div><div class="faq-item"><div class="faq-q">How many words is 750 characters?</div><div class="faq-a">About 115–135 words — roughly one solid paragraph, or six to eight sentences.</div></div><div class="faq-item"><div class="faq-q">How many words is 1,000 characters?</div><div class="faq-a">About 155–180 words. Many application forms and review sites use a 1,000-character limit.</div></div><div class="faq-item"><div class="faq-q">How many words is 2,000 characters?</div><div class="faq-a">About 300–360 words, or two to three paragraphs.</div></div><div class="faq-item"><div class="faq-q">How many words is 2,300 characters?</div><div class="faq-a">About 355–420 words, or three to four paragraphs.</div></div><div class="faq-item"><div class="faq-q">How many words is 2,500 characters?</div><div class="faq-a">About 385–455 words — roughly a one-page letter or a short article section.</div></div><div class="faq-item"><div class="faq-q">How many words is 8,000 characters?</div><div class="faq-a">About 1,230–1,450 words, which takes around 5–7 minutes to read at 200–250 words per minute.</div></div><div class="faq-item"><div class="faq-q">How many words is 9,000 characters?</div><div class="faq-a">About 1,380–1,640 words, or roughly a 6–8 minute read.</div></div><div class="faq-item"><div class="faq-q">How many characters is 100 words?</div><div class="faq-a">About 550–650 characters including spaces.</div></div><div class="faq-item"><div class="faq-q">How many characters is 250 words?</div><div class="faq-a">About 1,400–1,600 characters including spaces — a common length for short essays and application answers.</div></div><div class="faq-item"><div class="faq-q">How many characters is 300 words?</div><div class="faq-a">About 1,650–1,950 characters including spaces.</div></div><div class="faq-item"><div class="faq-q">How many sentences is 140 characters?</div><div class="faq-a">Usually one or two short sentences, since an average sentence of 15–20 words runs about 90–130 characters.</div></div><div class="faq-item"><div class="faq-q">How many sentences is 280 characters?</div><div class="faq-a">Usually two or three sentences.</div></div><div class="faq-item"><div class="faq-q">How many sentences is 750 characters?</div><div class="faq-a">About six to eight sentences at an average length of 15–20 words each.</div></div><div class="faq-item"><div class="faq-q">How many sentences is 1,500 characters?</div><div class="faq-a">About 12–16 sentences — roughly two paragraphs.</div></div><div class="faq-item"><div class="faq-q">What is the Threads character limit?</div><div class="faq-a">Threads allows up to 500 characters per post, which is about 75–90 words. Use the Threads (500) button above to check your post before publishing.</div></div><div class="faq-item"><div class="faq-q">Does X (Twitter) count spaces and punctuation?</div><div class="faq-a">Yes. Every character, including spaces, punctuation and emojis, counts towards the 280-character limit, and links are counted as 23 characters whatever their real length.</div></div><div class="faq-item"><div class="faq-q">How long should an email be?</div><div class="faq-a">Shorter usually works better for replies. An analysis of over 40 million emails by the email tool Boomerang found messages of about 50–125 words got the best response rates. Paste your draft above to check its length.</div></div><div class="faq-item"><div class="faq-q">What is the ideal blog post length for SEO?</div><div class="faq-a">Google has said there is no ideal word count — pages rank for being helpful, not for being long. Write as much as you need to answer the reader's question fully, then cut anything that doesn't add value.</div></div><div class="faq-item"><div class="faq-q">What is the average reading speed?</div><div class="faq-a">Most adults read about 200–250 words per minute silently. This counter uses 200 words per minute for its reading-time estimate. For a detailed breakdown, try our <a href="reading-time.html" style="color:var(--red);font-weight:600">Reading Time Estimator</a>.</div></div>
+    <div class="faq-item"><div class="faq-q">What is a live word count tool?</div><div class="faq-a">A live word counter counts your words, characters, sentences and paragraphs as you type, without clicking a button. Paste or type your text above and every count updates instantly, along with the estimated reading time.</div></div><div class="faq-item"><div class="faq-q">How do I check the length of my text?</div><div class="faq-a">Paste or type it into the box above to see character count, word count, sentences, paragraphs and reading time at once. Use the platform buttons (X, Threads, Instagram, LinkedIn, SMS) to check your text against their character limits.</div></div><div class="faq-item"><div class="faq-q">How many characters is one word on average?</div><div class="faq-a">In English, an average word is about 4.7 letters, so with the space after it a word takes roughly 5.5–6.5 characters. That's the rule used for the estimates on this page — your exact count depends on your writing, so paste it above to check.</div></div><div class="faq-item"><div class="faq-q">What is the Threads character limit?</div><div class="faq-a">Threads allows up to 500 characters per post, which is about 75–90 words. Use the Threads (500) button above to check your post before publishing.</div></div><div class="faq-item"><div class="faq-q">Does X (Twitter) count spaces and punctuation?</div><div class="faq-a">Yes. Every character, including spaces, punctuation and emojis, counts towards the 280-character limit, and links are counted as 23 characters whatever their real length.</div></div><div class="faq-item"><div class="faq-q">How long should an email be?</div><div class="faq-a">Shorter usually works better for replies. An analysis of over 40 million emails by the email tool Boomerang found messages of about 50–125 words got the best response rates. Paste your draft above to check its length.</div></div><div class="faq-item"><div class="faq-q">What is the ideal blog post length for SEO?</div><div class="faq-a">Google has said there is no ideal word count — pages rank for being helpful, not for being long. Write as much as you need to answer the reader's question fully, then cut anything that doesn't add value.</div></div><div class="faq-item"><div class="faq-q">What is the average reading speed?</div><div class="faq-a">Most adults read about 200–250 words per minute silently. This counter uses 200 words per minute for its reading-time estimate. For a detailed breakdown, try our <a href="reading-time.html" style="color:var(--red);font-weight:600">Reading Time Estimator</a>.</div></div>
   </div>
   <div class="content-card" style="background:linear-gradient(135deg,#c50337,#8b0227);border:1px solid #c50337;margin-top:0">
     <h2 style="color:#fff">Recommended — Vocabulary Builders</h2>
@@ -460,6 +294,17 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
         <div><div style="font-size:.9rem;font-weight:700;color:var(--white);margin-bottom:6px">📖 Word Games for Adults — Smart Puzzles</div>
         <p style="font-size:.8rem;color:var(--light);margin-bottom:10px">Smart puzzles to challenge your language skills — perfect for Wordle fans and anyone who loves words.</p></div>
         <a href="https://link.amazon/B03DGA6Gf" target="_blank" rel="nofollow sponsored" style="display:inline-block;background:var(--card);color:var(--red);font-weight:700;padding:6px 14px;border-radius:8px;text-decoration:none;font-size:.8rem;border:1px solid var(--red)">View on Amazon →</a>
+      </div>
+    
+      <div style="background:#0f1117;border:1px solid var(--border);border-radius:12px;padding:14px;min-height:160px;display:flex;flex-direction:column;justify-content:space-between">
+        <div><div style="font-size:.9rem;font-weight:700;color:var(--white);margin-bottom:6px">📰 Guardian Quick Crosswords</div>
+        <p style="font-size:.8rem;color:var(--light);margin-bottom:10px">A classic collection of quick crosswords from The Guardian — perfect for building vocabulary and sharpening word skills daily.</p></div>
+        <a href="https://link.amazon/B058DTsKt" target="_blank" rel="nofollow sponsored" style="display:inline-block;background:var(--card);color:var(--red);font-weight:700;padding:6px 14px;border-radius:8px;text-decoration:none;font-size:.8rem;border:1px solid var(--red)">View on Amazon →</a>
+      </div>
+      <div style="background:#0f1117;border:1px solid var(--border);border-radius:12px;padding:14px;min-height:160px;display:flex;flex-direction:column;justify-content:space-between">
+        <div><div style="font-size:.9rem;font-weight:700;color:var(--white);margin-bottom:6px">🔤 Scrabble Board Game</div>
+        <p style="font-size:.8rem;color:var(--light);margin-bottom:10px">The classic word-building board game for 2–4 players. Build words, score points, and expand your vocabulary — for all ages.</p></div>
+        <a href="https://link.amazon/B0biOnXw5" target="_blank" rel="nofollow sponsored" style="display:inline-block;background:var(--card);color:var(--red);font-weight:700;padding:6px 14px;border-radius:8px;text-decoration:none;font-size:.8rem;border:1px solid var(--red)">View on Amazon →</a>
       </div>
     </div>
   </div>

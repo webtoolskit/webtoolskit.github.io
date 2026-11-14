@@ -358,4 +358,16 @@
     <priority>0.8</priority>
   </url>
 
+  <url>
+    <loc>https://webtoolskit.github.io/blog/index.html</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://webtoolskit.github.io/blog/75-percent-attendance-rule.html</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

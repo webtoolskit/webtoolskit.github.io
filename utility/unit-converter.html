@@ -123,7 +123,8 @@
     @media(max-width:768px){nav{padding:14px 20px}.nav-links{gap:0}.nav-link{padding:6px 8px;font-size:.78rem}.nav-home{padding:6px 10px;font-size:.78rem}.tool-hero{padding:40px 20px 24px}.tool-wrap{padding:0 16px 24px}.content-section{padding:0 16px 60px}.tool-title-row{flex-direction:column;align-items:flex-start;gap:12px}.result-main{font-size:2.5rem}}
     .cat-tabs{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-bottom:20px}.ctab{padding:10px 6px;background:var(--card);border:1px solid var(--border);border-radius:10px;color:var(--grey);font-size:.75rem;font-weight:600;cursor:pointer;text-align:center;font-family:'DM Sans',sans-serif;transition:all .2s}.ctab.active{border-color:var(--red);color:var(--red);background:rgba(197,3,55,.08)}.conv-row{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:end}.swap-btn{width:44px;height:44px;border-radius:11px;background:rgba(197,3,55,.1);border:1px solid rgba(197,3,55,.3);color:var(--red);font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;align-self:end;flex-shrink:0}.result-display{background:linear-gradient(135deg,rgba(197,3,55,.1),rgba(139,2,39,.05));border:1px solid rgba(197,3,55,.25);border-radius:14px;padding:20px;text-align:center}.rd-label{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--grey);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}.rd-val{font-family:'Outfit',sans-serif;font-size:2.5rem;font-weight:700;background:linear-gradient(90deg,var(--red),var(--red2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
       @media(max-width:768px){nav{flex-wrap:wrap;gap:10px;position:relative}.nav-links{flex-wrap:wrap;row-gap:4px}}
-</style>
+    .nav-link.c-b:hover{color:#2dd4bf;border-color:rgba(45,212,191,.3)}.sf-col a.c-b:hover,.footer-col a.c-b:hover{color:#2dd4bf}
+  </style>
   <!-- Meta Pixel -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -272,6 +273,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
     <a href="../health/index.html" class="nav-link c-g">🌿 Health</a>
     <a href="../freelance/index.html" class="nav-link c-p">💼 Freelance</a>
     <a href="../students/index.html" class="nav-link c-y">🎓 Students</a>
+    <a href="../blog/index.html" class="nav-link c-b">📝 Blog</a>
   </div>
   <div class="search-wrap">
     <button class="search-btn" onclick="toggleSearch()">🔍 Search</button>
@@ -373,6 +375,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
       <a href="../freelance/index.html" class="c-p">💼 Freelance</a>
       <a href="../students/index.html" class="c-y">🎓 Students</a>
       <a href="../utility/index.html" class="c-r">⚡ Utility</a>
+      <a href="../blog/index.html" class="c-b">📝 Blog</a>
     </div>
     <div class="sf-col"><h4>Legal</h4>
       <a href="../about.html">About Us</a>
@@ -413,6 +416,7 @@ setCat('length',document.querySelector('.ctab'));
 </script>
 <script>
 var tools=[
+  {name:'Guide: The 75% Attendance Rule',icon:'📝',url:'../blog/75-percent-attendance-rule.html',tags:'attendance 75 rule guide blog condonation shortage'},
   {name:'Unit Converter',icon:'📏',url:'unit-converter.html',tags:'unit convert km miles kg'},
   {name:'Word & Character Counter',icon:'📝',url:'word-counter.html',tags:'word count characters'},
   {name:'Readability Score',icon:'📖',url:'readability-score.html',tags:'readability flesch kincaid grade'},

@@ -211,6 +211,9 @@
       footer{padding:40px 20px 24px}.footer-grid{grid-template-columns:1fr 1fr;gap:28px}
       .footer-bottom{flex-direction:column;gap:10px;text-align:center}
     }
+      .nav-link.c-b:hover{color:#2dd4bf;border-color:rgba(45,212,191,.3)}.sf-col a.c-b:hover,.footer-col a.c-b:hover{color:#2dd4bf}
+      .blog-banner{background:linear-gradient(135deg,#0f766e,#134e4a)!important;box-shadow:0 20px 60px rgba(45,212,191,.22),0 8px 24px rgba(45,212,191,.12)!important}
+    .blog-banner:hover{box-shadow:0 28px 70px rgba(45,212,191,.32),0 12px 32px rgba(45,212,191,.18)!important}
   </style>
   <!-- Meta Pixel -->
 <script>
@@ -243,6 +246,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
     <a href="freelance/index.html" class="nav-link freelance">💼 Freelance</a>
     <a href="students/index.html" class="nav-link students">🎓 Students</a>
     <a href="utility/index.html" class="nav-link utility">⚡ Utility</a>
+    <a href="blog/index.html" class="nav-link c-b">📝 Blog</a>
   </div>
   <div class="search-wrap">
     <button class="search-btn" onclick="toggleSearch()">🔍 Search</button>
@@ -286,6 +290,28 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
     </div>
     <div class="ub-right">
       <div class="ub-cta">Explore Utility Tools <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </div>
+  </a>
+</div>
+
+<!-- BLOG BANNER CARD -->
+<div class="utility-banner-wrap" style="margin-top:24px">
+  <a href="blog/index.html" class="utility-banner blog-banner">
+    <div class="ub-left">
+      <div class="ub-icon">📝</div>
+      <div class="ub-text">
+        <div class="ub-tag">// Guides &amp; Blog</div>
+        <div class="ub-title">Read the Why Behind the Numbers</div>
+        <div class="ub-desc">Plain-language guides with worked examples. Start with the 75% attendance rule in Indian colleges.</div>
+        <div class="ub-pills">
+          <span class="ub-pill">New Guide</span>
+          <span class="ub-pill">Worked Examples</span>
+          <span class="ub-pill">Sources Cited</span>
+        </div>
+      </div>
+    </div>
+    <div class="ub-right">
+      <div class="ub-cta">Read the Guides <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
     </div>
   </a>
 </div>
@@ -374,6 +400,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
       <a href="freelance/index.html" class="p">💼 Freelance Tools</a>
       <a href="students/index.html" class="y">🎓 Student Tools</a>
       <a href="utility/index.html" class="r">⚡ Utility Tools</a>
+      <a href="blog/index.html" class="c-b">📝 Blog Guides</a>
     </div>
     <div class="footer-col">
       <h4>Legal</h4>
@@ -406,6 +433,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
 
 <script>
 var tools=[
+  {name:'Guide: The 75% Attendance Rule',icon:'📝',url:'blog/75-percent-attendance-rule.html',tags:'attendance 75 rule guide blog condonation shortage'},
   {name:'EMI Calculator',icon:'💰',url:'finance/emi-calculator.html',tags:'emi loan home car personal'},
   {name:'SIP Calculator',icon:'📈',url:'finance/sip-calculator.html',tags:'sip mutual fund investment graph'},
   {name:'Fuel Cost Calculator',icon:'⛽',url:'finance/fuel-cost.html',tags:'petrol fuel cost miles km bike'},

@@ -19,16 +19,16 @@
   <link rel="canonical" href="https://webtoolskit.github.io/blog/index.html"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Guides &amp; Blog: Plain-Language Help for Students</title>
-<meta name="description" content="Plain-language guides that go with the free WebToolsKit tools, starting with the 75% attendance rule in Indian colleges.">
+<meta name="description" content="Plain-language guides that go with the free WebToolsKit tools: the 75% attendance rule, and how percentage, grades and CGPA work in Indian colleges.">
   <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://webtoolskit.github.io/blog/index.html"/>
 <meta property="og:title" content="Guides &amp; Blog: Plain-Language Help for Students"/>
-<meta property="og:description" content="Plain-language guides that go with the free WebToolsKit tools, starting with the 75% attendance rule in Indian colleges."/>
+<meta property="og:description" content="Plain-language guides that go with the free WebToolsKit tools: the 75% attendance rule, and how percentage, grades and CGPA work in Indian colleges."/>
 <meta property="og:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:url" content="https://webtoolskit.github.io/blog/index.html"/>
 <meta name="twitter:title" content="Guides &amp; Blog: Plain-Language Help for Students"/>
-<meta name="twitter:description" content="Plain-language guides that go with the free WebToolsKit tools, starting with the 75% attendance rule in Indian colleges."/>
+<meta name="twitter:description" content="Plain-language guides that go with the free WebToolsKit tools: the 75% attendance rule, and how percentage, grades and CGPA work in Indian colleges."/>
 <meta name="twitter:image" content="https://webtoolskit.github.io/assets/og-default.png"/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <script type="application/ld+json">
@@ -105,7 +105,11 @@
     .formula{background:#11141c;border:1px solid var(--border);border-left:4px solid #2dd4bf;border-radius:12px;padding:16px 20px;margin:18px 0;font-family:'DM Mono',monospace;font-size:.95rem;color:var(--white);line-height:1.9;overflow-x:auto}
     .formula small{display:block;color:var(--grey);font-size:.7rem;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:2px}
     figure.chart{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:18px 18px 14px;margin:26px 0}
-    figure.chart svg{width:100%;height:auto;display:block}
+    figure.chart{overflow-x:auto}
+    figure.chart svg{width:100%;min-width:500px;height:auto;display:block}
+    figure.chart figcaption{position:sticky;left:0}
+    @media(min-width:641px){.swipe-hint{display:none}}
+    .swipe-hint{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--grey);margin:0 0 6px;position:sticky;left:0}
     figure.chart figcaption{font-size:.84rem;color:var(--grey);line-height:1.6;margin-top:10px;font-family:'DM Sans',sans-serif}
     figure.chart figcaption strong{color:var(--white)}
     .svg-t{fill:var(--light);font-family:'DM Sans',sans-serif} .svg-m{fill:var(--grey);font-family:'DM Mono',monospace} .svg-w{fill:#fff;font-family:'Outfit',sans-serif}
@@ -278,6 +282,7 @@ src="https://www.facebook.com/tr?id=1359980555679976&ev=PageView&noscript=1"/>
 <script>
 var tools=[
   {name:'Guide: The 75% Attendance Rule',icon:'📝',url:'75-percent-attendance-rule.html',tags:'attendance 75 rule guide blog condonation shortage'},
+  {name:'Guide: Percentage, Grades and Class',icon:'📝',url:'percentage-grades-and-classes.html',tags:'percentage grade cgpa first class distinction conversion guide blog'},
   {name:'Attendance Calculator',icon:'✅',url:'../students/attendance-calculator.html',tags:'attendance viit vit sppu bunk ecap'},
   {name:'Percentage & Grade',icon:'📊',url:'../students/percentage-grade.html',tags:'percentage grade marks cbse'},
   {name:'Marks Needed',icon:'📝',url:'../students/marks-needed.html',tags:'marks needed pass exam'},

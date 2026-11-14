@@ -1,10 +1,6 @@
-BLOG UPLOAD - 14 Nov 2026
-Upload order (GitHub > Add file > Upload files, keep folder names):
-1. NEW folder  blog/  (index.html + 75-percent-attendance-rule.html)
-2. assets/blog-attendance-og.png   (share image for the guide)
-3. Root files: index.html, 404.html, sitemap.xml
-4. Every file in about/legal/finance/health/freelance/students/utility folders
-   (they only get a new "Blog" link in nav + footer, and a search entry).
-students/attendance-calculator.html also gets a link to the guide.
-Easiest: extract this zip on your computer and drag the whole extracted
-contents into the repo root on GitHub - same folder names overwrite in place.
+GUIDE 2 UPLOAD - 14 Nov 2026
+Unzip, then drag these folders/files into the repo root on GitHub (same names overwrite):
+  blog/            3 files: index.html, 75-percent-attendance-rule.html (small update), percentage-grades-and-classes.html (NEW)
+  assets/          blog-percentage-og.png (NEW share image)
+  students/        cgpa-calculator.html, marks-needed.html, percentage-grade.html (each gets a link to the guide)
+  sitemap.xml
